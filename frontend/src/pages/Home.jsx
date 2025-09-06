@@ -48,11 +48,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
-              BIIN National ICT Awards 2025
+              Bangladesh ICT and Innovation Awards 2025
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto text-pretty">
-              Recognizing Excellence in Information and Communication Technology
-              Innovation
+              Celebrating Innovation, Empowering Digital Transformation
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -135,19 +134,27 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                About BIIN National ICT Awards
+                About Bangladesh ICT & Innovation Awards
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                The BIIN National ICT Awards is an annual program organized by
-                the Bangladesh Institute of ICT Innovation (BIIN). Our objective
-                is to provide recognition to outstanding achievements of
-                individuals, students, entrepreneurs, SMEs and organizations.
+                The Bangladesh ICT & Innovation Awards 2025, hosted by
+                Bangladesh ICT & Innovation Network (BIIN), is one of the
+                nation's most prestigious ICT recognition platforms. The program
+                shines a spotlight on visionary individuals, startups, and
+                enterprises driving transformative digital solutions.
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                This annual Awards program provides an opportunity and an ideal
-                environment for individuals and companies to gain local,
-                regional and international exposure through innovative ICT
-                solutions.
+                This year's winners will earn not just national recognition, but
+                also the opportunity to represent Bangladesh at the Asia Pacific
+                ICT Alliance Awards (APICTA 2025) in Taiwan - the most
+                prestigious ICT competition in the region, often hailed as the
+                "ICT Oscars of Asia-Pacific." 
+              <br />
+              <br />
+                Beyond recognition, the Awards
+                provide a gateway to regional and global markets, connecting
+                innovators with investors, partners, and industry leaders on the
+                international stage.
               </p>
               <Link
                 to="/about"
@@ -169,13 +176,7 @@ const Home = () => {
                 </svg>
               </Link>
             </div>
-            <div className="relative">
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-01%20013318-PTctboo7kvrQ8SdJaiVdMB4RzGCYBf.png"
-                alt="Award Winners"
-                className="rounded-lg shadow-xl"
-              />
-            </div>
+           
           </div>
         </div>
       </section>
