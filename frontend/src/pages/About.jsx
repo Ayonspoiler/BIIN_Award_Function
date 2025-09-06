@@ -5,140 +5,367 @@ const About = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            About BIIN National ICT Awards
+            Bangladesh ICT & Innovation Awards
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Celebrating innovation and excellence in Bangladesh's ICT sector
-            since 2017
+            Celebrating Innovation, Empowering Digital Transformation
           </p>
         </div>
 
         {/* About Awards Section */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            About BIIN National ICT Awards 2024
+            About Bangladesh ICT & Innovation Awards 2025
           </h2>
           <p className="text-lg text-gray-600 mb-6">
-            The Bangladesh ICT & Innovation Network (BIIN) Trust Present ICT &
-            Innovation Awards is a national program that highlights and rewards
-            the best and most creative tech projects in Bangladesh. Organized by
-            the Bangladesh ICT & Innovation Network (BIIN)Trust, the program's
-            primary goal is to promote local innovation and provide winners with
-            a platform to gain international recognition. The ultimate prize for
-            champions is the chance to represent Bangladesh at the APICTA
-            Awards. This not only gives the winners global exposure but also
-            helps to brand Bangladesh as a hub for technology and innovation.
+            The Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh
+            ICT & Innovation Network (BIIN), is one of the nation's most
+            prestigious ICT recognition platforms. The program shines a
+            spotlight on visionary individuals, startups, and enterprises
+            driving transformative digital solutions.
           </p>
           <p className="text-lg text-gray-600 mb-6">
-            BIIN Board has planned to engage an experienced team of Judges from
-            different areas like- Academic, IT/ITES Sector, Research and
-            Development, Bank/Finance, Startup etc.
+            This year's winners will earn not just national recognition, but
+            also the opportunity to represent Bangladesh at the Asia Pacific ICT
+            Alliance Awards (APICTA 2025) in Taiwan - the most prestigious ICT
+            competition in the region, often hailed as the "ICT Oscars of
+            Asia-Pacific."
           </p>
-          <div className="bg-primary-50 border-l-4 border-primary-500 p-6 rounded-r-lg">
-            <h3 className="text-xl font-semibold text-primary-900 mb-2">
-              Our Mission
-            </h3>
-            <p className="text-primary-800">
-              To foster innovation in Bangladesh's ICT sector by recognizing and
-              celebrating outstanding achievements that contribute to digital
-              transformation and economic growth.
-            </p>
-          </div>
-        </div>
+          <p className="text-lg text-gray-600 mb-6">
+            Beyond recognition, the Awards provide a gateway to regional and
+            global markets, connecting innovators with investors, partners, and
+            industry leaders on the international stage.
+          </p>
 
-        {/* About BIIN Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              About BIIN
-            </h2>
-            <p className="text-lg text-gray-600 mb-6">
-              BIIN is a national platform in Bangladesh dedicated to preparing
-              the country's youth for a digital future. With over 10,000
-              students and numerous partners, it provides programs in ICT
-              education, entrepreneurship, and digital innovation. The
-              organization's mission is to equip young people with digital
-              skills and foster a generation of tech-savvy leaders, with a
-              vision of creating a digitally inclusive society. It operates
-              under a registered Trust Deed with an advisory panel of national
-              and global leaders
-            </p>
-            <p className="text-lg text-gray-600 mb-6">
-              BIIN started its journey with a mission to bridge the gap between
-              academia and industry, promote research and development, and
-              create an ecosystem that nurtures innovation and entrepreneurship
-              in the ICT sector.
-            </p>
+          {/* Objectives & Benefits */}
+          <div className="mt-10">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Objectives & Benefits of the Program
+            </h3>
+            <ul className="space-y-3 text-gray-600">
+              <li className="flex items-start">
+                <svg
+                  className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>
+                  Inspire and accelerate innovation, creativity, and digital
+                  entrepreneurship.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <svg
+                  className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>
+                  Establish an industry benchmark for ICT excellence in
+                  Bangladesh.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <svg
+                  className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>
+                  Provide national and global recognition to top ICT achievers.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <svg
+                  className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>
+                  Enable winners to represent Bangladesh at APICTA 2025.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <svg
+                  className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>
+                  Showcase and promote export-ready ICT products and services.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <svg
+                  className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>
+                  Create opportunities for networking, alliances, and
+                  collaborations.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <svg
+                  className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>
+                  Connect participants with investors, venture capitalists, and
+                  policymakers.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <svg
+                  className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>
+                  Expand Bangladesh's pool of skilled ICT professionals and
+                  innovators.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <svg
+                  className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>
+                  Strengthen Digital Bangladesh awareness locally and
+                  internationally.
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Program Plan */}
+          <div className="mt-10">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Program Plan
+            </h3>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Key Focus Areas
-              </h3>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-center">
-                  <svg
-                    className="w-5 h-5 text-green-500 mr-3"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Innovation and Research
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <span className="font-semibold text-gray-900 min-w-[180px]">
+                    September 8, 2025
+                  </span>
+                  <span className="text-gray-600">
+                    Registration Opens - Applications open for project
+                    submissions.
+                  </span>
                 </li>
-                <li className="flex items-center">
-                  <svg
-                    className="w-5 h-5 text-green-500 mr-3"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Entrepreneurship Development
+                <li className="flex items-start">
+                  <span className="font-semibold text-gray-900 min-w-[180px]">
+                    September 25, 2025
+                  </span>
+                  <span className="text-gray-600">
+                    Preliminary Evaluation - Initial review and shortlisting of
+                    submitted projects.
+                  </span>
                 </li>
-                <li className="flex items-center">
-                  <svg
-                    className="w-5 h-5 text-green-500 mr-3"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Industry-Academia Collaboration
+                <li className="flex items-start">
+                  <span className="font-semibold text-gray-900 min-w-[180px]">
+                    September 30, 2025
+                  </span>
+                  <span className="text-gray-600">
+                    Final Submission - Shortlisted participants invited to
+                    submit detailed entries.
+                  </span>
                 </li>
-                <li className="flex items-center">
-                  <svg
-                    className="w-5 h-5 text-green-500 mr-3"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Digital Transformation
+                <li className="flex items-start">
+                  <span className="font-semibold text-gray-900 min-w-[180px]">
+                    October 10–11, 2025
+                  </span>
+                  <span className="text-gray-600">
+                    Pitching & Judging Sessions - Finalists present their
+                    projects through pitching, demonstrations, and Q&A before a
+                    panel of expert judges. The sessions are planned over
+                    several days for careful and transparent evaluation.
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold text-gray-900 min-w-[180px]">
+                    October 2025
+                  </span>
+                  <span className="text-gray-600">
+                    Awards Ceremony - Date and venue to be announced. Winners
+                    will be recognized with awards and official certifications
+                    across multiple categories.
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold text-gray-900 min-w-[180px]">
+                    Global Representation
+                  </span>
+                  <span className="text-gray-600">
+                    Champion teams will represent Bangladesh at the APICTA
+                    Awards 2025 in Taiwan, bringing national innovations to an
+                    international platform.
+                  </span>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="relative">
-            {/* <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-01%20013334-XTAEyvWB4uDqzlZvXzmjaehtQ8OavN.png"
-              alt="BIIN Installation Ceremony"
-              className="rounded-lg shadow-xl"
-            /> */}
+
+          {/* About Judges */}
+          <div className="mt-10">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              About Judges
+            </h3>
+            <p className="text-lg text-gray-600 mb-6">
+              The judging process will be led by an esteemed panel of
+              professionals from diverse backgrounds, ensuring fair,
+              transparent, and industry-aligned evaluation. Judges will be drawn
+              from:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-center">
+                  <svg
+                    className="w-4 h-4 text-primary-600 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Academia & Research
+                </li>
+                <li className="flex items-center">
+                  <svg
+                    className="w-4 h-4 text-primary-600 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  ICT/ITES Industry
+                </li>
+                <li className="flex items-center">
+                  <svg
+                    className="w-4 h-4 text-primary-600 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Finance & Banking
+                </li>
+              </ul>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-center">
+                  <svg
+                    className="w-4 h-4 text-primary-600 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Startup Ecosystem
+                </li>
+                <li className="flex items-center">
+                  <svg
+                    className="w-4 h-4 text-primary-600 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Government & ICT Division
+                </li>
+                <li className="flex items-center">
+                  <svg
+                    className="w-4 h-4 text-primary-600 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  International ICT experts
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -147,22 +374,23 @@ const About = () => {
           <h2 className="text-3xl font-bold text-center mb-8">
             Awards by Numbers
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            {/* <div>
               <div className="text-4xl font-bold mb-2">2</div>
               <div className="text-primary-100">Years Running</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">500+</div>
-              <div className="text-primary-100">Applications</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">50+</div>
-              <div className="text-primary-100">Winners</div>
-            </div>
+            </div> */}
+
             <div>
               <div className="text-4xl font-bold mb-2">6</div>
               <div className="text-primary-100">Categories</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">10</div>
+              <div className="text-primary-100">Applications</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">?</div>
+              <div className="text-primary-100">Winners</div>
             </div>
           </div>
         </div>
