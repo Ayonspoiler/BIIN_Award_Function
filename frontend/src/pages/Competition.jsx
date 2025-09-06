@@ -147,9 +147,39 @@ const Competition = () => {
             Competition Categories
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover the diverse categories designed to recognize innovation
-            across all sectors of ICT
+            Celebrating Innovation, Empowering Digital Transformation
           </p>
+        </div>
+
+        {/* New Content Section */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            About The Bangladesh ICT & Innovation Awards 2025
+          </h2>
+          <p className="text-lg text-gray-600 mb-6">
+            The Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh
+            ICT & Innovation Network (BIIN), is one of the nation's most
+            prestigious ICT recognition platforms. The program shines a
+            spotlight on visionary individuals, startups, and enterprises
+            driving transformative digital solutions.
+          </p>
+          <p className="text-lg text-gray-600 mb-6">
+            This year's winners will earn not just national recognition, but
+            also the opportunity to represent Bangladesh at the Asia Pacific ICT
+            Alliance Awards (APICTA 2025) in Taiwan - the most prestigious ICT
+            competition in the region, often hailed as the "ICT Oscars of
+            Asia-Pacific."
+          </p>
+          <div className="bg-primary-50 border-l-4 border-primary-500 p-6 rounded-r-lg">
+            <h3 className="text-xl font-semibold text-primary-900 mb-2">
+              Global Opportunity
+            </h3>
+            <p className="text-primary-800">
+              Champion teams will represent Bangladesh at the APICTA Awards 2025
+              in Taiwan, bringing national innovations to an international
+              platform.
+            </p>
+          </div>
         </div>
 
         {/* Head Categories */}
@@ -262,7 +292,7 @@ const Competition = () => {
                         {category.longDesc}
                       </p>
                     </div>
-                </div>
+                  </div>
                 </div>
               </div>
             ))}
