@@ -21,12 +21,12 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">B</span>
               </div>
               <div>
-                <div className="text-xl font-bold text-gray-900">BIIN</div>
-                <div className="text-xs text-gray-600">ICT AWARDS</div>
+                <div className="text-xl  text-gray-900">Bangladesh ICT &</div>
+                <div className="text-xl text-gray-900">Innovation AWARDS</div>
               </div>
             </Link>
           </div>
