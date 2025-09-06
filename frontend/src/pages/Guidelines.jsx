@@ -10,7 +10,7 @@ const Guidelines = () => {
             Guidelines
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Complete guidelines for participation in Bangladesg ICT & Innovation Awards
+            Complete guidelines for participation in Bangladesh ICT & Innovation Awards
             2025
           </p>
         </div>
