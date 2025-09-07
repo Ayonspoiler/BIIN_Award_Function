@@ -69,8 +69,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-2 text-gray-400">
-              <p>Email: info@biin.org</p>
-              <p>Phone: +880-2-XXXXXXX</p>
+              <p>Email: info@biin.org.bd</p>
+              <p>Phone: + 09640 123 701-3</p>
               <p>
                 Address: SimpleTree Attalika (Level 19), 134 Gulshan Avenue,
                 Dhaka 1212
@@ -80,10 +80,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>
-            &copy; 2025 Bangladesh ICT and Innovation Awards. All rights
-            reserved.
-          </p>
+          <p>&copy; Bangladesh ICT & Innovation Network (BIIN).</p>
         </div>
       </div>
     </footer>
