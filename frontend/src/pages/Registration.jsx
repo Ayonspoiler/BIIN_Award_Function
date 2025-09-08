@@ -337,12 +337,9 @@ const Registration = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Registration
+            Registration For Bangaldesh ICT & Innovation Network 2025
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Register your innovative ICT project for BIIN National ICT Awards
-            2025
-          </p>
+          
         </div>
 
         {/* Error Message */}

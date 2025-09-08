@@ -70,7 +70,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-2 text-gray-400">
               <p>Email: info@biin.org.bd</p>
-              <p>Phone: + 09640 123 701-3</p>
+              <p>Phone: +09640 123 701-3, +8809640 123 701-3</p>
               <p>
                 Address: SimpleTree Attalika (Level 19), 134 Gulshan Avenue,
                 Dhaka 1212
