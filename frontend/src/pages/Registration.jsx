@@ -1030,8 +1030,7 @@ const Registration = () => {
                     className="font-medium text-gray-700"
                   >
                     Does the Intellectual Property Rights for the product or
-                    application owned by you / your group of Students?{" "}
-                    <span className="text-red-500">*</span>
+                    application owned by you / your group of Students?
                   </label>
                 </div>
               </div>
@@ -1055,8 +1054,7 @@ const Registration = () => {
                     This is to confirm that I/we was/were not providing a
                     code-cutting outsourced service for this product for which
                     the main R&D and design efforts have been undertaken by
-                    anybody outside of nominating party.{" "}
-                    <span className="text-red-500">*</span>
+                    anybody outside of nominating party.
                   </label>
                 </div>
               </div>
@@ -1081,8 +1079,7 @@ const Registration = () => {
                     last three APICTA competitions. In addition, substantial
                     enhancements have been made on the original winning entry.
                     And on any such consideration, the decision will be at the
-                    discretion of the APICTA Judges Subcommittee.{" "}
-                    <span className="text-red-500">*</span>
+                    discretion of the APICTA Judges Subcommittee.
                   </label>
                 </div>
               </div>
@@ -1104,8 +1101,7 @@ const Registration = () => {
                     className="font-medium text-gray-700"
                   >
                     This product was already nominated to compete under one of
-                    the Head Categories for this years' competition{" "}
-                    <span className="text-red-500">*</span>
+                    the Head Categories for this years' competition
                   </label>
                 </div>
               </div>
