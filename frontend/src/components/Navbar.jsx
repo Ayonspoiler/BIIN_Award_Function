@@ -9,8 +9,8 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Awards", path: "/about" },
-    { name: "Competition", path: "/competition" },
-    { name: "Categories", path: "/guidelines" },
+    { name: "Categories", path: "/competition" },
+    { name: "Guidelines", path: "/guidelines" },
     { name: "Registration", path: "/registration" },
     { name: "Press Coverage", external: true },
   ];

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import SelectionTimeline from "../components/SelectionTimeline";
-import backgroundImage from "../assets/photo_1.jpeg"
+import backgroundImage from "../assets/photo_1.jpeg";
 
 const Home = () => {
   const categories = [
@@ -9,36 +9,42 @@ const Home = () => {
       code: "HC-C",
       color: "from-cyan-500 to-blue-500",
       icon: "🛍️",
+      anchor: "consumer", // Add anchor for navigation
     },
     {
       title: "Inclusions & Community Services",
       code: "HC-ICS",
       color: "from-green-500 to-emerald-500",
       icon: "🤝",
+      anchor: "inclusions-community", // Add anchor for navigation
     },
     {
       title: "Industrial",
       code: "HC-I",
       color: "from-yellow-500 to-orange-500",
       icon: "🏭",
+      anchor: "industrial", // Add anchor for navigation
     },
     {
       title: "Business Services",
       code: "HC-BS",
       color: "from-purple-500 to-indigo-500",
       icon: "💼",
+      anchor: "business-services", // Add anchor for navigation
     },
     {
       title: "Public Sector & Government",
       code: "HC-PSG",
       color: "from-blue-500 to-cyan-500",
       icon: "🏛️",
+      anchor: "public-sector", // Add anchor for navigation
     },
     {
       title: "Student",
       code: "HC-S",
       color: "from-red-500 to-pink-500",
       icon: "🎓",
+      anchor: "student", // Add anchor for navigation
     },
   ];
 
@@ -83,7 +89,7 @@ const Home = () => {
               <p className="text-lg text-gray-600 mb-6">
                 Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh
                 ICT & Innovation Network (BIIN), is designed to shape the future
-                of Bangladesh’s digital landscape by recognizing and empowering
+                of Bangladesh's digital landscape by recognizing and empowering
                 visionary individuals, startups, and enterprises whose
                 innovations drive long-term transformation and global
                 opportunities.
@@ -163,7 +169,7 @@ const Home = () => {
                     {category.title}
                   </h3>
                   <Link
-                    to="/competition"
+                    to={`/competition#${category.anchor}`}
                     className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center"
                   >
                     Learn More

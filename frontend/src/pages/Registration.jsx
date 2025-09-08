@@ -337,9 +337,8 @@ const Registration = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Registration For Bangaldesh ICT & Innovation Network 2025
+            Registration For Bangladesh ICT & Innovation Network 2025
           </h1>
-          
         </div>
 
         {/* Error Message */}
@@ -378,7 +377,7 @@ const Registration = () => {
             {/* Information Type */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">
-                Information <span className="text-red-500">*</span>
+                You are applying as - <span className="text-red-500">*</span>
               </label>
               <div className="space-y-2">
                 {["Organisation", "Individual or Group", "Student"].map(
@@ -633,6 +632,7 @@ const Registration = () => {
             </div>
 
             {/* Date of Establishment */}
+            {/* Date of Establishment */}
             <div>
               <label
                 htmlFor="dateOfEstablishment"
@@ -646,6 +646,7 @@ const Registration = () => {
                 name="dateOfEstablishment"
                 value={formData.dateOfEstablishment}
                 onChange={handleInputChange}
+                min={new Date().toISOString().split("T")[0]}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
             </div>

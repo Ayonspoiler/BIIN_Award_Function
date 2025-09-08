@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import award from "../assets/award_icon.png"
 
 const Footer = () => {
   return (
@@ -7,8 +8,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">B</span>
+              <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
+                <img 
+                src={award} 
+                alt="BIIN Logo"
+                className="w-8 h-8 object-contain"  
+                
+                />
               </div>
               <div>
                 <div className="text-xl font-bold">
@@ -20,11 +26,11 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-400 mb-4">
-              The Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh
-              ICT & Innovation Network (BIIN), is one of the nation's most
-              prestigious ICT recognition platforms. The program shines a
-              spotlight on visionary individuals, startups, and enterprises
-              driving transformative digital solutions.
+              Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh ICT
+              & Innovation Network (BIIN), is designed to shape the future of
+              Bangladesh’s digital landscape by recognizing and empowering
+              visionary individuals, startups, and enterprises whose innovations
+              drive long-term transformation and global opportunities.
             </p>
           </div>
 
@@ -70,7 +76,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-2 text-gray-400">
               <p>Email: info@biin.org.bd</p>
-              <p>Phone: +09640 123 701-3, +8809640 123 701-3</p>
+              <p>Phone: +8809640 123 701-3</p>
               <p>
                 Address: SimpleTree Attalika (Level 19), 134 Gulshan Avenue,
                 Dhaka 1212

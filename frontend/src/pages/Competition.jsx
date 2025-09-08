@@ -1,4 +1,24 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 const Competition = () => {
+  const location = useLocation();
+
+  // Handle scroll to anchor on page load
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   const headCategories = [
     {
       title: "Consumer (HC-C)",
@@ -14,6 +34,7 @@ const Competition = () => {
         "Digital Marketing / Advertising",
       ],
       color: "from-cyan-500 to-blue-500",
+      anchor: "consumer",
     },
     {
       title: "Inclusions & Community Services (HC-ICS)",
@@ -30,6 +51,7 @@ const Competition = () => {
         "Education",
       ],
       color: "from-green-500 to-emerald-500",
+      anchor: "inclusions-community",
     },
     {
       title: "Industrial (HC-I)",
@@ -47,6 +69,7 @@ const Competition = () => {
         "Telecommunications",
       ],
       color: "from-yellow-500 to-orange-500",
+      anchor: "industrial",
     },
     {
       title: "Business Services (HC-BS)",
@@ -62,6 +85,7 @@ const Competition = () => {
         "Professional Services (legal, HR etc.) solutions",
       ],
       color: "from-purple-500 to-indigo-500",
+      anchor: "business-services",
     },
     {
       title: "Public Sector & Government (HC-PSG)",
@@ -71,6 +95,7 @@ const Competition = () => {
         "For services the core value of which is to deliver the digitization of citizen services and improve efficiencies in the machinery of government. Solutions will be developed by all levels of government or government in collaboration with industry partners. Only nominations from Government owned or controlled entities or Government led delivered can apply. This Award is presented for outstanding ICT innovation dedicated to delivering improved government service delivery or other Digital initiatives for the public.",
       solutions: ["Government & Citizen Services", "Digital Government"],
       color: "from-blue-500 to-cyan-500",
+      anchor: "public-sector",
     },
   ];
 
@@ -191,7 +216,9 @@ const Competition = () => {
             {headCategories.map((category, index) => (
               <div
                 key={index}
+                id={category.anchor}
                 className="bg-white rounded-xl shadow-lg overflow-hidden"
+                style={{ paddingTop: "80px", marginTop: "-80px" }}
               >
                 <div className={`h-2 bg-gradient-to-r ${category.color}`}></div>
                 <div className="p-8">
@@ -234,35 +261,37 @@ const Competition = () => {
 
         {/* Student Categories */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Students' School Project (3 Categories)
-          </h2>
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-blue-100">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-lg font-semibold text-gray-900">
-                      Streams
-                    </th>
-                    <th className="px-6 py-4 text-left text-lg font-semibold text-gray-900">
-                      Descriptor
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {studentCategories.map((category, index) => (
-                    <tr key={index} className="hover:bg-gray-50">
-                      <td className="px-6 py-6 font-medium text-gray-900 align-top">
-                        {category.stream}
-                      </td>
-                      <td className="px-6 py-6 text-gray-600 text-sm leading-relaxed">
-                        {category.description}
-                      </td>
+          <div id="student" style={{ paddingTop: "80px", marginTop: "-80px" }}>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Students' School Project (3 Categories)
+            </h2>
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-blue-100">
+                    <tr>
+                      <th className="px-6 py-4 text-left text-lg font-semibold text-gray-900">
+                        Streams
+                      </th>
+                      <th className="px-6 py-4 text-left text-lg font-semibold text-gray-900">
+                        Descriptor
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {studentCategories.map((category, index) => (
+                      <tr key={index} className="hover:bg-gray-50">
+                        <td className="px-6 py-6 font-medium text-gray-900 align-top">
+                          {category.stream}
+                        </td>
+                        <td className="px-6 py-6 text-gray-600 text-sm leading-relaxed">
+                          {category.description}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </section>
