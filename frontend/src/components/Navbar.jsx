@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/logo.png"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,27 +8,25 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
+    { name: "Awards", path: "/about" },
     { name: "Competition", path: "/competition" },
-    { name: "Guidelines", path: "/guidelines" },
+    { name: "Categories", path: "/guidelines" },
     { name: "Registration", path: "/registration" },
-    { name: "About BIIN", path: "https://www.biin.org.bd/", external: true },
+    { name: "Press Coverage", external: true },
   ];
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-gray-900 shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">B</span>
-              </div>
-              <div>
-                <div className="text-xl  text-gray-900">Bangladesh ICT &</div>
-                <div className="text-xl text-gray-900">Innovation AWARDS</div>
-              </div>
+            <Link to="/" className="flex items-center">
+              <img
+                src={logo}
+                alt="Bangladesh ICT & Innovation Awards Logo"
+                className="h-12 w-auto object-contain"
+              />
             </Link>
           </div>
 
@@ -40,7 +39,7 @@ const Navbar = () => {
                   href={item.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-100"
+                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-400 hover:text-primary-500"
                 >
                   {item.name}
                 </a>
@@ -50,8 +49,8 @@ const Navbar = () => {
                   to={item.path}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     location.pathname === item.path
-                      ? "text-primary-600 bg-primary-50"
-                      : "text-gray-700 hover:text-primary-600 hover:bg-gray-100"
+                      ? "text-primary-500"
+                      : "text-gray-400 hover:text-primary-600 "
                   }`}
                 >
                   {item.name}

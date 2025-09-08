@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SelectionTimeline from "../components/SelectionTimeline";
+import backgroundImage from "../assets/photo_1.jpeg"
 
 const Home = () => {
   const categories = [
@@ -71,6 +72,65 @@ const Home = () => {
         </div>
       </section>
 
+      {/* About Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                About Bangladesh ICT & Innovation Awards
+              </h2>
+              <p className="text-lg text-gray-600 mb-6">
+                Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh
+                ICT & Innovation Network (BIIN), is designed to shape the future
+                of Bangladesh’s digital landscape by recognizing and empowering
+                visionary individuals, startups, and enterprises whose
+                innovations drive long-term transformation and global
+                opportunities.
+              </p>
+              <p className="text-lg text-gray-600 mb-8">
+                This year's winners will earn not just national recognition, but
+                also the opportunity to represent Bangladesh at the Asia Pacific
+                ICT Alliance Awards (APICTA 2025) in Taiwan - the most
+                prestigious ICT competition in the region, often hailed as the
+                "ICT Oscars of Asia-Pacific."
+                <br />
+                <br />
+                Beyond recognition, the Awards provide a gateway to regional and
+                global markets, connecting innovators with investors, partners,
+                and industry leaders on the international stage.
+              </p>
+              <Link
+                to="/about"
+                className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors inline-flex items-center"
+              >
+                Learn More
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            </div>
+            <div className="relative w-full h-full">
+              <img
+                src={backgroundImage}
+                alt="ICT Awards"
+                className="w-[100%] h-[110%] object-contain rounded-lg ml-4 -mt-6"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Award Categories */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -124,59 +184,6 @@ const Home = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                About Bangladesh ICT & Innovation Awards
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                The Bangladesh ICT & Innovation Awards 2025, hosted by
-                Bangladesh ICT & Innovation Network (BIIN), is one of the
-                nation's most prestigious ICT recognition platforms. The program
-                shines a spotlight on visionary individuals, startups, and
-                enterprises driving transformative digital solutions.
-              </p>
-              <p className="text-lg text-gray-600 mb-8">
-                This year's winners will earn not just national recognition, but
-                also the opportunity to represent Bangladesh at the Asia Pacific
-                ICT Alliance Awards (APICTA 2025) in Taiwan - the most
-                prestigious ICT competition in the region, often hailed as the
-                "ICT Oscars of Asia-Pacific." 
-              <br />
-              <br />
-                Beyond recognition, the Awards
-                provide a gateway to regional and global markets, connecting
-                innovators with investors, partners, and industry leaders on the
-                international stage.
-              </p>
-              <Link
-                to="/about"
-                className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors inline-flex items-center"
-              >
-                Learn More About Us
-                <svg
-                  className="w-4 h-4 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
-            </div>
-           
           </div>
         </div>
       </section>
