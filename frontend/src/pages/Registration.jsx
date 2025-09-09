@@ -146,38 +146,6 @@ const Registration = () => {
     e.preventDefault();
     setSubmitError("");
 
-      const {
-        ipRightsOwned,
-        noOutsourcedService,
-        notWonAward,
-        alreadyNominated,
-      } = formData;
-
-      // Validation: at least one checkbox must be selected
-      if (
-        !ipRightsOwned &&
-        !noOutsourcedService &&
-        !notWonAward &&
-        !alreadyNominated
-      ) {
-        setSubmitError("Please select at least one declaration option.");
-        return;
-      }
-
-    // Validation: Check if head category is selected but solution category is not
-    if (
-      formData.headCategory &&
-      !formData.solutionCategory &&
-      !formData.customSolution
-    ) {
-      setSubmitError(
-        "Please select a solution category or provide a custom solution for your selected head category."
-      );
-
-
-      return;
-    }
-
     // Basic validation for required fields
     const requiredFields = [
       "information",
@@ -209,14 +177,33 @@ const Registration = () => {
       return;
     }
 
-    // Check declaration checkboxes
+    // Validation: Check if head category is selected but solution category is not
     if (
-      !formData.ipRightsOwned ||
-      !formData.noOutsourcedService ||
-      !formData.notWonAward ||
-      !formData.alreadyNominated
+      formData.headCategory &&
+      !formData.solutionCategory &&
+      !formData.customSolution
     ) {
-      setSubmitError("Please agree to all declaration statements.");
+      setSubmitError(
+        "Please select a solution category or provide a custom solution for your selected head category."
+      );
+      return;
+    }
+
+    // Declaration validation - ONLY this validation, no other declaration checks
+    const {
+      ipRightsOwned,
+      noOutsourcedService,
+      notWonAward,
+      alreadyNominated,
+    } = formData;
+
+    const hasAtLeastOneDeclaration =
+      ipRightsOwned || noOutsourcedService || notWonAward || alreadyNominated;
+
+    if (!hasAtLeastOneDeclaration) {
+      setSubmitError(
+        "Please check at least one declaration that applies to your submission."
+      );
       return;
     }
 
@@ -241,6 +228,7 @@ const Registration = () => {
     }
   };
 
+  
   const resetForm = () => {
     setIsSubmitted(false);
     setSubmitError("");
@@ -306,8 +294,8 @@ const Registration = () => {
           Registration Confirmed!
         </h2>
         <p className="text-gray-600 mb-6">
-          Thank you for registering for BIIN National ICT Awards 2025. Your data
-          has been successfully submitted to our database.
+          Thank you for registering for Bangladesh ICT & Innovation Awards 2025. Your response
+          has been successfully submitted.
         </p>
         <button
           onClick={resetForm}
@@ -337,7 +325,7 @@ const Registration = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Registration For Bangladesh ICT & Innovation Network 2025
+            Registration For Bangladesh ICT & Innovation Awards 2025
           </h1>
         </div>
 
@@ -1004,7 +992,7 @@ const Registration = () => {
             {/* Declaration Section Header */}
             <div>
               <h3 className="text-lg font-bold text-gray-700 mb-4">
-                Declarations
+                Declaration of use of code/components not owned by you
               </h3>
             </div>
 
@@ -1098,7 +1086,7 @@ const Registration = () => {
                     className="font-medium text-gray-700"
                   >
                     This product was already nominated to compete under one of
-                    the Head Categories for this years' competition
+                    the Head Categories for this years’ competition
                   </label>
                 </div>
               </div>
