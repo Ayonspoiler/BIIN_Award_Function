@@ -18,11 +18,11 @@ const About = () => {
             About Bangladesh ICT & Innovation Awards 2025
           </h2>
           <p className="text-lg text-gray-600 mb-6">
-            The Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh
-            ICT & Innovation Network (BIIN), is one of the nation's most
-            prestigious ICT recognition platforms. The program shines a
-            spotlight on visionary individuals, startups, and enterprises
-            driving transformative digital solutions.
+            Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh ICT &
+            Innovation Network (BIIN), is designed to shape the future of
+            Bangladesh’s digital landscape by recognizing and empowering
+            visionary individuals, startups, and enterprises whose innovations
+            drive long-term transformation and global opportunities.
           </p>
           <p className="text-lg text-gray-600 mb-6">
             This year's winners will earn not just national recognition, but
