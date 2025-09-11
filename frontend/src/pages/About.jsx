@@ -205,7 +205,7 @@ const About = () => {
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <span className="font-semibold text-gray-900 min-w-[180px]">
-                    September 8, 2025
+                    September 10, 2025
                   </span>
                   <span className="text-gray-600">
                     Registration Opens - Applications open for project

@@ -218,17 +218,17 @@ const Guidelines = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold mb-2">September 8, 2025</div>
+                <div className="text-2xl font-bold mb-2">September 10, 2025</div>
                 <div className="text-primary-100">Registration Opens</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold mb-2">
-                  September 20, 2025
+                  September 25, 2025
                 </div>
                 <div className="text-primary-100">Final Submission</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold mb-2">October 7, 2025</div>
+                <div className="text-2xl font-bold mb-2">Will be Announced Later</div>
                 <div className="text-primary-100">Award Ceremony</div>
               </div>
             </div>
