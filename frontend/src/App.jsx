@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About/>} />
-          <Route path="/competition" element={<Competition />} />
+          <Route path="/categories" element={<Competition />} />
           <Route path="/guidelines" element={<Guidelines />} />
           <Route path="/registration" element={<Registration />} />
           {/* <Route path="/about-biin" element={<AboutBIIN />} /> */}
