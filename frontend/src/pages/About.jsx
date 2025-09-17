@@ -4,41 +4,44 @@ const About = () => {
 
 
 
-  const API_URL =
-    "https://script.google.com/macros/s/AKfycbx6CDQM2_dhv1OPn_2b1zZ2wTom7uCuSPEULQa7M0hP4uOqwm221j5eAcw8HtHdYfMP9w/exec";
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbx0bbcB-LedQAp20CrnQhPjIUL7nACzFqMWWBVpA5TuxxLvnlF6fYsxSaX7YgveefrJ3A/exec";
 
-  // Fetch applications count
+// Show last known value instantly
 const [applications, setApplications] = useState(() => {
   const saved = localStorage.getItem("applications");
   return saved ? Number(saved) : 0;
 });
 
 const fetchApplications = async () => {
-  const res = await fetch(`${API_URL}?action=count`);
-  const data = await res.json();
-  if (data.status === "success") {
-    setApplications(data.total);
-    localStorage.setItem("applications", data.total);
+  try {
+    const res = await fetch(`${API_URL}?action=count`);
+    const data = await res.json();
+    if (data.status === "success") {
+      setApplications(data.total);
+      localStorage.setItem("applications", data.total);
+    }
+  } catch (err) {
+    console.error("Error fetching applications:", err);
   }
 };
 
+useEffect(() => {
+  fetchApplications(); // initial fetch
+
+  const handleUpdate = (e) => setApplications(e.detail);
+  window.addEventListener("updateApplications", handleUpdate);
+
+  // Poll every 1-2 seconds for live update (captures deletions too)
+  const interval = setInterval(fetchApplications, 2000);
+
+  return () => {
+    window.removeEventListener("updateApplications", handleUpdate);
+    clearInterval(interval);
+  };
+}, []);
 
 
-    useEffect(() => {
-      fetchApplications();
-
-      // Listen for updates from Registration.jsx
-      const handleUpdate = (e) => setApplications(e.detail);
-      window.addEventListener("updateApplications", handleUpdate);
-
-      // Auto-refresh every 30s
-      const interval = setInterval(fetchApplications, 30000);
-
-      return () => {
-        window.removeEventListener("updateApplications", handleUpdate);
-        clearInterval(interval);
-      };
-    }, []);
   return (
     <div className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

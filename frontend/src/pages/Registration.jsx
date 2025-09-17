@@ -114,7 +114,7 @@ const Registration = () => {
   const submitToGoogleSheets = async (data) => {
     // Replace this URL with your actual Google Apps Script Web App URL
     const GOOGLE_SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbx6CDQM2_dhv1OPn_2b1zZ2wTom7uCuSPEULQa7M0hP4uOqwm221j5eAcw8HtHdYfMP9w/exec";
+      "https://script.google.com/macros/s/AKfycbx0bbcB-LedQAp20CrnQhPjIUL7nACzFqMWWBVpA5TuxxLvnlF6fYsxSaX7YgveefrJ3A/exec";
 
     try {
       const response = await fetch(GOOGLE_SCRIPT_URL, {
