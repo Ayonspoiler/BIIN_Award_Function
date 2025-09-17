@@ -169,7 +169,7 @@ const Home = () => {
                     {category.title}
                   </h3>
                   <Link
-                    to={`/competition#${category.anchor}`}
+                    to={`/categories#${category.anchor}`}
                     className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center"
                   >
                     Learn More
