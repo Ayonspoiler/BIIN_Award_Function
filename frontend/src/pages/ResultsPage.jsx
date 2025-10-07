@@ -129,6 +129,19 @@ const ResultsPage = () => {
     return individualGroupLeaderboard;
   };
 
+  // Safe number formatting function
+  const safeToFixed = (value, decimals = 2) => {
+    if (value === null || value === undefined || isNaN(value)) {
+      return "0.00";
+    }
+    return Number(value).toFixed(decimals);
+  };
+
+  // Get total marks based on category
+  const getTotalMarks = () => {
+    return selectedCategory === "student" ? 50 : 40;
+  };
+
   const handlePrint = () => {
     const data = getCurrentData();
     if (!data || data.length === 0) {
@@ -196,11 +209,9 @@ const ResultsPage = () => {
           <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
             entry.numberOfJudges || 0
           }</td>
-          <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+          <td style="border: 1px solid #000; padding: 6px; text-align: center;">${safeToFixed(
             entry.totalAverageMarks
-              ? entry.totalAverageMarks.toFixed(2)
-              : "0.00"
-          }</td>
+          )}</td>
         </tr>
       `;
     });
@@ -225,11 +236,9 @@ const ResultsPage = () => {
                   entry.solutionCategory || "N/A"
                 }`
           }</p>
-          <p><strong>Average Score:</strong> ${
+          <p><strong>Average Score:</strong> ${safeToFixed(
             entry.totalAverageMarks
-              ? entry.totalAverageMarks.toFixed(2)
-              : "0.00"
-          }</p>
+          )}</p>
       `;
 
       if (entry.judgeMarks && entry.judgeMarks.length > 0) {
@@ -291,9 +300,9 @@ const ResultsPage = () => {
             `;
           }
 
-          content += `<td style="border: 1px solid #000; padding: 6px; text-align: center; font-weight: bold;">${
-            judge.totalMarks ? judge.totalMarks.toFixed(2) : "0.00"
-          }</td></tr>`;
+          content += `<td style="border: 1px solid #000; padding: 6px; text-align: center; font-weight: bold;">${safeToFixed(
+            judge.totalMarks
+          )} / ${getTotalMarks()}</td></tr>`;
         });
 
         content += `</tbody></table>`;
@@ -350,6 +359,21 @@ const ResultsPage = () => {
     if (index === 1) return <Award className="w-5 h-5 sm:w-6 sm:h-6" />;
     if (index === 2) return <Medal className="w-5 h-5 sm:w-6 sm:h-6" />;
     return null;
+  };
+
+  // Safe mark accessor functions
+  const getAverageMark = (entry, key) => {
+    if (!entry.averageMarks || entry.averageMarks[key] === undefined) {
+      return 0;
+    }
+    return entry.averageMarks[key];
+  };
+
+  const getJudgeMark = (judge, key) => {
+    if (!judge.marks || judge.marks[key] === undefined) {
+      return 0;
+    }
+    return judge.marks[key];
   };
 
   return (
@@ -584,7 +608,7 @@ const ResultsPage = () => {
                           </td>
                           <td className="px-4 py-3 text-center">
                             <span className="text-lg font-bold text-blue-600">
-                              {entry.totalAverageMarks.toFixed(2)}
+                              {safeToFixed(entry.totalAverageMarks)}
                             </span>
                           </td>
                           <td className="px-4 py-3 text-center">
@@ -616,7 +640,7 @@ const ResultsPage = () => {
                                     Average Criteria Scores:
                                   </h4>
                                   <div
-                                    className={`grid gap-4 text-sm ${
+                                    className={`grid gap-4 ${
                                       selectedCategory === "student"
                                         ? "grid-cols-5"
                                         : "grid-cols-4"
@@ -648,8 +672,8 @@ const ResultsPage = () => {
                                                 : "Presentation"}
                                             </div>
                                             <div className="text-lg font-bold text-blue-600">
-                                              {entry.averageMarks[key].toFixed(
-                                                2
+                                              {safeToFixed(
+                                                getAverageMark(entry, key)
                                               )}
                                             </div>
                                           </div>
@@ -662,8 +686,11 @@ const ResultsPage = () => {
                                             Uniqueness
                                           </div>
                                           <div className="text-lg font-bold text-blue-600">
-                                            {entry.averageMarks.uniqueness.toFixed(
-                                              2
+                                            {safeToFixed(
+                                              getAverageMark(
+                                                entry,
+                                                "uniqueness"
+                                              )
                                             )}
                                           </div>
                                         </div>
@@ -679,8 +706,11 @@ const ResultsPage = () => {
                                               : "Market"}
                                           </div>
                                           <div className="text-lg font-bold text-blue-600">
-                                            {entry.averageMarks.marketPotentialValuePublic.toFixed(
-                                              2
+                                            {safeToFixed(
+                                              getAverageMark(
+                                                entry,
+                                                "marketPotentialValuePublic"
+                                              )
                                             )}
                                           </div>
                                         </div>
@@ -689,8 +719,11 @@ const ResultsPage = () => {
                                             Features
                                           </div>
                                           <div className="text-lg font-bold text-blue-600">
-                                            {entry.averageMarks.functionalitiesFeatures.toFixed(
-                                              2
+                                            {safeToFixed(
+                                              getAverageMark(
+                                                entry,
+                                                "functionalitiesFeatures"
+                                              )
                                             )}
                                           </div>
                                         </div>
@@ -699,8 +732,11 @@ const ResultsPage = () => {
                                             Quality
                                           </div>
                                           <div className="text-lg font-bold text-blue-600">
-                                            {entry.averageMarks.qualityTechnology.toFixed(
-                                              2
+                                            {safeToFixed(
+                                              getAverageMark(
+                                                entry,
+                                                "qualityTechnology"
+                                              )
                                             )}
                                           </div>
                                         </div>
@@ -714,7 +750,7 @@ const ResultsPage = () => {
                                     Individual Judge Marks:
                                   </h4>
                                   <div className="space-y-2">
-                                    {entry.judgeMarks.map((judge, idx) => (
+                                    {entry.judgeMarks?.map((judge, idx) => (
                                       <div
                                         key={idx}
                                         className="bg-white p-3 rounded border"
@@ -729,7 +765,8 @@ const ResultsPage = () => {
                                             </div>
                                           </div>
                                           <div className="text-lg font-bold text-gray-900">
-                                            {judge.totalMarks.toFixed(2)} / 100
+                                            {safeToFixed(judge.totalMarks)} /{" "}
+                                            {getTotalMarks()}
                                           </div>
                                         </div>
                                         <div
@@ -746,7 +783,10 @@ const ResultsPage = () => {
                                                   Unique:
                                                 </span>{" "}
                                                 <span className="font-medium">
-                                                  {judge.marks.uniqueness}
+                                                  {getJudgeMark(
+                                                    judge,
+                                                    "uniqueness"
+                                                  )}
                                                 </span>
                                               </div>
                                               <div>
@@ -754,7 +794,10 @@ const ResultsPage = () => {
                                                   Proof:
                                                 </span>{" "}
                                                 <span className="font-medium">
-                                                  {judge.marks.proofOfConcept}
+                                                  {getJudgeMark(
+                                                    judge,
+                                                    "proofOfConcept"
+                                                  )}
                                                 </span>
                                               </div>
                                               <div>
@@ -762,10 +805,10 @@ const ResultsPage = () => {
                                                   Features:
                                                 </span>{" "}
                                                 <span className="font-medium">
-                                                  {
-                                                    judge.marks
-                                                      .functionalitiesFeatures
-                                                  }
+                                                  {getJudgeMark(
+                                                    judge,
+                                                    "functionalitiesFeatures"
+                                                  )}
                                                 </span>
                                               </div>
                                               <div>
@@ -773,7 +816,10 @@ const ResultsPage = () => {
                                                   Quality:
                                                 </span>{" "}
                                                 <span className="font-medium">
-                                                  {judge.marks.quality}
+                                                  {getJudgeMark(
+                                                    judge,
+                                                    "quality"
+                                                  )}
                                                 </span>
                                               </div>
                                               <div>
@@ -781,7 +827,10 @@ const ResultsPage = () => {
                                                   Present:
                                                 </span>{" "}
                                                 <span className="font-medium">
-                                                  {judge.marks.presentation}
+                                                  {getJudgeMark(
+                                                    judge,
+                                                    "presentation"
+                                                  )}
                                                 </span>
                                               </div>
                                             </>
@@ -792,7 +841,10 @@ const ResultsPage = () => {
                                                   Unique:
                                                 </span>{" "}
                                                 <span className="font-medium">
-                                                  {judge.marks.uniqueness}
+                                                  {getJudgeMark(
+                                                    judge,
+                                                    "uniqueness"
+                                                  )}
                                                 </span>
                                               </div>
                                               <div>
@@ -800,10 +852,10 @@ const ResultsPage = () => {
                                                   Value/Market:
                                                 </span>{" "}
                                                 <span className="font-medium">
-                                                  {
-                                                    judge.marks
-                                                      .marketPotentialValuePublic
-                                                  }
+                                                  {getJudgeMark(
+                                                    judge,
+                                                    "marketPotentialValuePublic"
+                                                  )}
                                                 </span>
                                               </div>
                                               <div>
@@ -811,10 +863,10 @@ const ResultsPage = () => {
                                                   Features:
                                                 </span>{" "}
                                                 <span className="font-medium">
-                                                  {
-                                                    judge.marks
-                                                      .functionalitiesFeatures
-                                                  }
+                                                  {getJudgeMark(
+                                                    judge,
+                                                    "functionalitiesFeatures"
+                                                  )}
                                                 </span>
                                               </div>
                                               <div>
@@ -822,10 +874,10 @@ const ResultsPage = () => {
                                                   Quality:
                                                 </span>{" "}
                                                 <span className="font-medium">
-                                                  {
-                                                    judge.marks
-                                                      .qualityTechnology
-                                                  }
+                                                  {getJudgeMark(
+                                                    judge,
+                                                    "qualityTechnology"
+                                                  )}
                                                 </span>
                                               </div>
                                             </>
@@ -881,7 +933,7 @@ const ResultsPage = () => {
                         </div>
                         <div className="text-right">
                           <div className="text-lg sm:text-xl md:text-2xl font-black text-blue-600">
-                            {entry.totalAverageMarks.toFixed(2)}
+                            {safeToFixed(entry.totalAverageMarks)}
                           </div>
                           <div className="text-xs text-gray-500">Score</div>
                         </div>
@@ -990,7 +1042,9 @@ const ResultsPage = () => {
                                           : "Presentation"}
                                       </div>
                                       <div className="text-base sm:text-lg font-bold text-blue-600">
-                                        {entry.averageMarks[key].toFixed(2)}
+                                        {safeToFixed(
+                                          getAverageMark(entry, key)
+                                        )}
                                       </div>
                                     </div>
                                   ))}
@@ -1002,7 +1056,9 @@ const ResultsPage = () => {
                                       Uniqueness
                                     </div>
                                     <div className="text-base sm:text-lg font-bold text-blue-600">
-                                      {entry.averageMarks.uniqueness.toFixed(2)}
+                                      {safeToFixed(
+                                        getAverageMark(entry, "uniqueness")
+                                      )}
                                     </div>
                                   </div>
                                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-2 sm:p-3 rounded-lg border border-blue-100">
@@ -1015,8 +1071,11 @@ const ResultsPage = () => {
                                         : "Market"}
                                     </div>
                                     <div className="text-base sm:text-lg font-bold text-blue-600">
-                                      {entry.averageMarks.marketPotentialValuePublic.toFixed(
-                                        2
+                                      {safeToFixed(
+                                        getAverageMark(
+                                          entry,
+                                          "marketPotentialValuePublic"
+                                        )
                                       )}
                                     </div>
                                   </div>
@@ -1025,8 +1084,11 @@ const ResultsPage = () => {
                                       Features
                                     </div>
                                     <div className="text-base sm:text-lg font-bold text-blue-600">
-                                      {entry.averageMarks.functionalitiesFeatures.toFixed(
-                                        2
+                                      {safeToFixed(
+                                        getAverageMark(
+                                          entry,
+                                          "functionalitiesFeatures"
+                                        )
                                       )}
                                     </div>
                                   </div>
@@ -1035,8 +1097,11 @@ const ResultsPage = () => {
                                       Quality
                                     </div>
                                     <div className="text-base sm:text-lg font-bold text-blue-600">
-                                      {entry.averageMarks.qualityTechnology.toFixed(
-                                        2
+                                      {safeToFixed(
+                                        getAverageMark(
+                                          entry,
+                                          "qualityTechnology"
+                                        )
                                       )}
                                     </div>
                                   </div>
@@ -1050,7 +1115,7 @@ const ResultsPage = () => {
                               Judge Marks:
                             </h4>
                             <div className="space-y-2 sm:space-y-3">
-                              {entry.judgeMarks.map((judge, idx) => (
+                              {entry.judgeMarks?.map((judge, idx) => (
                                 <div
                                   key={idx}
                                   className="bg-gradient-to-r from-gray-50 to-blue-50 p-3 rounded-lg border border-gray-200"
@@ -1065,9 +1130,9 @@ const ResultsPage = () => {
                                       </div>
                                     </div>
                                     <div className="text-lg sm:text-xl font-black text-gray-900 whitespace-nowrap">
-                                      {judge.totalMarks.toFixed(2)}{" "}
+                                      {safeToFixed(judge.totalMarks)}{" "}
                                       <span className="text-sm text-gray-500">
-                                        / 100
+                                        / {getTotalMarks()}
                                       </span>
                                     </div>
                                   </div>
@@ -1079,7 +1144,7 @@ const ResultsPage = () => {
                                             Unique:
                                           </span>
                                           <span className="font-bold ml-1">
-                                            {judge.marks.uniqueness}
+                                            {getJudgeMark(judge, "uniqueness")}
                                           </span>
                                         </div>
                                         <div className="bg-white p-1.5 rounded">
@@ -1087,7 +1152,10 @@ const ResultsPage = () => {
                                             Proof:
                                           </span>
                                           <span className="font-bold ml-1">
-                                            {judge.marks.proofOfConcept}
+                                            {getJudgeMark(
+                                              judge,
+                                              "proofOfConcept"
+                                            )}
                                           </span>
                                         </div>
                                         <div className="bg-white p-1.5 rounded">
@@ -1095,10 +1163,10 @@ const ResultsPage = () => {
                                             Feat:
                                           </span>
                                           <span className="font-bold ml-1">
-                                            {
-                                              judge.marks
-                                                .functionalitiesFeatures
-                                            }
+                                            {getJudgeMark(
+                                              judge,
+                                              "functionalitiesFeatures"
+                                            )}
                                           </span>
                                         </div>
                                         <div className="bg-white p-1.5 rounded">
@@ -1106,7 +1174,7 @@ const ResultsPage = () => {
                                             Qual:
                                           </span>
                                           <span className="font-bold ml-1">
-                                            {judge.marks.quality}
+                                            {getJudgeMark(judge, "quality")}
                                           </span>
                                         </div>
                                         <div className="bg-white p-1.5 rounded col-span-2 sm:col-span-4">
@@ -1114,7 +1182,10 @@ const ResultsPage = () => {
                                             Present:
                                           </span>
                                           <span className="font-bold ml-1">
-                                            {judge.marks.presentation}
+                                            {getJudgeMark(
+                                              judge,
+                                              "presentation"
+                                            )}
                                           </span>
                                         </div>
                                       </>
@@ -1125,7 +1196,7 @@ const ResultsPage = () => {
                                             Unique:
                                           </span>
                                           <span className="font-bold ml-1">
-                                            {judge.marks.uniqueness}
+                                            {getJudgeMark(judge, "uniqueness")}
                                           </span>
                                         </div>
                                         <div className="bg-white p-1.5 rounded">
@@ -1133,10 +1204,10 @@ const ResultsPage = () => {
                                             Value/Market:
                                           </span>
                                           <span className="font-bold ml-1">
-                                            {
-                                              judge.marks
-                                                .marketPotentialValuePublic
-                                            }
+                                            {getJudgeMark(
+                                              judge,
+                                              "marketPotentialValuePublic"
+                                            )}
                                           </span>
                                         </div>
                                         <div className="bg-white p-1.5 rounded">
@@ -1144,10 +1215,10 @@ const ResultsPage = () => {
                                             Feat:
                                           </span>
                                           <span className="font-bold ml-1">
-                                            {
-                                              judge.marks
-                                                .functionalitiesFeatures
-                                            }
+                                            {getJudgeMark(
+                                              judge,
+                                              "functionalitiesFeatures"
+                                            )}
                                           </span>
                                         </div>
                                         <div className="bg-white p-1.5 rounded">
@@ -1155,7 +1226,10 @@ const ResultsPage = () => {
                                             Qual:
                                           </span>
                                           <span className="font-bold ml-1">
-                                            {judge.marks.qualityTechnology}
+                                            {getJudgeMark(
+                                              judge,
+                                              "qualityTechnology"
+                                            )}
                                           </span>
                                         </div>
                                       </>
