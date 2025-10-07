@@ -23,7 +23,7 @@ function App() {
           <Route path="/guidelines" element={<Guidelines />} />
           <Route path="/registration" element={<Registration />} />
           {/* <Route path="/about-biin" element={<AboutBIIN />} /> */}
-          <Route path="/judgemarking" element={<JudgeMarkingSystem/>}/>
+          <Route path="/marking" element={<JudgeMarkingSystem/>}/>
           <Route path="/results" element={<ResultsPage/>}/>
         </Routes>
       </main>
