@@ -11,7 +11,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const API_BASE = "https://biin-award-function.onrender.com/api";
+const API_BASE = "http://localhost:5000/api";
 
 // Enhanced Modal Component
 const Modal = ({ isOpen, onClose, type, message }) => {
@@ -106,14 +106,6 @@ const JudgeMarkingSystem = () => {
 
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState({ isOpen: false, type: "", message: "" });
-
-  const headCategories = {
-    "Consumer (HC-C)": { type: "market" },
-    "Industrial (HC-I)": { type: "market" },
-    "Business Services (HC-BS)": { type: "market" },
-    "Inclusions & Community Services (HC-ICS)": { type: "public" },
-    "Public Sector and Government (HC-PSG)": { type: "public" },
-  };
 
   useEffect(() => {
     const savedToken = localStorage.getItem("judgeToken");
@@ -229,7 +221,6 @@ const JudgeMarkingSystem = () => {
       } else {
         setSelectedProject(project);
         initializeMarks(project);
-        // Scroll to top smoothly
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     } catch (err) {
@@ -259,7 +250,7 @@ const JudgeMarkingSystem = () => {
   };
 
   const validateMarks = () => {
-    const maxMark = selectedProject.applicationEntity === "Student" ? 20 : 25;
+    const maxMark = selectedProject?.applicationEntity === "Student" ? 10 : 10;
 
     for (const [key, value] of Object.entries(marks)) {
       const numValue = parseFloat(value);
@@ -313,15 +304,6 @@ const JudgeMarkingSystem = () => {
 
   const getMaxMarks = () => {
     return selectedProject?.applicationEntity === "Student" ? 50 : 40;
-  };
-
-  const getCriteriaLabel = () => {
-    if (!selectedProject) return "";
-    if (selectedProject.applicationEntity === "Student") return "";
-    const categoryType = headCategories[selectedProject.headCategory]?.type;
-    return categoryType === "market"
-      ? "Market Potential"
-      : "Value to Public/Government";
   };
 
   // AUTH VIEW
@@ -454,8 +436,22 @@ const JudgeMarkingSystem = () => {
   return (
     <>
       <Modal {...modal} onClose={closeModal} />
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-        <header className="bg-white shadow-lg border-b-2 border-blue-100 sticky top-0 z-40">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 relative overflow-hidden">
+        {/* Enhanced animated background patterns */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-gradient-to-br from-indigo-400 to-blue-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+        </div>
+
+        {/* Geometric patterns */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-20 w-32 h-32 border-4 border-blue-400 rounded-lg transform rotate-45 animate-spin-slow"></div>
+          <div className="absolute top-60 right-40 w-24 h-24 border-4 border-purple-400 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-40 left-60 w-40 h-40 border-4 border-pink-400 transform rotate-12 animate-bounce-slow"></div>
+        </div>
+
+        <header className="bg-white/95 backdrop-blur-md shadow-lg border-b-2 border-blue-100 sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4 py-5">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-4">
@@ -484,10 +480,10 @@ const JudgeMarkingSystem = () => {
           </div>
         </header>
 
-        <main className="max-w-7xl mx-auto px-4 py-6 md:py-8">
+        <main className="max-w-7xl mx-auto px-4 py-6 md:py-8 relative z-10">
           {/* PROJECT SELECTION */}
           {!selectedProject && (
-            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 border-2 border-blue-100 transform hover:shadow-2xl transition-all duration-300">
+            <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-6 md:p-8 border-2 border-blue-100 transform hover:shadow-2xl transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-gradient-to-br from-blue-100 to-purple-100 p-3 rounded-xl">
                   <Search className="w-6 h-6 text-blue-600" />
@@ -678,7 +674,7 @@ const JudgeMarkingSystem = () => {
 
           {/* MARKING FORM */}
           {selectedProject && (
-            <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 border-2 border-blue-100 animate-fadeIn">
+            <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-6 md:p-8 border-2 border-blue-100 animate-fadeIn">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                 <div>
                   <div className="flex items-center gap-3 mb-2">
@@ -739,133 +735,132 @@ const JudgeMarkingSystem = () => {
                     </span>
                     Evaluation Criteria
                   </h3>
-
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
-                    {selectedProject.applicationEntity === "Student" ? (
-                      <>
-                        {[
-                          {
-                            field: "uniqueness",
-                            label: "Uniqueness",
-                            icon: "✨",
-                            max: 10,
-                          },
-                          {
-                            field: "proofOfConcept",
-                            label: "Proof of Concept",
-                            icon: "🔬",
-                            max: 10,
-                          },
-                          {
-                            field: "functionalitiesFeatures",
-                            label: "Features",
-                            icon: "⚡",
-                            max: 10,
-                          },
-                          {
-                            field: "quality",
-                            label: "Quality",
-                            icon: "💎",
-                            max: 10,
-                          },
-                          {
-                            field: "presentation",
-                            label: "Presentation",
-                            icon: "🎯",
-                            max: 10,
-                          },
-                        ].map(({ field, label, icon, max }) => (
-                          <div
-                            key={field}
-                            className="bg-gradient-to-br from-white to-blue-50 p-4 rounded-xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                          >
-                            <label className="block text-xs font-bold text-gray-700 mb-2 flex items-center gap-1">
-                              <span className="text-base">{icon}</span>
-                              <span className="truncate">{label}</span>
-                              <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                              type="number"
-                              min="0"
-                              max={max}
-                              step="0.1"
-                              required
-                              value={marks[field]}
-                              onChange={(e) =>
-                                setMarks({ ...marks, [field]: e.target.value })
-                              }
-                              placeholder={`0-${max}`}
-                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-center"
-                            />
-                            <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
-                              Max: {max}
-                            </p>
-                          </div>
-                        ))}
-                      </>
-                    ) : (
-                      <>
-                        {[
-                          {
-                            field: "uniqueness",
-                            label: "Uniqueness",
-                            icon: "✨",
-                            max: 10,
-                          },
-                          {
-                            field: "marketPotentialValuePublic",
-                            label: getCriteriaLabel(),
-                            icon:
-                              headCategories[selectedProject.headCategory]
-                                ?.type === "market"
-                                ? "📈"
-                                : "🌍",
-                            max: 10,
-                          },
-                          {
-                            field: "functionalitiesFeatures",
-                            label: "Features",
-                            icon: "⚡",
-                            max: 10,
-                          },
-                          {
-                            field: "qualityTechnology",
-                            label: "Quality & Tech",
-                            icon: "💎",
-                            max: 10,
-                          },
-                        ].map(({ field, label, icon, max }) => (
-                          <div
-                            key={field}
-                            className="bg-gradient-to-br from-white to-purple-50 p-4 rounded-xl border-2 border-gray-200 hover:border-purple-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                          >
-                            <label className="block text-xs font-bold text-gray-700 mb-2 flex items-center gap-1">
-                              <span className="text-base">{icon}</span>
-                              <span className="truncate">{label}</span>
-                              <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                              type="number"
-                              min="0"
-                              max={max}
-                              step="0.1"
-                              required
-                              value={marks[field]}
-                              onChange={(e) =>
-                                setMarks({ ...marks, [field]: e.target.value })
-                              }
-                              placeholder={`0-${max}`}
-                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all text-center"
-                            />
-                            <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
-                              Max: {max}
-                            </p>
-                          </div>
-                        ))}
-                      </>
-                    )}
-                  </div>
-                </div>
+<div className={`grid gap-3 md:gap-4 ${
+  selectedProject.applicationEntity === "Student" 
+    ? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5" 
+    : "grid-cols-2 sm:grid-cols-2 md:grid-cols-4"
+}`}>
+  {selectedProject.applicationEntity === "Student" ? (
+    <>
+      {[
+        {
+          field: "uniqueness",
+          label: "Uniqueness",
+          icon: "✨",
+          max: 10,
+        },
+        {
+          field: "proofOfConcept",
+          label: "Proof of Concept",
+          icon: "🔬",
+          max: 10,
+        },
+        {
+          field: "functionalitiesFeatures",
+          label: "Features",
+          icon: "⚡",
+          max: 10,
+        },
+        {
+          field: "quality",
+          label: "Quality",
+          icon: "💎",
+          max: 10,
+        },
+        {
+          field: "presentation",
+          label: "Presentation",
+          icon: "🎯",
+          max: 10,
+        },
+      ].map(({ field, label, icon, max }) => (
+        <div
+          key={field}
+          className="bg-gradient-to-br from-white to-blue-50 p-4 rounded-xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+        >
+          <label className="block text-xs font-bold text-gray-700 mb-2 flex items-center gap-1">
+            <span className="text-base">{icon}</span>
+            <span className="truncate">{label}</span>
+            <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="number"
+            min="0"
+            max={max}
+            step="0.1"
+            required
+            value={marks[field]}
+            onChange={(e) =>
+              setMarks({ ...marks, [field]: e.target.value })
+            }
+            placeholder={`0-${max}`}
+            className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-center"
+          />
+          <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
+            Max: {max}
+          </p>
+        </div>
+      ))}
+    </>
+  ) : (
+    <>
+      {[
+        {
+          field: "uniqueness",
+          label: "Uniqueness",
+          icon: "✨",
+          max: 10,
+        },
+        {
+          field: "marketPotentialValuePublic",
+          label: "Value to Public/Govt Or Market Potential",
+          icon: "📊",
+          max: 10,
+        },
+        {
+          field: "functionalitiesFeatures",
+          label: "Features",
+          icon: "⚡",
+          max: 10,
+        },
+        {
+          field: "qualityTechnology",
+          label: "Quality & Tech",
+          icon: "💎",
+          max: 10,
+        },
+      ].map(({ field, label, icon, max }) => (
+        <div
+          key={field}
+          className="bg-gradient-to-br from-white to-purple-50 p-4 rounded-xl border-2 border-gray-200 hover:border-purple-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+        >
+          <label className="block text-xs font-bold text-gray-700 mb-2 flex items-center gap-1">
+            <span className="text-base">{icon}</span>
+            <span className="truncate">{label}</span>
+            <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="number"
+            min="0"
+            max={max}
+            step="0.1"
+            required
+            value={marks[field]}
+            onChange={(e) =>
+              setMarks({ ...marks, [field]: e.target.value })
+            }
+            placeholder={`0-${max}`}
+            className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all text-center"
+          />
+          <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
+            Max: {max}
+          </p>
+        </div>
+      ))}
+    </>
+  )}
+</div>
+</div>
 
                 <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-2xl p-6 border-2 border-blue-200 shadow-xl">
                   <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -977,6 +972,25 @@ const JudgeMarkingSystem = () => {
           }
         }
 
+        @keyframes spin-slow {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes bounce-slow {
+          0%,
+          100% {
+            transform: translateY(0) rotate(12deg);
+          }
+          50% {
+            transform: translateY(-20px) rotate(12deg);
+          }
+        }
+
         .animate-fadeIn {
           animation: fadeIn 0.5s ease-out;
         }
@@ -993,6 +1007,14 @@ const JudgeMarkingSystem = () => {
           animation: blob 7s infinite;
         }
 
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
+        }
+
+        .animate-bounce-slow {
+          animation: bounce-slow 4s ease-in-out infinite;
+        }
+
         .animation-delay-2000 {
           animation-delay: 2s;
         }
@@ -1001,7 +1023,7 @@ const JudgeMarkingSystem = () => {
           animation-delay: 4s;
         }
 
-        .hover\:scale-102:hover {
+        .hover\\:scale-102:hover {
           transform: scale(1.02);
         }
 

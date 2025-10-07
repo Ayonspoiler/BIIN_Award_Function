@@ -10,7 +10,7 @@ import {
   Medal,
 } from "lucide-react";
 
-const API_BASE = "https://biin-award-function.onrender.com/api";
+const API_BASE = "http://localhost:5000/api";
 
 const ResultsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("student");
@@ -135,7 +135,212 @@ const ResultsPage = () => {
       alert("No data available to print");
       return;
     }
+
+    const printContainer = document.createElement("div");
+    printContainer.className = "printable-content";
+    printContainer.style.cssText =
+      "background: white; color: black; font-family: Arial, sans-serif; font-size: 12px; padding: 30px;";
+
+    let content = `
+      <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="font-size: 28px; color: #1a365d;">Bangladesh ICT & Innovation Awards 2025</h1>
+        <h2 style="font-size: 20px; color: #2d3748;">
+          ${
+            selectedCategory === "student"
+              ? "Student Category Results"
+              : selectedCategory === "organisation"
+              ? "Organisation Category Results"
+              : "Individual/Group Category Results"
+          }
+        </h2>
+        <p>Generated on: ${new Date().toLocaleDateString()}</p>
+      </div>
+
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
+        <thead>
+          <tr>
+            <th style="border: 1px solid #000; padding: 8px;">Rank</th>
+            <th style="border: 1px solid #000; padding: 8px;">Solution Name</th>
+            <th style="border: 1px solid #000; padding: 8px;">Organization</th>
+            <th style="border: 1px solid #000; padding: 8px;">${
+              selectedCategory === "student" ? "Contact" : "Category"
+            }</th>
+            <th style="border: 1px solid #000; padding: 8px;">Judges</th>
+            <th style="border: 1px solid #000; padding: 8px;">Avg Score</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    data.forEach((entry, i) => {
+      content += `
+        <tr>
+          <td style="border: 1px solid #000; padding: 6px;">${i + 1}</td>
+          <td style="border: 1px solid #000; padding: 6px; font-weight: bold;">${
+            entry.solutionName || "N/A"
+          }</td>
+          <td style="border: 1px solid #000; padding: 6px;">${
+            entry.organizationName || "N/A"
+          }</td>
+          <td style="border: 1px solid #000; padding: 6px;">
+            ${
+              selectedCategory === "student"
+                ? `${entry.contactPersonName || "N/A"}<br>${
+                    entry.contactPersonEmail || ""
+                  }`
+                : `${entry.headCategory || "N/A"}<br>${
+                    entry.solutionCategory || ""
+                  }`
+            }
+          </td>
+          <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+            entry.numberOfJudges || 0
+          }</td>
+          <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+            entry.totalAverageMarks
+              ? entry.totalAverageMarks.toFixed(2)
+              : "0.00"
+          }</td>
+        </tr>
+      `;
+    });
+
+    content += `</tbody></table><h2 style="margin-top: 40px; border-top: 2px solid #333; padding-top: 20px;">Detailed Project Reports</h2>`;
+
+    data.forEach((entry, index) => {
+      content += `
+        <div style="margin-top: 40px; page-break-before: always;">
+          <h3 style="color: #1e3a8a;">${index + 1}. ${
+        entry.solutionName || "N/A"
+      }</h3>
+          <p><strong>Organization:</strong> ${
+            entry.organizationName || "N/A"
+          }</p>
+          <p><strong>Category:</strong> ${
+            selectedCategory === "student"
+              ? `${entry.contactPersonName || ""} (${
+                  entry.contactPersonEmail || ""
+                })`
+              : `${entry.headCategory || "N/A"} / ${
+                  entry.solutionCategory || "N/A"
+                }`
+          }</p>
+          <p><strong>Average Score:</strong> ${
+            entry.totalAverageMarks
+              ? entry.totalAverageMarks.toFixed(2)
+              : "0.00"
+          }</p>
+      `;
+
+      if (entry.judgeMarks && entry.judgeMarks.length > 0) {
+        content += `<table style="width: 100%; border-collapse: collapse; margin-top: 15px;"><thead><tr><th style="border: 1px solid #000; padding: 6px;">Judge Name</th><th style="border: 1px solid #000; padding: 6px;">Email</th>`;
+
+        if (selectedCategory === "student") {
+          content += `<th style="border: 1px solid #000; padding: 6px;">Uniqueness</th><th style="border: 1px solid #000; padding: 6px;">Proof of Concept</th><th style="border: 1px solid #000; padding: 6px;">Features</th><th style="border: 1px solid #000; padding: 6px;">Quality</th><th style="border: 1px solid #000; padding: 6px;">Presentation</th>`;
+        } else {
+          content += `<th style="border: 1px solid #000; padding: 6px;">Uniqueness</th><th style="border: 1px solid #000; padding: 6px;">${
+            entry.headCategory &&
+            (entry.headCategory.includes("(HC-IC)") ||
+              entry.headCategory.includes("(HC-PSG)"))
+              ? "Public Value"
+              : "Market Potential"
+          }</th><th style="border: 1px solid #000; padding: 6px;">Features</th><th style="border: 1px solid #000; padding: 6px;">Quality & Tech</th>`;
+        }
+
+        content += `<th style="border: 1px solid #000; padding: 6px;">Total Marks</th></tr></thead><tbody>`;
+
+        entry.judgeMarks.forEach((judge, jIndex) => {
+          content += `<tr><td style="border: 1px solid #000; padding: 6px;">${
+            judge.judgeName || "Judge " + (jIndex + 1)
+          }</td><td style="border: 1px solid #000; padding: 6px;">${
+            judge.judgeEmail || "N/A"
+          }</td>`;
+
+          if (selectedCategory === "student") {
+            content += `
+              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+                judge.marks?.uniqueness || "0"
+              }</td>
+              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+                judge.marks?.proofOfConcept || "0"
+              }</td>
+              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+                judge.marks?.functionalitiesFeatures || "0"
+              }</td>
+              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+                judge.marks?.quality || "0"
+              }</td>
+              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+                judge.marks?.presentation || "0"
+              }</td>
+            `;
+          } else {
+            content += `
+              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+                judge.marks?.uniqueness || "0"
+              }</td>
+              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+                judge.marks?.marketPotentialValuePublic || "0"
+              }</td>
+              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+                judge.marks?.functionalitiesFeatures || "0"
+              }</td>
+              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+                judge.marks?.qualityTechnology || "0"
+              }</td>
+            `;
+          }
+
+          content += `<td style="border: 1px solid #000; padding: 6px; text-align: center; font-weight: bold;">${
+            judge.totalMarks ? judge.totalMarks.toFixed(2) : "0.00"
+          }</td></tr>`;
+        });
+
+        content += `</tbody></table>`;
+      }
+
+      content += `
+        <div style="margin-top: 30px;">
+          <h4>Signatures</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-top: 15px;">
+            ${entry.judgeMarks
+              .map(
+                (judge, jIndex) => `
+                <div style="text-align: center;">
+                  <div style="font-weight: bold;">${
+                    judge.judgeName || "Judge " + (jIndex + 1)
+                  }</div>
+                  <div style="border-bottom: 1px solid #000; height: 20px; width: 200px; margin: 5px auto;"></div>
+                  <div style="font-size: 10px;">Signature</div>
+                </div>`
+              )
+              .join("")}
+          </div>
+        </div>
+      </div>`;
+    });
+
+    printContainer.innerHTML = content;
+    document.body.appendChild(printContainer);
+
+    const style = document.createElement("style");
+    style.innerHTML = `
+      @media print {
+        body * { visibility: hidden; }
+        .printable-content, .printable-content * { visibility: visible; }
+        .printable-content { position: absolute; left: 0; top: 0; width: 100%; }
+        div[style*="page-break-before: always"] { page-break-before: always !important; }
+        table, tr, td, th { page-break-inside: avoid !important; }
+      }
+    `;
+    document.head.appendChild(style);
+
     window.print();
+
+    setTimeout(() => {
+      document.body.removeChild(printContainer);
+      document.head.removeChild(style);
+    }, 1000);
   };
 
   const data = getCurrentData();
@@ -474,7 +679,7 @@ const ResultsPage = () => {
                                               : "Market"}
                                           </div>
                                           <div className="text-lg font-bold text-blue-600">
-                                            {entry.averageMarks.criteriaTwo.toFixed(
+                                            {entry.averageMarks.marketPotentialValuePublic.toFixed(
                                               2
                                             )}
                                           </div>
@@ -592,10 +797,13 @@ const ResultsPage = () => {
                                               </div>
                                               <div>
                                                 <span className="text-gray-600">
-                                                  Criteria2:
+                                                  Value/Market:
                                                 </span>{" "}
                                                 <span className="font-medium">
-                                                  {judge.marks.criteriaTwo}
+                                                  {
+                                                    judge.marks
+                                                      .marketPotentialValuePublic
+                                                  }
                                                 </span>
                                               </div>
                                               <div>
@@ -807,7 +1015,7 @@ const ResultsPage = () => {
                                         : "Market"}
                                     </div>
                                     <div className="text-base sm:text-lg font-bold text-blue-600">
-                                      {entry.averageMarks.criteriaTwo.toFixed(
+                                      {entry.averageMarks.marketPotentialValuePublic.toFixed(
                                         2
                                       )}
                                     </div>
@@ -922,10 +1130,13 @@ const ResultsPage = () => {
                                         </div>
                                         <div className="bg-white p-1.5 rounded">
                                           <span className="text-gray-600">
-                                            Crit2:
+                                            Value/Market:
                                           </span>
                                           <span className="font-bold ml-1">
-                                            {judge.marks.criteriaTwo}
+                                            {
+                                              judge.marks
+                                                .marketPotentialValuePublic
+                                            }
                                           </span>
                                         </div>
                                         <div className="bg-white p-1.5 rounded">
@@ -986,24 +1197,6 @@ const ResultsPage = () => {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
-        }
-
-        @media print {
-          body * {
-            visibility: hidden;
-          }
-          .max-w-7xl * {
-            visibility: visible;
-          }
-          .max-w-7xl {
-            position: absolute;
-            left: 0;
-            top: 0;
-          }
-          button,
-          select {
-            display: none !important;
-          }
         }
 
         /* Custom breakpoint for very small screens */
