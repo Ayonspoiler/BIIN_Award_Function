@@ -429,7 +429,8 @@ useEffect(() => {
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">
-                {applications === null ? "..." : applications}
+                {/* {applications === null ? "..." : applications} */}
+                255
               </div>
               <div className="text-primary-100">Applications</div>
             </div>
