@@ -735,132 +735,172 @@ const JudgeMarkingSystem = () => {
                     </span>
                     Evaluation Criteria
                   </h3>
-<div className={`grid gap-3 md:gap-4 ${
-  selectedProject.applicationEntity === "Student" 
-    ? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5" 
-    : "grid-cols-2 sm:grid-cols-2 md:grid-cols-4"
-}`}>
-  {selectedProject.applicationEntity === "Student" ? (
-    <>
-      {[
-        {
-          field: "uniqueness",
-          label: "Uniqueness",
-          icon: "✨",
-          max: 10,
-        },
-        {
-          field: "proofOfConcept",
-          label: "Proof of Concept",
-          icon: "🔬",
-          max: 10,
-        },
-        {
-          field: "functionalitiesFeatures",
-          label: "Features",
-          icon: "⚡",
-          max: 10,
-        },
-        {
-          field: "quality",
-          label: "Quality",
-          icon: "💎",
-          max: 10,
-        },
-        {
-          field: "presentation",
-          label: "Presentation",
-          icon: "🎯",
-          max: 10,
-        },
-      ].map(({ field, label, icon, max }) => (
-        <div
-          key={field}
-          className="bg-gradient-to-br from-white to-blue-50 p-4 rounded-xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-        >
-          <label className="block text-xs font-bold text-gray-700 mb-2 flex items-center gap-1">
-            <span className="text-base">{icon}</span>
-            <span className="truncate">{label}</span>
-            <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="number"
-            min="0"
-            max={max}
-            step="0.1"
-            required
-            value={marks[field]}
-            onChange={(e) =>
-              setMarks({ ...marks, [field]: e.target.value })
-            }
-            placeholder={`0-${max}`}
-            className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-center"
-          />
-          <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
-            Max: {max}
-          </p>
-        </div>
-      ))}
-    </>
-  ) : (
-    <>
-      {[
-        {
-          field: "uniqueness",
-          label: "Uniqueness",
-          icon: "✨",
-          max: 10,
-        },
-        {
-          field: "marketPotentialValuePublic",
-          label: "Value to Public/Govt Or Market Potential",
-          icon: "📊",
-          max: 10,
-        },
-        {
-          field: "functionalitiesFeatures",
-          label: "Features",
-          icon: "⚡",
-          max: 10,
-        },
-        {
-          field: "qualityTechnology",
-          label: "Quality & Tech",
-          icon: "💎",
-          max: 10,
-        },
-      ].map(({ field, label, icon, max }) => (
-        <div
-          key={field}
-          className="bg-gradient-to-br from-white to-purple-50 p-4 rounded-xl border-2 border-gray-200 hover:border-purple-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-        >
-          <label className="block text-xs font-bold text-gray-700 mb-2 flex items-center gap-1">
-            <span className="text-base">{icon}</span>
-            <span className="truncate">{label}</span>
-            <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="number"
-            min="0"
-            max={max}
-            step="0.1"
-            required
-            value={marks[field]}
-            onChange={(e) =>
-              setMarks({ ...marks, [field]: e.target.value })
-            }
-            placeholder={`0-${max}`}
-            className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all text-center"
-          />
-          <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
-            Max: {max}
-          </p>
-        </div>
-      ))}
-    </>
-  )}
-</div>
-</div>
+                  <div
+                    className={`grid gap-3 md:gap-4 ${
+                      selectedProject.applicationEntity === "Student"
+                        ? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+                        : "grid-cols-2 sm:grid-cols-2 md:grid-cols-4"
+                    }`}
+                  >
+                    {selectedProject.applicationEntity === "Student" ? (
+                      <>
+                        {[
+                          {
+                            field: "uniqueness",
+                            label: "Uniqueness",
+                            icon: "✨",
+                            max: 10,
+                          },
+                          {
+                            field: "proofOfConcept",
+                            label: "Proof of Concept",
+                            icon: "🔬",
+                            max: 10,
+                          },
+                          {
+                            field: "functionalitiesFeatures",
+                            label: "Features",
+                            icon: "⚡",
+                            max: 10,
+                          },
+                          {
+                            field: "quality",
+                            label: "Quality",
+                            icon: "💎",
+                            max: 10,
+                          },
+                          {
+                            field: "presentation",
+                            label: "Presentation",
+                            icon: "🎯",
+                            max: 10,
+                          },
+                        ].map(({ field, label, icon, max }) => (
+                          <div
+                            key={field}
+                            className="bg-gradient-to-br from-white to-blue-50 p-4 rounded-xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                          >
+                            <label className="block text-xs font-bold text-gray-700 mb-2 flex items-center gap-1">
+                              <span className="text-base">{icon}</span>
+                              <span className="truncate">{label}</span>
+                              <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              type="number"
+                              min="0"
+                              max={max}
+                              step="0.01"
+                              required
+                              value={marks[field] || ""}
+                              onChange={(e) => {
+                                const value = e.target.value;
+                                if (
+                                  value === "" ||
+                                  (parseFloat(value) >= 0 &&
+                                    parseFloat(value) <= max)
+                                ) {
+                                  setMarks({ ...marks, [field]: value });
+                                }
+                              }}
+                              onBlur={(e) => {
+                                const value = parseFloat(e.target.value);
+                                if (!isNaN(value)) {
+                                  setMarks({
+                                    ...marks,
+                                    [field]: Math.min(
+                                      Math.max(0, value),
+                                      max
+                                    ).toFixed(2),
+                                  });
+                                }
+                              }}
+                              placeholder={`0-${max}`}
+                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-center"
+                            />
+                            <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
+                              Max: {max}
+                            </p>
+                          </div>
+                        ))}
+                      </>
+                    ) : (
+                      <>
+                        {[
+                          {
+                            field: "uniqueness",
+                            label: "Uniqueness",
+                            icon: "✨",
+                            max: 10,
+                          },
+                          {
+                            field: "marketPotentialValuePublic",
+                            label: "Market Potential / Value to Public or Govt",
+                            icon: "📊",
+                            max: 10,
+                          },
+                          {
+                            field: "functionalitiesFeatures",
+                            label: "Features",
+                            icon: "⚡",
+                            max: 10,
+                          },
+                          {
+                            field: "qualityTechnology",
+                            label: "Quality & Tech",
+                            icon: "💎",
+                            max: 10,
+                          },
+                        ].map(({ field, label, icon, max }) => (
+                          <div
+                            key={field}
+                            className="bg-gradient-to-br from-white to-purple-50 p-4 rounded-xl border-2 border-gray-200 hover:border-purple-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                          >
+                            <label className="block text-xs font-bold text-gray-700 mb-2 flex items-center gap-1">
+                              <span className="text-base">{icon}</span>
+                              <span className="truncate">{label}</span>
+                              <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              type="number"
+                              min="0"
+                              max={max}
+                              step="0.01"
+                              required
+                              value={marks[field] || ""}
+                              onChange={(e) => {
+                                const value = e.target.value;
+                                if (
+                                  value === "" ||
+                                  (parseFloat(value) >= 0 &&
+                                    parseFloat(value) <= max)
+                                ) {
+                                  setMarks({ ...marks, [field]: value });
+                                }
+                              }}
+                              onBlur={(e) => {
+                                const value = parseFloat(e.target.value);
+                                if (!isNaN(value)) {
+                                  setMarks({
+                                    ...marks,
+                                    [field]: Math.min(
+                                      Math.max(0, value),
+                                      max
+                                    ).toFixed(2),
+                                  });
+                                }
+                              }}
+                              placeholder={`0-${max}`}
+                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all text-center"
+                            />
+                            <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
+                              Max: {max}
+                            </p>
+                          </div>
+                        ))}
+                      </>
+                    )}
+                  </div>
+                </div>
 
                 <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-2xl p-6 border-2 border-blue-200 shadow-xl">
                   <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
