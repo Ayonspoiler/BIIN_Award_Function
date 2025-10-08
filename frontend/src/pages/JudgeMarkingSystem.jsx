@@ -11,7 +11,16 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const API_BASE = "https://biin-award-function-rssj.onrender.com/api";
+const API_BASE = "http://localhost:5000/api";
+
+// ✅ KEEP ALL HEAD CATEGORIES - Don't remove any options
+const allHeadCategories = [
+  "Consumer (HC-C)",
+  "Industrial (HC-I)",
+  "Business Services (HC-BS)",
+  "Inclusions & Community Services (HC-ICS)",
+  "Public Sector and Government (HC-PSG)",
+];
 
 // Enhanced Modal Component
 const Modal = ({ isOpen, onClose, type, message }) => {
@@ -39,6 +48,7 @@ const Modal = ({ isOpen, onClose, type, message }) => {
       bgColor: "bg-yellow-50",
       borderColor: "border-yellow-200",
       iconColor: "text-yellow-600",
+      title: "No Projects Available",
       titleColor: "text-yellow-900",
       buttonColor: "bg-yellow-600 hover:bg-yellow-700",
     },
@@ -67,7 +77,7 @@ const Modal = ({ isOpen, onClose, type, message }) => {
               ? "Success!"
               : type === "error"
               ? "Oops!"
-              : "Warning!"}
+              : config.title || "Warning!"}
           </h3>
           <p className="text-center text-gray-700 text-sm leading-relaxed">
             {message}
@@ -96,8 +106,8 @@ const JudgeMarkingSystem = () => {
   });
   const [token, setToken] = useState("");
   const [judgeInfo, setJudgeInfo] = useState(null);
-
   const [applicationEntity, setApplicationEntity] = useState("");
+  const [headCategory, setHeadCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -106,6 +116,43 @@ const JudgeMarkingSystem = () => {
 
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState({ isOpen: false, type: "", message: "" });
+  const [availableHeadCategories, setAvailableHeadCategories] = useState([]);
+
+  useEffect(() => {
+    if (applicationEntity) {
+      fetchHeadCategories();
+    } else {
+      setAvailableHeadCategories([]);
+    }
+  }, [applicationEntity]);
+
+  // ✅ UPDATED: Show ALL categories but track which ones have projects
+  const fetchHeadCategories = async () => {
+    try {
+      const response = await fetch(
+        `${API_BASE}/marking/head-categories?applicationEntity=${applicationEntity}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch head categories");
+      }
+
+      const data = await response.json();
+      console.log("Available head categories with projects:", data);
+
+      // ✅ FIX: Always show ALL categories, but we'll track which ones have projects
+      const categoriesWithProjects = Array.isArray(data) ? data : [];
+
+      console.log("Categories with projects:", categoriesWithProjects);
+
+      // ✅ IMPORTANT: Always set to ALL categories, don't filter out any
+      setAvailableHeadCategories(allHeadCategories);
+    } catch (err) {
+      console.error("Error fetching head categories:", err);
+      // Even on error, show all categories
+      setAvailableHeadCategories(allHeadCategories);
+    }
+  };
 
   useEffect(() => {
     const savedToken = localStorage.getItem("judgeToken");
@@ -184,6 +231,7 @@ const JudgeMarkingSystem = () => {
 
   const resetState = () => {
     setApplicationEntity("");
+    setHeadCategory("");
     setSearchTerm("");
     setProjects([]);
     setSelectedProject(null);
@@ -194,12 +242,30 @@ const JudgeMarkingSystem = () => {
     setLoading(true);
 
     try {
-      const body = { applicationEntity, search: searchTerm };
+      const body = {
+        applicationEntity,
+        headCategory,
+        search: searchTerm,
+      };
+
+      console.log("Fetching projects with filters:", body);
+
       const data = await apiCall("/marking/registrations", "POST", body);
+
+      console.log("Received projects:", data);
+      console.log("Number of projects:", data.length);
+
       setProjects(data);
-      if (data.length === 0)
-        showModal("warning", "No projects found matching your criteria.");
+
+      // ✅ FIX: Show specific warning when no projects found for selected category
+      if (data.length === 0) {
+        showModal(
+          "warning",
+          `No projects found for ${headCategory} in ${applicationEntity} category. Please select a different head category.`
+        );
+      }
     } catch (err) {
+      console.error("Error fetching projects:", err);
       showModal("error", err.message);
     } finally {
       setLoading(false);
@@ -505,6 +571,7 @@ const JudgeMarkingSystem = () => {
                     value={applicationEntity}
                     onChange={(e) => {
                       setApplicationEntity(e.target.value);
+                      setHeadCategory("");
                       setProjects([]);
                     }}
                     className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-blue-300 text-lg font-medium bg-gradient-to-r from-white to-blue-50"
@@ -518,11 +585,48 @@ const JudgeMarkingSystem = () => {
                   </select>
                 </div>
 
+                {/* ✅ UPDATED: Head Category Filter - Shows ALL categories */}
                 {applicationEntity && (
                   <div className="transform transition-all duration-300 animate-slideDown">
                     <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
                       <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">
                         2
+                      </span>
+                      Head Category <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      value={headCategory}
+                      onChange={(e) => {
+                        setHeadCategory(e.target.value);
+                        setProjects([]);
+                      }}
+                      className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-blue-300 text-lg font-medium bg-gradient-to-r from-white to-purple-50"
+                    >
+                      <option value="">Select Head Category</option>
+                      {allHeadCategories.map((cat) => (
+                        <option key={cat} value={cat}>
+                          {cat}
+                        </option>
+                      ))}
+                    </select>
+
+                    {/* ✅ FIX: Show helpful message when no projects exist for selected category */}
+                    {headCategory && projects.length === 0 && (
+                      <div className="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                        <p className="text-blue-700 text-sm">
+                          ℹ️ Select "{headCategory}" and click "Load Projects"
+                          to check for available projects.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {applicationEntity && headCategory && (
+                  <div className="transform transition-all duration-300 animate-slideDown">
+                    <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                      <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">
+                        3
                       </span>
                       Search Projects (Optional)
                     </label>
@@ -539,7 +643,7 @@ const JudgeMarkingSystem = () => {
                   </div>
                 )}
 
-                {applicationEntity && (
+                {applicationEntity && headCategory && (
                   <button
                     onClick={fetchProjects}
                     disabled={loading}
@@ -644,6 +748,26 @@ const JudgeMarkingSystem = () => {
                                   {project.contactPersonName}
                                 </span>
                               </div>
+                              {project.headCategory && (
+                                <div className="flex items-start gap-2">
+                                  <span className="font-semibold text-gray-700 min-w-20">
+                                    📂 Head Category:
+                                  </span>
+                                  <span className="text-gray-600">
+                                    {project.headCategory}
+                                  </span>
+                                </div>
+                              )}
+                              {project.solutionCategory && (
+                                <div className="flex items-start gap-2">
+                                  <span className="font-semibold text-gray-700 min-w-20">
+                                    🎯 Solution Category:
+                                  </span>
+                                  <span className="text-gray-600">
+                                    {project.solutionCategory}
+                                  </span>
+                                </div>
+                              )}
                               {project.companyProfile && (
                                 <div className="flex items-start gap-2">
                                   <span className="font-semibold text-gray-700 min-w-20">
@@ -700,6 +824,7 @@ const JudgeMarkingSystem = () => {
                 </button>
               </div>
 
+              {/* PROJECT INFORMATION - FIXED SECTION (removed duplicate) */}
               <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-5 mb-6 border-2 border-blue-100">
                 <h3 className="font-bold text-gray-900 mb-4 text-lg flex items-center gap-2">
                   <span className="bg-blue-600 text-white w-7 h-7 rounded-full flex items-center justify-center text-sm">
@@ -724,6 +849,17 @@ const JudgeMarkingSystem = () => {
                       {selectedProject.contactPersonName}
                     </span>
                   </div>
+                  {/* ✅ HEAD CATEGORY AND SOLUTION CATEGORY DISPLAY */}
+                  {selectedProject.headCategory && (
+                    <div className="flex items-center gap-2">
+                      <span className="font-semibold text-gray-700">
+                        📂 Head Category:
+                      </span>
+                      <span className="text-gray-600">
+                        {selectedProject.headCategory}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -742,6 +878,7 @@ const JudgeMarkingSystem = () => {
                         : "grid-cols-2 sm:grid-cols-2 md:grid-cols-4"
                     }`}
                   >
+                   
                     {selectedProject.applicationEntity === "Student" ? (
                       <>
                         {[
@@ -794,6 +931,7 @@ const JudgeMarkingSystem = () => {
                               value={marks[field] || ""}
                               onChange={(e) => {
                                 const value = e.target.value;
+                                // ✅ FIX: Only update if value is valid, no automatic rounding
                                 if (
                                   value === "" ||
                                   (parseFloat(value) >= 0 &&
@@ -802,18 +940,7 @@ const JudgeMarkingSystem = () => {
                                   setMarks({ ...marks, [field]: value });
                                 }
                               }}
-                              onBlur={(e) => {
-                                const value = parseFloat(e.target.value);
-                                if (!isNaN(value)) {
-                                  setMarks({
-                                    ...marks,
-                                    [field]: Math.min(
-                                      Math.max(0, value),
-                                      max
-                                    ).toFixed(2),
-                                  });
-                                }
-                              }}
+                              // ❌ REMOVED: onBlur handler that was causing automatic rounding
                               placeholder={`0-${max}`}
                               className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-center"
                             />
@@ -869,6 +996,7 @@ const JudgeMarkingSystem = () => {
                               value={marks[field] || ""}
                               onChange={(e) => {
                                 const value = e.target.value;
+                                // ✅ FIX: Only update if value is valid, no automatic rounding
                                 if (
                                   value === "" ||
                                   (parseFloat(value) >= 0 &&
@@ -877,18 +1005,7 @@ const JudgeMarkingSystem = () => {
                                   setMarks({ ...marks, [field]: value });
                                 }
                               }}
-                              onBlur={(e) => {
-                                const value = parseFloat(e.target.value);
-                                if (!isNaN(value)) {
-                                  setMarks({
-                                    ...marks,
-                                    [field]: Math.min(
-                                      Math.max(0, value),
-                                      max
-                                    ).toFixed(2),
-                                  });
-                                }
-                              }}
+                              // ❌ REMOVED: onBlur handler that was causing automatic rounding
                               placeholder={`0-${max}`}
                               className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all text-center"
                             />
