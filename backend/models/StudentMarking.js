@@ -10,6 +10,10 @@ const studentLeaderboardSchema = new mongoose.Schema(
     solutionName: String,
     organizationName: String,
 
+    // ✅ ADDED: Head Category and Solution Category
+    headCategory: String,
+    solutionCategory: String,
+
     // Contact person details
     contactPersonName: String,
     contactPersonMobile: String,

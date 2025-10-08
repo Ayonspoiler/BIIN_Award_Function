@@ -5,21 +5,43 @@ import { StudentLeaderboard } from "../models/StudentMarking.js";
 import { OrganisationLeaderboard } from "../models/OrganisationMarking.js";
 import { IndividualGroupLeaderboard } from "../models/IndividualGroupMarking.js";
 
-// Get registrations - NO HEAD CATEGORY NEEDED
-// Get registrations - Entity-based filtering ONLY
+// ✅ FIXED: Get registrations with applicationEntity AND headCategory filtering
+// In markingController.js - Update getRegistrations function
 export const getRegistrations = async (req, res) => {
   try {
-    const { applicationEntity, search } = req.body;
+    const { applicationEntity, headCategory, search } = req.body;
+
+    console.log("📥 Request received:", {
+      applicationEntity,
+      headCategory,
+      search,
+    });
 
     const filter = {};
 
-    // Only filter by applicationEntity - no head/solution category needed
-    if (applicationEntity) {
-      filter.applicationEntity = applicationEntity;
+    // Filter by applicationEntity
+    if (applicationEntity && applicationEntity.trim() !== "") {
+      filter.applicationEntity = applicationEntity.trim();
+    }
+
+    // ✅ FIX: Improved headCategory filtering with case-insensitive matching
+    if (headCategory && headCategory.trim() !== "" && headCategory !== "All") {
+      // Normalize the headCategory for consistent matching
+      let normalizedHeadCategory = headCategory.trim();
+      
+      // Handle common variations in category names
+      if (normalizedHeadCategory.toLowerCase().includes('business services')) {
+        normalizedHeadCategory = "Business Services (HC-BS)";
+      }
+      // Add other normalizations as needed
+      
+      filter.headCategory = { 
+        $regex: new RegExp(normalizedHeadCategory.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i') 
+      };
     }
 
     // Search functionality
-    if (search) {
+    if (search && search.trim() !== "") {
       filter.$or = [
         { solutionName: { $regex: search, $options: "i" } },
         { organizationName: { $regex: search, $options: "i" } },
@@ -27,8 +49,63 @@ export const getRegistrations = async (req, res) => {
       ];
     }
 
+    console.log("🔍 Applied Filter:", JSON.stringify(filter, null, 2));
+
     const registrations = await Registration.find(filter);
+
+    console.log(`✅ Found ${registrations.length} registrations`);
+
+    // Enhanced debugging for headCategory issues
+    if (registrations.length === 0 && headCategory) {
+      console.log("🔍 Debug: Checking what headCategory values exist in database...");
+      
+      const allWithSameEntity = await Registration.find({
+        applicationEntity: applicationEntity?.trim()
+      });
+      
+      const uniqueHeadCategories = [...new Set(allWithSameEntity.map(r => r.headCategory))].filter(Boolean);
+      console.log("📋 All headCategories for this applicationEntity:", uniqueHeadCategories);
+      
+      // Check if there's a case sensitivity issue
+      const matchingCategories = uniqueHeadCategories.filter(cat => 
+        cat.toLowerCase().includes(headCategory.toLowerCase())
+      );
+      console.log("🔍 Potentially matching categories (case-insensitive):", matchingCategories);
+    }
+
     res.json(registrations);
+  } catch (err) {
+    console.error("❌ Error in getRegistrations:", err);
+    res.status(500).json({ error: err.message });
+  }
+};
+// NEW: Get all unique head categories for a given application entity
+// In markingController.js - Update getHeadCategories function
+export const getHeadCategories = async (req, res) => {
+  try {
+    const { applicationEntity } = req.query;
+
+    const filter = {};
+    if (applicationEntity && applicationEntity !== "All") {
+      filter.applicationEntity = applicationEntity;
+    }
+
+    // ✅ FIX: Only get categories that actually have projects
+    const headCategories = await Registration.distinct("headCategory", filter);
+    
+    // ✅ FIX: Filter out null/empty and sort alphabetically
+    const filtered = headCategories
+      .filter((cat) => cat && cat.trim() !== "")
+      .sort((a, b) => a.localeCompare(b));
+
+    console.log(
+      `📊 Found ${filtered.length} unique head categories for ${
+        applicationEntity || "all entities"
+      }`
+    );
+    console.log("Categories:", filtered);
+
+    res.json(filtered);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -256,8 +333,8 @@ async function updateLeaderboard(projectId, applicationEntity, judge, project) {
       projectId,
       solutionName: project.solutionName,
       organizationName: project.organizationName,
-      headCategory: project.headCategory,
-      solutionCategory: project.solutionCategory,
+      headCategory: project.headCategory || "",
+      solutionCategory: project.solutionCategory || "",
       contactPersonName: project.contactPersonName,
       contactPersonMobile: project.contactPersonMobile,
       contactPersonEmail: project.contactPersonEmail,
@@ -270,50 +347,115 @@ async function updateLeaderboard(projectId, applicationEntity, judge, project) {
   );
 }
 
-// Get leaderboards
+// ✅ Get Student Leaderboard with filters
 export const getStudentLeaderboard = async (req, res) => {
   try {
-    const leaderboard = await StudentLeaderboard.find().sort({
+    const { headCategory, solutionCategory } = req.query;
+    const filter = {};
+
+    // ✅ FIX: Improved headCategory filtering with case-insensitive search
+    if (headCategory && headCategory.trim() !== "" && headCategory !== "All") {
+      filter.headCategory = {
+        $regex: new RegExp(
+          headCategory.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+          "i"
+        ),
+      };
+    }
+    if (
+      solutionCategory &&
+      solutionCategory.trim() !== "" &&
+      solutionCategory !== "All"
+    ) {
+      filter.solutionCategory = solutionCategory.trim();
+    }
+
+    console.log("🔍 Student Leaderboard Filter:", filter);
+
+    const leaderboard = await StudentLeaderboard.find(filter).sort({
       totalAverageMarks: -1,
     });
+
+    console.log(`📊 Found ${leaderboard.length} student leaderboard entries`);
     res.json(leaderboard);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
-
+// ✅ Get Organisation Leaderboard with filters
 export const getOrganisationLeaderboard = async (req, res) => {
   try {
     const { headCategory, solutionCategory } = req.query;
     const filter = {};
-    if (headCategory) filter.headCategory = headCategory;
-    if (solutionCategory) filter.solutionCategory = solutionCategory;
+
+    if (headCategory && headCategory.trim() !== "" && headCategory !== "All") {
+      filter.headCategory = {
+        $regex: new RegExp(
+          headCategory.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+          "i"
+        ),
+      };
+    }
+    if (
+      solutionCategory &&
+      solutionCategory.trim() !== "" &&
+      solutionCategory !== "All"
+    ) {
+      filter.solutionCategory = solutionCategory.trim();
+    }
+
+    console.log("🔍 Organisation Leaderboard Filter:", filter);
 
     const leaderboard = await OrganisationLeaderboard.find(filter).sort({
       totalAverageMarks: -1,
     });
+
+    console.log(
+      `📊 Found ${leaderboard.length} organisation leaderboard entries`
+    );
     res.json(leaderboard);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
+
+// ✅ Get Individual Group Leaderboard with filters
 export const getIndividualGroupLeaderboard = async (req, res) => {
   try {
     const { headCategory, solutionCategory } = req.query;
     const filter = {};
-    if (headCategory) filter.headCategory = headCategory;
-    if (solutionCategory) filter.solutionCategory = solutionCategory;
+
+    if (headCategory && headCategory.trim() !== "" && headCategory !== "All") {
+      filter.headCategory = {
+        $regex: new RegExp(
+          headCategory.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+          "i"
+        ),
+      };
+    }
+    if (
+      solutionCategory &&
+      solutionCategory.trim() !== "" &&
+      solutionCategory !== "All"
+    ) {
+      filter.solutionCategory = solutionCategory.trim();
+    }
+
+    console.log("🔍 Individual Group Leaderboard Filter:", filter);
 
     const leaderboard = await IndividualGroupLeaderboard.find(filter).sort({
       totalAverageMarks: -1,
     });
+
+    console.log(
+      `📊 Found ${leaderboard.length} individual/group leaderboard entries`
+    );
     res.json(leaderboard);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
-
 export const checkMarking = async (req, res) => {
   try {
     const { projectId } = req.params;

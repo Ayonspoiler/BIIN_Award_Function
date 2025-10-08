@@ -8,14 +8,20 @@ import {
   getOrganisationLeaderboard,
   getIndividualGroupLeaderboard,
   checkMarking,
+  getHeadCategories,
 } from "../controllers/markingController.js";
 
 const router = express.Router();
+
+// Public leaderboard routes
 router.get("/leaderboard/student", getStudentLeaderboard);
 router.get("/leaderboard/organisation", getOrganisationLeaderboard);
 router.get("/leaderboard/individual-group", getIndividualGroupLeaderboard);
 
-// All routes require authentication
+// NEW: Get unique head categories (for dropdown population)
+router.get("/head-categories", getHeadCategories);
+
+// All routes below require authentication
 router.use(authMiddleware);
 
 // Get registrations with filters and search
@@ -29,8 +35,5 @@ router.get("/check/:projectId", checkMarking);
 
 // Get individual markings for a project (all judges)
 router.get("/project/:projectId", getProjectMarkings);
-
-// Get leaderboards - Three separate categories
-
 
 export default router;
