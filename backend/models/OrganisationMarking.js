@@ -23,7 +23,7 @@ const organisationLeaderboardSchema = new mongoose.Schema(
         judgeEmail: String,
         marks: {
           uniqueness: { type: Number, default: 0 },
-          criteriaTwo: { type: Number, default: 0 },
+          marketPotentialValuePublic: { type: Number, default: 0 },
           functionalitiesFeatures: { type: Number, default: 0 },
           qualityTechnology: { type: Number, default: 0 },
         },
@@ -34,7 +34,7 @@ const organisationLeaderboardSchema = new mongoose.Schema(
 
     averageMarks: {
       uniqueness: { type: Number, default: 0 },
-      criteriaTwo: { type: Number, default: 0 },
+      marketPotentialValuePublic: { type: Number, default: 0 },
       functionalitiesFeatures: { type: Number, default: 0 },
       qualityTechnology: { type: Number, default: 0 },
     },

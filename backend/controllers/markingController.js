@@ -12,7 +12,7 @@ export const getRegistrations = async (req, res) => {
     const { applicationEntity, search } = req.body;
 
     const filter = {};
-    
+
     // Only filter by applicationEntity - no head/solution category needed
     if (applicationEntity) {
       filter.applicationEntity = applicationEntity;
@@ -176,7 +176,7 @@ async function updateLeaderboard(projectId, applicationEntity, judge, project) {
     LeaderboardModel = OrganisationLeaderboard;
     avgMarks = {
       uniqueness: 0,
-      criteriaTwo: 0,
+      marketPotentialValuePublic: 0,
       functionalitiesFeatures: 0,
       qualityTechnology: 0,
     };
@@ -187,7 +187,7 @@ async function updateLeaderboard(projectId, applicationEntity, judge, project) {
       judgeEmail: m.judgeId.email,
       marks: {
         uniqueness: parseFloat(m.organisationMarks.uniqueness) || 0,
-        criteriaTwo:
+        marketPotentialValuePublic:
           parseFloat(m.organisationMarks.marketPotentialValuePublic) || 0,
         functionalitiesFeatures:
           parseFloat(m.organisationMarks.functionalitiesFeatures) || 0,
@@ -200,7 +200,7 @@ async function updateLeaderboard(projectId, applicationEntity, judge, project) {
 
     allMarks.forEach((m) => {
       avgMarks.uniqueness += parseFloat(m.organisationMarks.uniqueness) || 0;
-      avgMarks.criteriaTwo +=
+      avgMarks.marketPotentialValuePublic +=
         parseFloat(m.organisationMarks.marketPotentialValuePublic) || 0;
       avgMarks.functionalitiesFeatures +=
         parseFloat(m.organisationMarks.functionalitiesFeatures) || 0;
@@ -211,7 +211,7 @@ async function updateLeaderboard(projectId, applicationEntity, judge, project) {
     LeaderboardModel = IndividualGroupLeaderboard;
     avgMarks = {
       uniqueness: 0,
-      criteriaTwo: 0,
+      marketPotentialValuePublic: 0,
       functionalitiesFeatures: 0,
       qualityTechnology: 0,
     };
@@ -222,7 +222,7 @@ async function updateLeaderboard(projectId, applicationEntity, judge, project) {
       judgeEmail: m.judgeId.email,
       marks: {
         uniqueness: parseFloat(m.individualGroupMarks.uniqueness) || 0,
-        criteriaTwo:
+        marketPotentialValuePublic:
           parseFloat(m.individualGroupMarks.marketPotentialValuePublic) || 0,
         functionalitiesFeatures:
           parseFloat(m.individualGroupMarks.functionalitiesFeatures) || 0,
@@ -235,7 +235,7 @@ async function updateLeaderboard(projectId, applicationEntity, judge, project) {
 
     allMarks.forEach((m) => {
       avgMarks.uniqueness += parseFloat(m.individualGroupMarks.uniqueness) || 0;
-      avgMarks.criteriaTwo +=
+      avgMarks.marketPotentialValuePublic +=
         parseFloat(m.individualGroupMarks.marketPotentialValuePublic) || 0;
       avgMarks.functionalitiesFeatures +=
         parseFloat(m.individualGroupMarks.functionalitiesFeatures) || 0;
