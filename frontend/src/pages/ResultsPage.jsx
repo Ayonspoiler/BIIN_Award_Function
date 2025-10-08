@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 // ✅ FIXED: Changed from https to http for local development
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "https://biin-award-function-rssj.onrender.com/api";
 
 const ResultsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("student");
