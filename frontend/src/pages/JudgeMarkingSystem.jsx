@@ -154,15 +154,37 @@ const JudgeMarkingSystem = () => {
     }
   };
 
-  useEffect(() => {
-    const savedToken = localStorage.getItem("judgeToken");
-    const savedJudge = localStorage.getItem("judgeInfo");
-    if (savedToken && savedJudge) {
-      setToken(savedToken);
-      setJudgeInfo(JSON.parse(savedJudge));
-      setIsAuthenticated(true);
-    }
-  }, []);
+ useEffect(() => {
+   // ✅ FIX: Try to restore session on mount
+   const restoreSession = () => {
+     try {
+       const savedToken = localStorage.getItem("judgeToken");
+       const savedJudge = localStorage.getItem("judgeInfo");
+
+       console.log("Restoring session:", {
+         hasToken: !!savedToken,
+         hasJudge: !!savedJudge,
+       });
+
+       if (savedToken && savedJudge) {
+         const judgeData = JSON.parse(savedJudge);
+         setToken(savedToken);
+         setJudgeInfo(judgeData);
+         setIsAuthenticated(true);
+         console.log("Session restored successfully");
+       } else {
+         console.log("No saved session found");
+       }
+     } catch (error) {
+       console.error("Error restoring session:", error);
+       // Clear corrupted data
+       localStorage.removeItem("judgeToken");
+       localStorage.removeItem("judgeInfo");
+     }
+   };
+
+   restoreSession();
+ }, []);
 
   const showModal = (type, message) => {
     setModal({ isOpen: true, type, message });
@@ -189,37 +211,48 @@ const JudgeMarkingSystem = () => {
     return data;
   };
 
-  const handleAuth = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+ const handleAuth = async (e) => {
+   e.preventDefault();
+   setLoading(true);
 
-    try {
-      const endpoint =
-        authMode === "login" ? "/judges/login" : "/judges/signup";
-      const data = await apiCall(endpoint, "POST", authForm);
+   try {
+     const endpoint = authMode === "login" ? "/judges/login" : "/judges/signup";
+     const data = await apiCall(endpoint, "POST", authForm);
 
-      if (authMode === "login") {
-        setToken(data.token);
-        setJudgeInfo(data.judge);
-        localStorage.setItem("judgeToken", data.token);
-        localStorage.setItem("judgeInfo", JSON.stringify(data.judge));
-        setIsAuthenticated(true);
-        showModal("success", "Welcome back! You've successfully logged in.");
-      } else {
-        showModal(
-          "success",
-          "Registration successful! Please login to continue."
-        );
-        setAuthMode("login");
-        setAuthForm({ name: "", email: "", password: "" });
-      }
-    } catch (err) {
-      showModal("error", err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+     if (authMode === "login") {
+       // FIX: Store in localStorage FIRST, then update state
+       localStorage.setItem("judgeToken", data.token);
+       localStorage.setItem("judgeInfo", JSON.stringify(data.judge));
 
+       // FIX: Use a small delay to ensure localStorage is written
+       await new Promise((resolve) => setTimeout(resolve, 100));
+
+       //  FIX: Update state after localStorage is confirmed
+       setToken(data.token);
+       setJudgeInfo(data.judge);
+       setIsAuthenticated(true);
+
+       //  FIX: Close modal automatically after success
+       showModal("success", "Welcome back! You've successfully logged in.");
+
+       //  FIX: Auto-close modal and ensure authentication state is set
+       setTimeout(() => {
+         closeModal();
+       }, 1500);
+     } else {
+       showModal(
+         "success",
+         "Registration successful! Please login to continue."
+       );
+       setAuthMode("login");
+       setAuthForm({ name: "", email: "", password: "" });
+     }
+   } catch (err) {
+     showModal("error", err.message);
+   } finally {
+     setLoading(false);
+   }
+ };
   const handleLogout = () => {
     localStorage.clear();
     setIsAuthenticated(false);
