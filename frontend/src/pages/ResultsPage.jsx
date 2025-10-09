@@ -277,9 +277,8 @@ const ResultsPage = () => {
           .map(
             (judge, idx) => `
           <div style="text-align: center; margin-bottom: 20px;">
+           <div style="border-bottom: 2px solid #000; height: 30px; width: 200px; margin: 10px auto;"></div>
             <div style="font-weight: bold; font-size: 14px; margin-bottom: 5px;">${judge.name}</div>
-            <div style="border-bottom: 2px solid #000; height: 30px; width: 200px; margin: 10px auto;"></div>
-            <div style="font-size: 10px; color: #999;">Signature</div>
           </div>
         `
           )
