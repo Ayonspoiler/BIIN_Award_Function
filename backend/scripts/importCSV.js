@@ -17,36 +17,38 @@ const importCSV = async () => {
   fs.createReadStream(filePath)
     .pipe(csv())
     .on("headers", (headerList) => {
-      // Capture headers to debug column names
       headers = headerList;
-      console.log("CSV Headers found:");
+      console.log("📋 CSV Headers found:");
       headerList.forEach((header, index) => {
         console.log(`${index}: "${header}" (length: ${header.length})`);
       });
     })
     .on("data", (data) => {
-      // Debug first row to see actual data
       if (results.length === 0) {
-        console.log("\nFirst row data:");
+        console.log("\n🧾 First row sample data:");
         console.log(JSON.stringify(data, null, 2));
       }
       results.push(data);
     })
     .on("end", async () => {
-      console.log(`\nTotal rows to import: ${results.length}`);
+      console.log(`\n📦 Total rows to import: ${results.length}`);
+
+      let addedCount = 0;
+      let skippedCount = 0;
+      let errorCount = 0;
 
       try {
         for (let i = 0; i < results.length; i++) {
           const row = results[i];
 
-          // Trim all string values to remove extra whitespace
+          // Trim all string values
           const trimmedRow = {};
           Object.keys(row).forEach((key) => {
             trimmedRow[key] =
               typeof row[key] === "string" ? row[key].trim() : row[key];
           });
 
-          // Try multiple possible column name variations
+          // Handle possible variations in column names
           const organizationName =
             trimmedRow["Name of Organization / Individual"] ||
             trimmedRow["Name of Organization/ Individual"] ||
@@ -92,36 +94,82 @@ const importCSV = async () => {
               trimmedRow["Quality / Application of Technology"] || "",
           };
 
-          // Debug organizations with empty names
+          // Validate required fields
           if (
-            registrationData.applicationEntity === "Organisation" &&
-            !registrationData.organizationName
+            !registrationData.solutionName ||
+            !registrationData.applicationEntity
           ) {
-            console.log(`\n⚠️ Row ${i + 1}: Organisation with empty name`);
-            console.log("Solution Name:", registrationData.solutionName);
             console.log(
-              "Available fields:",
-              Object.keys(trimmedRow).filter((k) => trimmedRow[k])
+              `\n Row ${
+                i + 1
+              }: Missing critical data (solution name or entity)`
             );
+            errorCount++;
+            continue;
           }
 
-          await Registration.create(registrationData);
+          try {
+            //  Check for duplicate based on: applicationEntity + headCategory + solutionName
+            // This ensures same solution name under same entity/category is considered duplicate
+            const filter = {
+              applicationEntity: registrationData.applicationEntity,
+              headCategory: registrationData.headCategory,
+              solutionName: registrationData.solutionName,
+            };
 
+            const existing = await Registration.findOne(filter);
+
+            if (existing) {
+              console.log(
+                ` Row ${i + 1}: Duplicate found - "${
+                  registrationData.solutionName
+                }" ` +
+                  `(${registrationData.applicationEntity} / ${registrationData.headCategory})`
+              );
+              console.log(
+                `   Existing ID: ${existing._id} | Marks preserved `
+              );
+              skippedCount++;
+            } else {
+              //  Create new record - pre-save hook will handle organizationName
+              await Registration.create(registrationData);
+              console.log(
+                ` Row ${i + 1}: Added - "${registrationData.solutionName}" ` +
+                  `(${registrationData.applicationEntity} / ${registrationData.headCategory})`
+              );
+              addedCount++;
+            }
+          } catch (itemError) {
+            console.error(` Row ${i + 1}: Error -`, itemError.message);
+            errorCount++;
+          }
+
+          // Progress indicator
           if ((i + 1) % 10 === 0) {
-            console.log(`Imported ${i + 1} / ${results.length} records...`);
+            console.log(
+              `\n Progress: ${i + 1} / ${results.length} processed`
+            );
           }
         }
 
-        console.log("\n✅ CSV Data imported successfully!");
-        console.log(`Total records imported: ${results.length}`);
+        // Final summary
+        console.log("\n" + "=".repeat(60));
+        console.log(" CSV IMPORT COMPLETE");
+        console.log("=".repeat(60));
+        console.log(` Total rows processed: ${results.length}`);
+        console.log(` New records added: ${addedCount}`);
+        console.log(` Duplicates skipped: ${skippedCount}`);
+        console.log(` Errors: ${errorCount}`);
+        console.log("=".repeat(60));
+
         process.exit(0);
       } catch (error) {
-        console.error("❌ Error importing data:", error);
+        console.error("\n FATAL ERROR during import:", error);
         process.exit(1);
       }
     })
     .on("error", (error) => {
-      console.error("❌ Error reading CSV file:", error);
+      console.error(" Error reading CSV file:", error);
       process.exit(1);
     });
 };

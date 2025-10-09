@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FileText,
   Printer,
@@ -154,35 +154,35 @@ const ResultsPage = () => {
     return selectedCategory === "student" ? 50 : 40;
   };
 
- const handlePrint = () => {
-   const data = getCurrentData();
-   if (!data || data.length === 0) {
-     alert("No data available to print");
-     return;
-   }
+  const handlePrint = () => {
+    const data = getCurrentData();
+    if (!data || data.length === 0) {
+      alert("No data available to print");
+      return;
+    }
 
-   // Get unique judges from all projects in current filter
-   const allJudgesMap = new Map();
-   data.forEach((entry) => {
-     if (entry.judgeMarks && entry.judgeMarks.length > 0) {
-       entry.judgeMarks.forEach((judge) => {
-         if (judge.judgeId && judge.judgeName) {
-           allJudgesMap.set(judge.judgeId.toString(), {
-             name: judge.judgeName,
-             email: judge.judgeEmail || "N/A",
-           });
-         }
-       });
-     }
-   });
-   const allJudges = Array.from(allJudgesMap.values());
+    // Get unique judges from all projects in current filter
+    const allJudgesMap = new Map();
+    data.forEach((entry) => {
+      if (entry.judgeMarks && entry.judgeMarks.length > 0) {
+        entry.judgeMarks.forEach((judge) => {
+          if (judge.judgeId && judge.judgeName) {
+            allJudgesMap.set(judge.judgeId.toString(), {
+              name: judge.judgeName,
+              email: judge.judgeEmail || "N/A",
+            });
+          }
+        });
+      }
+    });
+    const allJudges = Array.from(allJudgesMap.values());
 
-   const printContainer = document.createElement("div");
-   printContainer.className = "printable-content";
-   printContainer.style.cssText =
-     "background: white; color: black; font-family: Arial, sans-serif; font-size: 12px; padding: 30px;";
+    const printContainer = document.createElement("div");
+    printContainer.className = "printable-content";
+    printContainer.style.cssText =
+      "background: white; color: black; font-family: Arial, sans-serif; font-size: 12px; padding: 30px;";
 
-   let content = `
+    let content = `
     <div style="text-align: center; margin-bottom: 40px;">
       <h1 style="font-size: 28px; color: #1a365d;">Bangladesh ICT & Innovation Awards 2025</h1>
       <h2 style="font-size: 20px; color: #2d3748;">
@@ -227,8 +227,8 @@ const ResultsPage = () => {
       <tbody>
   `;
 
-   data.forEach((entry, i) => {
-     content += `
+    data.forEach((entry, i) => {
+      content += `
       <tr>
         <td style="border: 1px solid #000; padding: 6px;">${i + 1}</td>
         <td style="border: 1px solid #000; padding: 6px; font-weight: bold;">${
@@ -261,13 +261,13 @@ const ResultsPage = () => {
         )}%</td>
       </tr>
     `;
-   });
+    });
 
-   content += `</tbody></table>`;
+    content += `</tbody></table>`;
 
-   // Add judges signature section for first page
- if (allJudges.length > 0) {
-   content += `
+    // Add judges signature section for first page
+    if (allJudges.length > 0) {
+      content += `
     <div style="margin-top: 50px; page-break-inside: avoid;">
       <h3 style="font-size: 18px; color: #1a365d; margin-bottom: 20px; padding-bottom: 10px;">
         Judge Panel Signatures 
@@ -287,16 +287,16 @@ const ResultsPage = () => {
       </div>
     </div>
   `;
- }
+    }
 
-   content += `<h2 style="margin-top: 40px; border-top: 2px solid #333; padding-top: 20px; page-break-before: always;">Detailed Project Reports</h2>`;
+    content += `<h2 style="margin-top: 40px; border-top: 2px solid #333; padding-top: 20px; page-break-before: always;">Detailed Project Reports</h2>`;
 
-   data.forEach((entry, index) => {
-     content += `
+    data.forEach((entry, index) => {
+      content += `
       <div style="margin-top: 40px; page-break-before: always;">
         <h3 style="color: #1e3a8a;">${index + 1}. ${
-       entry.solutionName || "N/A"
-     }</h3>
+        entry.solutionName || "N/A"
+      }</h3>
         <p><strong>Organization:</strong> ${entry.organizationName || "N/A"}</p>
         <p><strong>Category:</strong> ${
           selectedCategory === "student"
@@ -310,41 +310,41 @@ const ResultsPage = () => {
         <p><strong>Average Score:</strong> ${safeToFixed(
           entry.totalAverageMarks
         )} | <strong>Percentage:</strong> ${safeToFixed(
-       entry.percentageMarks,
-       2
-     )}%</p>
+        entry.percentageMarks,
+        2
+      )}%</p>
     `;
 
-     if (entry.judgeMarks && entry.judgeMarks.length > 0) {
-       content += `<table style="width: 100%; border-collapse: collapse; margin-top: 15px;"><thead><tr><th style="border: 1px solid #000; padding: 6px;">Judge Name</th><th style="border: 1px solid #000; padding: 6px;">Email</th>`;
+      if (entry.judgeMarks && entry.judgeMarks.length > 0) {
+        content += `<table style="width: 100%; border-collapse: collapse; margin-top: 15px;"><thead><tr><th style="border: 1px solid #000; padding: 6px;">Judge Name</th><th style="border: 1px solid #000; padding: 6px;">Email</th>`;
 
-       if (selectedCategory === "student") {
-         content += `<th style="border: 1px solid #000; padding: 6px;">Uniqueness</th><th style="border: 1px solid #000; padding: 6px;">Proof of Concept</th><th style="border: 1px solid #000; padding: 6px;">Features</th><th style="border: 1px solid #000; padding: 6px;">Quality</th><th style="border: 1px solid #000; padding: 6px;">Presentation</th>`;
-       } else {
-         content += `
+        if (selectedCategory === "student") {
+          content += `<th style="border: 1px solid #000; padding: 6px;">Uniqueness</th><th style="border: 1px solid #000; padding: 6px;">Proof of Concept</th><th style="border: 1px solid #000; padding: 6px;">Features</th><th style="border: 1px solid #000; padding: 6px;">Quality</th><th style="border: 1px solid #000; padding: 6px;">Presentation</th>`;
+        } else {
+          content += `
           <th style="border: 1px solid #000; padding: 6px;">Uniqueness</th>
           <th style="border: 1px solid #000; padding: 6px;">Market/Public Value</th>
           <th style="border: 1px solid #000; padding: 6px;">Features</th>
           <th style="border: 1px solid #000; padding: 6px;">Quality & Tech</th>
         `;
-       }
+        }
 
-       content += `<th style="border: 1px solid #000; padding: 6px;">Total Marks</th><th style="border: 1px solid #000; padding: 6px;">Percentage</th></tr></thead><tbody>`;
+        content += `<th style="border: 1px solid #000; padding: 6px;">Total Marks</th><th style="border: 1px solid #000; padding: 6px;">Percentage</th></tr></thead><tbody>`;
 
-       entry.judgeMarks.forEach((judge, jIndex) => {
-         const judgePercentage =
-           selectedCategory === "student"
-             ? (judge.totalMarks / 50) * 100
-             : (judge.totalMarks / 40) * 100;
+        entry.judgeMarks.forEach((judge, jIndex) => {
+          const judgePercentage =
+            selectedCategory === "student"
+              ? (judge.totalMarks / 50) * 100
+              : (judge.totalMarks / 40) * 100;
 
-         content += `<tr><td style="border: 1px solid #000; padding: 6px;">${
-           judge.judgeName || "Judge " + (jIndex + 1)
-         }</td><td style="border: 1px solid #000; padding: 6px;">${
-           judge.judgeEmail || "N/A"
-         }</td>`;
+          content += `<tr><td style="border: 1px solid #000; padding: 6px;">${
+            judge.judgeName || "Judge " + (jIndex + 1)
+          }</td><td style="border: 1px solid #000; padding: 6px;">${
+            judge.judgeEmail || "N/A"
+          }</td>`;
 
-         if (selectedCategory === "student") {
-           content += `
+          if (selectedCategory === "student") {
+            content += `
             <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
               judge.marks?.uniqueness || "0"
             }</td>
@@ -361,8 +361,8 @@ const ResultsPage = () => {
               judge.marks?.presentation || "0"
             }</td>
           `;
-         } else {
-           content += `
+          } else {
+            content += `
             <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
               judge.marks?.uniqueness || "0"
             }</td>
@@ -376,20 +376,20 @@ const ResultsPage = () => {
               judge.marks?.qualityTechnology || "0"
             }</td>
           `;
-         }
+          }
 
-         content += `<td style="border: 1px solid #000; padding: 6px; text-align: center; font-weight: bold;">${safeToFixed(
-           judge.totalMarks
-         )} / ${getTotalMarks()}</td><td style="border: 1px solid #000; padding: 6px; text-align: center; font-weight: bold;">${safeToFixed(
-           judgePercentage,
-           2
-         )}%</td></tr>`;
-       });
+          content += `<td style="border: 1px solid #000; padding: 6px; text-align: center; font-weight: bold;">${safeToFixed(
+            judge.totalMarks
+          )} / ${getTotalMarks()}</td><td style="border: 1px solid #000; padding: 6px; text-align: center; font-weight: bold;">${safeToFixed(
+            judgePercentage,
+            2
+          )}%</td></tr>`;
+        });
 
-       content += `</tbody></table>`;
-     }
+        content += `</tbody></table>`;
+      }
 
-     content += `
+      content += `
       <div style="margin-top: 30px; page-break-inside: avoid;">
         <h4>Judge Signatures for This Project</h4>
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 15px;">
@@ -409,13 +409,13 @@ const ResultsPage = () => {
         </div>
       </div>
     </div>`;
-   });
+    });
 
-   printContainer.innerHTML = content;
-   document.body.appendChild(printContainer);
+    printContainer.innerHTML = content;
+    document.body.appendChild(printContainer);
 
-   const style = document.createElement("style");
-   style.innerHTML = `
+    const style = document.createElement("style");
+    style.innerHTML = `
     @media print {
       body * { visibility: hidden; }
       .printable-content, .printable-content * { visibility: visible; }
@@ -425,15 +425,15 @@ const ResultsPage = () => {
       table, tr, td, th { page-break-inside: avoid !important; }
     }
   `;
-   document.head.appendChild(style);
+    document.head.appendChild(style);
 
-   window.print();
+    window.print();
 
-   setTimeout(() => {
-     document.body.removeChild(printContainer);
-     document.head.removeChild(style);
-   }, 1000);
- };
+    setTimeout(() => {
+      document.body.removeChild(printContainer);
+      document.head.removeChild(style);
+    }, 1000);
+  };
   const data = getCurrentData();
 
   const getRankIcon = (index) => {

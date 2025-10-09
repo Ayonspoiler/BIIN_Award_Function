@@ -13,7 +13,7 @@ import {
 
 const API_BASE = "https://biin-award-function-rssj.onrender.com/api";
 
-// ✅ KEEP ALL HEAD CATEGORIES - Don't remove any options
+//  KEEP ALL HEAD CATEGORIES - Don't remove any options
 const allHeadCategories = [
   "Consumer (HC-C)",
   "Industrial (HC-I)",
@@ -126,7 +126,7 @@ const JudgeMarkingSystem = () => {
     }
   }, [applicationEntity]);
 
-  // ✅ UPDATED: Show ALL categories but track which ones have projects
+  //  UPDATED: Show ALL categories but track which ones have projects
   const fetchHeadCategories = async () => {
     try {
       const response = await fetch(
@@ -140,12 +140,12 @@ const JudgeMarkingSystem = () => {
       const data = await response.json();
       console.log("Available head categories with projects:", data);
 
-      // ✅ FIX: Always show ALL categories, but we'll track which ones have projects
+      // FIX: Always show ALL categories, but we'll track which ones have projects
       const categoriesWithProjects = Array.isArray(data) ? data : [];
 
       console.log("Categories with projects:", categoriesWithProjects);
 
-      // ✅ IMPORTANT: Always set to ALL categories, don't filter out any
+      //  IMPORTANT: Always set to ALL categories, don't filter out any
       setAvailableHeadCategories(allHeadCategories);
     } catch (err) {
       console.error("Error fetching head categories:", err);
@@ -154,37 +154,37 @@ const JudgeMarkingSystem = () => {
     }
   };
 
- useEffect(() => {
-   // ✅ FIX: Try to restore session on mount
-   const restoreSession = () => {
-     try {
-       const savedToken = localStorage.getItem("judgeToken");
-       const savedJudge = localStorage.getItem("judgeInfo");
+  useEffect(() => {
+    //  FIX: Try to restore session on mount
+    const restoreSession = () => {
+      try {
+        const savedToken = localStorage.getItem("judgeToken");
+        const savedJudge = localStorage.getItem("judgeInfo");
 
-       console.log("Restoring session:", {
-         hasToken: !!savedToken,
-         hasJudge: !!savedJudge,
-       });
+        console.log("Restoring session:", {
+          hasToken: !!savedToken,
+          hasJudge: !!savedJudge,
+        });
 
-       if (savedToken && savedJudge) {
-         const judgeData = JSON.parse(savedJudge);
-         setToken(savedToken);
-         setJudgeInfo(judgeData);
-         setIsAuthenticated(true);
-         console.log("Session restored successfully");
-       } else {
-         console.log("No saved session found");
-       }
-     } catch (error) {
-       console.error("Error restoring session:", error);
-       // Clear corrupted data
-       localStorage.removeItem("judgeToken");
-       localStorage.removeItem("judgeInfo");
-     }
-   };
+        if (savedToken && savedJudge) {
+          const judgeData = JSON.parse(savedJudge);
+          setToken(savedToken);
+          setJudgeInfo(judgeData);
+          setIsAuthenticated(true);
+          console.log("Session restored successfully");
+        } else {
+          console.log("No saved session found");
+        }
+      } catch (error) {
+        console.error("Error restoring session:", error);
+        // Clear corrupted data
+        localStorage.removeItem("judgeToken");
+        localStorage.removeItem("judgeInfo");
+      }
+    };
 
-   restoreSession();
- }, []);
+    restoreSession();
+  }, []);
 
   const showModal = (type, message) => {
     setModal({ isOpen: true, type, message });
@@ -211,48 +211,49 @@ const JudgeMarkingSystem = () => {
     return data;
   };
 
- const handleAuth = async (e) => {
-   e.preventDefault();
-   setLoading(true);
+  const handleAuth = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-   try {
-     const endpoint = authMode === "login" ? "/judges/login" : "/judges/signup";
-     const data = await apiCall(endpoint, "POST", authForm);
+    try {
+      const endpoint =
+        authMode === "login" ? "/judges/login" : "/judges/signup";
+      const data = await apiCall(endpoint, "POST", authForm);
 
-     if (authMode === "login") {
-       // FIX: Store in localStorage FIRST, then update state
-       localStorage.setItem("judgeToken", data.token);
-       localStorage.setItem("judgeInfo", JSON.stringify(data.judge));
+      if (authMode === "login") {
+        // FIX: Store in localStorage FIRST, then update state
+        localStorage.setItem("judgeToken", data.token);
+        localStorage.setItem("judgeInfo", JSON.stringify(data.judge));
 
-       // FIX: Use a small delay to ensure localStorage is written
-       await new Promise((resolve) => setTimeout(resolve, 100));
+        // FIX: Use a small delay to ensure localStorage is written
+        await new Promise((resolve) => setTimeout(resolve, 100));
 
-       //  FIX: Update state after localStorage is confirmed
-       setToken(data.token);
-       setJudgeInfo(data.judge);
-       setIsAuthenticated(true);
+        //  FIX: Update state after localStorage is confirmed
+        setToken(data.token);
+        setJudgeInfo(data.judge);
+        setIsAuthenticated(true);
 
-       //  FIX: Close modal automatically after success
-       showModal("success", "Welcome back! You've successfully logged in.");
+        //  FIX: Close modal automatically after success
+        showModal("success", "Welcome back! You've successfully logged in.");
 
-       //  FIX: Auto-close modal and ensure authentication state is set
-       setTimeout(() => {
-         closeModal();
-       }, 1500);
-     } else {
-       showModal(
-         "success",
-         "Registration successful! Please login to continue."
-       );
-       setAuthMode("login");
-       setAuthForm({ name: "", email: "", password: "" });
-     }
-   } catch (err) {
-     showModal("error", err.message);
-   } finally {
-     setLoading(false);
-   }
- };
+        //  FIX: Auto-close modal and ensure authentication state is set
+        setTimeout(() => {
+          closeModal();
+        }, 1500);
+      } else {
+        showModal(
+          "success",
+          "Registration successful! Please login to continue."
+        );
+        setAuthMode("login");
+        setAuthForm({ name: "", email: "", password: "" });
+      }
+    } catch (err) {
+      showModal("error", err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
   const handleLogout = () => {
     localStorage.clear();
     setIsAuthenticated(false);
@@ -618,7 +619,7 @@ const JudgeMarkingSystem = () => {
                   </select>
                 </div>
 
-                {/* ✅ UPDATED: Head Category Filter - Shows ALL categories */}
+                {/*  UPDATED: Head Category Filter - Shows ALL categories */}
                 {applicationEntity && (
                   <div className="transform transition-all duration-300 animate-slideDown">
                     <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
@@ -643,7 +644,7 @@ const JudgeMarkingSystem = () => {
                       ))}
                     </select>
 
-                    {/* ✅ FIX: Show helpful message when no projects exist for selected category */}
+                    {/*  FIX: Show helpful message when no projects exist for selected category */}
                     {headCategory && projects.length === 0 && (
                       <div className="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg">
                         <p className="text-blue-700 text-sm">
@@ -911,7 +912,6 @@ const JudgeMarkingSystem = () => {
                         : "grid-cols-2 sm:grid-cols-2 md:grid-cols-4"
                     }`}
                   >
-                   
                     {selectedProject.applicationEntity === "Student" ? (
                       <>
                         {[
