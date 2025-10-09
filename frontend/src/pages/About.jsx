@@ -275,7 +275,7 @@ useEffect(() => {
                 </li>
                 <li className="flex items-start">
                   <span className="font-semibold text-gray-900 min-w-[180px]">
-                    October 10–11, 2025
+                    October 9–11, 2025
                   </span>
                   <span className="text-gray-600">
                     Pitching & Judging Sessions - Finalists present their
@@ -286,7 +286,7 @@ useEffect(() => {
                 </li>
                 <li className="flex items-start">
                   <span className="font-semibold text-gray-900 min-w-[180px]">
-                    October 2025
+                    October 16, 2025
                   </span>
                   <span className="text-gray-600">
                     Awards Ceremony - Date and venue to be announced. Winners
