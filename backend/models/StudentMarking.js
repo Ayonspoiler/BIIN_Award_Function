@@ -10,7 +10,7 @@ const studentLeaderboardSchema = new mongoose.Schema(
     solutionName: String,
     organizationName: String,
 
-    // ✅ ADDED: Head Category and Solution Category
+    // ADDED: Head Category and Solution Category
     headCategory: String,
     solutionCategory: String,
 
@@ -47,6 +47,7 @@ const studentLeaderboardSchema = new mongoose.Schema(
     },
 
     totalAverageMarks: { type: Number, default: 0 },
+    percentageMarks: { type: Number, default: 0 },
     numberOfJudges: { type: Number, default: 0 },
   },
   { timestamps: true }

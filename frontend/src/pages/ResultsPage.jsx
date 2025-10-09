@@ -154,225 +154,286 @@ const ResultsPage = () => {
     return selectedCategory === "student" ? 50 : 40;
   };
 
-  const handlePrint = () => {
-    const data = getCurrentData();
-    if (!data || data.length === 0) {
-      alert("No data available to print");
-      return;
-    }
+ const handlePrint = () => {
+   const data = getCurrentData();
+   if (!data || data.length === 0) {
+     alert("No data available to print");
+     return;
+   }
 
-    const printContainer = document.createElement("div");
-    printContainer.className = "printable-content";
-    printContainer.style.cssText =
-      "background: white; color: black; font-family: Arial, sans-serif; font-size: 12px; padding: 30px;";
+   // Get unique judges from all projects in current filter
+   const allJudgesMap = new Map();
+   data.forEach((entry) => {
+     if (entry.judgeMarks && entry.judgeMarks.length > 0) {
+       entry.judgeMarks.forEach((judge) => {
+         if (judge.judgeId && judge.judgeName) {
+           allJudgesMap.set(judge.judgeId.toString(), {
+             name: judge.judgeName,
+             email: judge.judgeEmail || "N/A",
+           });
+         }
+       });
+     }
+   });
+   const allJudges = Array.from(allJudgesMap.values());
 
-    let content = `
-       <div style="text-align: center; margin-bottom: 40px;">
-    <h1 style="font-size: 28px; color: #1a365d;">Bangladesh ICT & Innovation Awards 2025</h1>
-    <h2 style="font-size: 20px; color: #2d3748;">
-      ${
-        selectedCategory === "student"
-          ? "Student Category Results"
-          : selectedCategory === "organisation"
-          ? "Organisation Category Results"
-          : "Individual/Group Category Results"
-      }
-      ${
-        filters.headCategory
-          ? `<br><span style="font-size: 18px; color: #4a5568; margin-top: 10px; display: block;">${filters.headCategory}</span>`
-          : ""
-      }
-      ${
-        filters.solutionCategory
-          ? `<br><span style="font-size: 16px; color: #718096;">${filters.solutionCategory}</span>`
-          : ""
-      }
-    </h2>
-    <p>Generated on: ${new Date().toLocaleDateString()}</p>
-  </div>
+   const printContainer = document.createElement("div");
+   printContainer.className = "printable-content";
+   printContainer.style.cssText =
+     "background: white; color: black; font-family: Arial, sans-serif; font-size: 12px; padding: 30px;";
 
-      <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
-        <thead>
-          <tr>
-            <th style="border: 1px solid #000; padding: 8px;">Rank</th>
-            <th style="border: 1px solid #000; padding: 8px;">Solution Name</th>
-            <th style="border: 1px solid #000; padding: 8px;">Organization</th>
-            <th style="border: 1px solid #000; padding: 8px;">${
-              selectedCategory === "student" ? "Contact" : "Category"
-            }</th>
-            <th style="border: 1px solid #000; padding: 8px;">Judges</th>
-            <th style="border: 1px solid #000; padding: 8px;">Avg Score</th>
-          </tr>
-        </thead>
-        <tbody>
-    `;
-
-    data.forEach((entry, i) => {
-      content += `
-        <tr>
-          <td style="border: 1px solid #000; padding: 6px;">${i + 1}</td>
-          <td style="border: 1px solid #000; padding: 6px; font-weight: bold;">${
-            entry.solutionName || "N/A"
-          }</td>
-          <td style="border: 1px solid #000; padding: 6px;">${
-            entry.organizationName || "N/A"
-          }</td>
-          <td style="border: 1px solid #000; padding: 6px;">
-            ${
-              selectedCategory === "student"
-                ? `${entry.contactPersonName || "N/A"}<br>${
-                    entry.contactPersonEmail || ""
-                  }`
-                : `${entry.headCategory || "N/A"}<br>${
-                    entry.solutionCategory || ""
-                  }`
-            }
-          </td>
-          <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
-            entry.numberOfJudges || 0
-          }</td>
-          <td style="border: 1px solid #000; padding: 6px; text-align: center;">${safeToFixed(
-            entry.totalAverageMarks
-          )}</td>
-        </tr>
-      `;
-    });
-
-    content += `</tbody></table><h2 style="margin-top: 40px; border-top: 2px solid #333; padding-top: 20px;">Detailed Project Reports</h2>`;
-
-    data.forEach((entry, index) => {
-      content += `
-        <div style="margin-top: 40px; page-break-before: always;">
-          <h3 style="color: #1e3a8a;">${index + 1}. ${
-        entry.solutionName || "N/A"
-      }</h3>
-          <p><strong>Organization:</strong> ${
-            entry.organizationName || "N/A"
-          }</p>
-          <p><strong>Category:</strong> ${
-            selectedCategory === "student"
-              ? `${entry.contactPersonName || ""} (${
-                  entry.contactPersonEmail || ""
-                })`
-              : `${entry.headCategory || "N/A"} / ${
-                  entry.solutionCategory || "N/A"
-                }`
-          }</p>
-          <p><strong>Average Score:</strong> ${safeToFixed(
-            entry.totalAverageMarks
-          )}</p>
-      `;
-
-      if (entry.judgeMarks && entry.judgeMarks.length > 0) {
-        content += `<table style="width: 100%; border-collapse: collapse; margin-top: 15px;"><thead><tr><th style="border: 1px solid #000; padding: 6px;">Judge Name</th><th style="border: 1px solid #000; padding: 6px;">Email</th>`;
-
-        if (selectedCategory === "student") {
-          content += `<th style="border: 1px solid #000; padding: 6px;">Uniqueness</th><th style="border: 1px solid #000; padding: 6px;">Proof of Concept</th><th style="border: 1px solid #000; padding: 6px;">Features</th><th style="border: 1px solid #000; padding: 6px;">Quality</th><th style="border: 1px solid #000; padding: 6px;">Presentation</th>`;
-        } else {
-          content += `
-            <th style="border: 1px solid #000; padding: 6px;">Uniqueness</th>
-            <th style="border: 1px solid #000; padding: 6px;">Public or Govt/Market Potential</th>
-            <th style="border: 1px solid #000; padding: 6px;">Features</th>
-            <th style="border: 1px solid #000; padding: 6px;">Quality & Tech</th>
-          `;
+   let content = `
+    <div style="text-align: center; margin-bottom: 40px;">
+      <h1 style="font-size: 28px; color: #1a365d;">Bangladesh ICT & Innovation Awards 2025</h1>
+      <h2 style="font-size: 20px; color: #2d3748;">
+        ${
+          selectedCategory === "student"
+            ? "Student Category Results"
+            : selectedCategory === "organisation"
+            ? "Organisation Category Results"
+            : "Individual/Group Category Results"
         }
+        ${
+          filters.headCategory
+            ? `<br><span style="font-size: 18px; color: #4a5568; margin-top: 10px; display: block;">${filters.headCategory}</span>`
+            : ""
+        }
+        ${
+          filters.solutionCategory
+            ? `<br><span style="font-size: 16px; color: #718096;">${filters.solutionCategory}</span>`
+            : ""
+        }
+      </h2>
+      <p>Generated on: ${new Date().toLocaleDateString()}</p>
+    </div>
 
-        content += `<th style="border: 1px solid #000; padding: 6px;">Total Marks</th></tr></thead><tbody>`;
-
-        entry.judgeMarks.forEach((judge, jIndex) => {
-          content += `<tr><td style="border: 1px solid #000; padding: 6px;">${
-            judge.judgeName || "Judge " + (jIndex + 1)
-          }</td><td style="border: 1px solid #000; padding: 6px;">${
-            judge.judgeEmail || "N/A"
-          }</td>`;
-
-          if (selectedCategory === "student") {
-            content += `
-              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
-                judge.marks?.uniqueness || "0"
-              }</td>
-              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
-                judge.marks?.proofOfConcept || "0"
-              }</td>
-              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
-                judge.marks?.functionalitiesFeatures || "0"
-              }</td>
-              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
-                judge.marks?.quality || "0"
-              }</td>
-              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
-                judge.marks?.presentation || "0"
-              }</td>
-            `;
-          } else {
-            content += `
-              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
-                judge.marks?.uniqueness || "0"
-              }</td>
-              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
-                judge.marks?.marketPotentialValuePublic || "0"
-              }</td>
-              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
-                judge.marks?.functionalitiesFeatures || "0"
-              }</td>
-              <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
-                judge.marks?.qualityTechnology || "0"
-              }</td>
-            `;
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid #000; padding: 8px;">Rank</th>
+          <th style="border: 1px solid #000; padding: 8px;">Solution Name</th>
+          ${
+            selectedCategory !== "student"
+              ? '<th style="border: 1px solid #000; padding: 8px;">Organization</th>'
+              : ""
           }
+          <th style="border: 1px solid #000; padding: 8px;">${
+            selectedCategory === "student" ? "Contact" : "Category"
+          }</th>
+          <th style="border: 1px solid #000; padding: 8px;">Avg Score</th>
+          <th style="border: 1px solid #000; padding: 8px;">Percentage</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
 
-          content += `<td style="border: 1px solid #000; padding: 6px; text-align: center; font-weight: bold;">${safeToFixed(
-            judge.totalMarks
-          )} / ${getTotalMarks()}</td></tr>`;
-        });
-
-        content += `</tbody></table>`;
-      }
-
-      content += `
-        <div style="margin-top: 30px;">
-          <h4>Signatures</h4>
-          <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-top: 15px;">
-            ${entry.judgeMarks
-              .map(
-                (judge, jIndex) => `
-                <div style="text-align: center;">
-                  <div style="font-weight: bold;">${
-                    judge.judgeName || "Judge " + (jIndex + 1)
-                  }</div>
-                  <div style="border-bottom: 1px solid #000; height: 20px; width: 200px; margin: 5px auto;"></div>
-                  <div style="font-size: 10px;">Signature</div>
-                </div>`
-              )
-              .join("")}
-          </div>
-        </div>
-      </div>`;
-    });
-
-    printContainer.innerHTML = content;
-    document.body.appendChild(printContainer);
-
-    const style = document.createElement("style");
-    style.innerHTML = `
-      @media print {
-        body * { visibility: hidden; }
-        .printable-content, .printable-content * { visibility: visible; }
-        .printable-content { position: absolute; left: 0; top: 0; width: 100%; }
-        div[style*="page-break-before: always"] { page-break-before: always !important; }
-        table, tr, td, th { page-break-inside: avoid !important; }
-      }
+   data.forEach((entry, i) => {
+     content += `
+      <tr>
+        <td style="border: 1px solid #000; padding: 6px;">${i + 1}</td>
+        <td style="border: 1px solid #000; padding: 6px; font-weight: bold;">${
+          entry.solutionName || "N/A"
+        }</td>
+        ${
+          selectedCategory !== "student"
+            ? `<td style="border: 1px solid #000; padding: 6px;">${
+                entry.organizationName || "N/A"
+              }</td>`
+            : ""
+        }
+        <td style="border: 1px solid #000; padding: 6px;">
+          ${
+            selectedCategory === "student"
+              ? `${entry.contactPersonName || "N/A"}<br>${
+                  entry.contactPersonEmail || ""
+                }`
+              : `${entry.headCategory || "N/A"}<br>${
+                  entry.solutionCategory || ""
+                }`
+          }
+        </td>
+        <td style="border: 1px solid #000; padding: 6px; text-align: center;">${safeToFixed(
+          entry.totalAverageMarks
+        )}</td>
+        <td style="border: 1px solid #000; padding: 6px; text-align: center; font-weight: bold;">${safeToFixed(
+          entry.percentageMarks,
+          2
+        )}%</td>
+      </tr>
     `;
-    document.head.appendChild(style);
+   });
 
-    window.print();
+   content += `</tbody></table>`;
 
-    setTimeout(() => {
-      document.body.removeChild(printContainer);
-      document.head.removeChild(style);
-    }, 1000);
-  };
+   // Add judges signature section for first page
+ if (allJudges.length > 0) {
+   content += `
+    <div style="margin-top: 50px; page-break-inside: avoid;">
+      <h3 style="font-size: 18px; color: #1a365d; margin-bottom: 20px; padding-bottom: 10px;">
+        Judge Panel Signatures 
+      </h3>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 20px;">
+        ${allJudges
+          .map(
+            (judge, idx) => `
+          <div style="text-align: center; margin-bottom: 20px;">
+            <div style="font-weight: bold; font-size: 14px; margin-bottom: 5px;">${judge.name}</div>
+            <div style="border-bottom: 2px solid #000; height: 30px; width: 200px; margin: 10px auto;"></div>
+            <div style="font-size: 10px; color: #999;">Signature</div>
+          </div>
+        `
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
+ }
 
+   content += `<h2 style="margin-top: 40px; border-top: 2px solid #333; padding-top: 20px; page-break-before: always;">Detailed Project Reports</h2>`;
+
+   data.forEach((entry, index) => {
+     content += `
+      <div style="margin-top: 40px; page-break-before: always;">
+        <h3 style="color: #1e3a8a;">${index + 1}. ${
+       entry.solutionName || "N/A"
+     }</h3>
+        <p><strong>Organization:</strong> ${entry.organizationName || "N/A"}</p>
+        <p><strong>Category:</strong> ${
+          selectedCategory === "student"
+            ? `${entry.contactPersonName || ""} (${
+                entry.contactPersonEmail || ""
+              })`
+            : `${entry.headCategory || "N/A"} / ${
+                entry.solutionCategory || "N/A"
+              }`
+        }</p>
+        <p><strong>Average Score:</strong> ${safeToFixed(
+          entry.totalAverageMarks
+        )} | <strong>Percentage:</strong> ${safeToFixed(
+       entry.percentageMarks,
+       2
+     )}%</p>
+    `;
+
+     if (entry.judgeMarks && entry.judgeMarks.length > 0) {
+       content += `<table style="width: 100%; border-collapse: collapse; margin-top: 15px;"><thead><tr><th style="border: 1px solid #000; padding: 6px;">Judge Name</th><th style="border: 1px solid #000; padding: 6px;">Email</th>`;
+
+       if (selectedCategory === "student") {
+         content += `<th style="border: 1px solid #000; padding: 6px;">Uniqueness</th><th style="border: 1px solid #000; padding: 6px;">Proof of Concept</th><th style="border: 1px solid #000; padding: 6px;">Features</th><th style="border: 1px solid #000; padding: 6px;">Quality</th><th style="border: 1px solid #000; padding: 6px;">Presentation</th>`;
+       } else {
+         content += `
+          <th style="border: 1px solid #000; padding: 6px;">Uniqueness</th>
+          <th style="border: 1px solid #000; padding: 6px;">Market/Public Value</th>
+          <th style="border: 1px solid #000; padding: 6px;">Features</th>
+          <th style="border: 1px solid #000; padding: 6px;">Quality & Tech</th>
+        `;
+       }
+
+       content += `<th style="border: 1px solid #000; padding: 6px;">Total Marks</th><th style="border: 1px solid #000; padding: 6px;">Percentage</th></tr></thead><tbody>`;
+
+       entry.judgeMarks.forEach((judge, jIndex) => {
+         const judgePercentage =
+           selectedCategory === "student"
+             ? (judge.totalMarks / 50) * 100
+             : (judge.totalMarks / 40) * 100;
+
+         content += `<tr><td style="border: 1px solid #000; padding: 6px;">${
+           judge.judgeName || "Judge " + (jIndex + 1)
+         }</td><td style="border: 1px solid #000; padding: 6px;">${
+           judge.judgeEmail || "N/A"
+         }</td>`;
+
+         if (selectedCategory === "student") {
+           content += `
+            <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+              judge.marks?.uniqueness || "0"
+            }</td>
+            <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+              judge.marks?.proofOfConcept || "0"
+            }</td>
+            <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+              judge.marks?.functionalitiesFeatures || "0"
+            }</td>
+            <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+              judge.marks?.quality || "0"
+            }</td>
+            <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+              judge.marks?.presentation || "0"
+            }</td>
+          `;
+         } else {
+           content += `
+            <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+              judge.marks?.uniqueness || "0"
+            }</td>
+            <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+              judge.marks?.marketPotentialValuePublic || "0"
+            }</td>
+            <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+              judge.marks?.functionalitiesFeatures || "0"
+            }</td>
+            <td style="border: 1px solid #000; padding: 6px; text-align: center;">${
+              judge.marks?.qualityTechnology || "0"
+            }</td>
+          `;
+         }
+
+         content += `<td style="border: 1px solid #000; padding: 6px; text-align: center; font-weight: bold;">${safeToFixed(
+           judge.totalMarks
+         )} / ${getTotalMarks()}</td><td style="border: 1px solid #000; padding: 6px; text-align: center; font-weight: bold;">${safeToFixed(
+           judgePercentage,
+           2
+         )}%</td></tr>`;
+       });
+
+       content += `</tbody></table>`;
+     }
+
+     content += `
+      <div style="margin-top: 30px; page-break-inside: avoid;">
+        <h4>Judge Signatures for This Project</h4>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 15px;">
+          ${entry.judgeMarks
+            .map(
+              (judge, jIndex) => `
+            <div style="text-align: center;">
+              <div style="font-weight: bold;">${
+                judge.judgeName || "Judge " + (jIndex + 1)
+              }</div>
+              
+              <div style="border-bottom: 1px solid #000; height: 20px; width: 200px; margin: 5px auto;"></div>
+              <div style="font-size: 10px;">Signature</div>
+            </div>`
+            )
+            .join("")}
+        </div>
+      </div>
+    </div>`;
+   });
+
+   printContainer.innerHTML = content;
+   document.body.appendChild(printContainer);
+
+   const style = document.createElement("style");
+   style.innerHTML = `
+    @media print {
+      body * { visibility: hidden; }
+      .printable-content, .printable-content * { visibility: visible; }
+      .printable-content { position: absolute; left: 0; top: 0; width: 100%; }
+      div[style*="page-break-before: always"] { page-break-before: always !important; }
+      div[style*="page-break-inside: avoid"] { page-break-inside: avoid !important; }
+      table, tr, td, th { page-break-inside: avoid !important; }
+    }
+  `;
+   document.head.appendChild(style);
+
+   window.print();
+
+   setTimeout(() => {
+     document.body.removeChild(printContainer);
+     document.head.removeChild(style);
+   }, 1000);
+ };
   const data = getCurrentData();
 
   const getRankIcon = (index) => {
@@ -555,7 +616,7 @@ const ResultsPage = () => {
                         Solution
                       </th>
                       <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">
-                        Organization
+                        Head Category
                       </th>
                       <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">
                         {selectedCategory === "student"
@@ -567,6 +628,9 @@ const ResultsPage = () => {
                       </th>
                       <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">
                         Score
+                      </th>
+                      <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">
+                        Percentage
                       </th>
                       <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">
                         Details
@@ -600,7 +664,7 @@ const ResultsPage = () => {
                             {entry.solutionName}
                           </td>
                           <td className="px-4 py-3 text-sm text-gray-600">
-                            {entry.organizationName}
+                            {entry.headCategory || "N/A"}
                           </td>
                           <td className="px-4 py-3 text-sm text-gray-600">
                             {selectedCategory === "student" ? (
@@ -627,6 +691,11 @@ const ResultsPage = () => {
                           <td className="px-4 py-3 text-center">
                             <span className="text-lg font-bold text-blue-600">
                               {safeToFixed(entry.totalAverageMarks)}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3 text-center">
+                            <span className="text-lg font-bold text-green-600">
+                              {safeToFixed(entry.percentageMarks, 2)}%
                             </span>
                           </td>
                           <td className="px-4 py-3 text-center">
@@ -940,7 +1009,7 @@ const ResultsPage = () => {
                             {entry.solutionName}
                           </h3>
                           <p className="text-xs sm:text-sm text-gray-600 truncate">
-                            {entry.organizationName}
+                            {entry.headCategory || "N/A"}
                           </p>
                         </div>
                         <div className="text-right">
@@ -948,6 +1017,12 @@ const ResultsPage = () => {
                             {safeToFixed(entry.totalAverageMarks)}
                           </div>
                           <div className="text-xs text-gray-500">Score</div>
+                          <div className="text-sm sm:text-base md:text-lg font-bold text-green-600 mt-1">
+                            {safeToFixed(entry.percentageMarks, 3)}%
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            Percentage
+                          </div>
                         </div>
                       </div>
 
