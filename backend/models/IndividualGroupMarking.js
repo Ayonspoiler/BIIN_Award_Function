@@ -40,6 +40,7 @@ const individualGroupLeaderboardSchema = new mongoose.Schema(
     },
 
     totalAverageMarks: { type: Number, default: 0 },
+    percentageMarks: { type: Number, default: 0 },
     numberOfJudges: { type: Number, default: 0 },
   },
   { timestamps: true }

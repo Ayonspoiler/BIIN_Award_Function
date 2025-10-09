@@ -202,6 +202,9 @@ export const markProject = async (req, res) => {
 };
 
 // Update leaderboard
+// UPDATED: Update leaderboard with percentage calculation
+// Update leaderboard
+// UPDATED: Update leaderboard with percentage calculation
 async function updateLeaderboard(projectId, applicationEntity, judge, project) {
   const allMarks = await Marking.find({
     projectId,
@@ -327,26 +330,57 @@ async function updateLeaderboard(projectId, applicationEntity, judge, project) {
   );
   const totalAvg = Object.values(avgMarks).reduce((s, v) => s + v, 0);
 
+  // ✅ FIX: Calculate percentage based on application entity
+  let percentageMarks = 0;
+  if (applicationEntity === "Student") {
+    // Student: Total out of 50, so (totalAvg / 50) * 100
+    percentageMarks = (totalAvg / 50) * 100;
+  } else {
+    // Organisation and Individual/Group: Total out of 40, so (totalAvg / 40) * 100
+    percentageMarks = (totalAvg / 40) * 100;
+  }
+
+  // ✅ FIX: Ensure percentageMarks is always a valid number
+  percentageMarks = Number(percentageMarks.toFixed(3));
+  
+  // ✅ FIX: Handle NaN or Infinity
+  if (!isFinite(percentageMarks)) {
+    percentageMarks = 0;
+  }
+
+  console.log(`📊 Leaderboard Update:
+    - Application Entity: ${applicationEntity}
+    - Total Average Marks: ${totalAvg.toFixed(2)}
+    - Percentage Marks: ${percentageMarks.toFixed(3)}%
+    - Number of Judges: ${totalJudges}`);
+
+  // ✅ FIX: Explicitly include percentageMarks in the update
+  const updateData = {
+    projectId,
+    solutionName: project.solutionName,
+    organizationName: project.organizationName,
+    headCategory: project.headCategory || "",
+    solutionCategory: project.solutionCategory || "",
+    contactPersonName: project.contactPersonName,
+    contactPersonMobile: project.contactPersonMobile,
+    contactPersonEmail: project.contactPersonEmail,
+    judgeMarks,
+    averageMarks: avgMarks,
+    totalAverageMarks: totalAvg,
+    percentageMarks: percentageMarks, // ✅ Explicitly set percentage
+    numberOfJudges: totalJudges,
+  };
+
+  console.log(`💾 Saving to database with percentageMarks: ${percentageMarks}`);
+
   await LeaderboardModel.findOneAndUpdate(
     { projectId },
-    {
-      projectId,
-      solutionName: project.solutionName,
-      organizationName: project.organizationName,
-      headCategory: project.headCategory || "",
-      solutionCategory: project.solutionCategory || "",
-      contactPersonName: project.contactPersonName,
-      contactPersonMobile: project.contactPersonMobile,
-      contactPersonEmail: project.contactPersonEmail,
-      judgeMarks,
-      averageMarks: avgMarks,
-      totalAverageMarks: totalAvg,
-      numberOfJudges: totalJudges,
-    },
+    updateData,
     { upsert: true, new: true }
   );
+  
+  console.log(`✅ Leaderboard updated successfully for project ${projectId}`);
 }
-
 // ✅ Get Student Leaderboard with filters
 export const getStudentLeaderboard = async (req, res) => {
   try {
@@ -427,18 +461,11 @@ export const getIndividualGroupLeaderboard = async (req, res) => {
     const filter = {};
 
     if (headCategory && headCategory.trim() !== "" && headCategory !== "All") {
-      filter.headCategory = {
-        $regex: new RegExp(
-          headCategory.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
-          "i"
-        ),
+      filter.headCategory = { 
+        $regex: new RegExp(headCategory.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i') 
       };
     }
-    if (
-      solutionCategory &&
-      solutionCategory.trim() !== "" &&
-      solutionCategory !== "All"
-    ) {
+    if (solutionCategory && solutionCategory.trim() !== "" && solutionCategory !== "All") {
       filter.solutionCategory = solutionCategory.trim();
     }
 
@@ -447,10 +474,8 @@ export const getIndividualGroupLeaderboard = async (req, res) => {
     const leaderboard = await IndividualGroupLeaderboard.find(filter).sort({
       totalAverageMarks: -1,
     });
-
-    console.log(
-      `📊 Found ${leaderboard.length} individual/group leaderboard entries`
-    );
+    
+    console.log(`📊 Found ${leaderboard.length} individual/group leaderboard entries`);
     res.json(leaderboard);
   } catch (err) {
     res.status(500).json({ error: err.message });
