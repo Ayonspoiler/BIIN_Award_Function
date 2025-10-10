@@ -349,21 +349,45 @@ const JudgeMarkingSystem = () => {
     }
   };
 
-  const validateMarks = () => {
-    const maxMark = selectedProject?.applicationEntity === "Student" ? 10 : 10;
+ const validateMarks = () => {
+   const maxMark = selectedProject?.applicationEntity === "Student" ? 10 : 10;
 
-    for (const [key, value] of Object.entries(marks)) {
-      const numValue = parseFloat(value);
-      if (isNaN(numValue) || numValue < 0 || numValue > maxMark) {
-        showModal(
-          "error",
-          `Invalid mark for ${key}. Please enter a value between 0 and ${maxMark}.`
-        );
-        return false;
-      }
-    }
-    return true;
-  };
+   for (const [key, value] of Object.entries(marks)) {
+     const numValue = parseFloat(value);
+
+     // Check if value is NaN or out of range
+     if (isNaN(numValue) || numValue < 0 || numValue > maxMark) {
+       showModal(
+         "error",
+         `Invalid mark for ${key}. Please enter a value between 0 and ${maxMark}.`
+       );
+       return false;
+     }
+
+     //  NEW: Check if value is exactly 0
+     if (numValue === 0) {
+       const criteriaNames = {
+         uniqueness: "Uniqueness",
+         proofOfConcept: "Proof of Concept",
+         functionalitiesFeatures: "Functionalities & Features",
+         quality: "Quality",
+         presentation: "Presentation",
+         marketPotentialValuePublic:
+           "Market Potential / Value to Public or Govt",
+         qualityTechnology: "Quality & Technology",
+       };
+
+       const criteriaName = criteriaNames[key] || key;
+
+       showModal(
+         "error",
+         `Zero (0) cannot be given for "${criteriaName}". Please provide a valid score between 0.01 and ${maxMark}.`
+       );
+       return false;
+     }
+   }
+   return true;
+ };
 
   const submitMarking = async (e) => {
     e.preventDefault();
@@ -959,23 +983,36 @@ const JudgeMarkingSystem = () => {
                               type="number"
                               min="0"
                               max={max}
-                              step="0.01"
+                              step="any"
                               required
                               value={marks[field] || ""}
                               onChange={(e) => {
                                 const value = e.target.value;
-                                // ✅ FIX: Only update if value is valid, no automatic rounding
-                                if (
-                                  value === "" ||
-                                  (parseFloat(value) >= 0 &&
-                                    parseFloat(value) <= max)
-                                ) {
+                                // Allow empty string or valid numbers between 0.01 and max
+                                if (value === "") {
                                   setMarks({ ...marks, [field]: value });
+                                } else {
+                                  const numValue = parseFloat(value);
+                                  if (
+                                    !isNaN(numValue) &&
+                                    numValue >= 0 &&
+                                    numValue <= max
+                                  ) {
+                                    setMarks({ ...marks, [field]: value });
+                                  }
                                 }
                               }}
-                              // ❌ REMOVED: onBlur handler that was causing automatic rounding
+                              onKeyDown={(e) => {
+                                // Prevent arrow keys from incrementing/decrementing
+                                if (
+                                  e.key === "ArrowUp" ||
+                                  e.key === "ArrowDown"
+                                ) {
+                                  e.preventDefault();
+                                }
+                              }}
                               placeholder={`0-${max}`}
-                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-center"
+                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                             />
                             <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
                               Max: {max}
@@ -1024,23 +1061,36 @@ const JudgeMarkingSystem = () => {
                               type="number"
                               min="0"
                               max={max}
-                              step="0.01"
+                              step="any"
                               required
                               value={marks[field] || ""}
                               onChange={(e) => {
                                 const value = e.target.value;
-                                // ✅ FIX: Only update if value is valid, no automatic rounding
-                                if (
-                                  value === "" ||
-                                  (parseFloat(value) >= 0 &&
-                                    parseFloat(value) <= max)
-                                ) {
+                                // Allow empty string or valid numbers between 0.01 and max
+                                if (value === "") {
                                   setMarks({ ...marks, [field]: value });
+                                } else {
+                                  const numValue = parseFloat(value);
+                                  if (
+                                    !isNaN(numValue) &&
+                                    numValue >= 0 &&
+                                    numValue <= max
+                                  ) {
+                                    setMarks({ ...marks, [field]: value });
+                                  }
                                 }
                               }}
-                              // ❌ REMOVED: onBlur handler that was causing automatic rounding
+                              onKeyDown={(e) => {
+                                // Prevent arrow keys from incrementing/decrementing
+                                if (
+                                  e.key === "ArrowUp" ||
+                                  e.key === "ArrowDown"
+                                ) {
+                                  e.preventDefault();
+                                }
+                              }}
                               placeholder={`0-${max}`}
-                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all text-center"
+                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                             />
                             <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
                               Max: {max}
