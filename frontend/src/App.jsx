@@ -9,6 +9,8 @@ import AboutBIIN from "./pages/AboutBIIN";
 import Footer from "./components/Footer";
 import JudgeMarkingSystem from "./pages/JudgeMarkingSystem";
 import ResultsPage from "./pages/ResultsPage";
+import Judges from "./pages/Judges";
+import Sponsors from "./pages/Sponsors";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           {/* <Route path="/about-biin" element={<AboutBIIN />} /> */}
           <Route path="/marking" element={<JudgeMarkingSystem/>}/>
           <Route path="/results" element={<ResultsPage/>}/>
+          <Route path="/judges" element ={<Judges/>}/>
+          <Route path="/sponsors" element={<Sponsors/>}/>
         </Routes>
       </main>
       <Footer />

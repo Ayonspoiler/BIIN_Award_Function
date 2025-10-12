@@ -43,20 +43,22 @@ useEffect(() => {
 
 
   return (
-    <div className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="">
+      <div className="">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Bangladesh ICT & Innovation Awards
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Celebrating Innovation, Empowering Digital Transformation
-          </p>
-        </div>
-
+        <section className="gradient-bg text-white py-20 w-full ">
+          <div className="px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Bangladesh ICT & Innovation Awards
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto">
+              Celebrating Innovation, Empowering Digital Transformation
+            </p>
+          </div>
+        </section>
+     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         {/* About Awards Section */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
+        <div className="bg-white rounded-xl shadow-2xl p-8 mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             About Bangladesh ICT & Innovation Awards 2025
           </h2>
@@ -413,7 +415,7 @@ useEffect(() => {
         </div>
 
         {/* Statistics */}
-        <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl text-white p-8">
+        <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl text-white p-8 shadow-2xl">
           <h2 className="text-3xl font-bold text-center mb-8">
             Awards by Numbers
           </h2>
@@ -440,6 +442,7 @@ useEffect(() => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

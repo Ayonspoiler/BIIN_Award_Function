@@ -8,7 +8,7 @@ import {
   Trophy,
   Award,
   Medal,
-} from "lucide-react";
+} from "lucide-react"; 
 
 // FIXED: Changed from https to http for local development
 const API_BASE = "https://biin-award-function-rssj.onrender.com/api";

@@ -164,20 +164,23 @@ const Competition = () => {
   ];
 
   return (
-    <div className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Competition Categories
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Celebrating Innovation, Empowering Digital Transformation
-          </p>
-        </div>
+    <div className="">
+      <div className="">
+        {/* Header/hero */}
+        <section className="gradient-bg text-white py-20 w-full ">
+          <div className="px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Competition Categories
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto">
+              Celebrating Innovation, Empowering Digital Transformation
+            </p>
+          </div>
+        </section>
 
         {/* New Content Section */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+        <div className="bg-white rounded-xl shadow-2xl p-8 mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             About The Bangladesh ICT & Innovation Awards 2025
           </h2>
@@ -209,7 +212,7 @@ const Competition = () => {
 
         {/* Head Categories */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center shadow-2xl">
             5 Head Categories
           </h2>
           <div className="space-y-8">
@@ -265,7 +268,7 @@ const Competition = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Students' School Project (3 Categories)
             </h2>
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-blue-100">
@@ -305,7 +308,7 @@ const Competition = () => {
             {crossCategories.map((category, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
+                className="bg-white rounded-xl shadow-2xl overflow-hidden"
               >
                 <div className={`h-2 bg-gradient-to-r ${category.color}`}></div>
                 <div className="p-8">
@@ -337,7 +340,7 @@ const Competition = () => {
             {technologyAwards.map((award, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
+                className="bg-white rounded-xl shadow-2xl overflow-hidden"
               >
                 <div className={`h-2 bg-gradient-to-r ${award.color}`}></div>
                 <div className="p-8">
@@ -357,7 +360,7 @@ const Competition = () => {
         </section>
 
         {/* Call to Action */}
-        <div className="text-center bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl text-white p-12">
+        <div className="text-center bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl text-white p-12 w-full shadow-xl">
           <h2 className="text-3xl font-bold mb-4">Ready to Participate?</h2>
           <p className="text-xl text-primary-100 mb-8">
             Choose your category and start your journey towards recognition
@@ -377,6 +380,7 @@ const Competition = () => {
             </a>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

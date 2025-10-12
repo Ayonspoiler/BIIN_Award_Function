@@ -2,22 +2,23 @@ import SelectionTimeline from "../components/SelectionTimeline";
 
 const Guidelines = () => {
   return (
-    <div className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="">
+      <div className="">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Guidelines
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Complete guidelines for participation in Bangladesh ICT & Innovation Awards
-            2025
-          </p>
-        </div>
+        <section className="gradient-bg text-white py-20 w-full ">
+          <div className="px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-7xl font-bold mb-6">Guidelines</h1>
+            <p className="text-xl md:text-3xl text-gray-100 max-w-3xl mx-auto">
+              Complete guidelines for participation in Bangladesh ICT &
+              Innovation Awards 2025
+            </p>
+          </div>
+        </section>
 
         {/* General Eligibility */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 py-3">
         <section className="mb-12">
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="bg-white rounded-xl shadow-2xl p-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               General Eligibility to Apply
             </h2>
@@ -70,7 +71,7 @@ const Guidelines = () => {
 
         {/* Special Notes */}
         <section className="mb-12">
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="bg-white rounded-xl shadow-2xl p-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Special Notes
             </h2>
@@ -131,7 +132,7 @@ const Guidelines = () => {
         {/* add new section of "few more guidelines" */}
         {/* Few More Guidelines */}
         <section className="mb-12">
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="bg-white rounded-xl shadow-2xl p-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Few More Guidelines
             </h2>
@@ -174,7 +175,7 @@ const Guidelines = () => {
 
         {/* Example Case Study */}
         <section className="mb-12">
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="bg-white rounded-xl shadow-2xl p-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               An Example - Case Study
             </h2>
@@ -212,13 +213,15 @@ const Guidelines = () => {
 
         {/* Important Dates */}
         <section className="mb-12">
-          <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl text-white p-8">
+          <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl text-white p-8 shadow-2xl">
             <h2 className="text-3xl font-bold mb-6 text-center">
               Important Dates
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold mb-2">September 10, 2025</div>
+                <div className="text-2xl font-bold mb-2">
+                  September 10, 2025
+                </div>
                 <div className="text-primary-100">Registration Opens</div>
               </div>
               <div className="text-center">
@@ -228,7 +231,9 @@ const Guidelines = () => {
                 <div className="text-primary-100">Final Submission</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold mb-2">Will be Announced Later</div>
+                <div className="text-2xl font-bold mb-2">
+                  Will be Announced Later
+                </div>
                 <div className="text-primary-100">Award Ceremony</div>
               </div>
             </div>
@@ -237,7 +242,7 @@ const Guidelines = () => {
 
         {/* Contact Information */}
         <section>
-          <div className="bg-white rounded-xl shadow-lg p-8 text-center">
+          <div className="bg-white rounded-xl shadow-2xl p-8 text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Need Help?
             </h2>
@@ -261,6 +266,7 @@ const Guidelines = () => {
             </div>
           </div>
         </section>
+      </div>
       </div>
     </div>
   );

@@ -12,7 +12,8 @@ const Navbar = () => {
     { name: "Categories", path: "/categories" },
     { name: "Guidelines", path: "/guidelines" },
     { name: "Registration", path: "/registration" },
-    { name: "Press Coverage", external: true },
+    { name: "Judges", path: "/judges" },
+    { name: "Sponsors", path:"/sponsors" }
   ];
 
   return (

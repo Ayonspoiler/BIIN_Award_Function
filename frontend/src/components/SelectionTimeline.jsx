@@ -12,7 +12,7 @@ const SelectionTimeline = () => {
   ];
 
   return (
-    <section className="bg-white rounded-2xl shadow-md p-8 md:p-12">
+    <section className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
       {/* Heading */}
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
         Selection Process
