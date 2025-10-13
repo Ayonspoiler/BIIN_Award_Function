@@ -257,7 +257,7 @@ useEffect(() => {
                     submissions.
                   </span>
                 </li>
-                <li className="flex items-start">
+                {/* <li className="flex items-start">
                   <span className="font-semibold text-gray-900 min-w-[180px]">
                     September 25, 2025
                   </span>
@@ -265,7 +265,7 @@ useEffect(() => {
                     Preliminary Evaluation - Initial review and shortlisting of
                     submitted projects.
                   </span>
-                </li>
+                </li> */}
                 <li className="flex items-start">
                   <span className="font-semibold text-gray-900 min-w-[180px]">
                     September 30, 2025

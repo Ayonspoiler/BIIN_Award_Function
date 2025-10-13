@@ -3,7 +3,7 @@ import { CheckCircle2 } from "lucide-react"; // modern icons
 const SelectionTimeline = () => {
   const steps = [
     "Primary Submission",
-    "Shortlisting for Final Submission",
+    // "Shortlisting for Final Submission",
     "Final Submission",
     "Shortlist for Pitching",
     "Pitching & Judging",
