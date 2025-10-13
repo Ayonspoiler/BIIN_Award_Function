@@ -235,7 +235,7 @@ const Sponsors = () => {
           <div className="text-center mb-8 sm:mb-12">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-400 to-gray-600 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
               <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
-                Platinum Sponsors
+                Platinum Sponsor
               </span>
             </div>
           </div>
