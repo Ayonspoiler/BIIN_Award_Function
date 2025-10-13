@@ -45,8 +45,8 @@ const Judges = () => {
     {
       image: ridwanulImg,
       name: "Md. Ridhwanul Haq, PhD",
-      designation: "Professor Institute of Business Administration, ",
-      organization: "University of Dhaka",
+      designation: "Professor",
+      organization: "IBA, University of Dhaka",
       //   category: "Research Specialist",
     },
     {
