@@ -108,7 +108,7 @@ const Home = () => {
               </p>
               <Link
                 to="/about"
-                className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors inline-flex items-center"
+                className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors inline-flex items-center"
               >
                 Learn More
                 <svg
@@ -126,11 +126,11 @@ const Home = () => {
                 </svg>
               </Link>
             </div>
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full flex justify-center items-center">
               <img
                 src={backgroundImage}
                 alt="ICT Awards"
-                className="w-[100%] h-[110%] object-contain rounded-lg ml-4 -mt-6"
+                className="w-full lg:w-[100%] h-auto lg:h-[110%] object-contain rounded-lg lg:ml-4 lg:-mt-6"
               />
             </div>
           </div>
