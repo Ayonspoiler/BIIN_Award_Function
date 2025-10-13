@@ -288,7 +288,7 @@ useEffect(() => {
                 </li>
                 <li className="flex items-start">
                   <span className="font-semibold text-gray-900 min-w-[180px]">
-                    October 16, 2025
+                    October 18, 2025
                   </span>
                   <span className="text-gray-600">
                     Awards Ceremony - Date and venue to be announced. Winners

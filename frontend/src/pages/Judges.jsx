@@ -65,8 +65,8 @@ const Judges = () => {
     {
       image: arifurImg,
       name: "Mr. Arifur Rahman",
-      designation: "Director",
-      organization: "VISA Bangladesh",
+      designation: "Director, South Asia    ",
+      organization: "VISA",
     },
     {
       image: razeevImg,
@@ -78,7 +78,7 @@ const Judges = () => {
       image: zahidulImg,
       name: "Zahidul Haque",
       designation: "Chief Technology Officer",
-      organization: "Eastern Bank PLC. (EBL)",
+      organization: "Eastern Bank PLC.",
     },
 
     {
