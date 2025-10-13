@@ -235,7 +235,7 @@ const Guidelines = () => {
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold mb-2">
-                    October 16, 2025
+                    October 18, 2025
                   </div>
                   <div className="text-primary-100">Award Ceremony</div>
                 </div>
