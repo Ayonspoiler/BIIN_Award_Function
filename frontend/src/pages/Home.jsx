@@ -170,7 +170,7 @@ const Home = () => {
                   </h3>
                   <Link
                     to={`/categories#${category.anchor}`}
-                    className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center"
+                    className="text-secondary-600 hover:text-primary-700 font-medium inline-flex items-center"
                   >
                     Learn More
                     <svg
