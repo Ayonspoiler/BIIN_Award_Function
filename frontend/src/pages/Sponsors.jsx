@@ -211,7 +211,7 @@ const Sponsors = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-purple-50 to-blue-50">
       {/* Hero Section */}
-      <section className="gradient-bg text-white py-16 sm:py-20 md:py-24">
+      <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-16 sm:py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-block mb-4">

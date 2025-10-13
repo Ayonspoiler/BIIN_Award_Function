@@ -39,7 +39,7 @@ const SelectionTimeline = () => {
                   index % 2 === 0 ? "md:pr-12 text-right" : "md:pl-12 text-left"
                 }`}
               >
-                <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-6 py-4 rounded-xl shadow hover:shadow-lg transition">
+                <div className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-4 rounded-xl shadow hover:shadow-lg transition">
                   <div className="flex items-center gap-3">
                     <div className="bg-white text-primary-600 font-bold w-8 h-8 flex items-center justify-center rounded-full">
                       {index + 1}

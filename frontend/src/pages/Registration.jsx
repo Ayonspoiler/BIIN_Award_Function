@@ -323,12 +323,12 @@ const Registration = () => {
     <div className="">
       <div className="">
         {/* Header */}
-        <section className="gradient-bg text-white py-20 w-full">
+        <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20 w-full">
           <div className="px-3 sm:px-6 lg:px-8 text-center ">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Registration <br />
               <span className="text-4xl md:text-5xl">
-                Bangladesh ICT & Innovation Awards 
+                Bangladesh ICT & Innovation Awards
                 <br />
                 2025
               </span>
@@ -1109,7 +1109,7 @@ const Registration = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
@@ -1131,7 +1131,7 @@ const Registration = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
                   1
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Review</h3>
@@ -1140,7 +1140,7 @@ const Registration = () => {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
                   2
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">
@@ -1151,7 +1151,7 @@ const Registration = () => {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
                   3
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Evaluation</h3>

@@ -167,7 +167,7 @@ const Competition = () => {
     <div className="">
       <div className="">
         {/* Header/hero */}
-        <section className="gradient-bg text-white py-20 w-full ">
+        <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20 w-full ">
           <div className="px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Competition Categories
@@ -367,7 +367,7 @@ const Competition = () => {
           </section>
 
           {/* Call to Action */}
-          <div className="text-center gradient-bg rounded-xl text-white p-12 w-full shadow-xl">
+          <div className="text-center bg-gradient-to-r from-primary-600 to-secondary-600 rounded-xl text-white p-12 w-full shadow-xl">
             <h2 className="text-3xl font-bold mb-4">Ready to Participate?</h2>
             <p className="text-xl text-primary-100 mb-8">
               Choose your category and start your journey towards recognition

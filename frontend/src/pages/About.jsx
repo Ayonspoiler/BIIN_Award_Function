@@ -46,7 +46,7 @@ useEffect(() => {
     <div className="">
       <div className="">
         {/* Header */}
-        <section className="gradient-bg text-white py-20 w-full ">
+        <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20 w-full ">
           <div className="px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Bangladesh ICT & Innovation Awards
@@ -412,7 +412,7 @@ useEffect(() => {
           </div>
 
           {/* Statistics */}
-          <div className="gradient-bg rounded-xl text-white p-8 shadow-2xl">
+          <div className="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-xl text-white p-8 shadow-2xl">
             <h2 className="text-3xl font-bold text-center mb-8">
               Awards by Numbers
             </h2>

@@ -204,7 +204,7 @@ const Judges = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       {/* Hero Section */}
-      <section className="gradient-bg text-white py-20">
+      <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-block mb-4">
@@ -217,9 +217,7 @@ const Judges = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
               Distinguished Judges
             </h1>
-            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty">
-            
-            </p>
+            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty"></p>
           </div>
         </div>
       </section>

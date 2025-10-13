@@ -5,7 +5,7 @@ const Guidelines = () => {
     <div className="">
       <div className="">
         {/* Header */}
-        <section className="gradient-bg text-white py-20 w-full ">
+        <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20 w-full ">
           <div className="px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-7xl font-bold mb-6">Guidelines</h1>
             <p className="text-xl md:text-3xl text-gray-100 max-w-3xl mx-auto">
@@ -216,7 +216,7 @@ const Guidelines = () => {
 
           {/* Important Dates */}
           <section className="mb-12">
-            <div className="gradient-bg rounded-xl text-white p-8 shadow-2xl">
+            <div className="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-xl text-white p-8 shadow-2xl">
               <h2 className="text-3xl font-bold mb-6 text-center">
                 Important Dates
               </h2>
@@ -250,13 +250,15 @@ const Guidelines = () => {
                 Need Help?
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                <b>If you have any questions about the guidelines or need
-                clarification, please don't hesitate to contact us.</b>
+                <b>
+                  If you have any questions about the guidelines or need
+                  clarification, please don't hesitate to contact us.
+                </b>
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=moon@org.biin.bd"
-                  className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
+                  className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
                 >
                   Email Us
                 </a>
