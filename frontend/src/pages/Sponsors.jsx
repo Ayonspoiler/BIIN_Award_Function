@@ -57,10 +57,12 @@ const Sponsors = () => {
     {
       logo: RTV,
       name: "RTV Bangladesh",
+      tier:  "Media"
     },
     {
       logo: techWorld,
       name: "Tech World Bangladesh",
+      tier: "Media"
     }
   ];
 
@@ -82,7 +84,7 @@ const Sponsors = () => {
   const digitalCampaignPartners = [
     {
       logo: STD,
-      name: "Smart Trend Digital",
+      name: "Smart-trend Digital",
     },
   ];
 
@@ -134,6 +136,10 @@ const Sponsors = () => {
                   ? "bg-gradient-to-r from-gray-400 to-gray-600 text-white"
                   : sponsor.tier === "Gold"
                   ? "bg-gradient-to-r from-yellow-400 to-yellow-600 text-white"
+                  : sponsor.tier === "Knowledge"
+                  ? "bg-gradient-to-r from-gray-300 to-gray-400 text-gray-800"
+                  : sponsor.tier === "Media"
+                  ? "bg-gradient-to-r from-blue-400 to-indigo-600 text-white"
                   : "bg-gradient-to-r from-gray-300 to-gray-400 text-gray-800"
               }`}
             >
@@ -176,14 +182,22 @@ const PartnerCard = ({ partner, size = "medium" }) => {
           <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
             {partner.name}
           </h3>
-          {partner.category && (
-            <p className="text-sm text-gray-600">{partner.category}</p>
-          )}
         </div>
+
+        {/*  Only show badge if it's a Media Partner */}
+        {/* {partner.tier === "Media" && (
+          <div className="absolute top-4 right-4">
+            <span className="text-xs font-bold px-3 py-1 rounded-full bg-gradient-to-r from-blue-400 to-indigo-600 text-white shadow-md">
+              {partner.tier}
+            </span>
+          </div>
+        )} */}
       </div>
     </div>
   );
 };
+
+
 
 
   return (
@@ -203,8 +217,7 @@ const PartnerCard = ({ partner, size = "medium" }) => {
               Sponsors & Partners
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty">
-              Celebrating innovation together with our valued sponsors who make
-              this event possible
+              
             </p>
           </div>
         </div>
@@ -281,7 +294,7 @@ const PartnerCard = ({ partner, size = "medium" }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {mediaPartners.map((partner, index) => (
-              <PartnerCard key={index} partner={partner} size="large" />
+              <SponsorCard key={index} sponsor={partner} size="large" />
             ))}
           </div>
         </div>
@@ -347,8 +360,7 @@ const PartnerCard = ({ partner, size = "medium" }) => {
               Become a Sponsor
             </h2>
             <p className="text-xl mb-8 text-gray-100">
-              Partner with us to support innovation and gain valuable exposure
-              in the ICT community
+              
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

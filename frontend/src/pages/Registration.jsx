@@ -323,7 +323,7 @@ const Registration = () => {
     <div className="">
       <div className="">
         {/* Header */}
-        <section className="gradient-bg text-white py-10 w-full">
+        <section className="gradient-bg text-white py-20 w-full">
           <div className="px-3 sm:px-6 lg:px-8 text-center ">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Registration <br />
