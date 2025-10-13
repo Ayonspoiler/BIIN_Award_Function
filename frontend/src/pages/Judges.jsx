@@ -192,7 +192,7 @@ const Judges = () => {
     {
       name: "Amitav Kaiser",
       designation: "Head of MTB Infrastructure Division ",
-      organization: "Mutual Trust Bank Limited (MTB)",
+      organization: "Mutual Trust Bank PLC",
     },
     {
       name: "Sabbin Hasan",
