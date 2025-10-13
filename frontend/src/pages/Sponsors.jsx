@@ -1,16 +1,18 @@
 import React from "react";
 
 // Import sponsor logos
-import AIUB from "../assets/Sponsor Logo/Gold/AIUB.jpg";
-import MTB from "../assets/Sponsor Logo/Gold/MTB.jpg";
-import NCC from "../assets/Sponsor Logo/Powered By/NCC-4.jpeg";
-import RTV from "../assets/Sponsor Logo/Media Partner/RTV.jpg";
-import techWorld from "../assets/Sponsor Logo/Media Partner/TechWorld.jpg";
-import IUB from "../assets/Sponsor Logo/knowledge Partner/IUB.jpg";
-import ULAB from "../assets/Sponsor Logo/knowledge Partner/ULAB.jpg";
-import JCL from "../assets/Sponsor Logo/Strategic Partner/JCI Bangladesh Logo.jpg";
-import redData from "../assets/Sponsor Logo/Technology Partner/RedData.jpg";
-import STD from "../assets/Sponsor Logo/Digital/STD.jpg";
+import AIUB from "../assets/Sponsor Logo/Gold/AIUB-1.jpg";
+import MTB from "../assets/Sponsor Logo/Gold/MTB-1.jpg";
+import NCC from "../assets/Sponsor Logo/Powered By/NCC-5.jpeg";
+import RTV from "../assets/Sponsor Logo/Media Partner/RTV-1.jpg";
+import techWorld from "../assets/Sponsor Logo/Media Partner/TechWorld-3.jpeg";
+import IUB from "../assets/Sponsor Logo/knowledge Partner/IUB-1.jpg";
+import ULAB from "../assets/Sponsor Logo/knowledge Partner/ULAB-1.jpg";
+import JCL from "../assets/Sponsor Logo/Strategic Partner/JCI-1.jpg";
+import redData from "../assets/Sponsor Logo/Technology Partner/RedData-1.jpg";
+import STD from "../assets/Sponsor Logo/Digital/STD-1.jpg";
+import AIUB2 from "../assets/Sponsor Logo/knowledge Partner/AIUB-2.jpg"
+
 
 const Sponsors = () => {
   const platinumSponsors = [
@@ -24,7 +26,7 @@ const Sponsors = () => {
   const goldSponsors = [
     {
       logo: AIUB,
-      name: "American International University,Bangladesh",
+      name: "American International University, Bangladesh",
       tier: "Gold",
     },
     {
@@ -36,13 +38,13 @@ const Sponsors = () => {
 
   const knowledgePartner = [
     {
-      logo: AIUB,
-      name: "American International University,Bangladesh",
+      logo: AIUB2,
+      name: "American International University, Bangladesh",
       tier: "Knowledge",
     },
     {
       logo: IUB,
-      name: "Independent University,Bangladesh",
+      name: "Independent University, Bangladesh",
       tier: "Knowledge",
     },
     {
@@ -60,7 +62,7 @@ const Sponsors = () => {
     },
     {
       logo: techWorld,
-      name: "Tech World Bangladesh",
+      name: "TechWorld Bangladesh",
       tier: "Media",
     },
   ];
@@ -75,7 +77,7 @@ const Sponsors = () => {
   const technologyPartners = [
     {
       logo: redData,
-      name: "Red Data (Pvt.) Ltd",
+      name: "Red Data Digital",
     },
   ];
 
@@ -96,11 +98,11 @@ const Sponsors = () => {
     const sizeClasses = {
       large: isKnowledge
         ? "h-72 sm:h-80 md:h-96 lg:h-96"
-        : "h-[420px] sm:h-[480px] md:h-[540px] lg:h-[560px]",
+        : "h-64 sm:h-72 md:h-80 lg:h-96",
       medium: isMedia
-        ? "h-72 sm:h-80 md:h-96 lg:h-96"
+        ? "h-64 sm:h-72 md:h-80 lg:h-80"
         : isGoldOrMedia
-        ? "h-72 sm:h-80 md:h-96 lg:h-96"
+        ? "h-64 sm:h-72 md:h-80 lg:h-80"
         : "h-64 sm:h-72 md:h-80",
       small: "h-56 sm:h-64 md:h-72",
     };
@@ -118,7 +120,11 @@ const Sponsors = () => {
               <img
                 src={sponsor.logo}
                 alt={`${sponsor.name} logo`}
-                className="max-w-[90%] max-h-[95%] object-contain group-hover:scale-105 transition-transform duration-300"
+                className={`${
+                  isGoldOrMedia || isMedia
+                    ? "max-w-full max-h-full"
+                    : "max-w-[95%] max-h-full"
+                } object-contain group-hover:scale-105 transition-transform duration-300`}
               />
             ) : (
               <div className="text-center">
@@ -229,7 +235,7 @@ const Sponsors = () => {
           <div className="text-center mb-8 sm:mb-12">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-400 to-gray-600 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
               <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
-                Platinum Sponsor
+                Platinum Sponsors
               </span>
             </div>
           </div>
