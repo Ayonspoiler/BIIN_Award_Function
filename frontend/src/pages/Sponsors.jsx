@@ -297,50 +297,45 @@ const PartnerCard = ({ partner, size = "medium" }) => {
       </section>
 
       {/* Strategic, Technology, Digital Campaign Partners Section */}
+      {/* Strategic, Technology, Digital Campaign Partners Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-12">
-              {/* Strategic Partner */}
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-3 py-1.5 rounded-full mb-4 shadow-md">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Strategic Partner */}
+            <div className="flex flex-col items-center">
+              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-8 py-1.5 rounded-full mb-6 shadow-md">
                 <span className="text-lg font-semibold tracking-wide">
                   Strategic Partner
                 </span>
               </div>
-              {/* Technology Partner */}
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-3 py-1.5 rounded-full mb-4 shadow-md">
+              {strategicPartners.map((partner, index) => (
+                <PartnerCard key={index} partner={partner} />
+              ))}
+            </div>
+
+            {/* Technology Partner */}
+            <div className="flex flex-col items-center">
+              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-7 py-1.5 rounded-full mb-6 shadow-md">
                 <span className="text-lg font-semibold tracking-wide">
                   Technology Partner
                 </span>
               </div>
-              {/* Digital Campaign Partner */}
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-3 py-1.5 rounded-full mb-4 shadow-md">
+              {technologyPartners.map((partner, index) => (
+                <PartnerCard key={index} partner={partner} />
+              ))}
+            </div>
+
+            {/* Digital Campaign Partner */}
+            <div className="flex flex-col items-center">
+              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-3 py-1.5 rounded-full mb-6 shadow-md">
                 <span className="text-lg font-semibold tracking-wide">
                   Digital Campaign Partner
                 </span>
               </div>
+              {digitalCampaignPartners.map((partner, index) => (
+                <PartnerCard key={index} partner={partner} />
+              ))}
             </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center">
-            {strategicPartners.map((partner, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <PartnerCard partner={partner} />
-                <p className="mt-2 text-center text-gray-600 font-medium"></p>
-              </div>
-            ))}
-
-            {technologyPartners.map((partner, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <PartnerCard partner={partner} />
-              </div>
-            ))}
-
-            {digitalCampaignPartners.map((partner, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <PartnerCard partner={partner} />
-              </div>
-            ))}
           </div>
         </div>
       </section>
