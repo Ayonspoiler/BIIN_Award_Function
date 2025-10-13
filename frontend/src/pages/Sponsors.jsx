@@ -75,7 +75,7 @@ const Sponsors = () => {
   const technologyPartners = [
     {
       logo: redData,
-      name: "Red Data Digital",
+      name: "Red Data (Pvt.) Ltd",
     },
   ];
 
