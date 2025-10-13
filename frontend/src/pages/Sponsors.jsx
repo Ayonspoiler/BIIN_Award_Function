@@ -216,9 +216,7 @@ const PartnerCard = ({ partner, size = "medium" }) => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
               Sponsors & Partners
             </h1>
-            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty">
-              
-            </p>
+            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty"></p>
           </div>
         </div>
       </section>
@@ -227,7 +225,6 @@ const PartnerCard = ({ partner, size = "medium" }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-400 to-gray-600 text-white px-6 py-2 rounded-full mb-4">
-
               <span className="font-bold uppercase tracking-wider">
                 Platinum Sponsors
               </span>
@@ -285,7 +282,6 @@ const PartnerCard = ({ partner, size = "medium" }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-400 to-indigo-600 text-white px-6 py-2 rounded-full mb-4">
-              
               <span className="font-bold uppercase tracking-wider">
                 Media Partners
               </span>
@@ -307,21 +303,18 @@ const PartnerCard = ({ partner, size = "medium" }) => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-12">
               {/* Strategic Partner */}
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-3 py-1.5 rounded-full mb-4 shadow-md">
-               
                 <span className="text-lg font-semibold tracking-wide">
                   Strategic Partner
                 </span>
               </div>
               {/* Technology Partner */}
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-3 py-1.5 rounded-full mb-4 shadow-md">
-                
                 <span className="text-lg font-semibold tracking-wide">
                   Technology Partner
                 </span>
               </div>
               {/* Digital Campaign Partner */}
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-3 py-1.5 rounded-full mb-4 shadow-md">
-               
                 <span className="text-lg font-semibold tracking-wide">
                   Digital Campaign Partner
                 </span>
@@ -359,13 +352,11 @@ const PartnerCard = ({ partner, size = "medium" }) => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Become a Sponsor
             </h2>
-            <p className="text-xl mb-8 text-gray-100">
-              
-            </p>
+            <p className="text-xl mb-8 text-gray-100"></p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=moon@org.biin.bd"
+                href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=moon@org.biin.bd"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
