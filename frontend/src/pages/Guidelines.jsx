@@ -265,7 +265,7 @@ const Guidelines = () => {
 
                 <a
                   href="/registration"
-                  className="border-2 border-primary-600 text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 hover:text-white transition-colors"
+                  className="border-2 border-secondary-600 text-secondary-600 px-6 py-3 rounded-lg font-semibold hover:bg-gradient-to-r from-primary-600 to-secondary-600 hover:text-white transition-colors"
                 >
                   Start Registration
                 </a>
