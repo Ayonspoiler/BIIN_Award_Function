@@ -196,7 +196,7 @@ const Judges = () => {
     },
     {
       name: "Sabbin Hasan",
-      designation: "Digital Growth Editor Samakal",
+      designation: "Digital Growth Editor, Samakal",
       organization: "General Secretary BIJF",
     },
   ];
