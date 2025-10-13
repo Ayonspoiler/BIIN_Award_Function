@@ -3,7 +3,7 @@ import React from "react";
 // Import sponsor logos
 import AIUB from "../assets/Sponsor Logo/Gold/AIUB.jpg";
 import MTB from "../assets/Sponsor Logo/Gold/MTB.jpg";
-import NCC from "../assets/Sponsor Logo/Powered By/NCC.png";
+import NCC from "../assets/Sponsor Logo/Powered By/NCC-4.jpeg";
 import RTV from "../assets/Sponsor Logo/Media Partner/RTV.jpg";
 import techWorld from "../assets/Sponsor Logo/Media Partner/TechWorld.jpg";
 import IUB from "../assets/Sponsor Logo/knowledge Partner/IUB.jpg";
@@ -96,7 +96,7 @@ const Sponsors = () => {
     const sizeClasses = {
       large: isKnowledge
         ? "h-72 sm:h-80 md:h-96 lg:h-96"
-        : "h-80 sm:h-96 md:h-[420px] lg:h-[420px]",
+        : "h-[420px] sm:h-[480px] md:h-[540px] lg:h-[560px]",
       medium: isMedia
         ? "h-72 sm:h-80 md:h-96 lg:h-96"
         : isGoldOrMedia
@@ -322,7 +322,7 @@ const Sponsors = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Strategic Partner */}
             <div className="flex flex-col items-center">
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-14 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
+              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-8 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Strategic Partner
                 </span>
@@ -334,7 +334,7 @@ const Sponsors = () => {
 
             {/* Technology Partner */}
             <div className="flex flex-col items-center">
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-14 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
+              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-7 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Technology Partner
                 </span>
@@ -346,7 +346,7 @@ const Sponsors = () => {
 
             {/* Digital Campaign Partner */}
             <div className="flex flex-col items-center">
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-4 sm:px-8 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
+              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-4 sm:px-6 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Digital Campaign Partner
                 </span>
