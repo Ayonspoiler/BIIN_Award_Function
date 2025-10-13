@@ -64,7 +64,7 @@ const Judges = () => {
     },
     {
       image: arifurImg,
-      name: "Mr. Arifur Rahman",
+      name: "Arifur Rahman",
       designation: "Director, South Asia    ",
       organization: "VISA",
     },
