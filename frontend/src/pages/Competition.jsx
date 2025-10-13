@@ -180,207 +180,214 @@ const Competition = () => {
 
         {/* New Content Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-        <div className="bg-white rounded-xl shadow-2xl p-8 mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            About The Bangladesh ICT & Innovation Awards 2025
-          </h2>
-          <p className="text-lg text-gray-600 mb-6">
-            The Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh
-            ICT & Innovation Network (BIIN), is one of the nation's most
-            prestigious ICT recognition platforms. The program shines a
-            spotlight on visionary individuals, startups, and enterprises
-            driving transformative digital solutions.
-          </p>
-          <p className="text-lg text-gray-600 mb-6">
-            This year's winners will earn not just national recognition, but
-            also the opportunity to represent Bangladesh at the Asia Pacific ICT
-            Alliance Awards (APICTA 2025) in Taiwan - the most prestigious ICT
-            competition in the region, often hailed as the "ICT Oscars of
-            Asia-Pacific."
-          </p>
-          <div className="bg-primary-50 border-l-4 border-primary-500 p-6 rounded-r-lg">
-            <h3 className="text-xl font-semibold text-primary-900 mb-2">
-              Global Opportunity
-            </h3>
-            <p className="text-primary-800">
-              Champion teams will represent Bangladesh at the APICTA Awards 2025
-              in Taiwan, bringing national innovations to an international
-              platform.
-            </p>
-          </div>
-        </div>
-
-        {/* Head Categories */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center shadow-2xl">
-            5 Head Categories
-          </h2>
-          <div className="space-y-8">
-            {headCategories.map((category, index) => (
-              <div
-                key={index}
-                id={category.anchor}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
-                style={{ paddingTop: "80px", marginTop: "-80px" }}
-              >
-                <div className={`h-2 bg-gradient-to-r ${category.color}`}></div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {category.title}
-                  </h3>
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div className="lg:col-span-2">
-                      <p className="text-gray-600 mb-4 font-medium">
-                        {category.shortDesc}
-                      </p>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {category.longDesc}
-                      </p>
-                    </div>
-                    {category.solutions.length > 0 && (
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-3">
-                          Solution Categories:
-                        </h4>
-                        <ul className="space-y-2">
-                          {category.solutions.map((solution, idx) => (
-                            <li
-                              key={idx}
-                              className="text-sm text-gray-600 flex items-start"
-                            >
-                              <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                              {solution}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Student Categories */}
-        <section className="mb-16">
-          <div id="student" style={{ paddingTop: "80px", marginTop: "-80px" }}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Students' School Project (3 Categories)
+          <div className="bg-white rounded-xl shadow-2xl p-8 mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              About The Bangladesh ICT & Innovation Awards 2025
             </h2>
-            <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-blue-100">
-                    <tr>
-                      <th className="px-6 py-4 text-left text-lg font-semibold text-gray-900">
-                        Streams
-                      </th>
-                      <th className="px-6 py-4 text-left text-lg font-semibold text-gray-900">
-                        Descriptor
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {studentCategories.map((category, index) => (
-                      <tr key={index} className="hover:bg-gray-50">
-                        <td className="px-6 py-6 font-medium text-gray-900 align-top">
-                          {category.stream}
-                        </td>
-                        <td className="px-6 py-6 text-gray-600 text-sm leading-relaxed">
-                          {category.description}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+            <p className="text-lg text-gray-600 mb-6">
+              The Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh
+              ICT & Innovation Network (BIIN), is one of the nation's most
+              prestigious ICT recognition platforms. The program shines a
+              spotlight on visionary individuals, startups, and enterprises
+              driving transformative digital solutions.
+            </p>
+            <p className="text-lg text-gray-600 mb-6">
+              This year's winners will earn not just national recognition, but
+              also the opportunity to represent Bangladesh at the Asia Pacific
+              ICT Alliance Awards (APICTA 2025) in Taiwan - the most prestigious
+              ICT competition in the region, often hailed as the "ICT Oscars of
+              Asia-Pacific."
+            </p>
+            <div className="bg-primary-50 border-l-4 border-primary-500 p-6 rounded-r-lg">
+              <h3 className="text-xl font-semibold text-primary-900 mb-2">
+                Global Opportunity
+              </h3>
+              <p className="text-primary-800">
+                Champion teams will represent Bangladesh at the APICTA Awards
+                2025 in Taiwan, bringing national innovations to an
+                international platform.
+              </p>
             </div>
           </div>
-        </section>
 
-        {/* Cross Categories */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Cross Categories
-          </h2>
-          <div className="space-y-8">
-            {crossCategories.map((category, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-2xl overflow-hidden"
-              >
-                <div className={`h-2 bg-gradient-to-r ${category.color}`}></div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {category.title}
-                  </h3>
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div className="lg:col-span-2">
-                      <p className="text-gray-600 mb-4 font-medium">
-                        {category.shortDesc}
-                      </p>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {category.longDesc}
-                      </p>
+          {/* Head Categories */}
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center shadow-2xl">
+              5 Head Categories
+            </h2>
+            <div className="space-y-8">
+              {headCategories.map((category, index) => (
+                <div
+                  key={index}
+                  id={category.anchor}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden"
+                  style={{ paddingTop: "80px", marginTop: "-80px" }}
+                >
+                  <div
+                    className={`h-2 bg-gradient-to-r ${category.color}`}
+                  ></div>
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      {category.title}
+                    </h3>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                      <div className="lg:col-span-2">
+                        <p className="text-gray-600 mb-4 font-medium">
+                          {category.shortDesc}
+                        </p>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          {category.longDesc}
+                        </p>
+                      </div>
+                      {category.solutions.length > 0 && (
+                        <div>
+                          <h4 className="font-semibold text-gray-900 mb-3">
+                            Solution Categories:
+                          </h4>
+                          <ul className="space-y-2">
+                            {category.solutions.map((solution, idx) => (
+                              <li
+                                key={idx}
+                                className="text-sm text-gray-600 flex items-start"
+                              >
+                                <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                {solution}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
 
-        {/* Technology Awards */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Technology Awards
-          </h2>
-          <div className="space-y-8">
-            {technologyAwards.map((award, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-2xl overflow-hidden"
-              >
-                <div className={`h-2 bg-gradient-to-r ${award.color}`}></div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {award.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 font-medium">
-                    {award.shortDesc}
-                  </p>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {award.longDesc}
-                  </p>
+          {/* Student Categories */}
+          <section className="mb-16">
+            <div
+              id="student"
+              style={{ paddingTop: "80px", marginTop: "-80px" }}
+            >
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+                Students' School Project (3 Categories)
+              </h2>
+              <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-blue-100">
+                      <tr>
+                        <th className="px-6 py-4 text-left text-lg font-semibold text-gray-900">
+                          Streams
+                        </th>
+                        <th className="px-6 py-4 text-left text-lg font-semibold text-gray-900">
+                          Descriptor
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {studentCategories.map((category, index) => (
+                        <tr key={index} className="hover:bg-gray-50">
+                          <td className="px-6 py-6 font-medium text-gray-900 align-top">
+                            {category.stream}
+                          </td>
+                          <td className="px-6 py-6 text-gray-600 text-sm leading-relaxed">
+                            {category.description}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
+            </div>
+          </section>
 
-        {/* Call to Action */}
-        <div className="text-center bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl text-white p-12 w-full shadow-xl">
-          <h2 className="text-3xl font-bold mb-4">Ready to Participate?</h2>
-          <p className="text-xl text-primary-100 mb-8">
-            Choose your category and start your journey towards recognition
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/registration"
-              className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-            >
-              Register Now
-            </a>
-            <a
-              href="/guidelines"
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors"
-            >
-              View Guidelines
-            </a>
+          {/* Cross Categories */}
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Cross Categories
+            </h2>
+            <div className="space-y-8">
+              {crossCategories.map((category, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-2xl overflow-hidden"
+                >
+                  <div
+                    className={`h-2 bg-gradient-to-r ${category.color}`}
+                  ></div>
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      {category.title}
+                    </h3>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                      <div className="lg:col-span-2">
+                        <p className="text-gray-600 mb-4 font-medium">
+                          {category.shortDesc}
+                        </p>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          {category.longDesc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Technology Awards */}
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Technology Awards
+            </h2>
+            <div className="space-y-8">
+              {technologyAwards.map((award, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-2xl overflow-hidden"
+                >
+                  <div className={`h-2 bg-gradient-to-r ${award.color}`}></div>
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      {award.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 font-medium">
+                      {award.shortDesc}
+                    </p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {award.longDesc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Call to Action */}
+          <div className="text-center gradient-bg rounded-xl text-white p-12 w-full shadow-xl">
+            <h2 className="text-3xl font-bold mb-4">Ready to Participate?</h2>
+            <p className="text-xl text-primary-100 mb-8">
+              Choose your category and start your journey towards recognition
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/registration"
+                className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              >
+                Register Now
+              </a>
+              <a
+                href="/guidelines"
+                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors"
+              >
+                View Guidelines
+              </a>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   );

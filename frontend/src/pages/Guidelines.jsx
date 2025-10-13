@@ -216,7 +216,7 @@ const Guidelines = () => {
 
           {/* Important Dates */}
           <section className="mb-12">
-            <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl text-white p-8 shadow-2xl">
+            <div className="gradient-bg rounded-xl text-white p-8 shadow-2xl">
               <h2 className="text-3xl font-bold mb-6 text-center">
                 Important Dates
               </h2>
@@ -250,8 +250,8 @@ const Guidelines = () => {
                 Need Help?
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                If you have any questions about the guidelines or need
-                clarification, please don't hesitate to contact us.
+                <b>If you have any questions about the guidelines or need
+                clarification, please don't hesitate to contact us.</b>
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a

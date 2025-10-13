@@ -20,7 +20,7 @@ const SelectionTimeline = () => {
 
       <div className="relative max-w-3xl mx-auto">
         {/* Vertical line in center */}
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-primary-500 to-primary-700"></div>
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full gradient-bg"></div>
 
         <ul className="space-y-12">
           {steps.map((step, index) => (
