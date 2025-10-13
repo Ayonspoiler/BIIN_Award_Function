@@ -229,7 +229,7 @@ const Guidelines = () => {
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold mb-2">
-                    September 25, 2025
+                    September 30, 2025
                   </div>
                   <div className="text-primary-100">Final Submission</div>
                 </div>
