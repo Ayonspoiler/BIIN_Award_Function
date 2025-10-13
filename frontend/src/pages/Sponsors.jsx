@@ -1,16 +1,16 @@
 import React from "react";
 
 // Import sponsor logos
-import  AIUB from "../assets/Sponsor Logo/Gold/AIUB.jpg";
+import AIUB from "../assets/Sponsor Logo/Gold/AIUB.jpg";
 import MTB from "../assets/Sponsor Logo/Gold/MTB.jpg";
 import NCC from "../assets/Sponsor Logo/Powered By/NCC.png";
-import RTV from "../assets/Sponsor Logo/Media Partner/RTV.jpg"
-import techWorld from "../assets/Sponsor Logo/Media Partner/TechWorld.jpg"
-import IUB from "../assets/Sponsor Logo/knowledge Partner/IUB.jpg"
-import ULAB from "../assets/Sponsor Logo/knowledge Partner/ULAB.jpg"
-import JCL from "../assets/Sponsor Logo/Strategic Partner/JCI Bangladesh Logo.jpg"
-import redData from "../assets/Sponsor Logo/Technology Partner/RedData.jpg"
-import STD from "../assets/Sponsor Logo/Digital/STD.jpg"
+import RTV from "../assets/Sponsor Logo/Media Partner/RTV.jpg";
+import techWorld from "../assets/Sponsor Logo/Media Partner/TechWorld.jpg";
+import IUB from "../assets/Sponsor Logo/knowledge Partner/IUB.jpg";
+import ULAB from "../assets/Sponsor Logo/knowledge Partner/ULAB.jpg";
+import JCL from "../assets/Sponsor Logo/Strategic Partner/JCI Bangladesh Logo.jpg";
+import redData from "../assets/Sponsor Logo/Technology Partner/RedData.jpg";
+import STD from "../assets/Sponsor Logo/Digital/STD.jpg";
 
 const Sponsors = () => {
   const platinumSponsors = [
@@ -36,48 +36,46 @@ const Sponsors = () => {
 
   const knowledgePartner = [
     {
-      logo:AIUB,
+      logo: AIUB,
       name: "American International University",
-      tier:"Knowledge"
-    },
-    {
-      logo:IUB,
-      name:"Independent University,Bangladesh",
       tier: "Knowledge",
     },
     {
-      logo:ULAB,
+      logo: IUB,
+      name: "Independent University,Bangladesh",
+      tier: "Knowledge",
+    },
+    {
+      logo: ULAB,
       name: "University of Liberal Arts Bangladesh",
       tier: "Knowledge",
     },
   ];
-  
 
   const mediaPartners = [
     {
       logo: RTV,
       name: "RTV Bangladesh",
-      tier:  "Media"
+      tier: "Media",
     },
     {
       logo: techWorld,
       name: "Tech World Bangladesh",
-      tier: "Media"
-    }
+      tier: "Media",
+    },
   ];
 
   const strategicPartners = [
     {
       logo: JCL,
-    name:"JCI Bangaldesh"
+      name: "JCI Bangaldesh",
     },
   ];
 
   const technologyPartners = [
     {
-      logo:redData,
+      logo: redData,
       name: "Red Data Digital",
-  
     },
   ];
 
@@ -88,11 +86,23 @@ const Sponsors = () => {
     },
   ];
 
-  const SponsorCard = ({ sponsor, size = "medium" }) => {
+  const SponsorCard = ({
+    sponsor,
+    size = "medium",
+    isGoldOrMedia = false,
+    isKnowledge = false,
+    isMedia = false,
+  }) => {
     const sizeClasses = {
-      large: "h-64",
-      medium: "h-60",
-      small: "h-40",
+      large: isKnowledge
+        ? "h-56 sm:h-64 md:h-72 lg:h-80"
+        : "h-48 sm:h-56 md:h-64 lg:h-72",
+      medium: isMedia
+        ? "h-56 sm:h-64 md:h-72 lg:h-80"
+        : isGoldOrMedia
+        ? "h-52 sm:h-60 md:h-72 lg:h-80"
+        : "h-48 sm:h-56 md:h-64",
+      small: "h-40 sm:h-44 md:h-48",
     };
 
     return (
@@ -102,36 +112,38 @@ const Sponsors = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary-500 via-secondary-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <div className="absolute inset-[2px] bg-white rounded-2xl" />
 
-        <div className="relative h-full flex flex-col items-center justify-center overflow-hidden">
-          <div className="w-full h-full p-4 flex items-center justify-center">
+        <div className="relative h-full flex flex-col">
+          <div className="flex-1 p-4 sm:p-5 md:p-6 pt-8 sm:pt-10 md:pt-12 pb-3 sm:pb-4 flex items-center justify-center min-h-0">
             {sponsor.logo ? (
               <img
                 src={sponsor.logo}
                 alt={`${sponsor.name} logo`}
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                className="max-w-[80%] max-h-[90%] object-contain group-hover:scale-105 transition-transform duration-300"
               />
             ) : (
               <div className="text-center">
-                <div className="text-4xl mb-2">🏢</div>
-                <div className="text-xs text-gray-500 font-medium">
+                <div className="text-3xl sm:text-4xl md:text-5xl mb-2">🏢</div>
+                <div className="text-xs text-gray-500 font-medium px-2">
                   {sponsor.name}
                 </div>
               </div>
             )}
           </div>
 
-          <div className="absolute bottom-4 text-center w-full px-4">
-            <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+          <div className="flex-shrink-0 text-center bg-white px-3 sm:px-4 py-2 sm:py-3 border-t border-gray-100">
+            <h3 className="text-xs sm:text-sm md:text-base font-bold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2">
               {sponsor.name}
             </h3>
             {sponsor.description && (
-              <p className="text-sm text-gray-600">{sponsor.description}</p>
+              <p className="text-xs text-gray-600 mt-1">
+                {sponsor.description}
+              </p>
             )}
           </div>
 
-          <div className="absolute top-4 right-4">
+          <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
             <span
-              className={`text-xs font-bold px-3 py-1 rounded-full ${
+              className={`text-xs font-bold px-2 sm:px-3 py-1 rounded-full ${
                 sponsor.tier === "Platinum"
                   ? "bg-gradient-to-r from-gray-400 to-gray-600 text-white"
                   : sponsor.tier === "Gold"
@@ -151,81 +163,70 @@ const Sponsors = () => {
     );
   };
 
-const PartnerCard = ({ partner, size = "medium" }) => {
-  const sizeClasses = {
-    large: "h-64",
-    medium: "h-60",
-    small: "h-40",
-  };
+  const PartnerCard = ({ partner, size = "medium" }) => {
+    const sizeClasses = {
+      large: "h-48 sm:h-56 md:h-64",
+      medium: "h-44 sm:h-52 md:h-60",
+      small: "h-40 sm:h-44 md:h-48",
+    };
 
-  return (
-    <div
-      className={`group relative bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden ${sizeClasses[size]}`}
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="absolute inset-[2px] bg-white rounded-2xl" />
+    return (
+      <div
+        className={`group relative bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden ${sizeClasses[size]}`}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-[2px] bg-white rounded-2xl" />
 
-      <div className="relative h-full flex flex-col items-center justify-center overflow-hidden p-4">
-        <div className="w-full h-full flex items-center justify-center">
-          {partner.logo ? (
-            <img
-              src={partner.logo}
-              alt={`${partner.name} logo`}
-              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-            />
-          ) : (
-            <div className="text-center text-6xl">🏢</div>
-          )}
-        </div>
-
-        <div className="absolute bottom-4 text-center w-full px-4">
-          <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
-            {partner.name}
-          </h3>
-        </div>
-
-        {/*  Only show badge if it's a Media Partner */}
-        {/* {partner.tier === "Media" && (
-          <div className="absolute top-4 right-4">
-            <span className="text-xs font-bold px-3 py-1 rounded-full bg-gradient-to-r from-blue-400 to-indigo-600 text-white shadow-md">
-              {partner.tier}
-            </span>
+        <div className="relative h-full flex flex-col items-center justify-center overflow-hidden p-3 sm:p-4 md:p-5">
+          <div className="w-full h-full flex items-center justify-center">
+            {partner.logo ? (
+              <img
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                className="w-[85%] h-[85%] object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+            ) : (
+              <div className="text-center text-5xl sm:text-6xl">🏢</div>
+            )}
           </div>
-        )} */}
+
+          <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 text-center w-full px-2 sm:px-3">
+            <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2">
+              {partner.name}
+            </h3>
+          </div>
+        </div>
       </div>
-    </div>
-  );
-};
-
-
-
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-purple-50 to-blue-50">
       {/* Hero Section */}
-      <section className="gradient-bg text-white py-20">
+      <section className="gradient-bg text-white py-16 sm:py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-block mb-4">
-              <div className="bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full">
-                <span className="text-sm font-semibold uppercase tracking-wider">
+              <div className="bg-white/20 backdrop-blur-sm px-4 sm:px-6 py-2 rounded-full">
+                <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider">
                   Our Partners
                 </span>
               </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
               Sponsors & Partners
             </h1>
-            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty"></p>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty"></p>
           </div>
         </div>
       </section>
+
       {/* Platinum Sponsors */}
-      <section className="py-16 -mt-12">
+      <section className="py-12 sm:py-16 md:py-20 -mt-8 sm:-mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-400 to-gray-600 text-white px-6 py-2 rounded-full mb-4">
-              <span className="font-bold uppercase tracking-wider">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-400 to-gray-600 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
+              <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Platinum Sponsors
               </span>
             </div>
@@ -240,71 +241,87 @@ const PartnerCard = ({ partner, size = "medium" }) => {
           </div>
         </div>
       </section>
+
       {/* Gold Sponsors */}
-      <section className="py-16 bg-white/50 backdrop-blur-sm">
+      <section className="py-12 sm:py-16 md:py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-6 py-2 rounded-full mb-4">
-              <span className="font-bold uppercase tracking-wider">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
+              <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Gold Sponsors
               </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {goldSponsors.map((sponsor, index) => (
-              <SponsorCard key={index} sponsor={sponsor} />
+              <SponsorCard
+                key={index}
+                sponsor={sponsor}
+                size="medium"
+                isGoldOrMedia={true}
+              />
             ))}
           </div>
         </div>
       </section>
+
       {/* Knowledge Partner */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-300 to-gray-400 text-gray-800 px-6 py-2 rounded-full mb-4">
-              <span className="font-bold uppercase tracking-wider">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-300 to-gray-400 text-gray-800 px-4 sm:px-6 py-2 rounded-full mb-4">
+              <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Knowledge Partners
               </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {knowledgePartner.map((sponsor, index) => (
-              <SponsorCard key={index} sponsor={sponsor} size="large" />
+              <SponsorCard
+                key={index}
+                sponsor={sponsor}
+                size="large"
+                isKnowledge={true}
+              />
             ))}
           </div>
         </div>
       </section>
 
       {/* Media Partners */}
-      <section className="py-16 bg-white/50 backdrop-blur-sm">
+      <section className="py-12 sm:py-16 md:py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-400 to-indigo-600 text-white px-6 py-2 rounded-full mb-4">
-              <span className="font-bold uppercase tracking-wider">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-400 to-indigo-600 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
+              <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Media Partners
               </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {mediaPartners.map((partner, index) => (
-              <SponsorCard key={index} sponsor={partner} size="large" />
+              <SponsorCard
+                key={index}
+                sponsor={partner}
+                size="medium"
+                isMedia={true}
+              />
             ))}
           </div>
         </div>
       </section>
 
       {/* Strategic, Technology, Digital Campaign Partners Section */}
-      {/* Strategic, Technology, Digital Campaign Partners Section */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Strategic Partner */}
             <div className="flex flex-col items-center">
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-8 py-1.5 rounded-full mb-6 shadow-md">
-                <span className="text-lg font-semibold tracking-wide">
+              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-8 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
+                <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Strategic Partner
                 </span>
               </div>
@@ -315,8 +332,8 @@ const PartnerCard = ({ partner, size = "medium" }) => {
 
             {/* Technology Partner */}
             <div className="flex flex-col items-center">
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-7 py-1.5 rounded-full mb-6 shadow-md">
-                <span className="text-lg font-semibold tracking-wide">
+              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-7 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
+                <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Technology Partner
                 </span>
               </div>
@@ -327,8 +344,8 @@ const PartnerCard = ({ partner, size = "medium" }) => {
 
             {/* Digital Campaign Partner */}
             <div className="flex flex-col items-center">
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-3 py-1.5 rounded-full mb-6 shadow-md">
-                <span className="text-lg font-semibold tracking-wide">
+              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-4 sm:px-6 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
+                <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Digital Campaign Partner
                 </span>
               </div>
@@ -341,20 +358,20 @@ const PartnerCard = ({ partner, size = "medium" }) => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl shadow-2xl p-12 text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl shadow-2xl p-8 sm:p-12 text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
               Become a Sponsor
             </h2>
-            <p className="text-xl mb-8 text-gray-100"></p>
+            <p className="text-lg sm:text-xl mb-8 text-gray-100"></p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=moon@org.biin.bd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+                className="inline-block bg-white text-primary-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
               >
                 Email Us
               </a>
