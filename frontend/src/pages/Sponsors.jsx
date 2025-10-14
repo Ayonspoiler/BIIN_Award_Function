@@ -13,7 +13,8 @@ import redData from "../assets/Sponsor Logo/Technology Partner/RedData-1.jpg";
 import STD from "../assets/Sponsor Logo/Digital/STD-1.jpg";
 import AIUB2 from "../assets/Sponsor Logo/knowledge Partner/AIUB-2.jpg";
 import City from "../assets/Sponsor Logo/Silver/CITY-1.jpeg";
-
+import shareTrip from "../assets/Sponsor Logo/Gift/ShareTrip-1.jpg";
+import superStar from "../assets/Sponsor Logo/Gift/Super-Star-Group-2.jpg"
 const Sponsors = () => {
   const platinumSponsors = [
     {
@@ -77,13 +78,13 @@ const Sponsors = () => {
 
   const giftPartners = [
     {
-      logo: RTV,
-      name: "Super Star Group (SSG) ",
+      logo: shareTrip,
+      name: "ShareTrip ",
       tier: "Gift",
     },
     {
-      logo: techWorld,
-      name: "TechWorld Bangladesh",
+      logo: superStar,
+      name: "Super Star Group (SSG)",
       tier: "Gift",
     },
   ];
@@ -98,7 +99,7 @@ const Sponsors = () => {
   const technologyPartners = [
     {
       logo: redData,
-      name: "Red Data Digital",
+      name: "Red Data (Pvt.) Ltd",
     },
   ];
 
@@ -313,7 +314,7 @@ const Sponsors = () => {
           <div className="flex justify-center">
             {silverSponsors.map((sponsor, index) => (
               <div key={index} className="w-full sm:w-2/3 lg:w-1/2">
-                <SponsorCard sponsor={sponsor} size="medium" />
+                <SponsorCard sponsor={sponsor} size="large" />
               </div>
             ))}
           </div>
@@ -395,41 +396,53 @@ const Sponsors = () => {
       {/* Strategic, Technology, Digital Campaign Partners Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-8 auto-rows-max">
             {/* Strategic Partner */}
             <div className="flex flex-col items-center">
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-8 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
-                <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
+                <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide whitespace-nowrap">
                   Strategic Partner
                 </span>
               </div>
-              {strategicPartners.map((partner, index) => (
-                <PartnerCard key={index} partner={partner} size="small" />
-              ))}
+              <div className="w-full flex justify-center">
+                {strategicPartners.map((partner, index) => (
+                  <div key={index} className="w-full max-w-xs">
+                    <PartnerCard partner={partner} size="small" />
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Technology Partner */}
             <div className="flex flex-col items-center">
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-7 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
-                <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
+                <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide whitespace-nowrap">
                   Technology Partner
                 </span>
               </div>
-              {technologyPartners.map((partner, index) => (
-                <PartnerCard key={index} partner={partner} size="small" />
-              ))}
+              <div className="w-full flex justify-center">
+                {technologyPartners.map((partner, index) => (
+                  <div key={index} className="w-full max-w-xs">
+                    <PartnerCard partner={partner} size="small" />
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Digital Campaign Partner */}
             <div className="flex flex-col items-center">
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-4 sm:px-6 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
-                <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
+                <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide whitespace-nowrap">
                   Digital Campaign Partner
                 </span>
               </div>
-              {digitalCampaignPartners.map((partner, index) => (
-                <PartnerCard key={index} partner={partner} size="small" />
-              ))}
+              <div className="w-full flex justify-center">
+                {digitalCampaignPartners.map((partner, index) => (
+                  <div key={index} className="w-full max-w-xs">
+                    <PartnerCard partner={partner} size="small" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
