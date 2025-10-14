@@ -75,6 +75,19 @@ const Sponsors = () => {
     },
   ];
 
+  const giftPartners = [
+    {
+      logo: RTV,
+      name: "Super Star Group (SSG) ",
+      tier: "Gift",
+    },
+    {
+      logo: techWorld,
+      name: "TechWorld Bangladesh",
+      tier: "Gift",
+    },
+  ];
+
   const strategicPartners = [
     {
       logo: JCL,
@@ -157,7 +170,7 @@ const Sponsors = () => {
 
           <div className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4">
             <span
-              className={`text-xs md:text-sm font-bold px-2 sm:px-3 py-1 rounded-full ${
+              className={`text-xs md:text-sm font-bold px-4 sm:px-4 py-1 rounded-full ${
                 sponsor.tier === "Platinum"
                   ? "bg-gradient-to-r from-gray-400 to-gray-600 text-white"
                   : sponsor.tier === "Gold"
@@ -167,7 +180,9 @@ const Sponsors = () => {
                   : sponsor.tier === "Knowledge"
                   ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white"
                   : sponsor.tier === "Media"
-                  ? "bg-gradient-to-r from-blue-400 to-indigo-600 text-white"
+                  ? "bg-gradient-to-r from-blue-500 to-indigo-700 text-white"
+                  : sponsor.tier === "Gift"
+                  ? "bg-gradient-to-r from-indigo-600 to-slate-800 text-white"
                   : "bg-gradient-to-r from-gray-300 to-gray-400 text-gray-800"
               }`}
             >
@@ -298,7 +313,7 @@ const Sponsors = () => {
           <div className="flex justify-center">
             {silverSponsors.map((sponsor, index) => (
               <div key={index} className="w-full sm:w-2/3 lg:w-1/2">
-                <SponsorCard sponsor={sponsor} size="large" />
+                <SponsorCard sponsor={sponsor} size="medium" />
               </div>
             ))}
           </div>
@@ -333,7 +348,7 @@ const Sponsors = () => {
       <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-400 to-indigo-600 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-700 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
               <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Media Partners
               </span>
@@ -345,7 +360,31 @@ const Sponsors = () => {
               <SponsorCard
                 key={index}
                 sponsor={partner}
-                size="medium"
+                size="small"
+                isMedia={true}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gift Partners */}
+      <section className="py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-slate-800 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
+              <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
+                Gift Partners
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {giftPartners.map((partner, index) => (
+              <SponsorCard
+                key={index}
+                sponsor={partner}
+                size="small"
                 isMedia={true}
               />
             ))}
@@ -358,38 +397,38 @@ const Sponsors = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Strategic Partner */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center mr-6">
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-8 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Strategic Partner
                 </span>
               </div>
               {strategicPartners.map((partner, index) => (
-                <PartnerCard key={index} partner={partner} size="medium" />
+                <PartnerCard key={index} partner={partner} size="small" />
               ))}
             </div>
 
             {/* Technology Partner */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center ml-9">
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-7 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Technology Partner
                 </span>
               </div>
               {technologyPartners.map((partner, index) => (
-                <PartnerCard key={index} partner={partner} size="medium" />
+                <PartnerCard key={index} partner={partner} size="small" />
               ))}
             </div>
 
             {/* Digital Campaign Partner */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center ml-6">
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-4 sm:px-6 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Digital Campaign Partner
                 </span>
               </div>
               {digitalCampaignPartners.map((partner, index) => (
-                <PartnerCard key={index} partner={partner} size="medium" />
+                <PartnerCard key={index} partner={partner} size="small" />
               ))}
             </div>
           </div>
