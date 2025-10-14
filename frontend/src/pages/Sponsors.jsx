@@ -19,7 +19,7 @@ const Sponsors = () => {
   const platinumSponsors = [
     {
       logo: NCC,
-      name: "National Credit and Commerce Bank PLC.",
+      name: "National Credit and Commerce Bank PLC",
       tier: "Platinum",
     },
   ];
