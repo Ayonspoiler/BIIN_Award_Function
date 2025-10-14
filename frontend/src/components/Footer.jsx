@@ -47,10 +47,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/competition"
+                  to="/categories"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Competition
+                  Categories
                 </Link>
               </li>
               <li>

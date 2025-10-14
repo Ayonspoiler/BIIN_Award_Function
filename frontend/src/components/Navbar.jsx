@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -13,7 +17,7 @@ const Navbar = () => {
     { name: "Guidelines", path: "/guidelines" },
     { name: "Registration", path: "/registration" },
     { name: "Judges", path: "/judges" },
-    { name: "Sponsors", path:"/sponsors" }
+    { name: "Sponsors", path: "/sponsors" },
   ];
 
   return (
@@ -103,7 +107,7 @@ const Navbar = () => {
                     href={item.path}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => setIsOpen(false)} // ✅ close dropdown on click
+                    onClick={() => setIsOpen(false)} //  close dropdown on click
                     className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-100"
                   >
                     {item.name}
@@ -112,7 +116,7 @@ const Navbar = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    onClick={() => setIsOpen(false)} // ✅ close dropdown on click
+                    onClick={() => setIsOpen(false)} //  close dropdown on click
                     className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                       location.pathname === item.path
                         ? "text-primary-600 bg-primary-50"

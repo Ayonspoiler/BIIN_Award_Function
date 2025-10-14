@@ -375,13 +375,13 @@ const Competition = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/registration"
-                className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                className="bg-white text-secondary-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors"
               >
                 Register Now
               </a>
               <a
                 href="/guidelines"
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors"
+                className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-secondary-600 transition-colors"
               >
                 View Guidelines
               </a>

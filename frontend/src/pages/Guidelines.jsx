@@ -258,14 +258,14 @@ const Guidelines = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=moon@org.biin.bd"
-                  className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
+                  className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary-700 transition-colors"
                 >
                   Email Us
                 </a>
 
                 <a
                   href="/registration"
-                  className="border-2 border-secondary-600 text-secondary-600 px-6 py-3 rounded-lg font-semibold hover:bg-gradient-to-r from-primary-600 to-secondary-600 hover:text-white transition-colors"
+                  className="border-2 border-secondary-600 text-secondary-600 px-6 py-3 rounded-xl font-semibold hover:bg-gradient-to-r from-primary-600 to-secondary-600 hover:text-white transition-colors"
                 >
                   Start Registration
                 </a>
