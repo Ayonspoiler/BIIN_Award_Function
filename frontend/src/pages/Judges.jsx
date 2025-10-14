@@ -25,6 +25,7 @@ import mahmudRashidImg from "../assets/JudgesImage/M.-MAHMUDUR-RASHID.jpg"
 import joyaKabirImg from "../assets/JudgesImage/Joya-Kabir.jpg"
 // import sabbinHassanImg from "../assets/JudgesImage/sa"
 import tahsinShezanImg from "../assets/JudgesImage/Tahsin-Azim-Shezan.jpg"
+import amitavImg from "../assets/JudgesImage/amitav kaiser.jpg"
 
 const Judges = () => {
   // Placeholder judge data - images can be replaced later
@@ -79,6 +80,12 @@ const Judges = () => {
       name: "Zahidul Haque",
       designation: "Chief Technology Officer",
       organization: "Eastern Bank PLC.",
+    },
+    {
+      image:amitavImg,
+      name: "Amitav Kaiser",
+      designation: "Head of MTB Infrastructure Division ",
+      organization: "Mutual Trust Bank PLC",
     },
 
     {
@@ -189,11 +196,7 @@ const Judges = () => {
       organization: "Anwar Group of Industries",
       //   category: "Entrepreneurship Expert",
     },
-    {
-      name: "Amitav Kaiser",
-      designation: "Head of MTB Infrastructure Division ",
-      organization: "Mutual Trust Bank PLC",
-    },
+
     {
       name: "Sabbin Hasan",
       designation: "Digital Growth Editor, Samakal",
