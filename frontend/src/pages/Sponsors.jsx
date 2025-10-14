@@ -314,7 +314,7 @@ const Sponsors = () => {
           <div className="flex justify-center">
             {silverSponsors.map((sponsor, index) => (
               <div key={index} className="w-full sm:w-2/3 lg:w-1/2">
-                <SponsorCard sponsor={sponsor} size="large" />
+                <SponsorCard sponsor={sponsor} size="medium" />
               </div>
             ))}
           </div>
