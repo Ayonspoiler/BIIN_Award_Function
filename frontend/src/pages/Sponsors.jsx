@@ -397,7 +397,7 @@ const Sponsors = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Strategic Partner */}
-            <div className="flex flex-col items-center mr-6">
+            <div className="flex flex-col items-center md:mr-6">
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-8 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Strategic Partner
@@ -409,7 +409,7 @@ const Sponsors = () => {
             </div>
 
             {/* Technology Partner */}
-            <div className="flex flex-col items-center ml-9">
+            <div className="flex flex-col items-center md:ml-9">
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-7 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Technology Partner
@@ -421,7 +421,7 @@ const Sponsors = () => {
             </div>
 
             {/* Digital Campaign Partner */}
-            <div className="flex flex-col items-center ml-6">
+            <div className="flex flex-col items-center md:ml-6">
               <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-4 sm:px-6 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                   Digital Campaign Partner
