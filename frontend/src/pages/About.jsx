@@ -1,38 +1,46 @@
 import { useEffect, useState } from "react";
 
 const About = () => {
-  const API_URL =
-    "https://script.google.com/macros/s/AKfycbx0bbcB-LedQAp20CrnQhPjIUL7nACzFqMWWBVpA5TuxxLvnlF6fYsxSaX7YgveefrJ3A/exec";
 
-  // Show last known value instantly
-  const [applications, setApplications] = useState(0);
 
-  const fetchApplications = async () => {
-    try {
-      const res = await fetch(`${API_URL}?action=count`);
-      const data = await res.json();
-      if (data.status === "success") {
-        setApplications(data.total);
-      }
-    } catch (err) {
-      console.error("Error fetching applications:", err);
+
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbx0bbcB-LedQAp20CrnQhPjIUL7nACzFqMWWBVpA5TuxxLvnlF6fYsxSaX7YgveefrJ3A/exec";
+
+// Show last known value instantly
+const [applications, setApplications] = useState(() => {
+  const saved = localStorage.getItem("applications");
+  return saved ? Number(saved) : 0;
+});
+
+const fetchApplications = async () => {
+  try {
+    const res = await fetch(`${API_URL}?action=count`);
+    const data = await res.json();
+    if (data.status === "success") {
+      setApplications(data.total);
+      localStorage.setItem("applications", data.total);
     }
+  } catch (err) {
+    console.error("Error fetching applications:", err);
+  }
+};
+
+useEffect(() => {
+  fetchApplications(); // initial fetch
+
+  const handleUpdate = (e) => setApplications(e.detail);
+  window.addEventListener("updateApplications", handleUpdate);
+
+  // Poll every 1-2 seconds for live update (captures deletions too)
+  const interval = setInterval(fetchApplications, 2000);
+
+  return () => {
+    window.removeEventListener("updateApplications", handleUpdate);
+    clearInterval(interval);
   };
+}, []);
 
-  useEffect(() => {
-    fetchApplications(); // initial fetch
-
-    const handleUpdate = (e) => setApplications(e.detail);
-    window.addEventListener("updateApplications", handleUpdate);
-
-    // Poll every 1-2 seconds for live update (captures deletions too)
-    const interval = setInterval(fetchApplications, 2000);
-
-    return () => {
-      window.removeEventListener("updateApplications", handleUpdate);
-      clearInterval(interval);
-    };
-  }, []);
 
   return (
     <div className="">
@@ -57,7 +65,7 @@ const About = () => {
             <p className="text-lg text-gray-600 mb-6">
               Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh ICT
               & Innovation Network (BIIN), is designed to shape the future of
-              Bangladesh's digital landscape by recognizing and empowering
+              Bangladesh’s digital landscape by recognizing and empowering
               visionary individuals, startups, and enterprises whose innovations
               drive long-term transformation and global opportunities.
             </p>
@@ -241,8 +249,8 @@ const About = () => {
               </h3>
               <div className="bg-gray-50 p-6 rounded-lg">
                 <ul className="space-y-4">
-                  <li className="flex flex-col sm:flex-row sm:items-start">
-                    <span className="font-semibold text-gray-900 mb-1 sm:mb-0 sm:min-w-[180px] sm:flex-shrink-0">
+                  <li className="flex items-start">
+                    <span className="font-semibold text-gray-900 min-w-[180px]">
                       September 10, 2025
                     </span>
                     <span className="text-gray-600">
@@ -250,8 +258,17 @@ const About = () => {
                       submissions.
                     </span>
                   </li>
-                  <li className="flex flex-col sm:flex-row sm:items-start">
-                    <span className="font-semibold text-gray-900 mb-1 sm:mb-0 sm:min-w-[180px] sm:flex-shrink-0">
+                  {/* <li className="flex items-start">
+                  <span className="font-semibold text-gray-900 min-w-[180px]">
+                    September 25, 2025
+                  </span>
+                  <span className="text-gray-600">
+                    Preliminary Evaluation - Initial review and shortlisting of
+                    submitted projects.
+                  </span>
+                </li> */}
+                  <li className="flex items-start">
+                    <span className="font-semibold text-gray-900 min-w-[180px]">
                       September 30, 2025
                     </span>
                     <span className="text-gray-600">
@@ -259,8 +276,8 @@ const About = () => {
                       submit detailed entries.
                     </span>
                   </li>
-                  <li className="flex flex-col sm:flex-row sm:items-start">
-                    <span className="font-semibold text-gray-900 mb-1 sm:mb-0 sm:min-w-[180px] sm:flex-shrink-0">
+                  <li className="flex items-start">
+                    <span className="font-semibold text-gray-900 min-w-[180px]">
                       October 9–11, 2025
                     </span>
                     <span className="text-gray-600">
@@ -270,14 +287,14 @@ const About = () => {
                       several days for careful and transparent evaluation.
                     </span>
                   </li>
-                  <li className="flex flex-col sm:flex-row sm:items-start">
-                    <span className="font-semibold text-gray-900 mb-1 sm:mb-0 sm:min-w-[180px] sm:flex-shrink-0">
+                  <li className="flex items-start">
+                    <span className="font-semibold text-gray-900 min-w-[180px]">
                       October 18, 2025
                     </span>
                     <span className="text-gray-600">Award Ceremony</span>
                   </li>
-                  <li className="flex flex-col sm:flex-row sm:items-start">
-                    <span className="font-semibold text-gray-900 mb-1 sm:mb-0 sm:min-w-[180px] sm:flex-shrink-0">
+                  <li className="flex items-start">
+                    <span className="font-semibold text-gray-900 min-w-[180px]">
                       Global Representation
                     </span>
                     <span className="text-gray-600">
@@ -400,12 +417,20 @@ const About = () => {
               Awards by Numbers
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              {/* <div>
+              <div className="text-4xl font-bold mb-2">2</div>
+              <div className="text-primary-100">Years Running</div>
+            </div> */}
+
               <div>
                 <div className="text-4xl font-bold mb-2">6</div>
                 <div className="text-primary-100">Categories</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">255</div>
+                <div className="text-4xl font-bold mb-2">
+                  {/* {applications === null ? "..." : applications} */}
+                  255
+                </div>
                 <div className="text-primary-100">Applications</div>
               </div>
               <div>

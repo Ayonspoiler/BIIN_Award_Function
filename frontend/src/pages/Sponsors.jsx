@@ -20,8 +20,8 @@ const Sponsors = () => {
     {
       logo: NCC,
       name: "National Credit and Commerce Bank PLC",
-      tier: "Platinum",
-    },
+      tier: "Title",
+    },  
   ];
 
   const goldSponsors = [
@@ -172,8 +172,8 @@ const Sponsors = () => {
           <div className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4">
             <span
               className={`text-xs md:text-sm font-bold px-4 sm:px-4 py-1 rounded-full ${
-                sponsor.tier === "Platinum"
-                  ? "bg-gradient-to-r from-gray-400 to-gray-600 text-white"
+                sponsor.tier === "Title"
+                  ? "bg-gradient-to-r from-red-600 to-blue-600 text-white"
                   : sponsor.tier === "Gold"
                   ? "bg-gradient-to-r from-yellow-400 to-yellow-600 text-white"
                   : sponsor.tier === "Silver"
@@ -259,9 +259,13 @@ const Sponsors = () => {
       <section className="py-12 sm:py-16 md:py-20 -mt-8 sm:-mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-400 to-gray-600 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
+            <div
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-blue-600
+
+ text-white px-4 sm:px-6 py-2 rounded-full mb-4"
+            >
               <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
-                Platinum Sponsor
+                Title Sponsor
               </span>
             </div>
           </div>
