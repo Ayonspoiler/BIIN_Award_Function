@@ -3,7 +3,7 @@ import React from "react";
 // Import sponsor logos
 import AIUB from "../assets/Sponsor Logo/Gold/AIUB-1.jpg";
 import MTB from "../assets/Sponsor Logo/Gold/MTB-1.jpg";
-import NCC from "../assets/Sponsor Logo/Powered By/NCC-7.jpeg";
+import NCC from "../assets/Sponsor Logo/Powered By/NCC-Bank-1.jpg";
 import RTV from "../assets/Sponsor Logo/Media Partner/RTV-1.jpg";
 import techWorld from "../assets/Sponsor Logo/Media Partner/TechWorld-3.jpeg";
 import IUB from "../assets/Sponsor Logo/knowledge Partner/IUB-1.jpg";
