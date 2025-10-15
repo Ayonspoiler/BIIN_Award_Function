@@ -27,7 +27,7 @@ const Sponsors = () => {
   const goldSponsors = [
     {
       logo: AIUB,
-      name: "American International University, Bangladesh",
+      name: "American International University - Bangladesh",
       tier: "Gold",
     },
     {
@@ -48,7 +48,7 @@ const Sponsors = () => {
   const knowledgePartner = [
     {
       logo: AIUB2,
-      name: "American International University, Bangladesh",
+      name: "American International University - Bangladesh",
       tier: "Knowledge",
     },
     {
