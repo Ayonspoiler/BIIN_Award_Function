@@ -301,7 +301,7 @@ const Winners = () => {
                 setActiveDivision(division.id);
                 setActiveLevel("champion");
               }}
-              className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 ${
+              className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 ${
                 activeDivision === division.id
                   ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg scale-105"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
@@ -324,7 +324,7 @@ const Winners = () => {
             <button
               key={level.id}
               onClick={() => setActiveLevel(level.id)}
-              className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
+              className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
                 activeLevel === level.id
                   ? `bg-gradient-to-r ${getAwardColor(
                       level.id
