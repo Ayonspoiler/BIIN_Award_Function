@@ -291,8 +291,8 @@ const Winners = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12 mt-8 sm:mt-12">
         <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-4 justify-center">
           {[
-            { id: "student", label: "Student Division" },
-            { id: "organization", label: "Organization Division" },
+            { id: "student", label: "Student" },
+            { id: "organization", label: "Organization" },
             { id: "individual", label: "Individual or Group" },
           ].map((division) => (
             <button
