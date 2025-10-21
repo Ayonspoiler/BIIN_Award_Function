@@ -239,15 +239,15 @@ const Winners = () => {
       "Inclusion and Community Services": "bg-green-100 text-green-800",
       Consumer: "bg-pink-100 text-pink-800",
       "Public Sector and Government": "bg-orange-100 text-orange-800",
-      "Public Sector and Government": "bg-orange-100 text-orange-800",
     };
     return colors[category] || "bg-gray-100 text-gray-800";
   };
 
   const getAwardIcon = (level) => {
-    if (level === "champion") return <Trophy className="w-6 h-6" />;
-    if (level === "winner") return <Award className="w-6 h-6" />;
-    return <Medal className="w-6 h-6" />;
+    if (level === "champion")
+      return <Trophy className="w-5 h-5 sm:w-6 sm:h-6" />;
+    if (level === "winner") return <Award className="w-5 h-5 sm:w-6 sm:h-6" />;
+    return <Medal className="w-5 h-5 sm:w-6 sm:h-6" />;
   };
 
   const getAwardColor = (level) => {
@@ -269,27 +269,27 @@ const Winners = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20">
+      <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-block mb-4">
-              <div className="bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full">
-                <span className="text-sm font-semibold uppercase tracking-wider">
+            <div className="inline-block mb-3 sm:mb-4">
+              <div className="bg-white/20 backdrop-blur-sm px-4 py-1.5 sm:px-6 sm:py-2 rounded-full">
+                <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider">
                   Meet Our Winners
                 </span>
               </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-balance leading-tight">
               Award Winners
             </h1>
-            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty"></p>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty px-4"></p>
           </div>
         </div>
       </section>
 
       {/* Division Tabs */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 mt-12">
-        <div className="flex flex-wrap gap-4 justify-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12 mt-8 sm:mt-12">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-4 justify-center">
           {[
             { id: "student", label: "Student Division" },
             { id: "organization", label: "Organization Division" },
@@ -301,7 +301,7 @@ const Winners = () => {
                 setActiveDivision(division.id);
                 setActiveLevel("champion");
               }}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+              className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 ${
                 activeDivision === division.id
                   ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg scale-105"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
@@ -314,8 +314,8 @@ const Winners = () => {
       </div>
 
       {/* Award Level Tabs */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex flex-wrap gap-3 justify-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-center">
           {[
             { id: "champion", label: "🏆 Champion", icon: Trophy },
             { id: "winner", label: "🥈 Winner", icon: Award },
@@ -324,7 +324,7 @@ const Winners = () => {
             <button
               key={level.id}
               onClick={() => setActiveLevel(level.id)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 ${
+              className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
                 activeLevel === level.id
                   ? `bg-gradient-to-r ${getAwardColor(
                       level.id
@@ -340,8 +340,8 @@ const Winners = () => {
       </div>
 
       {/* Winners Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {currentWinners.map((winner, index) => (
             <div
               key={winner.id}
@@ -350,22 +350,22 @@ const Winners = () => {
               )}`}
             >
               {/* Rank Badge */}
-              <div className="absolute top-4 right-4 z-10">
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
                 <div
-                  className={`w-12 h-12 rounded-full bg-gradient-to-br ${getAwardColor(
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br ${getAwardColor(
                     activeLevel
-                  )} flex items-center justify-center text-white font-bold text-lg shadow-lg`}
+                  )} flex items-center justify-center text-white font-bold text-base sm:text-lg shadow-lg`}
                 >
                   {index + 1}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6 relative z-5">
+              <div className="p-4 sm:p-6 relative z-5">
                 {/* Category Badge */}
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <span
-                    className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${getCategoryColor(
+                    className={`inline-block px-2.5 py-1 sm:px-3 rounded-full text-xs font-semibold ${getCategoryColor(
                       winner.category
                     )}`}
                   >
@@ -374,20 +374,20 @@ const Winners = () => {
                 </div>
 
                 {/* Solution Name */}
-                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all">
                   {winner.solution}
                 </h3>
 
                 {/* Organization */}
-                <p className="text-sm text-gray-700 mb-4 line-clamp-2">
+                <p className="text-xs sm:text-sm text-gray-700 mb-3 sm:mb-4 line-clamp-2">
                   <span className="font-semibold">Organization:</span>{" "}
                   {winner.organization}
                 </p>
 
                 {/* Award Level Indicator */}
-                <div className="flex items-center gap-2 pt-4 border-t border-gray-300/50">
+                <div className="flex items-center gap-2 pt-3 sm:pt-4 border-t border-gray-300/50">
                   {getAwardIcon(activeLevel)}
-                  <span className="text-sm font-semibold text-gray-800 capitalize">
+                  <span className="text-xs sm:text-sm font-semibold text-gray-800 capitalize">
                     {activeLevel === "champion" && "Champion"}
                     {activeLevel === "winner" && "Winner"}
                     {activeLevel === "merit" && "Merit Award"}
@@ -403,9 +403,9 @@ const Winners = () => {
 
         {/* Empty State */}
         {currentWinners.length === 0 && (
-          <div className="text-center py-16">
-            <Trophy className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-            <p className="text-gray-400 text-lg">
+          <div className="text-center py-12 sm:py-16">
+            <Trophy className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400 mx-auto mb-3 sm:mb-4" />
+            <p className="text-gray-400 text-base sm:text-lg">
               No winners in this category yet.
             </p>
           </div>
@@ -413,31 +413,37 @@ const Winners = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border-2 border-yellow-200 text-center shadow-md">
-            <div className="text-4xl font-bold text-yellow-600 mb-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 sm:p-8 border-2 border-yellow-200 text-center shadow-md">
+            <div className="text-3xl sm:text-4xl font-bold text-yellow-600 mb-2">
               {winnersData.student.champion.length +
                 winnersData.organization.champion.length +
                 winnersData.individual.champion.length}
             </div>
-            <p className="text-gray-700 font-semibold">Total Champions</p>
+            <p className="text-sm sm:text-base text-gray-700 font-semibold">
+              Total Champions
+            </p>
           </div>
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border-2 border-gray-300 text-center shadow-md">
-            <div className="text-4xl font-bold text-gray-600 mb-2">
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 sm:p-8 border-2 border-gray-300 text-center shadow-md">
+            <div className="text-3xl sm:text-4xl font-bold text-gray-600 mb-2">
               {winnersData.student.winner.length +
                 winnersData.organization.winner.length +
                 winnersData.individual.winner.length}
             </div>
-            <p className="text-gray-700 font-semibold">Total Winners</p>
+            <p className="text-sm sm:text-base text-gray-700 font-semibold">
+              Total Winners
+            </p>
           </div>
-          <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-8 border-2 border-orange-200 text-center shadow-md">
-            <div className="text-4xl font-bold text-orange-600 mb-2">
+          <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 sm:p-8 border-2 border-orange-200 text-center shadow-md">
+            <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">
               {winnersData.student.merit.length +
                 winnersData.organization.merit.length +
                 winnersData.individual.merit.length}
             </div>
-            <p className="text-gray-700 font-semibold">Merit Awards</p>
+            <p className="text-sm sm:text-base text-gray-700 font-semibold">
+              Merit Awards
+            </p>
           </div>
         </div>
       </div>
