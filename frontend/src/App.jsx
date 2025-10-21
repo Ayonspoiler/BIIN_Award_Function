@@ -11,6 +11,7 @@ import JudgeMarkingSystem from "./pages/JudgeMarkingSystem";
 import ResultsPage from "./pages/ResultsPage";
 import Judges from "./pages/Judges";
 import Sponsors from "./pages/Sponsors";
+import Winners from "./pages/Winners";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/results" element={<ResultsPage/>}/>
           <Route path="/judges" element ={<Judges/>}/>
           <Route path="/sponsors" element={<Sponsors/>}/>
+          <Route path="/winners" element={<Winners/>}/>
         </Routes>
       </main>
       <Footer />
