@@ -26,7 +26,7 @@ const PressCoverage = () => {
   const pressChannels = [
     {
       id: 1,
-      name: "Techzoom.TV",
+      name: "Techzoom",
       email: "techzoom.tv@gmail.com",
       url: "https://techzoom.tv/technology-news/details/97080/%e0%a6%a6%e0%a7%87%e0%a6%b6%e0%a7%87%e0%a6%b0-%e0%a6%b6%e0%a7%80%e0%a6%b0%e0%a7%8d%e0%a6%b7-%e0%a6%89%e0%a6%a6%e0%a7%8d%e0%a6%ad%e0%a6%be%e0%a6%ac%e0%a6%95%e0%a6%a6%e0%a7%87%e0%a6%b0-%e0%a6%b8/",
       color: "from-blue-500 to-cyan-500",
@@ -200,6 +200,7 @@ const PressCoverage = () => {
                   rel="noopener noreferrer"
                   className="group relative block h-full"
                 >
+                  {/* Glow background on hover */}
                   <div
                     className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl"
                     style={{
@@ -207,7 +208,8 @@ const PressCoverage = () => {
                     }}
                   ></div>
 
-                  <div className="relative bg-gradient-to-br from-[#3a7bd5] to-[#3a6073] border border-gray-200 rounded-2xl p-4 flex flex-col h-full hover:from-[#fff2cc] hover:to-[#f4d58d] transition-all duration-300 group-hover:border-yellow-300 group-hover:shadow-2xl">
+                  {/* Card container */}
+                  <div className="relative bg-gradient-to-br from-[#3a7bd5] to-[#3a6073] border border-gray-200 rounded-2xl p-4 flex flex-col h-full hover:from-[#5fa8e0] hover:to-[#4a6fa5] transition-all duration-300 group-hover:border-blue-300 group-hover:shadow-2xl">
                     {/* Logo Section */}
                     <div
                       className="mb-3 w-full flex items-center justify-center overflow-hidden rounded-xl"
@@ -233,16 +235,16 @@ const PressCoverage = () => {
 
                     {/* Info Section */}
                     <div className="flex-grow flex flex-col text-center">
-                      <h3 className="text-white font-bold text-sm mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-300 line-clamp-1">
+                      <h3 className="text-white font-bold text-sm mb-2 transition-colors duration-300 group-hover:text-black line-clamp-1">
                         {channel.name}
                       </h3>
                       <p
-                        className="text-white text-[10px] mb-2 line-clamp-1"
+                        className="text-white text-[10px] mb-2 line-clamp-1 transition-colors duration-300 group-hover:text-black"
                         title={channel.email}
                       >
                         {channel.email}
                       </p>
-                      <div className="flex items-center justify-center gap-1 text-white group-hover:text-purple-600 transition-colors duration-300 font-medium text-[11px] mt-auto">
+                      <div className="flex items-center justify-center gap-1 text-white group-hover:text-black transition-colors duration-300 font-medium text-[11px] mt-auto">
                         <svg
                           className="w-3 h-3"
                           fill="none"
@@ -270,25 +272,25 @@ const PressCoverage = () => {
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
+              <div className="bg-gradient-to-r from-primary-600 to-secondary-600 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
+                <div className="text-4xl text-white font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
                   {pressChannels.length}+
                 </div>
-                <p className="text-gray-600">Media Outlets</p>
+                <p className="text-white">Media Outlets</p>
               </div>
 
-              <div className="bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
-                <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+              <div className="bg-gradient-to-r from-primary-600 to-secondary-600 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
+                <div className="text-4xl text-white ont-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
                   National
                 </div>
-                <p className="text-gray-600">Coverage</p>
+                <p className="text-white">Coverage</p>
               </div>
 
-              <div className="bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
-                <div className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">
+              <div className="bg-gradient-to-r from-primary-600 to-secondary-600 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
+                <div className="text-4xl text-white font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">
                   Growing
                 </div>
-                <p className="text-gray-600">Reach</p>
+                <p className="text-white">Reach</p>
               </div>
             </div>
           </div>
@@ -297,7 +299,7 @@ const PressCoverage = () => {
         {/* CTA Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 border-gray-200 rounded-xl p-12 text-center">
+            <div className="bg-gradient-to-r from-primary-600 to-secondary-600  border-gray-200 rounded-xl p-12 text-center">
               <h2 className="text-3xl font-bold text-white mb-4">
                 Featured in Major Media
               </h2>
@@ -308,7 +310,7 @@ const PressCoverage = () => {
               </p>
               <a
                 href="/"
-                className="inline-block px-8 py-3 bg-white text-purple-600 font-semibold rounded-xl hover:shadow-lg hover:shadow-purple-600/50 transition-all duration-300 transform hover:scale-105"
+                className="inline-block px-8 py-3 bg-white text-secondary-600 font-semibold rounded-xl hover:shadow-lg hover:shadow-purple-600/50 transition-all duration-300 transform hover:scale-105"
               >
                 Back to Home
               </a>
