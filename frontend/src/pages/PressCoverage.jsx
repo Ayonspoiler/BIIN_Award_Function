@@ -3,42 +3,49 @@ const PressCoverage = () => {
     {
       id: 1,
       name: "Techzoom.TV",
+      email: "techzoom.tv@gmail.com",
       url: "https://techzoom.tv/technology-news/details/97080/%e0%a6%a6%e0%a7%87%e0%a6%b6%e0%a7%87%e0%a6%b0-%e0%a6%b6%e0%a7%80%e0%a6%b0%e0%a7%8d%e0%a6%b7-%e0%a6%89%e0%a6%a6%e0%a7%8d%e0%a6%ad%e0%a6%be%e0%a6%ac%e0%a6%95%e0%a6%a6%e0%a7%87%e0%a6%b0-%e0%a6%b8/",
       color: "from-blue-500 to-cyan-500",
     },
     {
       id: 2,
       name: "Notunshomoy",
+      email: "info@notunshomoy.com",
       url: "https://notunshomoy.com/details.php?id=183239",
       color: "from-purple-500 to-pink-500",
     },
     {
       id: 3,
       name: "Saradin",
+      email: "saradinonline@gmail.com",
       url: "https://www.saradin.news/news/223399",
       color: "from-orange-500 to-red-500",
     },
     {
       id: 4,
       name: "Jagoronexpress",
+      email: " jagoronexpress20@gmail.com",
       url: "https://jagoronexpress.com/details/?pid=3474",
       color: "from-green-500 to-emerald-500",
     },
     {
       id: 5,
       name: "Dailyictnews",
+      email: "news@dailyictnews.com",
       url: "https://www.dailyictnews.com/15409",
       color: "from-indigo-500 to-blue-500",
     },
     {
       id: 6,
       name: "Dhaka Tribune",
+      email: "news@dhakatribune.com",
       url: "https://www.google.com/amp/s/www.dhakatribune.com/amp/bangladesh/event/394357/bangladesh-ict-and-innovation-network-honors-the",
       color: "from-yellow-500 to-orange-500",
     },
     {
       id: 7,
       name: "Digibanglatech",
+      email: "press@digibanglatech.news ",
       url: "https://digibanglatech.news/158479",
       color: "from-pink-500 to-rose-500",
     },
@@ -160,6 +167,9 @@ const PressCoverage = () => {
                     <h3 className="text-gray-900 font-semibold text-center mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-300">
                       {channel.name}
                     </h3>
+                    <p className="text-gray-900  text-center mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-300">
+                      {channel.email}
+                    </p>
 
                     <div className="flex items-center gap-2 text-gray-500 group-hover:text-gray-900 transition-colors duration-300">
                       <svg
