@@ -25,12 +25,20 @@ const PressCoverage = () => {
 
   const pressChannels = [
     {
-      id: 1,
-      name: "Techzoom",
-      email: "techzoom.tv@gmail.com",
-      url: "https://techzoom.tv/technology-news/details/97080/%e0%a6%a6%e0%a7%87%e0%a6%b6%e0%a7%87%e0%a6%b0-%e0%a6%b6%e0%a7%80%e0%a6%b0%e0%a7%8d%e0%a6%b7-%e0%a6%89%e0%a6%a6%e0%a7%8d%e0%a6%ad%e0%a6%be%e0%a6%ac%e0%a6%95%e0%a6%a6%e0%a7%87%e0%a6%b0-%e0%a6%b8/",
-      color: "from-blue-500 to-cyan-500",
-      logo: techZoom, // You can add your image path here
+      id: 5,
+      name: "Dhaka Tribune",
+      email: "news@dhakatribune.com",
+      url: "https://www.google.com/amp/s/www.dhakatribune.com/amp/bangladesh/event/394357/bangladesh-ict-and-innovation-network-honors-the",
+      color: "from-yellow-500 to-orange-500",
+      logo: dhakaTribune,
+    },
+    {
+      id: 12,
+      name: "Ittefaq",
+      email: "",
+      url: "https://epaper.ittefaq.com.bd/edition/2347/2nd-edition/page/12",
+      color: "from-lime-500 to-green-500",
+      logo: ittefaq,
     },
     {
       id: 2,
@@ -40,6 +48,31 @@ const PressCoverage = () => {
       color: "from-purple-500 to-pink-500",
       logo: notunShomoy,
     },
+    {
+      id: 7,
+      name: "Ntvbd",
+      email: "",
+      url: "https://www.ntvbd.com/tech/news-1636273?fbclid=IwVERDUANi4XBleHRuA2FlbQIxMAABHnVKJo-UtAClmfb0ls9vgOsDA5cfZcF7780gx3Jn0FlLEzADmr_3NXIbBdUy_aem__BzABeCBSHaog4zYVO02nw",
+      color: "from-cyan-500 to-blue-500",
+      logo: ntvBd,
+    },
+    {
+      id: 10,
+      name: "Dhakapost",
+      email: "",
+      url: "https://www.dhakapost.com/technology/403319",
+      color: "from-teal-500 to-green-500",
+      logo: dhakapost,
+    },
+    {
+      id: 1,
+      name: "Techzoom",
+      email: "techzoom.tv@gmail.com",
+      url: "https://techzoom.tv/technology-news/details/97080/%e0%a6%a6%e0%a7%87%e0%a6%b6%e0%a7%87%e0%a6%b0-%e0%a6%b6%e0%a7%80%e0%a6%b0%e0%a7%8d%e0%a6%b7-%e0%a6%89%e0%a6%a6%e0%a7%8d%e0%a6%ad%e0%a6%be%e0%a6%ac%e0%a6%95%e0%a6%a6%e0%a7%87%e0%a6%b0-%e0%a6%b8/",
+      color: "from-blue-500 to-cyan-500",
+      logo: techZoom, // You can add your image path here
+    },
+
     {
       id: 3,
       name: "Saradin",
@@ -56,15 +89,7 @@ const PressCoverage = () => {
       color: "from-green-500 to-emerald-500",
       logo: jagoronExpress,
     },
-    
-    {
-      id: 5,
-      name: "Dhaka Tribune",
-      email: "news@dhakatribune.com",
-      url: "https://www.google.com/amp/s/www.dhakatribune.com/amp/bangladesh/event/394357/bangladesh-ict-and-innovation-network-honors-the",
-      color: "from-yellow-500 to-orange-500",
-      logo: dhakaTribune,
-    },
+
     {
       id: 6,
       name: "Digibanglatech",
@@ -73,14 +98,7 @@ const PressCoverage = () => {
       color: "from-pink-500 to-rose-500",
       logo: digitalBanglaTech,
     },
-    {
-      id: 7,
-      name: "Ntvbd",
-      email: "",
-      url: "https://www.ntvbd.com/tech/news-1636273?fbclid=IwVERDUANi4XBleHRuA2FlbQIxMAABHnVKJo-UtAClmfb0ls9vgOsDA5cfZcF7780gx3Jn0FlLEzADmr_3NXIbBdUy_aem__BzABeCBSHaog4zYVO02nw",
-      color: "from-cyan-500 to-blue-500",
-      logo: ntvBd,
-    },
+
     {
       id: 8,
       name: "Dailydarpan",
@@ -97,14 +115,7 @@ const PressCoverage = () => {
       color: "from-red-500 to-pink-500",
       logo: tbsNews,
     },
-    {
-      id: 10,
-      name: "Dhakapost",
-      email: "",
-      url: "https://www.dhakapost.com/technology/403319",
-      color: "from-teal-500 to-green-500",
-      logo: dhakapost,
-    },
+
     {
       id: 11,
       name: "Deltatimes24",
@@ -113,14 +124,7 @@ const PressCoverage = () => {
       color: "from-amber-500 to-yellow-500",
       logo: deltaTimes,
     },
-    {
-      id: 12,
-      name: "Ittefaq",
-      email: "",
-      url: "https://epaper.ittefaq.com.bd/edition/2347/2nd-edition/page/12",
-      color: "from-lime-500 to-green-500",
-      logo: ittefaq,
-    },
+
     {
       id: 13,
       name: "Techjano",
@@ -153,7 +157,7 @@ const PressCoverage = () => {
       url: "https://www.dailyictnews.com/15409",
       color: "from-indigo-500 to-blue-500",
       logo: null,
-    }
+    },
   ];
 
   const handleImageError = (channelId) => {
@@ -209,12 +213,10 @@ const PressCoverage = () => {
                   ></div>
 
                   {/* Card container */}
-                  <div className="relative bg-gradient-to-br from-[#3a7bd5] to-[#3a6073] border border-gray-200 rounded-2xl p-4 flex flex-col h-full hover:from-[#5fa8e0] hover:to-[#4a6fa5] transition-all duration-300 group-hover:border-blue-300 group-hover:shadow-2xl">
-                    {/* Logo Section */}
-                    <div
-                      className="mb-3 w-full flex items-center justify-center overflow-hidden rounded-xl"
-                      style={{ height: "110px" }}
-                    >
+                  {/* Card container */}
+                  <div className="relative bg-gradient-to-br from-[#3a7bd5] to-[#3a6073] border border-gray-200 rounded-2xl overflow-hidden h-64 hover:from-[#5fa8e0] hover:to-[#4a6fa5] transition-all duration-300 group-hover:border-blue-300 group-hover:shadow-2xl">
+                    {/* Logo Section - Takes full card space */}
+                    <div className="absolute inset-0 w-full h-full flex items-center justify-center p-4">
                       {channel.logo && !failedImages.has(channel.id) ? (
                         <img
                           src={channel.logo}
@@ -233,33 +235,11 @@ const PressCoverage = () => {
                       )}
                     </div>
 
-                    {/* Info Section */}
-                    <div className="flex-grow flex flex-col text-center">
-                      <h3 className="text-white font-bold text-sm mb-2 transition-colors duration-300 group-hover:text-black line-clamp-1">
+                    {/* Name Section - Appears at bottom on hover */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/70 backdrop-blur-sm p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="text-white font-bold text-sm text-center line-clamp-1">
                         {channel.name}
                       </h3>
-                      <p
-                        className="text-white text-[10px] mb-2 line-clamp-1 transition-colors duration-300 group-hover:text-black"
-                        title={channel.email}
-                      >
-                        {channel.email}
-                      </p>
-                      <div className="flex items-center justify-center gap-1 text-white group-hover:text-black transition-colors duration-300 font-medium text-[11px] mt-auto">
-                        <svg
-                          className="w-3 h-3"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
-                         Article
-                      </div>
                     </div>
                   </div>
                 </a>
@@ -269,7 +249,7 @@ const PressCoverage = () => {
         </section>
 
         {/* Stats Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
+        {/* <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-gradient-to-r from-primary-600 to-secondary-600 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
@@ -294,7 +274,7 @@ const PressCoverage = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">

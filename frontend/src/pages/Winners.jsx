@@ -139,7 +139,7 @@ const Winners = () => {
         {
           id: 1,
           category: "Public Sector and Government",
-          solution: "(DLRMS) Software",
+          solution: "DLRMS Software",
           organization: "SoftBD Limited",
         },
         {
@@ -353,7 +353,7 @@ const Winners = () => {
               )}`}
             >
               {/* Rank Badge */}
-              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
+              {/* <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
                 <div
                   className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br ${getAwardColor(
                     activeLevel
@@ -361,7 +361,7 @@ const Winners = () => {
                 >
                   {index + 1}
                 </div>
-              </div>
+              </div> */}
 
               {/* Content */}
               <div className="p-4 sm:p-6 relative z-5">
