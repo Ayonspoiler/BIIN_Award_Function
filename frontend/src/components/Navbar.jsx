@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: "Judges", path: "/judges" },
     {name:"Winners",path:"/winners"},
     { name: "Sponsors", path: "/sponsors" },
+    {name: "Press Coverage", path:"/presscoverage"}
 
   ];
 

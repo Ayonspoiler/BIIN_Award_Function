@@ -12,6 +12,7 @@ import ResultsPage from "./pages/ResultsPage";
 import Judges from "./pages/Judges";
 import Sponsors from "./pages/Sponsors";
 import Winners from "./pages/Winners";
+import PressCoverage from "./pages/PressCoverage";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/judges" element ={<Judges/>}/>
           <Route path="/sponsors" element={<Sponsors/>}/>
           <Route path="/winners" element={<Winners/>}/>
+          <Route path="/presscoverage" element={<PressCoverage/>}/>
         </Routes>
       </main>
       <Footer />
