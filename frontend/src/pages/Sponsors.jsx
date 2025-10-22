@@ -252,6 +252,9 @@ const Sponsors = () => {
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty"></p>
           </div>
+          <div className="flex justify-center gap-4">
+            <div className="h-1 w-12 bg-white rounded-full"></div>
+          </div>
         </div>
       </section>
 
@@ -259,9 +262,7 @@ const Sponsors = () => {
       <section className="py-12 sm:py-16 md:py-20 -mt-8 sm:-mt-12 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12 ">
-            <div
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-blue-600 text-white px-4 sm:px-6 py-2 rounded-full mb-4"
-            >
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-blue-600 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
               <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Title Sponsor
               </span>
@@ -270,7 +271,10 @@ const Sponsors = () => {
 
           <div className="flex justify-center">
             {platinumSponsors.map((sponsor, index) => (
-              <div key={index} className="w-full sm:w-2/3 lg:w-1/2 bg-gradient-to-br from-[#fffaf0] to-[#f8e6c2]">
+              <div
+                key={index}
+                className="w-full sm:w-2/3 lg:w-1/2 bg-gradient-to-br from-[#fffaf0] to-[#f8e6c2]"
+              >
                 <SponsorCard sponsor={sponsor} size="large" />
               </div>
             ))}

@@ -284,6 +284,9 @@ const Winners = () => {
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty px-4"></p>
           </div>
+          <div className="flex justify-center gap-4">
+            <div className="h-1 w-12 bg-white rounded-full"></div>
+          </div>
         </div>
       </section>
 

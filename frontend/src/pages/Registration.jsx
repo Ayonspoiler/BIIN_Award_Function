@@ -333,6 +333,9 @@ const Registration = () => {
                 2025
               </span>
             </h1>
+            <div className="flex justify-center gap-4">
+              <div className="h-1 w-12 bg-white rounded-full"></div>
+            </div>
           </div>
         </section>
 

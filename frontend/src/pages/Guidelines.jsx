@@ -4,16 +4,21 @@ const Guidelines = () => {
   return (
     <div className="">
       <div className="">
-        {/* Header */}
-        <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20 w-full ">
+        {/* Header */ }
+         <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20 w-full ">
           <div className="px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-7xl font-bold mb-6">Guidelines</h1>
             <p className="text-xl md:text-3xl text-gray-100 max-w-3xl mx-auto">
               Complete guidelines for participation in Bangladesh ICT &
               Innovation Awards 2025
             </p>
+            <br />
+            <div className="flex justify-center gap-4">
+              <div className="h-1 w-12 bg-white rounded-full"></div>
+            </div>
           </div>
-        </section>
+        </section> 
+       
 
         {/* General Eligibility */}
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 py-3">

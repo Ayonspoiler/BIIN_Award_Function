@@ -50,6 +50,10 @@ const About = () => {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto px-2">
               Celebrating Innovation, Empowering Digital Transformation
             </p>
+            <br />
+            <div className="flex justify-center gap-4">
+              <div className="h-1 w-12 bg-white rounded-full"></div>
+            </div>
           </div>
         </section>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">

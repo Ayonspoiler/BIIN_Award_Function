@@ -175,6 +175,10 @@ const Competition = () => {
             <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto">
               Celebrating Innovation, Empowering Digital Transformation
             </p>
+            <br />
+            <div className="flex justify-center gap-4">
+              <div className="h-1 w-12 bg-white rounded-full"></div>
+            </div>
           </div>
         </section>
 
