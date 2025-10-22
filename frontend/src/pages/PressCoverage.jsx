@@ -2,9 +2,23 @@
 
 import { useState } from "react";
  
-import techZoom from "../assets/Press Logo/Tech Zoom.jpg"
- 
+import techZoom from "../assets/Press Logo/Tech Zoom.jpg" 
 import notunShomoy from "../assets/Press Logo/Notun Somoy.jpg"
+import saradin from "../assets/Press Logo/Sharadin News.jpg"
+import jagoronExpress from "../assets/Press Logo/jagoron express.jpg"
+import dhakaTribune from "../assets/Press Logo/Dhaka Tribune.jpg"
+import digitalBanglaTech from "../assets/Press Logo/Digi Bangla.jpg"
+import ntvBd from "../assets/Press Logo/NTV.jpg"
+import dailyDarpan from "../assets/Press Logo/Daily Dorpon.jpg"
+import tbsNews from "../assets/Press Logo/The Business Standard.jpg"
+import dhakapost from "../assets/Press Logo/Dhaka Post.jpg"
+import deltaTimes from "../assets/Press Logo/Delta Times.jpg"
+import ittefaq from "../assets/Press Logo/Ittefaq.jpg"
+import techJano from "../assets/Press Logo/TechJano.jpg"
+import techMailBd from "../assets/Press Logo/TechMail.jpg"
+
+
+
 
 const PressCoverage = () => {
   const [failedImages, setFailedImages] = useState(new Set());
@@ -32,112 +46,114 @@ const PressCoverage = () => {
       email: "saradinonline@gmail.com",
       url: "https://www.saradin.news/news/223399",
       color: "from-orange-500 to-red-500",
-      logo: null,
+      logo: saradin,
     },
     {
       id: 4,
       name: "Jagoronexpress",
-      email: "jagoronexpress20@gmail.com",
+      email: " jagoronexpress20@gmail.com",
       url: "https://jagoronexpress.com/details/?pid=3474",
       color: "from-green-500 to-emerald-500",
-      logo: null,
+      logo: jagoronExpress,
     },
+    
     {
       id: 5,
-      name: "Dailyictnews",
-      email: "editor@dailyictnews.com",
-      url: "https://www.dailyictnews.com/15409",
-      color: "from-indigo-500 to-blue-500",
-      logo: null,
-    },
-    {
-      id: 6,
       name: "Dhaka Tribune",
       email: "news@dhakatribune.com",
       url: "https://www.google.com/amp/s/www.dhakatribune.com/amp/bangladesh/event/394357/bangladesh-ict-and-innovation-network-honors-the",
       color: "from-yellow-500 to-orange-500",
-      logo: null,
+      logo: dhakaTribune,
+    },
+    {
+      id: 6,
+      name: "Digibanglatech",
+      email: "press@digibanglatech.news ",
+      url: "https://digibanglatech.news/158479",
+      color: "from-pink-500 to-rose-500",
+      logo: digitalBanglaTech,
     },
     {
       id: 7,
-      name: "Digibanglatech",
-      email: "contact@digibanglatech.news",
-      url: "https://digibanglatech.news/158479",
-      color: "from-pink-500 to-rose-500",
-      logo: null,
+      name: "Ntvbd",
+      email: "",
+      url: "https://www.ntvbd.com/tech/news-1636273?fbclid=IwVERDUANi4XBleHRuA2FlbQIxMAABHnVKJo-UtAClmfb0ls9vgOsDA5cfZcF7780gx3Jn0FlLEzADmr_3NXIbBdUy_aem__BzABeCBSHaog4zYVO02nw",
+      color: "from-cyan-500 to-blue-500",
+      logo: ntvBd,
     },
     {
       id: 8,
-      name: "Ntvbd",
-      email: "tech@ntvbd.com",
-      url: "https://www.ntvbd.com/tech/news-1636273?fbclid=IwVERDUANi4XBleHRuA2FlbQIxMAABHnVKJo-UtAClmfb0ls9vgOsDA5cfZcF7780gx3Jn0FlLEzADmr_3NXIbBdUy_aem__BzABeCBSHaog4zYVO02nw",
-      color: "from-cyan-500 to-blue-500",
-      logo: null,
+      name: "Dailydarpan",
+      email: "",
+      url: "https://www.dailydarpan.news/information-technology/news/7806",
+      color: "from-violet-500 to-purple-500",
+      logo: dailyDarpan,
     },
     {
       id: 9,
-      name: "Dailydarpan",
-      email: "news@dailydarpan.news",
-      url: "https://www.dailydarpan.news/information-technology/news/7806",
-      color: "from-violet-500 to-purple-500",
-      logo: null,
+      name: "Tbsnews",
+      email: "",
+      url: "https://www.tbsnews.net/bangladesh/bangladesh-ict-and-innovation-network-recognises-nations-top-innovators-1265456",
+      color: "from-red-500 to-pink-500",
+      logo: tbsNews,
     },
     {
       id: 10,
-      name: "Tbsnews",
-      email: "contact@tbsnews.net",
-      url: "https://www.tbsnews.net/bangladesh/bangladesh-ict-and-innovation-network-recognises-nations-top-innovators-1265456",
-      color: "from-red-500 to-pink-500",
-      logo: null,
+      name: "Dhakapost",
+      email: "",
+      url: "https://www.dhakapost.com/technology/403319",
+      color: "from-teal-500 to-green-500",
+      logo: dhakapost,
     },
     {
       id: 11,
-      name: "Dhakapost",
-      email: "tech@dhakapost.com",
-      url: "https://www.dhakapost.com/technology/403319",
-      color: "from-teal-500 to-green-500",
-      logo: null,
+      name: "Deltatimes24",
+      email: "",
+      url: "https://www.deltatimes24.com/news/157755",
+      color: "from-amber-500 to-yellow-500",
+      logo: deltaTimes,
     },
     {
       id: 12,
-      name: "Deltatimes24",
-      email: "news@deltatimes24.com",
-      url: "https://www.deltatimes24.com/news/157755",
-      color: "from-amber-500 to-yellow-500",
-      logo: null,
+      name: "Ittefaq",
+      email: "",
+      url: "https://epaper.ittefaq.com.bd/edition/2347/2nd-edition/page/12",
+      color: "from-lime-500 to-green-500",
+      logo: ittefaq,
     },
     {
       id: 13,
-      name: "Ittefaq",
-      email: "contact@ittefaq.com.bd",
-      url: "https://epaper.ittefaq.com.bd/edition/2347/2nd-edition/page/12",
-      color: "from-lime-500 to-green-500",
-      logo: null,
-    },
-    {
-      id: 14,
       name: "Techjano",
-      email: "info@techjano.com",
+      email: "",
       url: "https://techjano.com/%e0%a6%a6%e0%a7%87%e0%a6%b6%e0%a7%87%e0%a6%b0-%e0%a6%b6%e0%a7%80%e0%a6%b0%e0%a7%8d%e0%a6%b7-%e0%a6%89%e0%a6%a6%e0%a7%8d%e0%a6%ad%e0%a6%be%e0%a6%ac%e0%a6%95%e0%a6%a6%e0%a7%87%e0%a6%b8/",
       color: "from-fuchsia-500 to-purple-500",
-      logo: null,
+      logo: techJano,
+    },
+
+    {
+      id: 14,
+      name: "Techmailbd",
+      email: "",
+      url: "https://techmailbd.com/2025/10/19/%e0%a6%a6%e0%a7%87%e0%a6%b6%e0%a7%87%e0%a6%b0-%e0%a6%b6%e0%a7%80%e0%a6%b0%e0%a7%8d%e0%a6%b7-%e0%a6%89%e0%a6%a6%e0%a7%8d%e0%a6%ad%e0%a6%be%e0%a6%ac%e0%a6%95%e0%a6%a6%e0%a7%87%e0%a6%b8/",
+      color: "from-rose-500 to-pink-500",
+      logo: techMailBd,
     },
     {
       id: 15,
       name: "Dailytechpublic",
-      email: "editor@dailytechpublic.com",
+      email: "",
       url: "http://www.dailytechpublic.com/young-innovators-shine-at-bangladesh-ict-and-innovation-awards/",
       color: "from-sky-500 to-blue-500",
       logo: null,
     },
     {
       id: 16,
-      name: "Techmailbd",
-      email: "contact@techmailbd.com",
-      url: "https://techmailbd.com/2025/10/19/%e0%a6%a6%e0%a7%87%e0%a6%b6%e0%a7%87%e0%a6%b0-%e0%a6%b6%e0%a7%80%e0%a6%b0%e0%a7%8d%e0%a6%b7-%e0%a6%89%e0%a6%a6%e0%a7%8d%e0%a6%ad%e0%a6%be%e0%a6%ac%e0%a6%95%e0%a6%a6%e0%a7%87%e0%a6%b8/",
-      color: "from-rose-500 to-pink-500",
+      name: "Dailyictnews",
+      email: "news@dailyictnews.com",
+      url: "https://www.dailyictnews.com/15409",
+      color: "from-indigo-500 to-blue-500",
       logo: null,
-    },
+    }
   ];
 
   const handleImageError = (channelId) => {
@@ -191,7 +207,7 @@ const PressCoverage = () => {
                     }}
                   ></div>
 
-                  <div className="relative bg-gradient-to-br from-[#6b8e23] to-[#3b5323] border border-gray-200 rounded-2xl p-4 flex flex-col h-full hover:from-[#fff2cc] hover:to-[#f4d58d] transition-all duration-300 group-hover:border-yellow-300 group-hover:shadow-2xl">
+                  <div className="relative bg-gradient-to-br from-[#3a7bd5] to-[#3a6073] border border-gray-200 rounded-2xl p-4 flex flex-col h-full hover:from-[#fff2cc] hover:to-[#f4d58d] transition-all duration-300 group-hover:border-yellow-300 group-hover:shadow-2xl">
                     {/* Logo Section */}
                     <div
                       className="mb-3 w-full flex items-center justify-center overflow-hidden rounded-xl"
