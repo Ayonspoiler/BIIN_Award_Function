@@ -89,22 +89,22 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative text-white py-20 overflow-hidden">
+      <section className="relative text-white py-20 overflow-hidden min-h-[500px] sm:min-h-[600px]">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src={homepage}
             alt="ICT Awards Background"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover sm:object-cover object-center"
           />
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-black mb-6 mt-1 drop-shadow-2xl text-white">
+            <h1 className="text-4xl md:text-6xl font-black mb-6 drop-shadow-2xl text-white">
               Bangladesh ICT and Innovation Awards 2025
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
