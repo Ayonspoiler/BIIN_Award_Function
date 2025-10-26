@@ -341,7 +341,7 @@ const Registration = () => {
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 drop-shadow-2xl">
               Registration <br />
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl drop-shadow-lg">
+              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl drop-shadow-lg">
                 Bangladesh ICT & Innovation Awards
                 <br />
                 2025

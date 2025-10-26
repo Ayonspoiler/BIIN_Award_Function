@@ -112,7 +112,7 @@ const Home = () => {
               Bangladesh ICT and Innovation Awards 2025
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
-              Celebrating Innovation, Empowering Digital Transformation
+              Recognition for Innovation, Inspiration for Transformation
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

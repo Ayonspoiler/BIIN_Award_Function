@@ -168,7 +168,7 @@ const Competition = () => {
     <div className="">
       <div className="">
         {/* Header/hero */}
-   
+
         <section className="relative text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
@@ -188,7 +188,7 @@ const Competition = () => {
                 Competition Categories
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
-                Celebrating Innovation, Empowering Digital Transformation
+                Recognition for Innovation, Inspiration for Transformation
               </p>
               <div className="flex justify-center gap-4">
                 <div className="h-1 w-12 bg-white rounded-full"></div>
