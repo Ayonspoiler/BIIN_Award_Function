@@ -29,7 +29,7 @@ const PressCoverage = () => {
       id: 5,
       name: "Dhaka Tribune",
       email: "news@dhakatribune.com",
-      url: "https://www.google.com/amp/s/www.dhakatribune.com/amp/bangladesh/event/394357/bangladesh-ict-and-innovation-network-honors-the",
+      url: "https://www.dhakatribune.com/bangladesh/event/394357/bangladesh-ict-and-innovation-network-honors-the",
       color: "from-yellow-500 to-orange-500",
       logo: dhakaTribune,
     },
