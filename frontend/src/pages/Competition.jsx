@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import homepage from "../assets/Home Image/Home 1.jpg";
 
 const Competition = () => {
   const location = useLocation();
@@ -167,17 +168,33 @@ const Competition = () => {
     <div className="">
       <div className="">
         {/* Header/hero */}
-        <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20 w-full ">
-          <div className="px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Competition Categories
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto">
-              Celebrating Innovation, Empowering Digital Transformation
-            </p>
-            <br />
-            <div className="flex justify-center gap-4">
-              <div className="h-1 w-12 bg-white rounded-full"></div>
+        <section className="relative text-white py-20 overflow-hidden">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={homepage}
+              alt="ICT Awards Background"
+              className="w-full h-full object-cover"
+            />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/20"></div>
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h1 className="text-4xl md:text-6xl font-black mb-6 mt-9 drop-shadow-2xl text-white">
+                Competition Categories
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
+                Celebrating Innovation, Empowering Digital Transformation
+              </p>
+              <div className="flex justify-center gap-4">
+                <div className="h-1 w-12 bg-white rounded-full"></div>
+              </div>
+              <br />
+              <br />
+              <br />
             </div>
           </div>
         </section>

@@ -27,6 +27,9 @@ import joyaKabirImg from "../assets/JudgesImage/Joya-Kabir.jpg"
 import tahsinShezanImg from "../assets/JudgesImage/Tahsin-Azim-Shezan.jpg"
 import amitavImg from "../assets/JudgesImage/amitav kaiser.jpg"
 
+import homepage from "../assets/Home Image/Home 1.jpg";
+
+
 const Judges = () => {
   // Placeholder judge data - images can be replaced later
   const judges = [
@@ -207,24 +210,43 @@ const Judges = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-20">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={homepage}
+            alt="Judges Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark overlay for readability + gradient */}
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-block mb-4">
-              <div className="bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full">
-                <span className="text-sm font-semibold uppercase tracking-wider">
+              <div className="bg-white/20 mt-2 backdrop-blur-sm px-6 py-2 rounded-full">
+                <span className="text-sm  font-semibold uppercase tracking-wider">
                   Meet Our Panel
                 </span>
               </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
+            <h1 className="text-4xl md:text-6xl font-black mb-6 mt-8 drop-shadow-2xl">
               Distinguished Judges
             </h1>
-            <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty"></p>
+            <p className="text-xl md:text-2xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg">
+              {/* Celebrating Excellence and Expertise in ICT & Innovation */}
+            </p>
           </div>
-          <div className="flex justify-center gap-4">
+      
+          <div className="flex justify-center gap-4 mt-6">
             <div className="h-1 w-12 bg-white rounded-full"></div>
           </div>
+          <br />
+          <br />
+          <br />
+       
         </div>
       </section>
 

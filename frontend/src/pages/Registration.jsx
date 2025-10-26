@@ -1,4 +1,5 @@
 import { useState } from "react";
+import homepage from "../assets/Home Image/Home 1.jpg"
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -323,11 +324,23 @@ const Registration = () => {
     <div className="">
       <div className="">
         {/* Header */}
-        <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20 w-full">
-          <div className="px-3 sm:px-6 lg:px-8 text-center ">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <section className="relative text-white py-20 w-full">
+          {/* Background Image with Gradient Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={homepage} // Replace with your background image
+              alt="Registration Background"
+              className="w-full h-full object-cover"
+            />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/20 "></div>
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 px-3 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-6xl font-black mb-6 mt-1 drop-shadow-2xl">
               Registration <br />
-              <span className="text-4xl md:text-5xl">
+              <span className="text-4xl md:text-5xl drop-shadow-lg">
                 Bangladesh ICT & Innovation Awards
                 <br />
                 2025
@@ -336,6 +349,9 @@ const Registration = () => {
             <div className="flex justify-center gap-4">
               <div className="h-1 w-12 bg-white rounded-full"></div>
             </div>
+            <br />
+            <br />
+
           </div>
         </section>
 

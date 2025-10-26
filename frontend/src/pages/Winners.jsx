@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Trophy, Award, Medal } from "lucide-react";
+import homepage from "../assets/Home Image/Home 1.jpg";
 
 const Winners = () => {
   const [activeDivision, setActiveDivision] = useState("student");
@@ -269,24 +270,41 @@ const Winners = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-12 sm:py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative text-white py-12 sm:py-16 md:py-20">
+        {/* Background Image with Gradient Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={homepage} // Replace with your winners background image
+            alt="Award Winners Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark overlay + gradient for readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-block mb-3 sm:mb-4">
-              <div className="bg-white/20 backdrop-blur-sm px-4 py-1.5 sm:px-6 sm:py-2 rounded-full">
+              <div className="bg-white/20 mt-3 backdrop-blur-sm px-4 py-1.5 sm:px-6 sm:py-2 rounded-full">
                 <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider">
                   Meet Our Winners
                 </span>
               </div>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-balance leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 mt-7 sm:mb-6 drop-shadow-2xl leading-tight">
               Award Winners
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 max-w-3xl mx-auto text-pretty px-4"></p>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg px-4">      
+            </p>
+          
           </div>
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center gap-4 mt-6">
             <div className="h-1 w-12 bg-white rounded-full"></div>
           </div>
+          <br />
+    <br />
+    <br />
         </div>
       </section>
 

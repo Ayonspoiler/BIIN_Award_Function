@@ -1,24 +1,42 @@
 import SelectionTimeline from "../components/SelectionTimeline";
+import homepage from "../assets/Home Image/Home 1.jpg";
 
 const Guidelines = () => {
   return (
     <div className="">
       <div className="">
-        {/* Header */ }
-         <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-20 w-full ">
-          <div className="px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-7xl font-bold mb-6">Guidelines</h1>
-            <p className="text-xl md:text-3xl text-gray-100 max-w-3xl mx-auto">
-              Complete guidelines for participation in Bangladesh ICT &
-              Innovation Awards 2025
-            </p>
-            <br />
-            <div className="flex justify-center gap-4">
-              <div className="h-1 w-12 bg-white rounded-full"></div>
-            </div>
+        {/* Header */}
+        <section className="relative text-white py-20 overflow-hidden">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={homepage}
+              alt="ICT Awards Background"
+              className="w-full h-full object-cover"
+            />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/20"></div>
           </div>
-        </section> 
-       
+
+          {/* Content */}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h1 className="text-4xl md:text-6xl font-black mb-6 mt-7 drop-shadow-2xl text-white">
+                Guidelines
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
+                Complete guidelines for participation in Bangladesh ICT &
+                Innovation Awards 2025
+              </p>
+              <div className="flex justify-center gap-4">
+                <div className="h-1 w-12 bg-white rounded-full"></div>
+              </div>
+            </div>
+            <br />
+            <br />
+          
+          </div>
+        </section>
 
         {/* General Eligibility */}
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 py-3">
