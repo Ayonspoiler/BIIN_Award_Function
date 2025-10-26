@@ -168,7 +168,8 @@ const Competition = () => {
     <div className="">
       <div className="">
         {/* Header/hero */}
-        <section className="relative text-white py-20 overflow-hidden">
+   
+        <section className="relative text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <img
@@ -177,28 +178,24 @@ const Competition = () => {
               className="w-full h-full object-cover"
             />
             {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="absolute inset-0 bg-black/20"></div>
           </div>
 
           {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="text-center">
-              <h1 className="text-4xl md:text-6xl font-black mb-6 mt-9 drop-shadow-2xl text-white">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 drop-shadow-2xl text-white">
                 Competition Categories
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
+              <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
                 Celebrating Innovation, Empowering Digital Transformation
               </p>
               <div className="flex justify-center gap-4">
                 <div className="h-1 w-12 bg-white rounded-full"></div>
               </div>
-              <br />
-              <br />
-              <br />
             </div>
           </div>
         </section>
-
         {/* New Content Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
           <div className="bg-white rounded-xl shadow-2xl p-8 mb-12">

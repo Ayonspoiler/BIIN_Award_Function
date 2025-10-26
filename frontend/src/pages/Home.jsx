@@ -93,7 +93,7 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative text-white py-20 overflow-hidden">
+      <section className="relative text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -102,28 +102,28 @@ const Home = () => {
             className="w-full h-full object-cover"
           />
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-black mb-6 mt-1 drop-shadow-2xl text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 drop-shadow-2xl text-white">
               Bangladesh ICT and Innovation Awards 2025
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
+            <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
               Celebrating Innovation, Empowering Digital Transformation
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/registration"
-                className="bg-white text-secondary-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+                className="bg-white text-secondary-600 px-6 sm:px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-lg"
               >
                 Register Now
               </Link>
               <Link
                 to="/guidelines"
-                className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-secondary-600 transition-colors shadow-lg"
+                className="border-2 border-white text-white px-6 sm:px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-secondary-600 transition-colors shadow-lg"
               >
                 View Guidelines
               </Link>
@@ -131,7 +131,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* About Section with Image Carousel */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -141,24 +140,28 @@ const Home = () => {
                 About Bangladesh ICT & Innovation Awards
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh
-                ICT & Innovation Network (BIIN), is designed to shape the future
-                of Bangladesh's digital landscape by recognizing and empowering
-                visionary individuals, startups, and enterprises whose
-                innovations drive long-term transformation and global
-                opportunities.
+                The Bangladesh ICT & Innovation Awards 2025, organized by the
+                Bangladesh ICT and Innovation Network (BIIN), marks the
+                first-ever national celebration of technological creativity and
+                innovation in Bangladesh. This landmark initiative recognizes
+                visionary individuals, students, startups, and organizations
+                that are transforming lives through technology and shaping the
+                nation’s digital future.
+              </p>
+              <p className="text-lg text-black mb-4">
+                <b> A National Celebration of Innovation</b>
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                This year's winners will earn not just national recognition, but
-                also the opportunity to represent Bangladesh at the Asia Pacific
-                ICT Alliance Awards (APICTA 2025) in Taiwan - the most
-                prestigious ICT competition in the region, often hailed as the
-                "ICT Oscars of Asia-Pacific."
+                Under the inspiring theme “Recognition for Innovation,
+                Inspiration for Transformation,” the Awards honor innovators
+                whose groundbreaking ideas are driving change across industries
+                and communities. This year’s program drew 255 submissions from
+                across the country, reflecting the vibrant and growing ICT
+                ecosystem of Bangladesh. After multiple rounds of evaluation and
+                pitching, over 90 projects were shortlisted, and 32 finalists
+                earned national recognition for their outstanding contributions.
                 <br />
                 <br />
-                Beyond recognition, the Awards provide a gateway to regional and
-                global markets, connecting innovators with investors, partners,
-                and industry leaders on the international stage.
               </p>
               <Link
                 to="/about"
@@ -212,7 +215,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Award Categories */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -269,7 +271,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Selection Process */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

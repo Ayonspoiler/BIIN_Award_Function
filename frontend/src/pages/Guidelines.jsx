@@ -6,7 +6,8 @@ const Guidelines = () => {
     <div className="">
       <div className="">
         {/* Header */}
-        <section className="relative text-white py-20 overflow-hidden">
+ 
+        <section className="relative text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <img
@@ -15,16 +16,16 @@ const Guidelines = () => {
               className="w-full h-full object-cover"
             />
             {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="absolute inset-0 bg-black/20"></div>
           </div>
 
           {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="text-center">
-              <h1 className="text-4xl md:text-6xl font-black mb-6 mt-7 drop-shadow-2xl text-white">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 drop-shadow-2xl text-white">
                 Guidelines
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
+              <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
                 Complete guidelines for participation in Bangladesh ICT &
                 Innovation Awards 2025
               </p>
@@ -32,12 +33,8 @@ const Guidelines = () => {
                 <div className="h-1 w-12 bg-white rounded-full"></div>
               </div>
             </div>
-            <br />
-            <br />
-          
           </div>
         </section>
-
         {/* General Eligibility */}
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 py-3">
           <section className="mb-12">

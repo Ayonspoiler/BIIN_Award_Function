@@ -210,7 +210,7 @@ const Judges = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       {/* Hero Section */}
-      <section className="relative text-white py-20">
+      <section className="relative text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -219,37 +219,31 @@ const Judges = () => {
             className="w-full h-full object-cover"
           />
           {/* Dark overlay for readability + gradient */}
-          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center">
             <div className="inline-block mb-4">
-              <div className="bg-white/20 mt-2 backdrop-blur-sm px-6 py-2 rounded-full">
-                <span className="text-sm  font-semibold uppercase tracking-wider">
+              <div className="bg-white/20 backdrop-blur-sm px-4 sm:px-6 py-2 rounded-full">
+                <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider">
                   Meet Our Panel
                 </span>
               </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-black mb-6 mt-8 drop-shadow-2xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 drop-shadow-2xl">
               Distinguished Judges
             </h1>
-            <p className="text-xl md:text-2xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg">
+            <p className="text-lg sm:text-xl md:text-2xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg">
               {/* Celebrating Excellence and Expertise in ICT & Innovation */}
             </p>
+            <div className="flex justify-center gap-4 mt-6">
+              <div className="h-1 w-12 bg-white rounded-full"></div>
+            </div>
           </div>
-      
-          <div className="flex justify-center gap-4 mt-6">
-            <div className="h-1 w-12 bg-white rounded-full"></div>
-          </div>
-          <br />
-          <br />
-          <br />
-       
         </div>
       </section>
-
       {/* Judges Grid */}
       <section className="py-16 -mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -307,7 +301,6 @@ const Judges = () => {
           </div>
         </div>
       </section>
-
       {/* Judging Criteria Section */}
       {/* <section className="py-16 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -366,7 +359,6 @@ const Judges = () => {
           </div>
         </div>
       </section> */}
-
       {/* Call to Action */}
       {/* <section className="py-16">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -196,42 +196,38 @@ const PressCoverage = () => {
 
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="relative text-white py-12 sm:py-16 md:py-20">
+        <section className="relative text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center">
           {/* Background Image with Gradient Overlay */}
           <div className="absolute inset-0 z-0">
             <img
-              src={homepage} // Replace with your winners background image
+              src={homepage}
               alt="Award Winners Background"
               className="w-full h-full object-cover"
             />
             {/* Dark overlay + gradient for readability */}
-            <div className="absolute inset-0 bg-black/10 "></div>
+            <div className="absolute inset-0 bg-black/20"></div>
           </div>
 
           {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="text-center">
               <div className="inline-block mb-3 sm:mb-4">
-                <div className="bg-white/20 mt-3 backdrop-blur-sm px-4 py-1.5 sm:px-6 sm:py-2 rounded-full">
+                <div className="bg-white/20 backdrop-blur-sm px-4 py-1.5 sm:px-6 sm:py-2 rounded-full">
                   <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider">
                     Press & Media
                   </span>
                 </div>
               </div>
-              <h1 className="text-5xl text-white md:text-6xl font-bold mb-6 mt-7 text-balance">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-balance">
                 Press <span className="text-white">Coverage</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg px-4"></p>
+              <div className="flex justify-center gap-4 mt-6">
+                <div className="h-1 w-12 bg-white rounded-full"></div>
+              </div>
             </div>
-            <div className="flex justify-center gap-4 mt-6">
-              <div className="h-1 w-12 bg-white rounded-full"></div>
-            </div>
-            <br />
-            <br />
-            <br />
           </div>
         </section>
-
         {/* Press Coverage Grid */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
@@ -287,7 +283,6 @@ const PressCoverage = () => {
             </div>
           </div>
         </section>
-
         {/* Stats Section */}
         {/* <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
@@ -315,7 +310,6 @@ const PressCoverage = () => {
             </div>
           </div>
         </section> */}
-
         {/* CTA Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">

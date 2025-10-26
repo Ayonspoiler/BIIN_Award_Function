@@ -324,23 +324,24 @@ const Registration = () => {
     <div className="">
       <div className="">
         {/* Header */}
-        <section className="relative text-white py-20 w-full">
+      
+        <section className="relative text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center">
           {/* Background Image with Gradient Overlay */}
           <div className="absolute inset-0 z-0">
             <img
-              src={homepage} // Replace with your background image
+              src={homepage}
               alt="Registration Background"
               className="w-full h-full object-cover"
             />
             {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-black/10 "></div>
+            <div className="absolute inset-0 bg-black/20"></div>
           </div>
 
           {/* Content */}
-          <div className="relative z-10 px-3 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-black mb-6 mt-1 drop-shadow-2xl">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 drop-shadow-2xl">
               Registration <br />
-              <span className="text-4xl md:text-5xl drop-shadow-lg">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl drop-shadow-lg">
                 Bangladesh ICT & Innovation Awards
                 <br />
                 2025
@@ -349,12 +350,8 @@ const Registration = () => {
             <div className="flex justify-center gap-4">
               <div className="h-1 w-12 bg-white rounded-full"></div>
             </div>
-            <br />
-            <br />
-
           </div>
         </section>
-
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
           {/* Error Message */}
           {submitError && (
