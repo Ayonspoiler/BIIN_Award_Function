@@ -16,6 +16,7 @@ import deltaTimes from "../assets/Press Logo/Delta Times.jpg"
 import ittefaq from "../assets/Press Logo/Ittefaq.jpg"
 import techJano from "../assets/Press Logo/TechJano.jpg"
 import techMailBd from "../assets/Press Logo/TechMail.jpg"
+import Sarabangla from "../assets/Press Logo/SharaBangla.jpg"
 
 
 
@@ -89,6 +90,14 @@ const PressCoverage = () => {
       color: "from-green-500 to-emerald-500",
       logo: jagoronExpress,
     },
+    {
+      id: 6,
+      name: "Sarabangla",
+      email: "press@digibanglatech.news ",
+      url: "https://sarabangla.net/news/post-1071415/?fbclid=Iwb21leANqoMxjbGNrA2qgw2V4dG4DYWVtAjExAAEeK0FyCZYTmNnv8xxOHbibF8n7fi4hadyhl_WgXGn5pOSd0ZHzVau_O0pCi70_aem_uiZZDpbjeGm3eHqPfcI7-g",
+      color: "from-pink-500 to-rose-500",
+      logo: Sarabangla,
+    },
 
     {
       id: 6,
@@ -129,7 +138,7 @@ const PressCoverage = () => {
       id: 13,
       name: "Techjano",
       email: "",
-      url: "https://techjano.com/%e0%a6%a6%e0%a7%87%e0%a6%b6%e0%a7%87%e0%a6%b0-%e0%a6%b6%e0%a7%80%e0%a6%b0%e0%a7%8d%e0%a6%b7-%e0%a6%89%e0%a6%a6%e0%a7%8d%e0%a6%ad%e0%a6%be%e0%a6%ac%e0%a6%95%e0%a6%a6%e0%a7%87%e0%a6%b8/",
+      url: "https://techjano.com/%e0%a6%a6%e0%a7%87%e0%a6%b6%e0%a7%87%e0%a6%b0-%e0%a6%b6%e0%a7%80%e0%a6%b0%e0%a7%8d%e0%a6%b7-%e0%a6%89%e0%a6%a6%e0%a7%8d%e0%a6%ad%e0%a6%be%e0%a6%ac%e0%a6%95%e0%a6%a6%e0%a7%87%e0%a6%b0-%e0%a6%b8/",
       color: "from-fuchsia-500 to-purple-500",
       logo: techJano,
     },
