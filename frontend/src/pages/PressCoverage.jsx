@@ -18,7 +18,9 @@ import ittefaq from "../assets/Press Logo/Ittefaq.jpg"
 import techJano from "../assets/Press Logo/TechJano.jpg"
 import techMailBd from "../assets/Press Logo/TechMail.jpg"
 import Sarabangla from "../assets/Press Logo/SharaBangla.jpg"
-
+import IctNews from "../assets/Press Logo/ICT News.jpg"
+import techPublic from "../assets/Press Logo/Tech public.jpg"
+import sangbad from "../assets/Press Logo/Sangbad.jpg"
 
 
 
@@ -158,7 +160,7 @@ const PressCoverage = () => {
       email: "",
       url: "http://www.dailytechpublic.com/young-innovators-shine-at-bangladesh-ict-and-innovation-awards/",
       color: "from-sky-500 to-blue-500",
-      logo: null,
+      logo: techPublic,
     },
     {
       id: 16,
@@ -166,7 +168,15 @@ const PressCoverage = () => {
       email: "news@dailyictnews.com",
       url: "https://www.dailyictnews.com/15409",
       color: "from-indigo-500 to-blue-500",
-      logo: null,
+      logo: IctNews,
+    },
+    {
+      id: 17,
+      name: "Sangbad",
+      email: "news@dailyictnews.com",
+      url: "https://sangbad.net.bd/news/it/2025/163672/",
+      color: "from-indigo-500 to-blue-500",
+      logo: sangbad,
     },
   ];
 
@@ -195,7 +205,7 @@ const PressCoverage = () => {
               className="w-full h-full object-cover"
             />
             {/* Dark overlay + gradient for readability */}
-            <div className="absolute inset-0 bg-black/20 "></div>
+            <div className="absolute inset-0 bg-black/10 "></div>
           </div>
 
           {/* Content */}

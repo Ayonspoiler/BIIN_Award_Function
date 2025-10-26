@@ -15,7 +15,7 @@ const Guidelines = () => {
               className="w-full h-full object-cover"
             />
             {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-black/20"></div>
+            <div className="absolute inset-0 bg-black/10"></div>
           </div>
 
           {/* Content */}

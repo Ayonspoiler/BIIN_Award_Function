@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SelectionTimeline from "../components/SelectionTimeline";
-import backgroundImage from "../assets/Home Image/pic 1.jpg";
+import chair from "../assets/Home Image/chair 1.jpg"
 import image1 from "../assets/Home Image/champ 1.JPG";
 import image2 from "../assets/Home Image/champ 2.JPG";
 import sp1 from "../assets/Home Image/Home 4.jpg";
@@ -14,6 +14,8 @@ import image7 from "../assets/Home Image/page 7.JPG";
 import image8 from "../assets/Home Image/page 8.JPG";
 import image9 from "../assets/Home Image/page 9.JPG";
 import homepage from "../assets/Home Image/Home 1.jpg";
+import chairman from "../assets/Home Image/Chairman 2.JPG"
+import moonBhai from "../assets/Home Image/moon bhai.jpg"
 
 const Home = () => {
   const categories = [
@@ -63,11 +65,13 @@ const Home = () => {
 
   // Carousel state and images
   const images = [
-    image1,
-    image2,
-    image3,
+    chair,
+    chairman,
+    moonBhai,
     sp1,
     sp2,
+    image1,
+    image2,
     image3,
     image4,
     image5,
@@ -98,7 +102,7 @@ const Home = () => {
             className="w-full h-full object-cover"
           />
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-black/10"></div>
         </div>
 
         {/* Content */}
