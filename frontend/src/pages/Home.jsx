@@ -140,26 +140,15 @@ const Home = () => {
                 About Bangladesh ICT & Innovation Awards
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                The Bangladesh ICT & Innovation Awards 2026, organized by the
-                Bangladesh ICT and Innovation Network (BIIN), marks the
-                first-ever national celebration of technological creativity and
-                innovation in Bangladesh. This landmark initiative recognizes
-                visionary individuals, students, startups, and organizations
-                that are transforming lives through technology and shaping the
-                nation’s digital future.
+                Bangladesh ICT & Innovation Awards, organized by Bangladesh ICT and Innovation Network (BIIN), is a prestigious national initiative celebrating excellence in technology, innovation, and digital transformation. The awards recognize outstanding individuals, students, startups, businesses, and organizations whose innovative ideas and achievements are driving positive change and contributing to Bangladesh's digital future.
+                Through this platform, BIIN aims to inspire innovation, encourage collaboration, and showcase the changemakers shaping a smarter, more inclusive, and technology-driven Bangladesh.
               </p>
               <p className="text-lg text-black mb-4">
                 <b> A National Celebration of Innovation</b>
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                Under the inspiring theme “Recognition for Innovation,
-                Inspiration for Transformation,” the Awards honor innovators
-                whose groundbreaking ideas are driving change across industries
-                and communities. This year’s program drew 255 submissions from
-                across the country, reflecting the vibrant and growing ICT
-                ecosystem of Bangladesh. After multiple rounds of evaluation and
-                pitching, over 90 projects were shortlisted, and 32 finalists
-                earned national recognition for their outstanding contributions.
+              Guided by the theme "Inspiring Innovation. Transforming Futures." Bangladesh ICT & Innovation Awards celebrates the innovators, entrepreneurs, students, and organizations shaping Bangladesh's digital future. The awards recognize groundbreaking ideas, impactful technologies, and innovative solutions that create lasting value across industries and communities.
+              Bringing together the country's brightest minds, the program serves as a national platform to showcase excellence, foster collaboration, and inspire the next generation of innovators committed to building a smarter, more inclusive, and technology-driven Bangladesh.
                 <br />
                 <br />
               </p>
@@ -190,9 +179,8 @@ const Home = () => {
                     key={index}
                     src={image}
                     alt={`ICT Awards ${index + 1}`}
-                    className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                      index === currentImageIndex ? "opacity-100" : "opacity-0"
-                    }`}
+                    className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+                      }`}
                   />
                 ))}
               </div>
@@ -202,11 +190,10 @@ const Home = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentImageIndex
+                    className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex
                         ? "bg-white w-8"
                         : "bg-white/50"
-                    }`}
+                      }`}
                     aria-label={`Go to image ${index + 1}`}
                   />
                 ))}

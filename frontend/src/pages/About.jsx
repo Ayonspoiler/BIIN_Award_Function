@@ -78,7 +78,7 @@ const About = () => {
               Overview
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
-              The Bangladesh ICT & Innovation Awards 2026, organized by the
+              Bangladesh ICT & Innovation Awards 2025, organized by Bangladesh
               Bangladesh ICT and Innovation Network (BIIN), marks the first-ever
               national celebration of technological creativity and innovation in
               Bangladesh.
@@ -287,17 +287,7 @@ const About = () => {
                 Award Ceremony
               </h3>
               <p className="text-base sm:text-lg text-gray-600 ml-11">
-                The Grand Finale took place on{" "}
-                <span className="font-semibold text-secondary-600">
-                  October 18, 2026
-                </span>
-                , at the{" "}
-                <span className="font-semibold">
-                  Independent University, Bangladesh (IUB)
-                </span>
-                . The nation's top innovators were celebrated with crests,
-                certificates, and prizes, in a vibrant event attended by leaders
-                from government, industry, and academia.
+                Bangladesh ICT & Innovation Awards Grand Finale will take place on 1st week of October 2026 at, bringing together the nation's leading innovators, entrepreneurs, students, industry experts, policymakers, and academic leaders. The event will honor outstanding winners with awards, certificates, and national recognition, celebrating excellence in technology and innovation across Bangladesh.
               </p>
             </div>
           </div>
@@ -542,18 +532,15 @@ const About = () => {
               Looking Ahead
             </h2>
             <p className="text-base sm:text-lg mb-4">
-              The Bangladesh ICT & Innovation Awards 2026 is more than a
-              competition — it's a platform for transformation. The champions
-              from this year's event will be shortlisted to represent Bangladesh
-              in an upcoming international competition, showcasing the nation's
-              talent and innovation on the global stage.
+              Bangladesh ICT & Innovation Awards is more than an awards program—it is a platform for collaboration, recognition, and national progress. By celebrating outstanding achievements in technology and innovation, the awards aim to inspire future innovators, strengthen the country's innovation ecosystem, and encourage solutions that address real-world challenges.
+              Through this initiative, Bangladesh ICT and Innovation Network (BIIN) continue its mission to connect innovators, startups, academia, industry leaders, investors, and policymakers, fostering partnerships that accelerate digital transformation and sustainable technological growth across Bangladesh
             </p>
-            <p className="text-base sm:text-lg">
+            {/* <p className="text-base sm:text-lg">
               Through this program, Bangladesh ICT and Innovation Network (BIIN)
               continues its mission to build a collaborative innovation
               ecosystem — connecting creators, investors, and policymakers to
               drive sustainable technological progress across Bangladesh.
-            </p>
+            </p> */}
           </div>
 
           {/* Statistics */}

@@ -243,19 +243,19 @@ const Guidelines = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">
                   <div className="text-2xl font-bold mb-2">
-                    September 10, 2026
+                    July 15, 2026
                   </div>
                   <div className="text-primary-100">Registration Opens</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold mb-2">
-                    September 30, 2026
+                    August 20, 2026
                   </div>
                   <div className="text-primary-100">Final Submission</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold mb-2">
-                    October 18, 2026
+                    1st week of October, 2026
                   </div>
                   <div className="text-primary-100">Award Ceremony</div>
                 </div>
