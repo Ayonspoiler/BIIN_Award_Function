@@ -27,7 +27,7 @@ const Guidelines = () => {
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
                 Complete guidelines for participation in Bangladesh ICT &
-                Innovation Awards 2025
+                Innovation Awards 2026
               </p>
               <div className="flex justify-center gap-4">
                 <div className="h-1 w-12 bg-white rounded-full"></div>
@@ -243,19 +243,19 @@ const Guidelines = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">
                   <div className="text-2xl font-bold mb-2">
-                    September 10, 2025
+                    September 10, 2026
                   </div>
                   <div className="text-primary-100">Registration Opens</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold mb-2">
-                    September 30, 2025
+                    September 30, 2026
                   </div>
                   <div className="text-primary-100">Final Submission</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold mb-2">
-                    October 18, 2025
+                    October 18, 2026
                   </div>
                   <div className="text-primary-100">Award Ceremony</div>
                 </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 // Import sponsor logos
 import AIUB from "../assets/Sponsor Logo/Gold/AIUB-1.jpg";
@@ -16,16 +16,17 @@ import City from "../assets/Sponsor Logo/Silver/CITY-1.jpeg";
 import shareTrip from "../assets/Sponsor Logo/Gift/ShareTrip-1.jpg";
 import superStar from "../assets/Sponsor Logo/Gift/Super-Star-Group-2.jpg"
 import homepage from "../assets/Home Image/Home 1.jpg";
-const Sponsors = () => {
-  const platinumSponsors = [
+
+const sponsors2025 = {
+  platinumSponsors: [
     {
       logo: NCC,
       name: "National Credit and Commerce Bank PLC",
       tier: "Title",
-    },  
-  ];
+    },
+  ],
 
-  const goldSponsors = [
+  goldSponsors: [
     {
       logo: AIUB,
       name: "American International University - Bangladesh",
@@ -36,17 +37,17 @@ const Sponsors = () => {
       name: "Mutual Trust Bank PLC",
       tier: "Gold",
     },
-  ];
+  ],
 
-  const silverSponsors = [
+  silverSponsors: [
     {
       logo: City,
       name: "City Bank PLC",
       tier: "Silver",
     },
-  ];
+  ],
 
-  const knowledgePartner = [
+  knowledgePartner: [
     {
       logo: AIUB2,
       name: "American International University - Bangladesh",
@@ -62,9 +63,9 @@ const Sponsors = () => {
       name: "University of Liberal Arts Bangladesh",
       tier: "Knowledge",
     },
-  ];
+  ],
 
-  const mediaPartners = [
+  mediaPartners: [
     {
       logo: RTV,
       name: "RTV Bangladesh",
@@ -75,9 +76,9 @@ const Sponsors = () => {
       name: "TechWorld Bangladesh",
       tier: "Media",
     },
-  ];
+  ],
 
-  const giftPartners = [
+  giftPartners: [
     {
       logo: shareTrip,
       name: "ShareTrip ",
@@ -88,28 +89,49 @@ const Sponsors = () => {
       name: "Super Star Group (SSG)",
       tier: "Gift",
     },
-  ];
+  ],
 
-  const strategicPartners = [
+  strategicPartners: [
     {
       logo: JCL,
       name: "JCI Bangaldesh",
     },
-  ];
+  ],
 
-  const technologyPartners = [
+  technologyPartners: [
     {
       logo: redData,
       name: "Red Data (Pvt.) Ltd",
     },
-  ];
+  ],
 
-  const digitalCampaignPartners = [
+  digitalCampaignPartners: [
     {
       logo: STD,
       name: "Smart-trend Digital",
     },
+  ],
+};
+
+const Sponsors = () => {
+  const [activeYear, setActiveYear] = useState(2026);
+
+  const years = [
+    { year: 2026, label: "2026", status: "coming-soon" },
+    { year: 2025, label: "2025", status: "published" },
   ];
+
+  const {
+    platinumSponsors,
+    goldSponsors,
+    silverSponsors,
+    knowledgePartner,
+    mediaPartners,
+    giftPartners,
+    strategicPartners,
+    technologyPartners,
+    digitalCampaignPartners,
+  } = sponsors2025;
 
   const SponsorCard = ({
     sponsor,
@@ -235,6 +257,31 @@ const Sponsors = () => {
     );
   };
 
+  const renderComingSoon = () => (
+    <div className="relative overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-br from-white via-purple-50/50 to-blue-50/50 p-8 sm:p-12 md:p-16 text-center">
+      <div className="absolute -top-16 -right-16 w-48 h-48 bg-purple-200/40 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-blue-200/40 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10 max-w-2xl mx-auto">
+        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-primary-600 to-secondary-600 text-white text-3xl sm:text-4xl mb-6 shadow-lg">
+          🤝
+        </div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+          2026 Sponsors & Partners
+        </h2>
+        <p className="text-lg sm:text-xl font-semibold text-primary-600 mb-4">
+          Coming Soon
+        </p>
+        <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
+          Our 2026 sponsors and partners will be announced here as partnerships
+          are confirmed. Interested in sponsoring? Reach out using the form below.
+        </p>
+
+      
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-purple-50 to-blue-50">
       {/* Hero Section */}
@@ -263,13 +310,62 @@ const Sponsors = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 drop-shadow-2xl leading-tight">
               Sponsors & Partners
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg px-4"></p>
+            <p className="text-base sm:text-lg md:text-xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg px-4">
+              Organizations powering Bangladesh&apos;s ICT innovation awards
+            </p>
             <div className="flex justify-center gap-4 mt-6">
               <div className="h-1 w-12 bg-white rounded-full"></div>
             </div>
           </div>
         </div>
       </section>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4 sm:-mt-8 mb-8 sm:mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-10">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              Partners by Year
+            </h2>
+            <p className="text-gray-600 mt-1 text-sm sm:text-base">
+              Browse sponsors and partners from each edition
+            </p>
+          </div>
+
+          <div className="inline-flex p-1 bg-gray-100 rounded-xl self-start sm:self-auto">
+            {years.map(({ year, label, status }) => (
+              <button
+                key={year}
+                type="button"
+                onClick={() => setActiveYear(year)}
+                className={`relative px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                  activeYear === year
+                    ? "bg-white text-primary-600 shadow-sm"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                {label}
+                {status === "coming-soon" && (
+                  <span className="ml-1.5 text-[10px] uppercase tracking-wide text-amber-600 font-bold">
+                    Soon
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {activeYear === 2026 ? (
+        <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">{renderComingSoon()}</div>
+        </section>
+      ) : (
+        <>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+        <span className="px-3 py-1 rounded-full bg-primary-100 text-primary-700 text-xs font-bold uppercase tracking-wider">
+          2025 Edition
+        </span>
+      </div>
       {/* Platinum Sponsors */}
       <section className="py-12 sm:py-16 md:py-20 -mt-8 sm:-mt-12 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -459,6 +555,8 @@ const Sponsors = () => {
           </div>
         </div>
       </section>
+        </>
+      )}
       {/* Call to Action */}
       <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -466,7 +564,9 @@ const Sponsors = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
               Become a Sponsor
             </h2>
-            <p className="text-lg sm:text-xl mb-8 text-gray-100"></p>
+            <p className="text-lg sm:text-xl mb-8 text-gray-100">
+              Partner with us for the Bangladesh ICT & Innovation Awards 2026
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

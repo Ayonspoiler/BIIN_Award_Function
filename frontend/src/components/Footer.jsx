@@ -26,7 +26,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-400 mb-4">
-              Bangladesh ICT & Innovation Awards 2025, hosted by Bangladesh ICT
+              Bangladesh ICT & Innovation Awards 2026, hosted by Bangladesh ICT
               & Innovation Network (BIIN), is designed to shape the future of
               Bangladesh’s digital landscape by recognizing and empowering
               visionary individuals, startups, and enterprises whose innovations

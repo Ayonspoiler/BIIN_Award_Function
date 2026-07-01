@@ -295,7 +295,7 @@ const Registration = () => {
           Registration Confirmed!
         </h2>
         <p className="text-gray-600 mb-6">
-          Thank you for registering for Bangladesh ICT & Innovation Awards 2025. Your response
+          Thank you for registering for Bangladesh ICT & Innovation Awards 2026. Your response
           has been successfully submitted.
         </p>
         <button
@@ -344,7 +344,7 @@ const Registration = () => {
               <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl drop-shadow-lg">
                 Bangladesh ICT & Innovation Awards
                 <br />
-                2025
+                2026
               </span>
             </h1>
             <div className="flex justify-center gap-4">

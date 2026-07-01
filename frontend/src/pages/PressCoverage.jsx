@@ -25,9 +25,10 @@ import sangbad from "../assets/Press Logo/Sangbad.jpg"
 
 
 const PressCoverage = () => {
+  const [activeYear, setActiveYear] = useState(2026);
   const [failedImages, setFailedImages] = useState(new Set());
 
-  const pressChannels = [
+  const pressChannels2025 = [
     {
       id: 5,
       name: "Dhaka Tribune",
@@ -180,12 +181,93 @@ const PressCoverage = () => {
     },
   ];
 
-  const handleImageError = (channelId) => {
-    setFailedImages((prev) => new Set([...prev, channelId]));
+  const handleImageError = (channelKey) => {
+    setFailedImages((prev) => new Set([...prev, channelKey]));
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+  const years = [
+    { year: 2026, label: "2026", status: "coming-soon" },
+    { year: 2025, label: "2025", status: "published" },
+  ];
+
+  const renderPressGrid = (channels) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {channels.map((channel) => {
+        const channelKey = `${channel.id}-${channel.name}`;
+        return (
+          <a
+            key={channelKey}
+            href={channel.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative block h-full"
+          >
+            <div
+              className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl"
+              style={{
+                backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))`,
+              }}
+            ></div>
+
+            <div className="relative bg-gradient-to-br from-[#3a7bd5] to-[#3a6073] border border-gray-200 rounded-2xl overflow-hidden h-64 hover:from-[#5fa8e0] hover:to-[#4a6fa5] transition-all duration-300 group-hover:border-blue-300 group-hover:shadow-2xl">
+              <div className="absolute inset-0 w-full h-full flex items-center justify-center p-4">
+                {channel.logo && !failedImages.has(channelKey) ? (
+                  <img
+                    src={channel.logo}
+                    alt={channel.name}
+                    onError={() => handleImageError(channelKey)}
+                    className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                ) : (
+                  <div
+                    className={`w-full h-full rounded-lg bg-gradient-to-br ${channel.color} flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg`}
+                  >
+                    <span className="text-white font-bold text-lg text-center px-2">
+                      {channel.name.substring(0, 2).toUpperCase()}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 bg-black/70 backdrop-blur-sm p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <h3 className="text-white font-bold text-sm text-center line-clamp-1">
+                  {channel.name}
+                </h3>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  );
+
+  const renderComingSoon = () => (
+    <div className="relative overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 p-8 sm:p-12 md:p-16 text-center">
+      <div className="absolute -top-16 -right-16 w-48 h-48 bg-blue-200/40 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-purple-200/40 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10 max-w-2xl mx-auto">
+        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-primary-600 to-secondary-600 text-white text-3xl sm:text-4xl mb-6 shadow-lg">
+          📰
+        </div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+          2026 Press Coverage
+        </h2>
+        <p className="text-lg sm:text-xl font-semibold text-primary-600 mb-4">
+          Coming Soon
+        </p>
+        <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
+          Media coverage for the Bangladesh ICT & Innovation Awards 2026 will be
+          published here as outlets report on the event. Check back after the
+          award ceremony.
+        </p>
+
+        
+      </div>
+    </div>
+  );
+
+  return (    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200/30 rounded-full blur-3xl animate-pulse"></div>
         <div
@@ -221,66 +303,65 @@ const PressCoverage = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-balance">
                 Press <span className="text-white">Coverage</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg px-4"></p>
+              <p className="text-base sm:text-lg md:text-xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg px-4">
+                Media highlights from Bangladesh ICT & Innovation Awards
+              </p>
               <div className="flex justify-center gap-4 mt-6">
                 <div className="h-1 w-12 bg-white rounded-full"></div>
               </div>
             </div>
           </div>
         </section>
-        {/* Press Coverage Grid */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {pressChannels.map((channel) => (
-                <a
-                  key={channel.id}
-                  href={channel.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative block h-full"
-                >
-                  {/* Glow background on hover */}
-                  <div
-                    className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl"
-                    style={{
-                      backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))`,
-                    }}
-                  ></div>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 sm:mb-10">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                  Event Coverage by Year
+                </h2>
+                <p className="text-gray-600 mt-1 text-sm sm:text-base">
+                  Browse press coverage from each award edition
+                </p>
+              </div>
 
-                  {/* Card container */}
-                  {/* Card container */}
-                  <div className="relative bg-gradient-to-br from-[#3a7bd5] to-[#3a6073] border border-gray-200 rounded-2xl overflow-hidden h-64 hover:from-[#5fa8e0] hover:to-[#4a6fa5] transition-all duration-300 group-hover:border-blue-300 group-hover:shadow-2xl">
-                    {/* Logo Section - Takes full card space */}
-                    <div className="absolute inset-0 w-full h-full flex items-center justify-center p-4">
-                      {channel.logo && !failedImages.has(channel.id) ? (
-                        <img
-                          src={channel.logo}
-                          alt={channel.name}
-                          onError={() => handleImageError(channel.id)}
-                          className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                        />
-                      ) : (
-                        <div
-                          className={`w-full h-full rounded-lg bg-gradient-to-br ${channel.color} flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg`}
-                        >
-                          <span className="text-white font-bold text-lg text-center px-2">
-                            {channel.name.substring(0, 2).toUpperCase()}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Name Section - Appears at bottom on hover */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-black/70 backdrop-blur-sm p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="text-white font-bold text-sm text-center line-clamp-1">
-                        {channel.name}
-                      </h3>
-                    </div>
-                  </div>
-                </a>
-              ))}
+              <div className="inline-flex p-1 bg-gray-100 rounded-xl self-start sm:self-auto">
+                {years.map(({ year, label, status }) => (
+                  <button
+                    key={year}
+                    type="button"
+                    onClick={() => setActiveYear(year)}
+                    className={`relative px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                      activeYear === year
+                        ? "bg-white text-primary-600 shadow-sm"
+                        : "text-gray-600 hover:text-gray-900"
+                    }`}
+                  >
+                    {label}
+                    {status === "coming-soon" && (
+                      <span className="ml-1.5 text-[10px] uppercase tracking-wide text-amber-600 font-bold">
+                        Soon
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
             </div>
+
+            {activeYear === 2026 ? (
+              renderComingSoon()
+            ) : (
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="px-3 py-1 rounded-full bg-primary-100 text-primary-700 text-xs font-bold uppercase tracking-wider">
+                    2025 Edition
+                  </span>
+                  <span className="text-sm text-gray-500">
+                    {pressChannels2025.length} media outlets
+                  </span>
+                </div>
+                {renderPressGrid(pressChannels2025)}
+              </div>
+            )}
           </div>
         </section>
         {/* Stats Section */}
@@ -320,7 +401,7 @@ const PressCoverage = () => {
               <p className="text-white mb-8">
                 Our award competition receives extensive coverage from leading
                 news organizations, showcasing the innovation and excellence in
-                Bangladesh's ICT sector.
+                Bangladesh&apos;s ICT sector.
               </p>
               <a
                 href="/"

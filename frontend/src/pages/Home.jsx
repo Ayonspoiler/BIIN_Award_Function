@@ -109,7 +109,7 @@ const Home = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 drop-shadow-2xl text-white">
-              Bangladesh ICT and Innovation Awards 2025
+              Bangladesh ICT and Innovation Awards 2026
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white max-w-3xl mx-auto drop-shadow-lg">
               Recognition for Innovation, Inspiration for Transformation
@@ -140,7 +140,7 @@ const Home = () => {
                 About Bangladesh ICT & Innovation Awards
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                The Bangladesh ICT & Innovation Awards 2025, organized by the
+                The Bangladesh ICT & Innovation Awards 2026, organized by the
                 Bangladesh ICT and Innovation Network (BIIN), marks the
                 first-ever national celebration of technological creativity and
                 innovation in Bangladesh. This landmark initiative recognizes

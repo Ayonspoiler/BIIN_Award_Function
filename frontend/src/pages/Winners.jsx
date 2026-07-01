@@ -5,11 +5,11 @@ import { Trophy, Award, Medal } from "lucide-react";
 import homepage from "../assets/Home Image/Home 1.jpg";
 
 const Winners = () => {
+  const [activeYear, setActiveYear] = useState(2026);
   const [activeDivision, setActiveDivision] = useState("student");
   const [activeLevel, setActiveLevel] = useState("champion");
 
-  // Winners Data
-  const winnersData = {
+  const winnersData2025 = {
     student: {
       champion: [
         {
@@ -265,7 +265,45 @@ const Winners = () => {
     return "bg-gradient-to-br from-orange-50 to-orange-100 border-orange-300";
   };
 
-  const currentWinners = winnersData[activeDivision][activeLevel];
+  const years = [
+    { year: 2026, label: "2026", status: "coming-soon" },
+    { year: 2025, label: "2025", status: "published" },
+  ];
+
+  const handleYearChange = (year) => {
+    setActiveYear(year);
+    if (year === 2025) {
+      setActiveDivision("student");
+      setActiveLevel("champion");
+    }
+  };
+
+  const currentWinners = winnersData2025[activeDivision][activeLevel];
+
+  const renderComingSoon = () => (
+    <div className="relative overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 p-8 sm:p-12 md:p-16 text-center">
+      <div className="absolute -top-16 -right-16 w-48 h-48 bg-blue-200/40 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-purple-200/40 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10 max-w-2xl mx-auto">
+        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-yellow-400 to-yellow-600 text-white mb-6 shadow-lg">
+          <Trophy className="w-8 h-8 sm:w-10 sm:h-10" />
+        </div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+          2026 Award Winners
+        </h2>
+        <p className="text-lg sm:text-xl font-semibold text-primary-600 mb-4">
+          Coming Soon
+        </p>
+        <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
+          Winners of the Bangladesh ICT & Innovation Awards 2026 will be
+          announced here after the award ceremony. Check back in October 2026.
+        </p>
+
+
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -296,15 +334,64 @@ const Winners = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 drop-shadow-2xl leading-tight">
               Award Winners
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg px-4"></p>
+            <p className="text-base sm:text-lg md:text-xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg px-4">
+              Celebrating excellence across Bangladesh&apos;s ICT innovators
+            </p>
             <div className="flex justify-center gap-4 mt-6">
               <div className="h-1 w-12 bg-white rounded-full"></div>
             </div>
           </div>
         </div>
       </section>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12 mb-8 sm:mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              Winners by Year
+            </h2>
+            <p className="text-gray-600 mt-1 text-sm sm:text-base">
+              Browse award recipients from each edition
+            </p>
+          </div>
+
+          <div className="inline-flex p-1 bg-gray-100 rounded-xl self-start sm:self-auto">
+            {years.map(({ year, label, status }) => (
+              <button
+                key={year}
+                type="button"
+                onClick={() => handleYearChange(year)}
+                className={`relative px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                  activeYear === year
+                    ? "bg-white text-primary-600 shadow-sm"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                {label}
+                {status === "coming-soon" && (
+                  <span className="ml-1.5 text-[10px] uppercase tracking-wide text-amber-600 font-bold">
+                    Soon
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {activeYear === 2026 ? (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-20">
+          {renderComingSoon()}
+        </div>
+      ) : (
+        <>
       {/* Division Tabs */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12 mt-8 sm:mt-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12 mt-0">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="px-3 py-1 rounded-full bg-primary-100 text-primary-700 text-xs font-bold uppercase tracking-wider">
+            2025 Edition
+          </span>
+        </div>
         <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-4 justify-center">
           {[
             { id: "student", label: "Student" },
@@ -356,7 +443,7 @@ const Winners = () => {
       {/* Winners Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {currentWinners.map((winner, index) => (
+          {currentWinners.map((winner) => (
             <div
               key={winner.id}
               className={`group relative overflow-hidden rounded-xl border-2 transition-all duration-300 hover:shadow-2xl hover:scale-105 ${getAwardBgColor(
@@ -430,9 +517,9 @@ const Winners = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 sm:p-8 border-2 border-yellow-200 text-center shadow-md">
             <div className="text-3xl sm:text-4xl font-bold text-yellow-600 mb-2">
-              {winnersData.student.champion.length +
-                winnersData.organization.champion.length +
-                winnersData.individual.champion.length}
+              {winnersData2025.student.champion.length +
+                winnersData2025.organization.champion.length +
+                winnersData2025.individual.champion.length}
             </div>
             <p className="text-sm sm:text-base text-gray-700 font-semibold">
               Total Champions
@@ -440,9 +527,9 @@ const Winners = () => {
           </div>
           <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 sm:p-8 border-2 border-gray-300 text-center shadow-md">
             <div className="text-3xl sm:text-4xl font-bold text-gray-600 mb-2">
-              {winnersData.student.winner.length +
-                winnersData.organization.winner.length +
-                winnersData.individual.winner.length}
+              {winnersData2025.student.winner.length +
+                winnersData2025.organization.winner.length +
+                winnersData2025.individual.winner.length}
             </div>
             <p className="text-sm sm:text-base text-gray-700 font-semibold">
               Total Winners
@@ -450,9 +537,9 @@ const Winners = () => {
           </div>
           <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 sm:p-8 border-2 border-orange-200 text-center shadow-md">
             <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">
-              {winnersData.student.merit.length +
-                winnersData.organization.merit.length +
-                winnersData.individual.merit.length}
+              {winnersData2025.student.merit.length +
+                winnersData2025.organization.merit.length +
+                winnersData2025.individual.merit.length}
             </div>
             <p className="text-sm sm:text-base text-gray-700 font-semibold">
               Merit Awards
@@ -460,6 +547,8 @@ const Winners = () => {
           </div>
         </div>
       </div>
+        </>
+      )}
     </div>
   );
 };

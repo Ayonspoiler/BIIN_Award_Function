@@ -33,7 +33,7 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="Bangladesh ICT & Innovation Awards Logo"
-                className="h-12 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
             </Link>
           </div>

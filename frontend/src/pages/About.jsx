@@ -78,7 +78,7 @@ const About = () => {
               Overview
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
-              The Bangladesh ICT & Innovation Awards 2025, organized by the
+              The Bangladesh ICT & Innovation Awards 2026, organized by the
               Bangladesh ICT and Innovation Network (BIIN), marks the first-ever
               national celebration of technological creativity and innovation in
               Bangladesh.
@@ -289,7 +289,7 @@ const About = () => {
               <p className="text-base sm:text-lg text-gray-600 ml-11">
                 The Grand Finale took place on{" "}
                 <span className="font-semibold text-secondary-600">
-                  October 18, 2025
+                  October 18, 2026
                 </span>
                 , at the{" "}
                 <span className="font-semibold">
@@ -542,7 +542,7 @@ const About = () => {
               Looking Ahead
             </h2>
             <p className="text-base sm:text-lg mb-4">
-              The Bangladesh ICT & Innovation Awards 2025 is more than a
+              The Bangladesh ICT & Innovation Awards 2026 is more than a
               competition — it's a platform for transformation. The champions
               from this year's event will be shortlisted to represent Bangladesh
               in an upcoming international competition, showcasing the nation's
