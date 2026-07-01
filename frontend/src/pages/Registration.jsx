@@ -1,5 +1,18 @@
-import { useState } from "react";
-import homepage from "../assets/Home Image/Home 1.jpg"
+import { useState, useEffect } from "react";
+import homepage from "../assets/Home Image/Home 1.jpg";
+
+const REGISTRATION_OPEN_DATE = new Date("2026-07-15T00:00:00+06:00");
+
+const getTimeRemaining = () => {
+  const diff = REGISTRATION_OPEN_DATE.getTime() - Date.now();
+  if (diff <= 0) return null;
+  return {
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / (1000 * 60)) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
+  };
+};
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -51,6 +64,20 @@ const Registration = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(getTimeRemaining);
+
+  useEffect(() => {
+    const updateCountdown = () => {
+      const remaining = getTimeRemaining();
+      setIsRegistrationOpen(!remaining);
+      setTimeLeft(remaining);
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Solution categories for each head category
   const solutionCategories = {
@@ -146,6 +173,11 @@ const Registration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitError("");
+
+    if (!isRegistrationOpen) {
+      setSubmitError("Registration opens on July 15, 2026.");
+      return;
+    }
 
     // Basic validation for required fields
     const requiredFields = [
@@ -308,6 +340,44 @@ const Registration = () => {
     </div>
   );
 
+  const CountdownDisplay = () => (
+    <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-10 mb-12 text-center">
+      <p className="text-sm font-semibold uppercase tracking-wider text-primary-600 mb-2">
+        Registration Opens In
+      </p>
+      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+        July 15, 2026
+      </h2>
+      <p className="text-gray-600 text-sm sm:text-base mb-8">
+        Bangladesh ICT & Innovation Awards 2026 registration will open
+        automatically at midnight (Bangladesh time).
+      </p>
+
+      {timeLeft && (
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-xl mx-auto">
+          {[
+            { label: "Days", value: timeLeft.days },
+            { label: "Hours", value: timeLeft.hours },
+            { label: "Minutes", value: timeLeft.minutes },
+            { label: "Seconds", value: timeLeft.seconds },
+          ].map((item) => (
+            <div
+              key={item.label}
+              className="bg-gradient-to-br from-primary-50 to-secondary-50 border border-primary-100 rounded-xl py-4 sm:py-5"
+            >
+              <div className="text-3xl sm:text-4xl font-black text-primary-600 tabular-nums">
+                {String(item.value).padStart(2, "0")}
+              </div>
+              <div className="text-xs sm:text-sm font-semibold text-gray-600 uppercase tracking-wide mt-1">
+                {item.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
   if (isSubmitted) {
     return (
       <div className="py-16">
@@ -347,6 +417,15 @@ const Registration = () => {
                 2026
               </span>
             </h1>
+            {isRegistrationOpen ? (
+              <p className="text-base sm:text-lg text-green-300 font-semibold mb-4 drop-shadow-lg">
+                Registration is now open
+              </p>
+            ) : (
+              <p className="text-base sm:text-lg text-yellow-300 font-semibold mb-4 drop-shadow-lg">
+                Opens July 15, 2026
+              </p>
+            )}
             <div className="flex justify-center gap-4">
               <div className="h-1 w-12 bg-white rounded-full"></div>
             </div>
@@ -380,6 +459,10 @@ const Registration = () => {
             </div>
           )}
 
+          {!isRegistrationOpen ? (
+            <CountdownDisplay />
+          ) : (
+            <>
           {/* Registration Form */}
           <form
             onSubmit={handleSubmit}
@@ -1177,6 +1260,8 @@ const Registration = () => {
               </div>
             </div>
           </div>
+            </>
+          )}
         </div>
       </div>
     </div>
