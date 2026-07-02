@@ -435,7 +435,7 @@ const JudgeMarkingSystem = () => {
     return (
       <>
         <Modal {...modal} onClose={closeModal} />
-        <div className="min-h-screen bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 py-12 px-4 relative overflow-hidden">
+        <div className="min-h-screen bg-primary-700 py-12 px-4 relative overflow-hidden">
           {/* Animated background elements */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
@@ -446,10 +446,10 @@ const JudgeMarkingSystem = () => {
           <div className="max-w-md mx-auto relative z-10">
             <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 transform hover:scale-105 transition-transform duration-300">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mb-4 shadow-lg animate-pulse">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-primary-600 rounded-full mb-4 shadow-lg animate-pulse">
                   <Award className="w-10 h-10 text-white" />
                 </div>
-                <h1 className="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                <h1 className="text-4xl font-extrabold text-primary-600 mb-2">
                   Judge Portal
                 </h1>
                 <p className="text-gray-600 text-sm font-medium">
@@ -457,12 +457,12 @@ const JudgeMarkingSystem = () => {
                 </p>
               </div>
 
-              <div className="flex gap-2 mb-6 bg-gradient-to-r from-gray-100 to-gray-200 p-1 rounded-xl shadow-inner">
+              <div className="flex gap-2 mb-6 bg-gray-100 p-1 rounded-xl shadow-inner">
                 <button
                   onClick={() => setAuthMode("login")}
                   className={`flex-1 py-3 rounded-lg font-semibold transition-all duration-300 ${
                     authMode === "login"
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg transform scale-105"
+                      ? "bg-primary-600 text-white shadow-lg transform scale-105"
                       : "text-gray-600 hover:bg-white/50"
                   }`}
                 >
@@ -472,7 +472,7 @@ const JudgeMarkingSystem = () => {
                   onClick={() => setAuthMode("register")}
                   className={`flex-1 py-3 rounded-lg font-semibold transition-all duration-300 ${
                     authMode === "register"
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg transform scale-105"
+                      ? "bg-primary-600 text-white shadow-lg transform scale-105"
                       : "text-gray-600 hover:bg-white/50"
                   }`}
                 >
@@ -493,7 +493,7 @@ const JudgeMarkingSystem = () => {
                       onChange={(e) =>
                         setAuthForm({ ...authForm, name: e.target.value })
                       }
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-blue-300"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-blue-300"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -510,7 +510,7 @@ const JudgeMarkingSystem = () => {
                     onChange={(e) =>
                       setAuthForm({ ...authForm, email: e.target.value })
                     }
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-blue-300"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-blue-300"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -526,7 +526,7 @@ const JudgeMarkingSystem = () => {
                     onChange={(e) =>
                       setAuthForm({ ...authForm, password: e.target.value })
                     }
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-blue-300"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-blue-300"
                     placeholder="Enter your password"
                   />
                 </div>
@@ -534,7 +534,7 @@ const JudgeMarkingSystem = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 disabled:opacity-50 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
+                  className="w-full bg-primary-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-primary-700 transition-all duration-300 disabled:opacity-50 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
                 >
                   {loading ? (
                     <>
@@ -560,18 +560,18 @@ const JudgeMarkingSystem = () => {
   return (
     <>
       <Modal {...modal} onClose={closeModal} />
-      <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 relative overflow-hidden">
+      <div className="min-h-screen bg-slate-50 relative overflow-hidden">
         {/* Enhanced animated background patterns */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-400 to-cyan-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-gradient-to-br from-indigo-400 to-blue-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-200/40 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-200/40 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-primary-200/40 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
         </div>
 
         {/* Geometric patterns */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-20 w-32 h-32 border-4 border-blue-400 rounded-lg transform rotate-45 animate-spin-slow"></div>
-          <div className="absolute top-60 right-40 w-24 h-24 border-4 border-purple-400 rounded-full animate-pulse"></div>
+          <div className="absolute top-60 right-40 w-24 h-24 border-4 border-primary-300 rounded-full animate-pulse"></div>
           <div className="absolute bottom-40 left-60 w-40 h-40 border-4 border-pink-400 transform rotate-12 animate-bounce-slow"></div>
         </div>
 
@@ -579,11 +579,11 @@ const JudgeMarkingSystem = () => {
           <div className="max-w-7xl mx-auto px-4 py-5">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-4">
-                <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-3 rounded-xl shadow-lg">
+                <div className="bg-primary-600 p-3 rounded-xl shadow-lg">
                   <Award className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <h1 className="text-2xl md:text-3xl font-extrabold text-primary-600">
                     Project Evaluation
                   </h1>
                   <p className="text-sm text-gray-600 mt-1 flex items-center gap-2">
@@ -595,7 +595,7 @@ const JudgeMarkingSystem = () => {
               </div>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold"
+                className="flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-gray-700 text-white rounded-xl hover:bg-gray-800 transition-colors shadow-lg font-semibold"
               >
                 <LogOut className="w-4 h-4 md:w-5 md:h-5" />
                 <span className="hidden sm:inline">Logout</span>
@@ -609,8 +609,8 @@ const JudgeMarkingSystem = () => {
           {!selectedProject && (
             <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-6 md:p-8 border-2 border-blue-100 transform hover:shadow-2xl transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
-                <div className="bg-gradient-to-br from-blue-100 to-purple-100 p-3 rounded-xl">
-                  <Search className="w-6 h-6 text-blue-600" />
+                <div className="bg-primary-100 p-3 rounded-xl">
+                  <Search className="w-6 h-6 text-primary-600" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                   Select Projects to Evaluate
@@ -620,7 +620,7 @@ const JudgeMarkingSystem = () => {
               <div className="space-y-5">
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
-                    <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">
+                    <span className="bg-primary-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">
                       1
                     </span>
                     Application Entity <span className="text-red-500">*</span>
@@ -632,7 +632,7 @@ const JudgeMarkingSystem = () => {
                       setHeadCategory("");
                       setProjects([]);
                     }}
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-blue-300 text-lg font-medium bg-gradient-to-r from-white to-blue-50"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-blue-300 text-lg font-medium bg-white"
                   >
                     <option value="">Select Application Entity</option>
                     <option value="Student">🎓 Student</option>
@@ -647,7 +647,7 @@ const JudgeMarkingSystem = () => {
                 {applicationEntity && (
                   <div className="transform transition-all duration-300 animate-slideDown">
                     <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
-                      <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">
+                      <span className="bg-primary-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">
                         2
                       </span>
                       Head Category <span className="text-red-500">*</span>
@@ -658,7 +658,7 @@ const JudgeMarkingSystem = () => {
                         setHeadCategory(e.target.value);
                         setProjects([]);
                       }}
-                      className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-blue-300 text-lg font-medium bg-gradient-to-r from-white to-purple-50"
+                      className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-blue-300 text-lg font-medium bg-white"
                     >
                       <option value="">Select Head Category</option>
                       {allHeadCategories.map((cat) => (
@@ -670,8 +670,8 @@ const JudgeMarkingSystem = () => {
 
                     {/*  FIX: Show helpful message when no projects exist for selected category */}
                     {headCategory && projects.length === 0 && (
-                      <div className="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                        <p className="text-blue-700 text-sm">
+                      <div className="mt-2 p-3 bg-primary-50 border border-primary-200 rounded-lg">
+                        <p className="text-primary-700 text-sm">
                           ℹ️ Select "{headCategory}" and click "Load Projects"
                           to check for available projects.
                         </p>
@@ -683,7 +683,7 @@ const JudgeMarkingSystem = () => {
                 {applicationEntity && headCategory && (
                   <div className="transform transition-all duration-300 animate-slideDown">
                     <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
-                      <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">
+                      <span className="bg-primary-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">
                         3
                       </span>
                       Search Projects (Optional)
@@ -695,7 +695,7 @@ const JudgeMarkingSystem = () => {
                         placeholder="Type to search projects..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-blue-300 text-lg"
+                        className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 hover:border-blue-300 text-lg"
                       />
                     </div>
                   </div>
@@ -705,7 +705,7 @@ const JudgeMarkingSystem = () => {
                   <button
                     onClick={fetchProjects}
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 disabled:opacity-50 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
+                    className="w-full bg-primary-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-primary-700 transition-all duration-300 disabled:opacity-50 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
                   >
                     {loading ? (
                       <>
@@ -725,7 +725,7 @@ const JudgeMarkingSystem = () => {
               {projects.length > 0 && (
                 <div className="mt-8 animate-fadeIn">
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="bg-gradient-to-r from-green-100 to-emerald-100 px-4 py-2 rounded-full">
+                    <div className="bg-primary-100 px-4 py-2 rounded-full">
                       <span className="text-green-700 font-bold text-sm">
                         {projects.length} Projects Found
                       </span>
@@ -736,7 +736,7 @@ const JudgeMarkingSystem = () => {
                     {projects.map((project, index) => (
                       <div
                         key={project._id}
-                        className="border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-blue-400 hover:shadow-xl transition-all duration-300 transform hover:scale-102 bg-gradient-to-r from-white to-blue-50"
+                        className="border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-primary-400 hover:shadow-xl transition-all duration-300 transform hover:scale-102 bg-white"
                         style={{ animationDelay: `${index * 100}ms` }}
                       >
                         <div
@@ -752,7 +752,7 @@ const JudgeMarkingSystem = () => {
                           <div className="flex justify-between items-start gap-4">
                             <div className="flex-1">
                               <h4 className="font-bold text-gray-900 text-lg mb-2 flex items-center gap-2">
-                                <span className="text-blue-600">
+                                <span className="text-primary-600">
                                   #{index + 1}
                                 </span>
                                 {project.solutionName}
@@ -762,11 +762,11 @@ const JudgeMarkingSystem = () => {
                                 {project.organizationName}
                               </p>
                               <div className="flex flex-wrap gap-2">
-                                <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">
+                                <span className="inline-flex items-center px-3 py-1 bg-primary-100 text-primary-800 text-xs font-semibold rounded-full">
                                   {project.applicationEntity}
                                 </span>
                                 {project.headCategory && (
-                                  <span className="inline-flex items-center px-3 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded-full">
+                                  <span className="inline-flex items-center px-3 py-1 bg-primary-100 text-primary-800 text-xs font-semibold rounded-full">
                                     {project.headCategory}
                                   </span>
                                 )}
@@ -777,7 +777,7 @@ const JudgeMarkingSystem = () => {
                                 )}
                               </div>
                             </div>
-                            <button className="text-blue-600 hover:bg-blue-50 p-2 rounded-full transition-colors">
+                            <button className="text-primary-600 hover:bg-primary-50 p-2 rounded-full transition-colors">
                               {expandedProject === project._id ? (
                                 <ChevronUp className="w-6 h-6" />
                               ) : (
@@ -839,7 +839,7 @@ const JudgeMarkingSystem = () => {
                             </div>
                             <button
                               onClick={() => checkAndSelectProject(project)}
-                              className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-xl font-bold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
+                              className="w-full btn-primary py-3 font-bold shadow-lg hover:shadow-xl"
                             >
                               <Sparkles className="w-5 h-5" />
                               Evaluate This Project
@@ -860,7 +860,7 @@ const JudgeMarkingSystem = () => {
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                 <div>
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="bg-gradient-to-br from-green-100 to-emerald-100 p-2 rounded-lg">
+                    <div className="bg-primary-100 p-2 rounded-lg">
                       <CheckCircle className="w-6 h-6 text-green-600" />
                     </div>
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -883,9 +883,9 @@ const JudgeMarkingSystem = () => {
               </div>
 
               {/* PROJECT INFORMATION - FIXED SECTION (removed duplicate) */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-5 mb-6 border-2 border-blue-100">
+              <div className="bg-primary-50 rounded-xl p-5 mb-6 border-2 border-blue-100">
                 <h3 className="font-bold text-gray-900 mb-4 text-lg flex items-center gap-2">
-                  <span className="bg-blue-600 text-white w-7 h-7 rounded-full flex items-center justify-center text-sm">
+                  <span className="bg-primary-600 text-white w-7 h-7 rounded-full flex items-center justify-center text-sm">
                     ℹ
                   </span>
                   Project Information
@@ -924,7 +924,7 @@ const JudgeMarkingSystem = () => {
               <form onSubmit={submitMarking} className="space-y-6">
                 <div>
                   <h3 className="font-bold text-gray-900 mb-4 text-lg flex items-center gap-2">
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white w-7 h-7 rounded-full flex items-center justify-center text-sm">
+                    <span className="bg-primary-600 text-white w-7 h-7 rounded-full flex items-center justify-center text-sm">
                       ★
                     </span>
                     Evaluation Criteria
@@ -972,7 +972,7 @@ const JudgeMarkingSystem = () => {
                         ].map(({ field, label, icon, max }) => (
                           <div
                             key={field}
-                            className="bg-gradient-to-br from-white to-blue-50 p-4 rounded-xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                            className="bg-white p-4 rounded-xl border-2 border-gray-200 hover:border-primary-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                           >
                             <label className="block text-xs font-bold text-gray-700 mb-2 flex items-center gap-1">
                               <span className="text-base">{icon}</span>
@@ -1012,7 +1012,7 @@ const JudgeMarkingSystem = () => {
                                 }
                               }}
                               placeholder={`0-${max}`}
-                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                             />
                             <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
                               Max: {max}
@@ -1050,7 +1050,7 @@ const JudgeMarkingSystem = () => {
                         ].map(({ field, label, icon, max }) => (
                           <div
                             key={field}
-                            className="bg-gradient-to-br from-white to-purple-50 p-4 rounded-xl border-2 border-gray-200 hover:border-purple-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                            className="bg-white p-4 rounded-xl border-2 border-gray-200 hover:border-primary-400 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                           >
                             <label className="block text-xs font-bold text-gray-700 mb-2 flex items-center gap-1">
                               <span className="text-base">{icon}</span>
@@ -1090,7 +1090,7 @@ const JudgeMarkingSystem = () => {
                                 }
                               }}
                               placeholder={`0-${max}`}
-                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                              className="w-full px-3 py-2 text-base font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                             />
                             <p className="text-xs text-gray-500 mt-1.5 text-center font-medium">
                               Max: {max}
@@ -1102,7 +1102,7 @@ const JudgeMarkingSystem = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-2xl p-6 border-2 border-blue-200 shadow-xl">
+                <div className="bg-primary-600 rounded-2xl p-6 border-2 border-primary-200 shadow-xl">
                   <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                     <div className="text-white">
                       <p className="text-sm font-medium opacity-90 mb-1">
@@ -1144,7 +1144,7 @@ const JudgeMarkingSystem = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-green-500 via-emerald-600 to-green-600 text-white py-5 rounded-xl font-bold text-xl hover:from-green-600 hover:via-emerald-700 hover:to-green-700 transition-all duration-300 disabled:opacity-50 shadow-2xl hover:shadow-3xl transform hover:scale-105 flex items-center justify-center gap-3"
+                  className="w-full btn-primary py-5 font-bold text-xl shadow-lg disabled:opacity-50 flex items-center justify-center gap-3"
                 >
                   {loading ? (
                     <>

@@ -458,16 +458,16 @@ const ResultsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-4 sm:py-6 md:py-8 px-3 sm:px-4 lg:px-6">
+    <div className="min-h-screen bg-slate-50 py-4 sm:py-6 md:py-8 px-3 sm:px-4 lg:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-6">
           <div className="flex items-center gap-3 sm:gap-4 mb-3">
-            <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-2 sm:p-3 rounded-lg sm:rounded-xl shadow-lg">
+            <div className="bg-primary-600 p-2 sm:p-3 rounded-lg sm:rounded-xl shadow-lg">
               <Trophy className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
             </div>
             <div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold bg-primary-600 bg-clip-text text-transparent">
                 Competition Results
               </h1>
               <p className="text-xs sm:text-sm md:text-base text-gray-600 mt-0.5 sm:mt-1">
@@ -493,7 +493,7 @@ const ResultsPage = () => {
                     }}
                     className={`px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-lg font-medium text-xs sm:text-sm md:text-base transition-all duration-300 whitespace-nowrap ${
                       selectedCategory === cat
-                        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg transform scale-105"
+                        ? "bg-primary-600 text-white shadow-lg transform scale-105"
                         : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                     }`}
                   >
@@ -529,7 +529,7 @@ const ResultsPage = () => {
           </div>
 
           {/* Filters - APPLIES TO ALL CATEGORIES INCLUDING STUDENT */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6 p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg sm:rounded-xl border-2 border-blue-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6 p-3 sm:p-4 bg-primary-50 rounded-lg sm:rounded-xl border-2 border-primary-100">
             <div>
               <label className="block text-xs sm:text-sm font-bold text-gray-700 mb-2">
                 Filter by Head Category
@@ -585,7 +585,7 @@ const ResultsPage = () => {
           {/* Loading State */}
           {loading ? (
             <div className="text-center py-12 sm:py-16">
-              <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-4 border-blue-600 mx-auto"></div>
+              <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-4 border-primary-600 mx-auto"></div>
               <p className="mt-4 text-sm sm:text-base text-gray-600 font-medium">
                 Loading results...
               </p>
@@ -606,7 +606,7 @@ const ResultsPage = () => {
               {/* Desktop Table View */}
               <div className="hidden lg:block overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gradient-to-r from-gray-50 to-gray-100 border-b-2 border-gray-300">
+                  <thead className="bg-gray-50 border-b-2 border-gray-300">
                     <tr>
                       <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">
                         Rank
@@ -688,7 +688,7 @@ const ResultsPage = () => {
                             {entry.numberOfJudges}
                           </td>
                           <td className="px-4 py-3 text-center">
-                            <span className="text-lg font-bold text-blue-600">
+                            <span className="text-lg font-bold text-primary-600">
                               {safeToFixed(entry.totalAverageMarks)}
                             </span>
                           </td>
@@ -706,7 +706,7 @@ const ResultsPage = () => {
                                     : entry._id
                                 )
                               }
-                              className="text-blue-600 hover:text-blue-800 transition-colors"
+                              className="text-primary-600 hover:text-primary-800 transition-colors"
                             >
                               {expandedProject === entry._id ? (
                                 <ChevronUp className="w-5 h-5" />
@@ -757,7 +757,7 @@ const ResultsPage = () => {
                                                 ? "Quality"
                                                 : "Presentation"}
                                             </div>
-                                            <div className="text-lg font-bold text-blue-600">
+                                            <div className="text-lg font-bold text-primary-600">
                                               {safeToFixed(
                                                 getAverageMark(entry, key)
                                               )}
@@ -771,7 +771,7 @@ const ResultsPage = () => {
                                           <div className="text-gray-600 text-xs">
                                             Uniqueness
                                           </div>
-                                          <div className="text-lg font-bold text-blue-600">
+                                          <div className="text-lg font-bold text-primary-600">
                                             {safeToFixed(
                                               getAverageMark(
                                                 entry,
@@ -784,7 +784,7 @@ const ResultsPage = () => {
                                           <div className="text-gray-600 text-xs">
                                             Market / Public Value
                                           </div>
-                                          <div className="text-lg font-bold text-blue-600">
+                                          <div className="text-lg font-bold text-primary-600">
                                             {safeToFixed(
                                               getAverageMark(
                                                 entry,
@@ -797,7 +797,7 @@ const ResultsPage = () => {
                                           <div className="text-gray-600 text-xs">
                                             Features
                                           </div>
-                                          <div className="text-lg font-bold text-blue-600">
+                                          <div className="text-lg font-bold text-primary-600">
                                             {safeToFixed(
                                               getAverageMark(
                                                 entry,
@@ -810,7 +810,7 @@ const ResultsPage = () => {
                                           <div className="text-gray-600 text-xs">
                                             Quality & Tech
                                           </div>
-                                          <div className="text-lg font-bold text-blue-600">
+                                          <div className="text-lg font-bold text-primary-600">
                                             {safeToFixed(
                                               getAverageMark(
                                                 entry,
@@ -984,7 +984,7 @@ const ResultsPage = () => {
                     key={entry._id}
                     className={`rounded-xl overflow-hidden border-2 transition-all duration-300 ${
                       index < 3
-                        ? "border-yellow-400 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-lg"
+                        ? "border-primary-400 bg-primary-50 shadow-lg"
                         : "border-gray-200 bg-white shadow-md hover:shadow-lg"
                     }`}
                   >
@@ -1012,7 +1012,7 @@ const ResultsPage = () => {
                           </p>
                         </div>
                         <div className="text-right">
-                          <div className="text-lg sm:text-xl md:text-2xl font-black text-blue-600">
+                          <div className="text-lg sm:text-xl md:text-2xl font-black text-primary-600">
                             {safeToFixed(entry.totalAverageMarks)}
                           </div>
                           <div className="text-xs text-gray-500">Score</div>
@@ -1062,7 +1062,7 @@ const ResultsPage = () => {
                             expandedProject === entry._id ? null : entry._id
                           )
                         }
-                        className="w-full flex items-center justify-center gap-2 py-2 sm:py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold text-xs sm:text-sm hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-md"
+                        className="w-full flex items-center justify-center gap-2 py-2 sm:py-2.5 bg-primary-600 text-white rounded-lg font-semibold text-xs sm:text-sm hover:bg-primary-700 transition-all duration-300 shadow-md"
                       >
                         {expandedProject === entry._id ? (
                           <>
@@ -1095,7 +1095,7 @@ const ResultsPage = () => {
                                   ].map((key) => (
                                     <div
                                       key={key}
-                                      className="bg-gradient-to-br from-blue-50 to-purple-50 p-2 sm:p-3 rounded-lg border border-blue-100"
+                                      className="bg-primary-50 p-2 sm:p-3 rounded-lg border border-primary-100"
                                     >
                                       <div className="text-xs text-gray-600 mb-1">
                                         {key === "uniqueness"
@@ -1108,7 +1108,7 @@ const ResultsPage = () => {
                                           ? "Quality"
                                           : "Presentation"}
                                       </div>
-                                      <div className="text-base sm:text-lg font-bold text-blue-600">
+                                      <div className="text-base sm:text-lg font-bold text-primary-600">
                                         {safeToFixed(
                                           getAverageMark(entry, key)
                                         )}
@@ -1118,21 +1118,21 @@ const ResultsPage = () => {
                                 </>
                               ) : (
                                 <>
-                                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-2 sm:p-3 rounded-lg border border-blue-100">
+                                  <div className="bg-primary-50 p-2 sm:p-3 rounded-lg border border-primary-100">
                                     <div className="text-xs text-gray-600 mb-1">
                                       Uniqueness
                                     </div>
-                                    <div className="text-base sm:text-lg font-bold text-blue-600">
+                                    <div className="text-base sm:text-lg font-bold text-primary-600">
                                       {safeToFixed(
                                         getAverageMark(entry, "uniqueness")
                                       )}
                                     </div>
                                   </div>
-                                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-2 sm:p-3 rounded-lg border border-blue-100">
+                                  <div className="bg-primary-50 p-2 sm:p-3 rounded-lg border border-primary-100">
                                     <div className="text-xs text-gray-600 mb-1">
                                       Market / Public Value
                                     </div>
-                                    <div className="text-base sm:text-lg font-bold text-blue-600">
+                                    <div className="text-base sm:text-lg font-bold text-primary-600">
                                       {safeToFixed(
                                         getAverageMark(
                                           entry,
@@ -1141,11 +1141,11 @@ const ResultsPage = () => {
                                       )}
                                     </div>
                                   </div>
-                                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-2 sm:p-3 rounded-lg border border-blue-100">
+                                  <div className="bg-primary-50 p-2 sm:p-3 rounded-lg border border-primary-100">
                                     <div className="text-xs text-gray-600 mb-1">
                                       Features
                                     </div>
-                                    <div className="text-base sm:text-lg font-bold text-blue-600">
+                                    <div className="text-base sm:text-lg font-bold text-primary-600">
                                       {safeToFixed(
                                         getAverageMark(
                                           entry,
@@ -1154,11 +1154,11 @@ const ResultsPage = () => {
                                       )}
                                     </div>
                                   </div>
-                                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-2 sm:p-3 rounded-lg border border-blue-100">
+                                  <div className="bg-primary-50 p-2 sm:p-3 rounded-lg border border-primary-100">
                                     <div className="text-xs text-gray-600 mb-1">
                                       Quality & Tech
                                     </div>
-                                    <div className="text-base sm:text-lg font-bold text-blue-600">
+                                    <div className="text-base sm:text-lg font-bold text-primary-600">
                                       {safeToFixed(
                                         getAverageMark(
                                           entry,
@@ -1180,7 +1180,7 @@ const ResultsPage = () => {
                               {entry.judgeMarks?.map((judge, idx) => (
                                 <div
                                   key={idx}
-                                  className="bg-gradient-to-r from-gray-50 to-blue-50 p-3 rounded-lg border border-gray-200"
+                                  className="bg-slate-50 p-3 rounded-lg border border-gray-200"
                                 >
                                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-2">
                                     <div className="flex-1">

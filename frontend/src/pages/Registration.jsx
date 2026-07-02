@@ -332,7 +332,7 @@ const Registration = () => {
         </p>
         <button
           onClick={resetForm}
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+          className="btn-primary px-6 py-2"
         >
           Register Another Entry
         </button>
@@ -363,7 +363,7 @@ const Registration = () => {
           ].map((item) => (
             <div
               key={item.label}
-              className="bg-gradient-to-br from-primary-50 to-secondary-50 border border-primary-100 rounded-xl py-4 sm:py-5"
+              className="bg-primary-50 border border-primary-100 rounded-xl py-4 sm:py-5"
             >
               <div className="text-3xl sm:text-4xl font-black text-primary-600 tabular-nums">
                 {String(item.value).padStart(2, "0")}
@@ -486,7 +486,7 @@ const Registration = () => {
                           onChange={() =>
                             handleRadioChange("information", option)
                           }
-                          className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 cursor-pointer"
+                          className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 cursor-pointer"
                         />
                         <label
                           htmlFor={`info-${option}`}
@@ -522,7 +522,7 @@ const Registration = () => {
                         onChange={() =>
                           handleRadioChange("headCategory", category)
                         }
-                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 cursor-pointer"
+                        className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 cursor-pointer"
                       />
                       <label
                         htmlFor={category}
@@ -600,7 +600,7 @@ const Registration = () => {
                             category
                           )
                         }
-                        className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 cursor-pointer"
+                        className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 cursor-pointer"
                       />
                       <label
                         htmlFor={category}
@@ -1117,7 +1117,7 @@ const Registration = () => {
                       type="checkbox"
                       checked={formData.ipRightsOwned}
                       onChange={handleInputChange}
-                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                      className="focus:ring-primary-500 h-4 w-4 text-primary-600 border-gray-300 rounded"
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -1139,7 +1139,7 @@ const Registration = () => {
                       type="checkbox"
                       checked={formData.noOutsourcedService}
                       onChange={handleInputChange}
-                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                      className="focus:ring-primary-500 h-4 w-4 text-primary-600 border-gray-300 rounded"
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -1163,7 +1163,7 @@ const Registration = () => {
                       type="checkbox"
                       checked={formData.notWonAward}
                       onChange={handleInputChange}
-                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                      className="focus:ring-primary-500 h-4 w-4 text-primary-600 border-gray-300 rounded"
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -1188,7 +1188,7 @@ const Registration = () => {
                       type="checkbox"
                       checked={formData.alreadyNominated}
                       onChange={handleInputChange}
-                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                      className="focus:ring-primary-500 h-4 w-4 text-primary-600 border-gray-300 rounded"
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -1208,7 +1208,7 @@ const Registration = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-primary px-8 py-3"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
@@ -1224,13 +1224,13 @@ const Registration = () => {
           </form>
 
           {/* Next Steps */}
-          <div className="mt-12 bg-blue-50 rounded-xl p-8 shadow-2xl">
+          <div className="mt-12 bg-primary-50 rounded-xl p-8 shadow-lg border border-primary-100">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               What Happens Next?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                <div className="icon-badge mx-auto mb-3">
                   1
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Review</h3>
@@ -1239,7 +1239,7 @@ const Registration = () => {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                <div className="icon-badge mx-auto mb-3">
                   2
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">
@@ -1250,7 +1250,7 @@ const Registration = () => {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                <div className="icon-badge mx-auto mb-3">
                   3
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Evaluation</h3>

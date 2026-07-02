@@ -22,42 +22,42 @@ const Home = () => {
     {
       title: "Consumer",
       code: "HC-C",
-      color: "from-cyan-500 to-blue-500",
+      color: "bg-primary-600",
       icon: "🛍️",
       anchor: "consumer",
     },
     {
       title: "Inclusions & Community Services",
       code: "HC-ICS",
-      color: "from-green-500 to-emerald-500",
+      color: "bg-primary-600",
       icon: "🤝",
       anchor: "inclusions-community",
     },
     {
       title: "Industrial",
       code: "HC-I",
-      color: "from-yellow-500 to-orange-500",
+      color: "bg-primary-600",
       icon: "🏭",
       anchor: "industrial",
     },
     {
       title: "Business Services",
       code: "HC-BS",
-      color: "from-purple-500 to-indigo-500",
+      color: "bg-primary-600",
       icon: "💼",
       anchor: "business-services",
     },
     {
       title: "Public Sector & Government",
       code: "HC-PSG",
-      color: "from-blue-500 to-cyan-500",
+      color: "bg-primary-600",
       icon: "🏛️",
       anchor: "public-sector",
     },
     {
       title: "Student",
       code: "HC-S",
-      color: "from-red-500 to-pink-500",
+      color: "bg-primary-600",
       icon: "🎓",
       anchor: "student",
     },
@@ -117,13 +117,13 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/registration"
-                className="bg-white text-secondary-600 px-6 sm:px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+                className="bg-white text-primary-600 px-6 sm:px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-lg"
               >
                 Register Now
               </Link>
               <Link
                 to="/guidelines"
-                className="border-2 border-white text-white px-6 sm:px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-secondary-600 transition-colors shadow-lg"
+                className="border-2 border-white text-white px-6 sm:px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-primary-600 transition-colors shadow-lg"
               >
                 View Guidelines
               </Link>
@@ -143,7 +143,7 @@ const Home = () => {
                 Bangladesh ICT & Innovation Awards, organized by Bangladesh ICT and Innovation Network (BIIN), is a prestigious national initiative celebrating excellence in technology, innovation, and digital transformation. The awards recognize outstanding individuals, students, startups, businesses, and organizations whose innovative ideas and achievements are driving positive change and contributing to Bangladesh's digital future.
                 Through this platform, BIIN aims to inspire innovation, encourage collaboration, and showcase the changemakers shaping a smarter, more inclusive, and technology-driven Bangladesh.
               </p>
-              <p className="text-lg text-black mb-4">
+              {/* <p className="text-lg text-black mb-4">
                 <b> A National Celebration of Innovation</b>
               </p>
               <p className="text-lg text-gray-600 mb-8">
@@ -151,10 +151,10 @@ const Home = () => {
               Bringing together the country's brightest minds, the program serves as a national platform to showcase excellence, foster collaboration, and inspire the next generation of innovators committed to building a smarter, more inclusive, and technology-driven Bangladesh.
                 <br />
                 <br />
-              </p>
+              </p> */}
               <Link
                 to="/about"
-                className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary-700 transition-colors inline-flex items-center w-fit"
+                className="btn-primary inline-flex items-center w-fit"
               >
                 Learn More
                 <svg
@@ -203,43 +203,46 @@ const Home = () => {
         </div>
       </section>
       {/* Award Categories */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <div className="inline-flex items-center rounded-full bg-primary-50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary-600 mb-4">
+              Explore Award Categories
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Award Categories
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
               Explore our diverse categories designed to recognize innovation
               across all sectors of ICT
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {categories.map((category, index) => (
               <div
                 key={index}
-                className="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100"
+                className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden transition-all duration-300 hover:shadow-md hover:border-primary-200"
               >
                 <div
-                  className={`h-32 bg-gradient-to-r ${category.color} flex items-center justify-center`}
+                  className={`h-32 ${category.color} flex items-center justify-center`}
                 >
-                  <span className="text-4xl">{category.icon}</span>
+                  <span className="text-4xl sm:text-5xl">{category.icon}</span>
                 </div>
                 <div className="p-6">
-                  <div className="text-sm font-medium text-gray-500 mb-2">
+                  <div className="text-sm font-semibold text-slate-600 mb-2">
                     {category.code}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">
                     {category.title}
                   </h3>
                   <Link
                     to={`/categories#${category.anchor}`}
-                    className="text-secondary-600 hover:text-primary-700 font-medium inline-flex items-center"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary-700 bg-primary-50 hover:bg-primary-100 px-4 py-2 rounded-lg transition-colors"
                   >
                     Learn More
                     <svg
-                      className="w-4 h-4 ml-1"
+                      className="w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

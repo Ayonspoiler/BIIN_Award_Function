@@ -156,7 +156,7 @@ const Sponsors = () => {
       <div
         className={`group relative bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden ${sizeClasses[size]}`}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-500 via-secondary-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <div className="absolute inset-[2px] bg-white rounded-2xl" />
 
         <div className="relative h-full flex flex-col">
@@ -193,23 +193,7 @@ const Sponsors = () => {
           </div>
 
           <div className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4">
-            <span
-              className={`text-xs md:text-sm font-bold px-4 sm:px-4 py-1 rounded-full ${
-                sponsor.tier === "Title"
-                  ? "bg-gradient-to-r from-red-600 to-blue-600 text-white"
-                  : sponsor.tier === "Gold"
-                  ? "bg-gradient-to-r from-yellow-400 to-yellow-600 text-white"
-                  : sponsor.tier === "Silver"
-                  ? "bg-gradient-to-r from-gray-300 to-gray-400 text-gray-800"
-                  : sponsor.tier === "Knowledge"
-                  ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white"
-                  : sponsor.tier === "Media"
-                  ? "bg-gradient-to-r from-blue-500 to-indigo-700 text-white"
-                  : sponsor.tier === "Gift"
-                  ? "bg-gradient-to-r from-indigo-600 to-slate-800 text-white"
-                  : "bg-gradient-to-r from-gray-300 to-gray-400 text-gray-800"
-              }`}
-            >
+            <span className="text-xs md:text-sm font-bold px-4 sm:px-4 py-1 rounded-full bg-primary-600 text-white">
               {sponsor.tier}
             </span>
           </div>
@@ -229,7 +213,7 @@ const Sponsors = () => {
       <div
         className={`group relative bg-white rounded-2xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden ${sizeClasses[size]}`}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <div className="absolute inset-[2px] bg-white rounded-2xl" />
 
         <div className="relative h-full flex flex-col items-center justify-center overflow-hidden p-4 sm:p-5 md:p-6">
@@ -258,12 +242,12 @@ const Sponsors = () => {
   };
 
   const renderComingSoon = () => (
-    <div className="relative overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-br from-white via-purple-50/50 to-blue-50/50 p-8 sm:p-12 md:p-16 text-center">
-      <div className="absolute -top-16 -right-16 w-48 h-48 bg-purple-200/40 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-blue-200/40 rounded-full blur-3xl"></div>
+    <div className="relative overflow-hidden rounded-2xl border border-primary-100 bg-white p-8 sm:p-12 md:p-16 text-center">
+      <div className="absolute -top-16 -right-16 w-48 h-48 bg-primary-100/60 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-primary-100/60 rounded-full blur-3xl"></div>
 
       <div className="relative z-10 max-w-2xl mx-auto">
-        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-primary-600 to-secondary-600 text-white text-3xl sm:text-4xl mb-6 shadow-lg">
+        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-primary-600 text-white text-3xl sm:text-4xl mb-6 shadow-lg">
           🤝
         </div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -283,7 +267,7 @@ const Sponsors = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-purple-50 to-blue-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Hero Section */}
       <section className="relative text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center">
         {/* Background Image with Gradient Overlay */}
@@ -370,7 +354,7 @@ const Sponsors = () => {
       <section className="py-12 sm:py-16 md:py-20 -mt-8 sm:-mt-12 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12 ">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-blue-600 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 badge-brand mb-4">
               <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Title Sponsor
               </span>
@@ -381,7 +365,7 @@ const Sponsors = () => {
             {platinumSponsors.map((sponsor, index) => (
               <div
                 key={index}
-                className="w-full sm:w-2/3 lg:w-1/2 bg-gradient-to-br from-[#fffaf0] to-[#f8e6c2]"
+                className="w-full sm:w-2/3 lg:w-1/2 bg-primary-50"
               >
                 <SponsorCard sponsor={sponsor} size="large" />
               </div>
@@ -393,7 +377,7 @@ const Sponsors = () => {
       <section className="py-12 sm:py-16 md:py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 badge-brand mb-4">
               <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Gold Sponsors
               </span>
@@ -416,7 +400,7 @@ const Sponsors = () => {
       <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-300 to-gray-400 text-gray-800 px-4 sm:px-6 py-2 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 badge-brand mb-4">
               <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Silver Sponsor
               </span>
@@ -436,7 +420,7 @@ const Sponsors = () => {
       <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 badge-brand mb-4">
               <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Knowledge Partners
               </span>
@@ -459,7 +443,7 @@ const Sponsors = () => {
       <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-700 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 badge-brand mb-4">
               <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Media Partners
               </span>
@@ -482,7 +466,7 @@ const Sponsors = () => {
       <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-slate-800 text-white px-4 sm:px-6 py-2 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 badge-brand mb-4">
               <span className="text-sm sm:text-base font-bold uppercase tracking-wider">
                 Gift Partners
               </span>
@@ -507,7 +491,7 @@ const Sponsors = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-8 auto-rows-max">
             {/* Strategic Partner */}
             <div className="flex flex-col items-center">
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-8 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
+              <div className="inline-flex items-center justify-center gap-2 badge-brand mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide whitespace-nowrap">
                   Strategic Partner
                 </span>
@@ -523,7 +507,7 @@ const Sponsors = () => {
 
             {/* Technology Partner */}
             <div className="flex flex-col items-center">
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-6 sm:px-7 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
+              <div className="inline-flex items-center justify-center gap-2 badge-brand mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide whitespace-nowrap">
                   Technology Partner
                 </span>
@@ -539,7 +523,7 @@ const Sponsors = () => {
 
             {/* Digital Campaign Partner */}
             <div className="flex flex-col items-center">
-              <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-teal-600 text-black px-4 sm:px-6 py-1.5 rounded-full mb-4 sm:mb-6 shadow-md">
+              <div className="inline-flex items-center justify-center gap-2 badge-brand mb-4 sm:mb-6 shadow-md">
                 <span className="text-sm sm:text-base md:text-lg font-semibold tracking-wide whitespace-nowrap">
                   Digital Campaign Partner
                 </span>
@@ -560,7 +544,7 @@ const Sponsors = () => {
       {/* Call to Action */}
       <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl shadow-2xl p-8 sm:p-12 text-white">
+          <div className="bg-primary-600 rounded-2xl shadow-2xl p-8 sm:p-12 text-white">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
               Become a Sponsor
             </h2>
@@ -573,7 +557,7 @@ const Sponsors = () => {
                 href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=moon@org.biin.bd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-white text-secondary-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+                className="inline-block bg-white text-primary-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-lg"
               >
                 Email Us
               </a>

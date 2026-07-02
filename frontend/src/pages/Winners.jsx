@@ -233,13 +233,13 @@ const Winners = () => {
 
   const getCategoryColor = (category) => {
     const colors = {
-      Industrial: "bg-blue-100 text-blue-800",
-      "Business Services": "bg-purple-100 text-purple-800",
-      "Inclusions & Community Services": "bg-green-100 text-green-800",
-      "Inclusion & Community Services": "bg-green-100 text-green-800",
-      "Inclusion and Community Services": "bg-green-100 text-green-800",
-      Consumer: "bg-pink-100 text-pink-800",
-      "Public Sector and Government": "bg-orange-100 text-orange-800",
+      Industrial: "bg-primary-100 text-primary-800",
+      "Business Services": "bg-primary-100 text-primary-800",
+      "Inclusions & Community Services": "bg-primary-100 text-primary-800",
+      "Inclusion & Community Services": "bg-primary-100 text-primary-800",
+      "Inclusion and Community Services": "bg-primary-100 text-primary-800",
+      Consumer: "bg-primary-100 text-primary-800",
+      "Public Sector and Government": "bg-primary-100 text-primary-800",
     };
     return colors[category] || "bg-gray-100 text-gray-800";
   };
@@ -252,17 +252,17 @@ const Winners = () => {
   };
 
   const getAwardColor = (level) => {
-    if (level === "champion") return "from-yellow-400 to-yellow-600";
-    if (level === "winner") return "from-gray-300 to-gray-500";
-    return "from-orange-300 to-orange-500";
+    if (level === "champion") return "bg-primary-700";
+    if (level === "winner") return "bg-primary-500";
+    return "bg-primary-400";
   };
 
   const getAwardBgColor = (level) => {
     if (level === "champion")
-      return "bg-gradient-to-br from-yellow-50 to-yellow-100 border-yellow-300";
+      return "bg-primary-50 border-primary-200";
     if (level === "winner")
-      return "bg-gradient-to-br from-gray-50 to-gray-100 border-gray-300";
-    return "bg-gradient-to-br from-orange-50 to-orange-100 border-orange-300";
+      return "bg-white border-primary-100";
+    return "bg-primary-50 border-primary-100";
   };
 
   const years = [
@@ -281,12 +281,12 @@ const Winners = () => {
   const currentWinners = winnersData2025[activeDivision][activeLevel];
 
   const renderComingSoon = () => (
-    <div className="relative overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 p-8 sm:p-12 md:p-16 text-center">
-      <div className="absolute -top-16 -right-16 w-48 h-48 bg-blue-200/40 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-purple-200/40 rounded-full blur-3xl"></div>
+    <div className="relative overflow-hidden rounded-2xl border border-primary-100 bg-white p-8 sm:p-12 md:p-16 text-center">
+      <div className="absolute -top-16 -right-16 w-48 h-48 bg-primary-100/60 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-primary-100/60 rounded-full blur-3xl"></div>
 
       <div className="relative z-10 max-w-2xl mx-auto">
-        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-yellow-400 to-yellow-600 text-white mb-6 shadow-lg">
+        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-primary-600 text-white mb-6 shadow-lg">
           <Trophy className="w-8 h-8 sm:w-10 sm:h-10" />
         </div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -406,7 +406,7 @@ const Winners = () => {
               }}
               className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 ${
                 activeDivision === division.id
-                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg scale-105"
+                  ? "bg-primary-600 text-white shadow-lg scale-105"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
               }`}
             >
@@ -428,9 +428,7 @@ const Winners = () => {
               onClick={() => setActiveLevel(level.id)}
               className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
                 activeLevel === level.id
-                  ? `bg-gradient-to-r ${getAwardColor(
-                      level.id
-                    )} text-white shadow-lg scale-105`
+                  ? `${getAwardColor(level.id)} text-white shadow-lg scale-105`
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
               }`}
             >
@@ -475,7 +473,7 @@ const Winners = () => {
                 </div>
 
                 {/* Solution Name */}
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2 group-hover:text-primary-600 transition-colors">
                   {winner.solution}
                 </h3>
 
@@ -515,8 +513,8 @@ const Winners = () => {
       {/* Stats Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-20">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-          <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 sm:p-8 border-2 border-yellow-200 text-center shadow-md">
-            <div className="text-3xl sm:text-4xl font-bold text-yellow-600 mb-2">
+          <div className="bg-primary-50 rounded-xl p-6 sm:p-8 border-2 border-primary-200 text-center shadow-md">
+            <div className="text-3xl sm:text-4xl font-bold text-primary-600 mb-2">
               {winnersData2025.student.champion.length +
                 winnersData2025.organization.champion.length +
                 winnersData2025.individual.champion.length}
@@ -525,8 +523,8 @@ const Winners = () => {
               Total Champions
             </p>
           </div>
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 sm:p-8 border-2 border-gray-300 text-center shadow-md">
-            <div className="text-3xl sm:text-4xl font-bold text-gray-600 mb-2">
+          <div className="bg-white rounded-xl p-6 sm:p-8 border-2 border-primary-100 text-center shadow-md">
+            <div className="text-3xl sm:text-4xl font-bold text-primary-500 mb-2">
               {winnersData2025.student.winner.length +
                 winnersData2025.organization.winner.length +
                 winnersData2025.individual.winner.length}
@@ -535,8 +533,8 @@ const Winners = () => {
               Total Winners
             </p>
           </div>
-          <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 sm:p-8 border-2 border-orange-200 text-center shadow-md">
-            <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">
+          <div className="bg-primary-50 rounded-xl p-6 sm:p-8 border-2 border-primary-100 text-center shadow-md">
+            <div className="text-3xl sm:text-4xl font-bold text-primary-400 mb-2">
               {winnersData2025.student.merit.length +
                 winnersData2025.organization.merit.length +
                 winnersData2025.individual.merit.length}

@@ -208,7 +208,7 @@ const Judges = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Hero Section */}
       <section className="relative text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center">
         {/* Background Image */}
@@ -254,14 +254,14 @@ const Judges = () => {
                 className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden card-hover"
               >
                 {/* Decorative gradient border */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500 via-secondary-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                <div className="absolute inset-0 bg-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
                 <div className="absolute inset-[2px] bg-white rounded-2xl" />
 
                 {/* Content */}
                 <div className="relative p-6">
                   {/* Image placeholder with gradient background */}
                   <div className="relative mb-6">
-                    <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-primary-400 via-secondary-400 to-purple-400 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-full aspect-square rounded-xl bg-primary-400 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300">
                       <div className="w-full h-full flex items-center justify-center bg-white/10 backdrop-blur-sm">
                         <div className="w-full aspect-square rounded-xl overflow-hidden group-hover:scale-105 transition-transform duration-300">
                           <img
@@ -274,7 +274,7 @@ const Judges = () => {
                     </div>
                     {/* Category badge */}
                     <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
-                      <span className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                      <span className="bg-primary-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">
                         {judge.category}
                       </span>
                     </div>
@@ -294,7 +294,7 @@ const Judges = () => {
                   </div>
 
                   {/* Decorative element */}
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary-400 rounded-full opacity-20 group-hover:opacity-40 transition-opacity" />
                 </div>
               </div>
             ))}
@@ -362,7 +362,7 @@ const Judges = () => {
       {/* Call to Action */}
       {/* <section className="py-16">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl shadow-2xl p-12 text-white">
+            <div className="bg-primary-600 rounded-2xl shadow-2xl p-12 text-white">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Ready to Showcase Your Innovation?
                 </h2>

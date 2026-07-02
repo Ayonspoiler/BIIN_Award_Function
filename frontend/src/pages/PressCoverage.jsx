@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import homepage from "../assets/Home Image/Home 1.jpg";
- 
-import techZoom from "../assets/Press Logo/Tech Zoom.jpg" 
+
+import techZoom from "../assets/Press Logo/Tech Zoom.jpg"
 import notunShomoy from "../assets/Press Logo/Notun Somoy.jpg"
 import saradin from "../assets/Press Logo/Sharadin News.jpg"
 import jagoronExpress from "../assets/Press Logo/jagoron express.jpg"
@@ -191,7 +191,7 @@ const PressCoverage = () => {
   ];
 
   const renderPressGrid = (channels) => (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
       {channels.map((channel) => {
         const channelKey = `${channel.id}-${channel.name}`;
         return (
@@ -200,40 +200,47 @@ const PressCoverage = () => {
             href={channel.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative block h-full"
+            className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-primary-200 hover:shadow-md"
           >
-            <div
-              className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl"
-              style={{
-                backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))`,
-              }}
-            ></div>
+            <div className="relative flex flex-1 min-h-[11rem] sm:min-h-[12rem] items-center justify-center bg-slate-50 p-5 sm:p-6">
+              {channel.logo && !failedImages.has(channelKey) ? (
+                <img
+                  src={channel.logo}
+                  alt={channel.name}
+                  onError={() => handleImageError(channelKey)}
+                  className="max-h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+              ) : (
+                <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-primary-600 text-lg sm:text-xl font-bold text-white shadow-sm transition-transform duration-300 group-hover:scale-105">
+                  {channel.name.substring(0, 2).toUpperCase()}
+                </div>
+              )}
 
-            <div className="relative bg-gradient-to-br from-[#3a7bd5] to-[#3a6073] border border-gray-200 rounded-2xl overflow-hidden h-64 hover:from-[#5fa8e0] hover:to-[#4a6fa5] transition-all duration-300 group-hover:border-blue-300 group-hover:shadow-2xl">
-              <div className="absolute inset-0 w-full h-full flex items-center justify-center p-4">
-                {channel.logo && !failedImages.has(channelKey) ? (
-                  <img
-                    src={channel.logo}
-                    alt={channel.name}
-                    onError={() => handleImageError(channelKey)}
-                    className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+              <span className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-slate-400 opacity-0 shadow-sm transition-all duration-300 group-hover:opacity-100 group-hover:text-primary-600">
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                   />
-                ) : (
-                  <div
-                    className={`w-full h-full rounded-lg bg-gradient-to-br ${channel.color} flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg`}
-                  >
-                    <span className="text-white font-bold text-lg text-center px-2">
-                      {channel.name.substring(0, 2).toUpperCase()}
-                    </span>
-                  </div>
-                )}
-              </div>
+                </svg>
+              </span>
+            </div>
 
-              <div className="absolute bottom-0 left-0 right-0 bg-black/70 backdrop-blur-sm p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <h3 className="text-white font-bold text-sm text-center line-clamp-1">
-                  {channel.name}
-                </h3>
-              </div>
+            <div className="border-t border-slate-100 bg-white px-4 py-3 sm:px-5 sm:py-4">
+              <h3 className="text-center text-sm font-semibold text-slate-900 line-clamp-2 transition-colors group-hover:text-primary-600">
+                {channel.name}
+              </h3>
+              <p className="mt-1 text-center text-xs font-medium text-slate-500">
+                Read coverage
+              </p>
             </div>
           </a>
         );
@@ -242,12 +249,12 @@ const PressCoverage = () => {
   );
 
   const renderComingSoon = () => (
-    <div className="relative overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 p-8 sm:p-12 md:p-16 text-center">
-      <div className="absolute -top-16 -right-16 w-48 h-48 bg-blue-200/40 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-purple-200/40 rounded-full blur-3xl"></div>
+    <div className="relative overflow-hidden rounded-2xl border border-primary-100 bg-white p-8 sm:p-12 md:p-16 text-center">
+      <div className="absolute -top-16 -right-16 w-48 h-48 bg-primary-100/60 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-primary-100/60 rounded-full blur-3xl"></div>
 
       <div className="relative z-10 max-w-2xl mx-auto">
-        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-primary-600 to-secondary-600 text-white text-3xl sm:text-4xl mb-6 shadow-lg">
+        <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-primary-600 text-white text-3xl sm:text-4xl mb-6 shadow-lg">
           📰
         </div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
@@ -262,127 +269,126 @@ const PressCoverage = () => {
           award ceremony.
         </p>
 
-        
+
       </div>
     </div>
   );
 
-  return (    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200/30 rounded-full blur-3xl animate-pulse"></div>
-        <div
-          className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1s" }}
-        ></div>
-      </div>
+  return (<div className="min-h-screen bg-slate-50 relative overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-100/40 rounded-full blur-3xl animate-pulse"></div>
+      <div
+        className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary-100/40 rounded-full blur-3xl animate-pulse"
+        style={{ animationDelay: "1s" }}
+      ></div>
+    </div>
 
-      <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="relative text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center">
-          {/* Background Image with Gradient Overlay */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src={homepage}
-              alt="Award Winners Background"
-              className="w-full h-full object-cover"
-            />
-            {/* Dark overlay + gradient for readability */}
-            <div className="absolute inset-0 bg-black/20"></div>
-          </div>
+    <div className="relative z-10">
+      {/* Hero Section */}
+      <section className="relative text-white py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center">
+        {/* Background Image with Gradient Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={homepage}
+            alt="Award Winners Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark overlay + gradient for readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
 
-          {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="text-center">
-              <div className="inline-block mb-3 sm:mb-4">
-                <div className="bg-white/20 backdrop-blur-sm px-4 py-1.5 sm:px-6 sm:py-2 rounded-full">
-                  <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider">
-                    Press & Media
-                  </span>
-                </div>
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="text-center">
+            <div className="inline-block mb-3 sm:mb-4">
+              <div className="bg-white/20 backdrop-blur-sm px-4 py-1.5 sm:px-6 sm:py-2 rounded-full">
+                <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider">
+                  Press & Media
+                </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-balance">
-                Press <span className="text-white">Coverage</span>
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg px-4">
-                Media highlights from Bangladesh ICT & Innovation Awards
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-balance">
+              Press <span className="text-white">Coverage</span>
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl text-yellow-300 max-w-3xl mx-auto drop-shadow-lg px-4">
+              Media highlights from Bangladesh ICT & Innovation Awards
+            </p>
+            <div className="flex justify-center gap-4 mt-6">
+              <div className="h-1 w-12 bg-white rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 sm:mb-10">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                Event Coverage by Year
+              </h2>
+              <p className="text-gray-600 mt-1 text-sm sm:text-base">
+                Browse press coverage from each award edition
               </p>
-              <div className="flex justify-center gap-4 mt-6">
-                <div className="h-1 w-12 bg-white rounded-full"></div>
-              </div>
             </div>
-          </div>
-        </section>
-        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 sm:mb-10">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                  Event Coverage by Year
-                </h2>
-                <p className="text-gray-600 mt-1 text-sm sm:text-base">
-                  Browse press coverage from each award edition
-                </p>
-              </div>
 
-              <div className="inline-flex p-1 bg-gray-100 rounded-xl self-start sm:self-auto">
-                {years.map(({ year, label, status }) => (
-                  <button
-                    key={year}
-                    type="button"
-                    onClick={() => setActiveYear(year)}
-                    className={`relative px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                      activeYear === year
-                        ? "bg-white text-primary-600 shadow-sm"
-                        : "text-gray-600 hover:text-gray-900"
+            <div className="inline-flex p-1 bg-gray-100 rounded-xl self-start sm:self-auto">
+              {years.map(({ year, label, status }) => (
+                <button
+                  key={year}
+                  type="button"
+                  onClick={() => setActiveYear(year)}
+                  className={`relative px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${activeYear === year
+                    ? "bg-white text-primary-600 shadow-sm"
+                    : "text-gray-600 hover:text-gray-900"
                     }`}
-                  >
-                    {label}
-                    {status === "coming-soon" && (
-                      <span className="ml-1.5 text-[10px] uppercase tracking-wide text-amber-600 font-bold">
-                        Soon
-                      </span>
-                    )}
-                  </button>
-                ))}
-              </div>
+                >
+                  {label}
+                  {status === "coming-soon" && (
+                    <span className="ml-1.5 text-[10px] uppercase tracking-wide text-amber-600 font-bold">
+                      Soon
+                    </span>
+                  )}
+                </button>
+              ))}
             </div>
-
-            {activeYear === 2026 ? (
-              renderComingSoon()
-            ) : (
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="px-3 py-1 rounded-full bg-primary-100 text-primary-700 text-xs font-bold uppercase tracking-wider">
-                    2025 Edition
-                  </span>
-                  <span className="text-sm text-gray-500">
-                    {pressChannels2025.length} media outlets
-                  </span>
-                </div>
-                {renderPressGrid(pressChannels2025)}
-              </div>
-            )}
           </div>
-        </section>
-        {/* Stats Section */}
-        {/* <section className="py-16 px-4 sm:px-6 lg:px-8">
+
+          {activeYear === 2026 ? (
+            renderComingSoon()
+          ) : (
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="px-3 py-1 rounded-full bg-primary-100 text-primary-700 text-xs font-bold uppercase tracking-wider">
+                  2025 Edition
+                </span>
+                <span className="text-sm text-gray-500">
+                  {pressChannels2025.length} media outlets
+                </span>
+              </div>
+              {renderPressGrid(pressChannels2025)}
+            </div>
+          )}
+        </div>
+      </section>
+      {/* Stats Section */}
+      {/* <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-r from-primary-600 to-secondary-600 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
+              <div className="bg-primary-600 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
                 <div className="text-4xl text-white font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
                   {pressChannels.length}+
                 </div>
                 <p className="text-white">Media Outlets</p>
               </div>
 
-              <div className="bg-gradient-to-r from-primary-600 to-secondary-600 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
+              <div className="bg-primary-600 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
                 <div className="text-4xl text-white ont-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
                   National
                 </div>
                 <p className="text-white">Coverage</p>
               </div>
 
-              <div className="bg-gradient-to-r from-primary-600 to-secondary-600 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
+              <div className="bg-primary-600 border border-gray-200 rounded-xl p-8 text-center hover:bg-gray-50 transition-all duration-300 hover:shadow-lg">
                 <div className="text-4xl text-white font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">
                   Growing
                 </div>
@@ -391,29 +397,29 @@ const PressCoverage = () => {
             </div>
           </div>
         </section> */}
-        {/* CTA Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-primary-600 to-secondary-600  border-gray-200 rounded-xl p-12 text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Featured in Major Media
-              </h2>
-              <p className="text-white mb-8">
-                Our award competition receives extensive coverage from leading
-                news organizations, showcasing the innovation and excellence in
-                Bangladesh&apos;s ICT sector.
-              </p>
-              <a
-                href="/"
-                className="inline-block px-8 py-3 bg-white text-secondary-600 font-semibold rounded-xl hover:shadow-lg hover:shadow-purple-600/50 transition-all duration-300 transform hover:scale-105"
-              >
-                Back to Home
-              </a>
-            </div>
+      {/* CTA Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-primary-600  border-gray-200 rounded-xl p-12 text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Featured in Major Media
+            </h2>
+            <p className="text-white mb-8">
+              Our award competition receives extensive coverage from leading
+              news organizations, showcasing the innovation and excellence in
+              Bangladesh&apos;s ICT sector.
+            </p>
+            <a
+              href="/"
+              className="inline-block px-8 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:shadow-lg transition-all duration-300"
+            >
+              Back to Home
+            </a>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
+  </div>
   );
 };
 

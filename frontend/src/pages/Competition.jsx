@@ -34,7 +34,7 @@ const Competition = () => {
         "Real estate",
         "Digital Marketing / Advertising",
       ],
-      color: "from-cyan-500 to-blue-500",
+      color: "bg-primary-600",
       anchor: "consumer",
     },
     {
@@ -51,7 +51,7 @@ const Competition = () => {
         "Sustainability and Environment",
         "Education",
       ],
-      color: "from-green-500 to-emerald-500",
+      color: "bg-primary-600",
       anchor: "inclusions-community",
     },
     {
@@ -69,7 +69,7 @@ const Competition = () => {
         "Energy and Utilities",
         "Telecommunications",
       ],
-      color: "from-yellow-500 to-orange-500",
+      color: "bg-primary-600",
       anchor: "industrial",
     },
     {
@@ -85,7 +85,7 @@ const Competition = () => {
         "Marketing solutions",
         "Professional Services (legal, HR etc.) solutions",
       ],
-      color: "from-purple-500 to-indigo-500",
+      color: "bg-primary-600",
       anchor: "business-services",
     },
     {
@@ -95,7 +95,7 @@ const Competition = () => {
       longDesc:
         "For services the core value of which is to deliver the digitization of citizen services and improve efficiencies in the machinery of government. Solutions will be developed by all levels of government or government in collaboration with industry partners. Only nominations from Government owned or controlled entities or Government led delivered can apply. This Award is presented for outstanding ICT innovation dedicated to delivering improved government service delivery or other Digital initiatives for the public.",
       solutions: ["Government & Citizen Services", "Digital Government"],
-      color: "from-blue-500 to-cyan-500",
+      color: "bg-primary-600",
       anchor: "public-sector",
     },
   ];
@@ -125,7 +125,7 @@ const Competition = () => {
         "For outstanding Digital Research & Development (including postgraduate tertiary student research).",
       longDesc:
         "Any Information and Communication Technology research and development, conducted by academic, non-academic institutions, or individuals to create innovative products, processes, and services. Such innovations are incomplete and yet to be marketed even though their features and functionalities can be demonstrated.",
-      color: "from-pink-500 to-rose-500",
+      color: "bg-primary-600",
     },
     {
       title: "Start Up of the Year (CC-SU)",
@@ -133,7 +133,7 @@ const Competition = () => {
         "For outstanding Digital innovation by a company in the start-up phase of their development.",
       longDesc:
         "For outstanding innovation by a company in the start-up phase of development. The company will have developed an innovative and potentially superior ICT solution and the company itself is still considered at the early stage of inception. In order to be considered for this award, the following criteria must be met: • The company registration date with the Government's Company registration must not be more than three (3) years from the date of the APICTA competition. • The individual founder(s) of the company and/or the product developers must still be a major shareholder(s) of the company; • The company must not be a subsidiary of an established parent company.",
-      color: "from-teal-500 to-green-500",
+      color: "bg-primary-600",
     },
   ];
 
@@ -144,7 +144,7 @@ const Competition = () => {
         "Technologies utilizing large volumes of data that result in strategic analysis and better decisions.",
       longDesc:
         "Here 'Business' is interpreted in a broad sense to include both public and private sector organization's as well as NGOs, with technology which utilizes large volumes of data – both structured and unstructured that result in strategic analysis and better decisions. This may include advanced data analytics and unique algorithms. It must demonstrate that the datasets are large enough to necessitate high-level programming skill and statistically defensible methodologies in order to transform the data asset into something of value.",
-      color: "from-indigo-500 to-purple-500",
+      color: "bg-primary-600",
     },
     {
       title: "Internet of Things Technology of the Year (CT-IOT)",
@@ -152,7 +152,7 @@ const Competition = () => {
         "The use of IoT technologies to create new abilities to extract data or create information that improves efficiency, accuracy, and reduces human intervention.",
       longDesc:
         "The use of IoT technologies for the inter-connectedness of physical devices to enable solutions to extract data or to create new information to improve efficiencies, accuracy and/or economic benefit and reduced human intervention. These include new methods to enable businesses, governments, and consumers to connect to their IoT devices, sensor technology and smart technology including remotes, dashboards, networks, gateways, analytics, data storage, and security.",
-      color: "from-orange-500 to-red-500",
+      color: "bg-primary-600",
     },
     {
       title: "Artificial Intelligence Technology of the Year (CT-AI)",
@@ -160,7 +160,7 @@ const Competition = () => {
         "For solutions which utilize Artificial Intelligence to perform operations analogous to learning and decision making in humans.",
       longDesc:
         "Artificial Intelligence (AI) is used to perform operations analogous to learning and decision making in humans. Examples may include expert systems, robotics, self-learning or programs for the perception and recognition of shapes in computer vision systems. Typically, technologies should address central problems or goals of AI research include reasoning, knowledge, planning, learning, natural language processing (communication), perception and the ability to move and manipulate objects.",
-      color: "from-cyan-500 to-sky-500",
+      color: "bg-primary-600",
     },
   ];
 
@@ -242,7 +242,7 @@ const Competition = () => {
                   style={{ paddingTop: "80px", marginTop: "-80px" }}
                 >
                   <div
-                    className={`h-2 bg-gradient-to-r ${category.color}`}
+                    className={`h-2 ${category.color}`}
                   ></div>
                   <div className="p-8">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -294,7 +294,7 @@ const Competition = () => {
               <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-blue-100">
+                    <thead className="bg-primary-100">
                       <tr>
                         <th className="px-6 py-4 text-left text-lg font-semibold text-gray-900">
                           Streams
@@ -334,7 +334,7 @@ const Competition = () => {
                   className="bg-white rounded-xl shadow-2xl overflow-hidden"
                 >
                   <div
-                    className={`h-2 bg-gradient-to-r ${category.color}`}
+                    className={`h-2 ${category.color}`}
                   ></div>
                   <div className="p-8">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -367,7 +367,7 @@ const Competition = () => {
                   key={index}
                   className="bg-white rounded-xl shadow-2xl overflow-hidden"
                 >
-                  <div className={`h-2 bg-gradient-to-r ${award.color}`}></div>
+                  <div className={`h-2 ${award.color}`}></div>
                   <div className="p-8">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {award.title}
@@ -385,7 +385,7 @@ const Competition = () => {
           </section>
 
           {/* Call to Action */}
-          <div className="text-center bg-gradient-to-r from-primary-600 to-secondary-600 rounded-xl text-white p-12 w-full shadow-xl">
+          <div className="text-center bg-primary-600 rounded-xl text-white p-12 w-full shadow-xl">
             <h2 className="text-3xl font-bold mb-4">Ready to Participate?</h2>
             <p className="text-xl text-primary-100 mb-8">
               Choose your category and start your journey towards recognition
@@ -393,13 +393,13 @@ const Competition = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/registration"
-                className="bg-white text-secondary-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors"
+                className="bg-white text-primary-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors"
               >
                 Register Now
               </a>
               <a
                 href="/guidelines"
-                className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-secondary-600 transition-colors"
+                className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-primary-600 transition-colors"
               >
                 View Guidelines
               </a>

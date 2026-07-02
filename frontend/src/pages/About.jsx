@@ -104,17 +104,17 @@ const About = () => {
               </p>
               <p className="text-base sm:text-lg text-gray-600">
                 This year's program drew{" "}
-                <span className="font-bold text-secondary-600">
+                <span className="font-bold text-primary-600">
                   255 submissions
                 </span>{" "}
                 from across the country, reflecting the vibrant and growing ICT
                 ecosystem of Bangladesh. After multiple rounds of evaluation and
                 pitching, over{" "}
-                <span className="font-bold text-secondary-600">
+                <span className="font-bold text-primary-600">
                   90 projects
                 </span>{" "}
                 were shortlisted, and{" "}
-                <span className="font-bold text-secondary-600">
+                <span className="font-bold text-primary-600">
                   32 finalists
                 </span>{" "}
                 earned national recognition for their outstanding contributions.
@@ -279,7 +279,7 @@ const About = () => {
             </div>
 
             {/* Award Ceremony */}
-            <div>
+            {/* <div>
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 flex items-center">
                 <span className="bg-primary-100 text-primary-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
                   4
@@ -289,17 +289,17 @@ const About = () => {
               <p className="text-base sm:text-lg text-gray-600 ml-11">
                 Bangladesh ICT & Innovation Awards Grand Finale will take place on 1st week of October 2026 at, bringing together the nation's leading innovators, entrepreneurs, students, industry experts, policymakers, and academic leaders. The event will honor outstanding winners with awards, certificates, and national recognition, celebrating excellence in technology and innovation across Bangladesh.
               </p>
-            </div>
+            </div> */}
           </div>
 
           {/* Guests, Sponsors & Partners */}
-          <div className="bg-white rounded-xl shadow-2xl p-4 sm:p-6 md:p-8 mb-8 sm:mb-12">
+          {/* <div className="bg-white rounded-xl shadow-2xl p-4 sm:p-6 md:p-8 mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
               Guests, Sponsors & Partners
             </h2>
 
             {/* Esteemed Guests */}
-            <div className="mb-6 sm:mb-8">
+            {/* <div className="mb-6 sm:mb-8">
               <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">
                 Esteemed Guests
               </h3>
@@ -343,11 +343,11 @@ const About = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Organizer & Sponsors */}
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">
+              {/* <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">
                 Organizer & Sponsors
               </h3>
               <div className="space-y-4">
@@ -380,7 +380,7 @@ const About = () => {
                   </p>
                   <p className="text-gray-700">The City Bank PLC</p>
                 </div>
-                <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded">
+                <div className="bg-primary-50 border-l-4 border-primary-600 p-4 rounded">
                   <p className="font-semibold text-gray-900 mb-2">
                     Knowledge Partners
                   </p>
@@ -402,7 +402,7 @@ const About = () => {
                   <p className="text-gray-700">• Red Data (Pvt.) Ltd.</p>
                   <p className="text-gray-700">• ShareTrip</p>
                 </div>
-                <div className="bg-purple-50 border-l-4 border-purple-600 p-4 rounded">
+                <div className="bg-primary-50 border-l-4 border-primary-600 p-4 rounded">
                   <p className="font-semibold text-gray-900 mb-1">
                     Digital Campaign Partner
                   </p>
@@ -415,7 +415,7 @@ const About = () => {
                   <p className="text-gray-700">JCI Bangladesh</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Objectives & Benefits */}
@@ -527,7 +527,7 @@ const About = () => {
           </div>
 
           {/* Looking Ahead */}
-          <div className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl text-white p-6 sm:p-8 shadow-2xl mb-8 sm:mb-12">
+          <div className="bg-primary-600 rounded-xl text-white p-6 sm:p-8 shadow-2xl mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
               Looking Ahead
             </h2>
@@ -544,7 +544,7 @@ const About = () => {
           </div>
 
           {/* Statistics */}
-          <div className="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-xl text-white p-6 sm:p-8 shadow-2xl">
+          {/* <div className="bg-primary-600 rounded-xl text-white p-6 sm:p-8 shadow-2xl">
             <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
               Awards by Numbers
             </h2>
@@ -574,7 +574,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
