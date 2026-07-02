@@ -343,7 +343,7 @@ const Registration = () => {
   const CountdownDisplay = () => (
     <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-10 mb-12 text-center">
       <p className="text-sm font-semibold uppercase tracking-wider text-primary-600 mb-2">
-        Registration Opens In
+        Registration Opening
       </p>
       <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
         July 15, 2026
@@ -423,7 +423,7 @@ const Registration = () => {
               </p>
             ) : (
               <p className="text-base sm:text-lg text-yellow-300 font-semibold mb-4 drop-shadow-lg">
-                Opens July 15, 2026
+                Registration Opening July 15, 2026
               </p>
             )}
             <div className="flex justify-center gap-4">
