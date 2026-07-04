@@ -143,7 +143,7 @@ const Home = () => {
                 Bangladesh ICT & Innovation Awards, organized by Bangladesh ICT and Innovation Network (BIIN), is a prestigious national initiative celebrating excellence in technology, innovation, and digital transformation. The awards recognize outstanding individuals, students, startups, businesses, and organizations whose innovative ideas and achievements are driving positive change and contributing to Bangladesh's digital future.
                 Through this platform, BIIN aims to inspire innovation, encourage collaboration, and showcase the changemakers shaping a smarter, more inclusive, and technology-driven Bangladesh.
               </p>
-              {/* <p className="text-lg text-black mb-4">
+              <p className="text-lg text-black mb-4">
                 <b> A National Celebration of Innovation</b>
               </p>
               <p className="text-lg text-gray-600 mb-8">
@@ -151,7 +151,7 @@ const Home = () => {
               Bringing together the country's brightest minds, the program serves as a national platform to showcase excellence, foster collaboration, and inspire the next generation of innovators committed to building a smarter, more inclusive, and technology-driven Bangladesh.
                 <br />
                 <br />
-              </p> */}
+              </p>
               <Link
                 to="/about"
                 className="btn-primary inline-flex items-center w-fit"

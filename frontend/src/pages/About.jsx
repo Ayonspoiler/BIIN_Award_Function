@@ -78,7 +78,7 @@ const About = () => {
               Overview
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
-              Bangladesh ICT & Innovation Awards 2025, organized by Bangladesh
+              Bangladesh ICT & Innovation Awards, organized by Bangladesh
               Bangladesh ICT and Innovation Network (BIIN), marks the first-ever
               national celebration of technological creativity and innovation in
               Bangladesh.
@@ -89,6 +89,15 @@ const About = () => {
               through technology and shaping the nation's digital future.
             </p>
 
+            {/* Who can participate */}
+            <div className="mt-8 sm:mt-10">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
+                Who can participate?
+              </h3>
+              <p className="text-base sm:text-lg text-gray-600 mb-4">
+              The BIIN Awards are open to students, startups, organizations, and individual innovators contributing to impactful ideas and technological advancements.
+              </p>
+            </div>
             {/* A National Celebration of Innovation */}
             <div className="mt-8 sm:mt-10">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
