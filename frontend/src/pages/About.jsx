@@ -95,7 +95,7 @@ const About = () => {
                 Who can participate?
               </h3>
               <p className="text-base sm:text-lg text-gray-600 mb-4">
-              The BIIN Awards are open to students, startups, organizations, and individual innovators contributing to impactful ideas and technological advancements.
+                The BIIN Awards are open to students, startups, organizations, and individual innovators contributing to impactful ideas and technological advancements.
               </p>
             </div>
             {/* A National Celebration of Innovation */}
@@ -104,29 +104,8 @@ const About = () => {
                 A National Celebration of Innovation
               </h3>
               <p className="text-base sm:text-lg text-gray-600 mb-4">
-                Under the inspiring theme{" "}
-                <span className="font-semibold text-primary-600">
-                  "Recognition for Innovation, Inspiration for Transformation,"
-                </span>{" "}
-                the Awards honor innovators whose groundbreaking ideas are
-                driving change across industries and communities.
-              </p>
-              <p className="text-base sm:text-lg text-gray-600">
-                This year's program drew{" "}
-                <span className="font-bold text-primary-600">
-                  255 submissions
-                </span>{" "}
-                from across the country, reflecting the vibrant and growing ICT
-                ecosystem of Bangladesh. After multiple rounds of evaluation and
-                pitching, over{" "}
-                <span className="font-bold text-primary-600">
-                  90 projects
-                </span>{" "}
-                were shortlisted, and{" "}
-                <span className="font-bold text-primary-600">
-                  32 finalists
-                </span>{" "}
-                earned national recognition for their outstanding contributions.
+                Guided by the theme "Inspiring Innovation. Transforming Futures." Bangladesh ICT & Innovation Awards celebrates the innovators, entrepreneurs, students, and organizations shaping Bangladesh's digital future. The awards recognize groundbreaking ideas, impactful technologies, and innovative solutions that create lasting value across industries and communities.
+                Bringing together the country's brightest minds, the program serves as a national platform to showcase excellence, foster collaboration, and inspire the next generation of innovators committed to building a smarter, more inclusive, and technology-driven Bangladesh.
               </p>
             </div>
           </div>
@@ -308,7 +287,7 @@ const About = () => {
             </h2>
 
             {/* Esteemed Guests */}
-            {/* <div className="mb-6 sm:mb-8">
+          {/* <div className="mb-6 sm:mb-8">
               <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">
                 Esteemed Guests
               </h3>
@@ -354,9 +333,9 @@ const About = () => {
               </div>
             </div> */}
 
-            {/* Organizer & Sponsors */}
-            <div>
-              {/* <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">
+          {/* Organizer & Sponsors */}
+          <div>
+            {/* <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">
                 Organizer & Sponsors
               </h3>
               <div className="space-y-4">

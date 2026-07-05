@@ -200,10 +200,10 @@ const Competition = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
           <div className="bg-white rounded-xl shadow-2xl p-8 mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                About The Bangladesh ICT & Innovation Awards 2026
+                About Bangladesh ICT & Innovation Awards 2026
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              The Bangladesh ICT & Innovation Awards 2026, hosted by Bangladesh
+              Bangladesh ICT & Innovation Awards 2026, hosted by Bangladesh
               ICT & Innovation Network (BIIN), is one of the nation's most
               prestigious ICT recognition platforms. The program shines a
               spotlight on visionary individuals, startups, and enterprises
@@ -211,8 +211,8 @@ const Competition = () => {
             </p>
             <p className="text-lg text-gray-600 mb-6">
               This year's winners will earn not just national recognition, but
-              also the opportunity to represent Bangladesh at the Asia Pacific
-              ICT Alliance Awards (APICTA 2026) in Taiwan - the most prestigious
+              also the opportunity to represent Bangladesh at Asia Pacific
+              ICT Alliance Awards (APICTA 2026) in Indonesia - the most prestigious
               ICT competition in the region, often hailed as the "ICT Oscars of
               Asia-Pacific."
             </p>
@@ -221,8 +221,8 @@ const Competition = () => {
                 Global Opportunity
               </h3>
               <p className="text-primary-800">
-                Champion teams will represent Bangladesh at the APICTA Awards
-                2026 in Taiwan, bringing national innovations to an
+                Champion teams will represent Bangladesh at APICTA Awards
+                2026 in Indonesia, bringing national innovations to an
                 international platform.
               </p>
             </div>
